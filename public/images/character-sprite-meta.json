@@ -1,0 +1,84 @@
+{
+  "horizontal": {
+    "src": "/images/character-spritesheet.webp",
+    "totalFrames": 48,
+    "cols": 48,
+    "rows": 1,
+    "frameWidth": 320,
+    "frameHeight": 180,
+    "aspectRatio": 1.7777777777777777,
+    "idleFrame": 23,
+    "leftFrame": 0,
+    "rightFrame": 47
+  },
+  "grid": {
+    "src": "/images/character-spritesheet-hq.webp",
+    "totalFrames": 64,
+    "cols": 8,
+    "rows": 8,
+    "frameWidth": 640,
+    "frameHeight": 360,
+    "aspectRatio": 1.7777777777777777,
+    "idleFrame": 31,
+    "leftFrame": 0,
+    "rightFrame": 63
+  },
+  "hotspots": [
+    {
+      "id": "best-fit",
+      "label": "Find Your Best-Fit Path",
+      "side": "top-left",
+      "targetX": 0.25,
+      "icon": "target"
+    },
+    {
+      "id": "eligibility",
+      "label": "Know Your Eligibility",
+      "side": "left-top",
+      "targetX": 0.15,
+      "icon": "clipboard-check"
+    },
+    {
+      "id": "application",
+      "label": "Build a Stronger Application",
+      "side": "left-mid",
+      "targetX": 0.05,
+      "icon": "file-text"
+    },
+    {
+      "id": "visa",
+      "label": "Prepare for Visa Review",
+      "side": "left-bot",
+      "targetX": 0.1,
+      "icon": "globe"
+    },
+    {
+      "id": "cost",
+      "label": "Understand the True Cost",
+      "side": "right-top",
+      "targetX": 0.85,
+      "icon": "calculator"
+    },
+    {
+      "id": "options",
+      "label": "Weigh Your Options",
+      "side": "right-mid",
+      "targetX": 0.95,
+      "icon": "scale"
+    },
+    {
+      "id": "admission",
+      "label": "Understand Your Admission Position",
+      "side": "right-bot-1",
+      "targetX": 0.9,
+      "icon": "bar-chart"
+    },
+    {
+      "id": "graduation",
+      "label": "Plan Beyond Graduation",
+      "side": "right-bot-2",
+      "targetX": 0.85,
+      "icon": "graduation-cap"
+    }
+  ]
+}
