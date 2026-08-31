@@ -116,7 +116,7 @@ export default function LearningPaths() {
   const easeCurve = [0.16, 1, 0.3, 1];
 
   return (
-    <section className="py-20 sm:py-24 lg:py-28 bg-white relative overflow-hidden border-b border-slate-100">
+    <section className="py-14 sm:py-18 lg:py-20 bg-white relative overflow-hidden border-b border-slate-100">
       {/* Background Decorative Soft Tints */}
       <div className="absolute top-1/4 -left-20 w-[550px] h-[550px] bg-gradient-to-br from-brand-tint/50 via-blue-50/30 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 -right-20 w-[550px] h-[550px] bg-gradient-to-tl from-brand-greenTint/50 via-emerald-50/30 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
@@ -151,21 +151,21 @@ export default function LearningPaths() {
           </p>
         </motion.div>
 
-        {/* Asymmetric Staggered Cards with Clean Image & Less Text */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 pb-6">
+        {/* 2x2 Grid on Mobile, 4 Columns on Desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 pb-6">
           {TRACKS.map((track, idx) => {
             const Icon = track.icon;
 
             return (
               <motion.div
                 key={track.id}
-                initial={{ opacity: 0, y: 35 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: idx * 0.12, ease: easeCurve }}
-                whileHover={{ y: -8 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.5, delay: idx * 0.08, ease: easeCurve }}
+                whileHover={{ y: -6 }}
                 className={cn(
-                  "group relative rounded-[28px] p-6 bg-white border border-slate-200/90 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer",
+                  "group relative rounded-2xl sm:rounded-[28px] p-3.5 sm:p-6 bg-white border border-slate-200/90 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer",
                   track.staggerOffset,
                   track.theme.borderHover,
                   track.theme.glow
@@ -174,7 +174,7 @@ export default function LearningPaths() {
                 {/* 1. OVERSIZED BACKGROUND NUMERAL (Watermark) */}
                 <div
                   className={cn(
-                    "font-heading font-black text-8xl sm:text-[96px] leading-none select-none absolute -bottom-3 -right-2 pointer-events-none transition-all duration-500 z-0 tracking-tighter",
+                    "font-heading font-black text-5xl sm:text-8xl sm:text-[96px] leading-none select-none absolute -bottom-2 -right-1 pointer-events-none transition-all duration-500 z-0 tracking-tighter",
                     track.theme.numeralColor,
                     track.theme.numeralHover
                   )}
@@ -185,16 +185,16 @@ export default function LearningPaths() {
                 {/* 2. Top Color Indicator Accent Strip */}
                 <div
                   className={cn(
-                    "absolute top-0 left-0 right-0 h-1.5 opacity-80 group-hover:opacity-100 transition-opacity",
+                    "absolute top-0 left-0 right-0 h-1 sm:h-1.5 opacity-80 group-hover:opacity-100 transition-opacity",
                     track.theme.accentColor
                   )}
                 />
 
                 {/* 3. Card Content: Clean Single Image + Clean Typography */}
-                <div className="space-y-4 relative z-10">
+                <div className="space-y-2.5 sm:space-y-4 relative z-10">
                   
                   {/* Clean Single Image Banner */}
-                  <div className="relative w-full h-44 sm:h-48 rounded-2xl overflow-hidden bg-slate-100 border border-slate-100/90 shadow-xs">
+                  <div className="relative w-full h-28 sm:h-44 md:h-48 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100 border border-slate-100/90 shadow-xs">
                     <Image
                       src={track.image}
                       alt={track.title}
@@ -204,39 +204,39 @@ export default function LearningPaths() {
                   </div>
 
                   {/* Icon & Title Header */}
-                  <div className="space-y-1 pt-1">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-brand-navy">
-                        <Icon className="w-4 h-4" strokeWidth={2} />
+                  <div className="space-y-1 pt-0.5 sm:pt-1">
+                    <div className="flex items-center space-x-1.5 sm:space-x-2">
+                      <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg bg-slate-100 flex items-center justify-center text-brand-navy shrink-0">
+                        <Icon className="w-3 h-3 sm:w-4 sm:h-4" strokeWidth={2} />
                       </div>
-                      <span className="font-heading text-xs font-bold text-slate-500 uppercase tracking-wide">
+                      <span className="font-heading text-[9px] sm:text-xs font-bold text-slate-500 uppercase tracking-wide truncate">
                         {track.subtitle}
                       </span>
                     </div>
 
-                    <h3 className="font-heading text-xl font-extrabold text-brand-navy group-hover:text-brand-primary transition-colors leading-tight">
+                    <h3 className="font-heading text-sm sm:text-lg lg:text-xl font-bold sm:font-extrabold text-brand-navy group-hover:text-brand-primary transition-colors leading-tight truncate">
                       {track.title}
                     </h3>
                   </div>
 
                   {/* Concise 1-line description */}
-                  <p className="font-body text-xs text-slate-600 leading-relaxed font-normal line-clamp-2">
+                  <p className="font-body text-[10px] sm:text-xs text-slate-600 leading-relaxed font-normal line-clamp-2">
                     {track.shortDesc}
                   </p>
 
                 </div>
 
                 {/* 4. Interactive Bottom Action Button */}
-                <div className="pt-4 mt-4 border-t border-slate-100 relative z-10">
+                <div className="pt-2.5 sm:pt-4 mt-2 sm:mt-4 border-t border-slate-100 relative z-10">
                   <Link
                     href={track.href}
                     className={cn(
-                      "w-full inline-flex items-center justify-between px-4 py-2.5 rounded-xl bg-slate-50 text-brand-navy font-heading font-extrabold text-xs transition-all duration-300 shadow-2xs",
+                      "w-full inline-flex items-center justify-between px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl bg-slate-50 text-brand-navy font-heading font-extrabold text-[10px] sm:text-xs transition-all duration-300 shadow-2xs",
                       track.theme.buttonHover
                     )}
                   >
                     <span>Explore Track</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
 

@@ -4,245 +4,302 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import {
+  TrendingUp,
+  Star,
+  Sparkles,
+  Zap,
+  ArrowRight,
+} from "lucide-react";
+import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
 
 export default function HeroSection() {
   const easeCurve = [0.16, 1, 0.3, 1];
 
+  const EXAM_LIST = [
+    "IELTS",
+    "PTE",
+    "CELPIP",
+    "DUOLINGO",
+    "SAT",
+    "GRE",
+    "GMAT",
+    "FRENCH",
+    "GERMAN",
+    "SPOKEN ENGLISH",
+    "TOEFL",
+    "ACT",
+  ];
+
   return (
-    <section className="relative overflow-hidden bg-white pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-36 lg:pb-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-4 items-center">
+    <section className="relative overflow-hidden bg-white pt-24 pb-8 sm:pt-28 sm:pb-10 lg:pt-32 lg:pb-10 flex flex-col justify-between">
+      {/* Animated Light Theme Gradient Background using design.md Brand Tokens */}
+      <AnimatedGradientBackground
+        Breathing={true}
+        startingGap={120}
+        animationSpeed={0.02}
+        breathingRange={5}
+        centerPosition="50% 25%"
+        gradientColors={[
+          "#FFFFFF", // Pure Crisp White Center
+          "#E7F7EE", // brand-green-tint
+          "#E5F0FC", // brand-tint
+          "#D2E8FC", // Soft Accent Blue Tint
+          "#DAF5E7", // Soft Primary Green Tint
+          "#E5F0FC", // brand-tint
+          "#FFFFFF", // Pure White Outer Base
+        ]}
+        gradientStops={[30, 48, 62, 74, 86, 94, 100]}
+        containerClassName="z-0 opacity-80 [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]"
+      />
+
+      {/* Seamless Bottom Gradient Fade into Next Section */}
+      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-b from-transparent via-white/60 to-white pointer-events-none z-10" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* LEFT COLUMN: Typography & Call To Action */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: easeCurve }}
-            className="lg:col-span-5 space-y-6 sm:space-y-7 text-left"
+            className="lg:col-span-5 space-y-5 sm:space-y-6 text-left flex flex-col justify-center"
           >
-            {/* Subtitle / Eyebrow with Blue Bar */}
+            {/* Subtitle / Eyebrow */}
             <div className="flex items-center space-x-2.5">
-              <span className="w-8 h-[3.5px] bg-brand-accent rounded-full inline-block" />
-              <span className="text-brand-accent font-bold text-sm sm:text-base tracking-wide">
+              <span className="w-8 h-[3.5px] bg-brand-primary rounded-full inline-block" />
+              <span className="text-brand-primary font-bold text-sm sm:text-base tracking-wide uppercase">
                 Your Knowledge Is Our Priority
               </span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-heading text-4xl sm:text-5xl lg:text-[58px] font-extrabold text-brand-navy leading-[1.12] tracking-tight">
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-dark leading-[1.12] tracking-tight">
               Learn Without Limits
               <br />
               Grow Your{" "}
-              <span className="text-brand-accent font-accent italic font-normal">
+              <span className="text-brand-primary font-accent italic font-normal">
                 Knowledge
               </span>
             </h1>
 
             {/* Description Paragraph */}
-            <p className="font-body text-slate-600 text-base sm:text-lg leading-relaxed max-w-md font-normal">
-              Become more efficient and gain your knowledge to the next level. Industry-standard courses are for you. Let&apos;s unlock your potential
+            <p className="font-body text-muted text-base sm:text-lg leading-relaxed max-w-md font-normal">
+              Become more efficient and gain your knowledge to the next level. Industry-standard courses are for you. Let&apos;s unlock your potential.
             </p>
 
-            {/* Primary Action Button */}
-            <div className="pt-2">
+            {/* Exam / Language Programs Highlight */}
+            <p className="font-body text-xs sm:text-sm font-medium text-slate-500 tracking-wide">
+              IELTS • PTE • SAT • GRE • GMAT • Duolingo • French • German
+            </p>
+
+            {/* Primary Action Button Group */}
+            <div className="pt-2 flex flex-wrap gap-4 items-center">
               <Link
                 href="/contacts"
-                className="inline-flex items-center justify-center bg-brand-accent hover:bg-brand-accentDark text-white font-bold text-base px-9 py-4 rounded-xl shadow-lg shadow-brand-accent/25 hover:shadow-xl hover:shadow-brand-accent/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2.5 bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg shadow-brand-primary/25 hover:shadow-xl hover:shadow-brand-primary/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
               >
-                <span>Explore Us</span>
+                <span>Get Free Consultation</span>
+                <ArrowRight className="w-4 h-4" />
               </Link>
+              <Link
+                href="/test-prep"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-brand-accent hover:text-brand-accentDark font-semibold text-base px-6 py-4 rounded-xl border border-line shadow-sm hover:shadow-md hover:border-brand-accent/40 hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <span>Explore Programs</span>
+              </Link>
+            </div>
+
+            {/* MOBILE-ONLY PROOF BADGES (Non-overlapping, Clean Inline Grid) */}
+            <div className="grid grid-cols-2 gap-3 pt-3 md:hidden w-full max-w-md">
+              <div className="bg-white/95 backdrop-blur-md border border-line p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-brand-accent/15 text-brand-accent flex items-center justify-center shrink-0">
+                  <Sparkles className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="flex items-center text-amber-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-2.5 h-2.5 fill-amber-400" />
+                    ))}
+                  </div>
+                  <p className="text-[11px] font-bold text-dark leading-tight">4.9/5 Rating</p>
+                </div>
+              </div>
+              <div className="bg-white/95 backdrop-blur-md border border-line p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-brand-primary/15 text-brand-primary flex items-center justify-center shrink-0">
+                  <TrendingUp className="w-4 h-4" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold text-dark leading-tight">98.6% Admits</p>
+                  <p className="text-[9px] text-muted">Top Universities</p>
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* RIGHT COLUMN: Lightly Animated Capsule Frames & Geometric Shapes */}
+          {/* RIGHT COLUMN: Student Cutout with Flawlessly Positioned Floating Proof Widgets */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.15, ease: easeCurve }}
-            className="lg:col-span-7 relative flex items-center justify-center min-h-[520px] sm:min-h-[580px] select-none"
+            className="lg:col-span-7 relative flex items-center justify-center select-none pt-4 pb-2"
           >
-            {/* Visual Wrapper */}
-            <div className="relative w-full max-w-[580px] h-[520px] sm:h-[580px] flex items-center justify-center">
+            {/* Visual Wrapper with Outer Margin for Perimeter Floating Badges */}
+            <div className="relative w-full max-w-[620px] lg:max-w-[680px] flex items-center justify-center">
               
-              {/* 1. BACKGROUND GEOMETRIC SHAPES (Gentle Breathing & Float) */}
-              {/* Yellow Circle (Behind Left Capsule) */}
+              {/* Main Student Image with Smooth Bottom Gradient Fade */}
               <motion.div
-                animate={{ scale: [1, 1.03, 1], x: [0, -2, 0] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                className="w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-[#FDD835] absolute top-12 left-0 sm:left-4 z-0 pointer-events-none"
-              />
-              
-              {/* Small Yellow Accent Dot */}
-              <motion.div
-                animate={{ scale: [1, 1.25, 1], opacity: [0.8, 1, 0.8] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="w-3 h-3 rounded-full bg-[#FDD835] absolute top-[52%] -left-3 sm:-left-1 z-0 pointer-events-none"
-              />
-
-              {/* Orange Circle (Behind Right Capsule) */}
-              <motion.div
-                animate={{ scale: [1, 1.03, 1], y: [0, -3, 0] }}
-                transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="w-44 h-44 sm:w-54 sm:h-54 rounded-full bg-[#FFA726] absolute top-8 right-4 sm:right-10 z-0 pointer-events-none"
-              />
-              
-              {/* Small Orange Accent Dot */}
-              <motion.div
-                animate={{ scale: [1, 1.3, 1], opacity: [0.75, 1, 0.75] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-                className="w-2.5 h-2.5 rounded-full bg-[#FFA726] absolute top-20 right-28 z-0 pointer-events-none"
-              />
-
-              {/* Blue Circle (Behind Bottom Right Capsule) */}
-              <motion.div
-                animate={{ scale: [1, 1.04, 1], y: [0, 4, 0] }}
-                transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-[#42A5F5] absolute bottom-2 right-0 sm:right-2 z-0 shadow-sm pointer-events-none"
-              />
-              
-              {/* Small Blue Accent Dot */}
-              <motion.div
-                animate={{ scale: [1, 1.3, 1], opacity: [0.8, 1, 0.8] }}
-                transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-                className="w-2.5 h-2.5 rounded-full bg-[#42A5F5] absolute bottom-[38%] right-[-10px] sm:right-[-4px] z-0 pointer-events-none"
-              />
-
-              {/* 2. BACKGROUND 4-POINT SPARKLE STARS (Subtle Twinkle & Shimmer) */}
-              {/* Top Sparkle Stars Pair */}
-              <motion.div
-                animate={{ scale: [1, 1.08, 0.96, 1], rotate: [0, 4, -3, 0], opacity: [0.6, 0.9, 0.6] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-6 left-[44%] z-10 pointer-events-none text-slate-500"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                whileHover={{ scale: 1.015 }}
+                className="relative z-10 w-full flex items-center justify-center transition-transform duration-300"
               >
-                <svg width="60" height="70" viewBox="0 0 60 70" fill="none" stroke="currentColor" strokeWidth="1.2">
-                  <path d="M28 2L30 14L42 16L30 18L28 30L26 18L14 16L26 14L28 2Z" />
-                  <path d="M28 28L31 46L49 49L31 52L28 70L25 52L7 49L25 46L28 28Z" />
-                </svg>
+                <div
+                  className="relative w-full flex items-center justify-center"
+                  style={{
+                    maskImage:
+                      "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 56%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0) 98%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 56%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0) 98%)",
+                  }}
+                >
+                  <Image
+                    src="/images/indian-college-students-removebg-preview.png"
+                    alt="Indian College Students"
+                    width={700}
+                    height={520}
+                    priority
+                    className="w-full max-w-[560px] lg:max-w-[620px] h-auto object-contain filter drop-shadow-[0_15px_35px_rgba(0,0,0,0.08)] select-none pointer-events-none"
+                  />
+                </div>
               </motion.div>
 
-              {/* Bottom Right Sparkle Stars Pair */}
+              {/* FLOATING PROOF WIDGET 1 (Top Left Outer Perimeter - Above Shoulder, NOT on Face) */}
               <motion.div
-                animate={{ scale: [1, 0.95, 1.08, 1], rotate: [0, -3, 4, 0], opacity: [0.6, 0.85, 0.6] }}
-                transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute -bottom-6 right-[28%] z-10 pointer-events-none text-slate-500"
+                animate={{ y: [0, -7, 0], x: [0, 2, 0] }}
+                transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
+                whileHover={{ scale: 1.06, y: -4 }}
+                className="absolute -top-6 -left-4 md:-left-8 lg:-left-12 z-30 bg-white/95 backdrop-blur-xl border border-white/80 p-2.5 sm:p-3 rounded-2xl shadow-[0_14px_35px_rgba(0,103,227,0.12)] hidden md:flex items-center gap-2.5 cursor-pointer group hover:border-brand-accent/40 hover:shadow-2xl transition-all"
               >
-                <svg width="60" height="70" viewBox="0 0 60 70" fill="none" stroke="currentColor" strokeWidth="1.2">
-                  <path d="M30 2L33 20L51 23L33 26L30 44L27 26L9 23L27 20L30 2Z" />
-                  <path d="M30 42L32 52L42 54L32 56L30 66L28 56L18 54L28 52L30 42Z" />
-                </svg>
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-accent to-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/25 group-hover:rotate-6 transition-transform">
+                  <Sparkles className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-1">
+                    <span className="flex text-amber-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-2.5 h-2.5 fill-amber-400 text-amber-400" />
+                      ))}
+                    </span>
+                    <span className="text-[10px] font-bold text-dark ml-0.5">4.9/5</span>
+                  </div>
+                  <p className="text-dark text-xs font-extrabold tracking-tight">
+                    Top 1% Global Mentors
+                  </p>
+                  <p className="text-muted text-[10px]">SAT 1500+ • IELTS 8.5+</p>
+                </div>
               </motion.div>
 
-              {/* 3. LINE ART EMBRACING ARCS */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                <svg className="w-full h-full" viewBox="0 0 580 580" fill="none">
-                  <path
-                    d="M 380 90 C 440 90, 480 150, 480 240 L 480 340 C 480 440, 430 500, 360 510 C 310 515, 270 480, 260 420"
-                    stroke="#334155"
-                    strokeWidth="1.2"
-                    strokeLinecap="round"
-                    opacity="0.65"
-                  />
-                  <path
-                    d="M 290 55 C 360 55, 410 110, 410 200"
-                    stroke="#334155"
-                    strokeWidth="1.2"
-                    strokeLinecap="round"
-                    opacity="0.65"
-                  />
-                </svg>
-              </div>
-
-              {/* 4. THE 3 PILL-SHAPED CAPSULES (LIGHTLY ANIMATED FLOATING EFFECT) */}
-              <div className="relative z-20 flex items-center justify-center w-full">
-                
-                {/* CAPSULE 1 (LEFT): Indian Girl Reading Yellow Test Prep Book */}
-                <motion.div
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
-                  whileHover={{ scale: 1.02 }}
-                  className="relative w-[140px] sm:w-[170px] md:w-[185px] h-[330px] sm:h-[390px] md:h-[430px] rounded-full overflow-hidden border-[3px] border-white shadow-xl -mr-5 sm:-mr-8 mt-10 sm:mt-14 z-10 flex-shrink-0 bg-slate-100 transition-shadow duration-300 hover:shadow-2xl"
-                >
-                  <Image
-                    src="/images/hero_left_book.jpg"
-                    alt="Student Reading Test Prep Book"
-                    fill
-                    priority
-                    className="object-cover object-[center_20%]"
-                  />
-                </motion.div>
-
-                {/* Overlapping Bottom-Left Circular Avatar */}
-                <motion.div
-                  animate={{ y: [0, -4, 0], x: [0, 2, 0] }}
-                  transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-                  whileHover={{ scale: 1.1 }}
-                  className="absolute left-2 sm:left-4 bottom-14 sm:bottom-16 z-30 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-[2.5px] border-[#00BFA5] overflow-hidden shadow-xl bg-white p-[2px] cursor-pointer"
-                >
-                  <div className="relative w-full h-full rounded-full overflow-hidden">
-                    <Image
-                      src="/images/hero_avatar_bottom.jpg"
-                      alt="Student Avatar Bottom Left"
-                      fill
-                      className="object-cover"
-                    />
+              {/* FLOATING PROOF WIDGET 2 (Top Right Outer Perimeter - Above Shoulder, NOT on Face) */}
+              <motion.div
+                animate={{ y: [0, 7, 0], x: [0, -2, 0] }}
+                transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+                whileHover={{ scale: 1.06, y: -4 }}
+                className="absolute -top-6 -right-4 md:-right-8 lg:-right-12 z-30 bg-white/95 backdrop-blur-xl border border-white/80 p-2.5 sm:p-3 rounded-2xl shadow-[0_14px_35px_rgba(12,146,83,0.12)] hidden md:flex items-center gap-2.5 cursor-pointer group hover:border-brand-primary/40 hover:shadow-2xl transition-all"
+              >
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-primary to-emerald-600 flex items-center justify-center text-white shadow-md shadow-emerald-500/25 group-hover:scale-110 transition-transform">
+                  <TrendingUp className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-1 text-[11px] font-bold text-dark">
+                    <span>🇺🇸 🇬🇧 🇨🇦 🇦🇺</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-ping" />
                   </div>
-                </motion.div>
+                  <p className="text-dark text-xs font-extrabold tracking-tight">
+                    98.6% Visa & Admit Rate
+                  </p>
+                  <p className="text-muted text-[10px]">Top Global Universities</p>
+                </div>
+              </motion.div>
 
-                {/* CAPSULE 2 (CENTER): Indian Girl Typing on Laptop by Window - HERO FOCAL POINT */}
-                <motion.div
-                  animate={{ y: [0, -7, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  whileHover={{ scale: 1.02 }}
-                  className="relative w-[165px] sm:w-[200px] md:w-[225px] h-[450px] sm:h-[520px] md:h-[570px] rounded-full overflow-hidden border-[4px] border-white shadow-2xl z-20 flex-shrink-0 bg-slate-100 transition-shadow duration-300 hover:shadow-2xl"
-                >
-                  <Image
-                    src="/images/hero_center_laptop.jpg"
-                    alt="Student with Laptop by Window"
-                    fill
-                    priority
-                    className="object-cover object-[center_35%]"
-                  />
-                </motion.div>
-
-                {/* CAPSULE 3 (RIGHT): Indian Girl Writing Notes at Wooden Desk */}
-                <motion.div
-                  animate={{ y: [0, 5, 0] }}
-                  transition={{ duration: 5.6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                  whileHover={{ scale: 1.02 }}
-                  className="relative w-[140px] sm:w-[170px] md:w-[185px] h-[330px] sm:h-[390px] md:h-[430px] rounded-full overflow-hidden border-[3px] border-white shadow-xl -ml-5 sm:-ml-8 mt-12 sm:mt-18 z-10 flex-shrink-0 bg-slate-100 transition-shadow duration-300 hover:shadow-2xl"
-                >
-                  <Image
-                    src="/images/hero_right_writing.jpg"
-                    alt="Student Writing Notes at Desk"
-                    fill
-                    priority
-                    className="object-cover object-[center_25%]"
-                  />
-                </motion.div>
-
-                {/* Overlapping Top-Right Circular Avatar */}
-                <motion.div
-                  animate={{ y: [0, 4, 0], x: [0, -2, 0] }}
-                  transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}
-                  whileHover={{ scale: 1.1 }}
-                  className="absolute right-4 sm:right-8 top-16 sm:top-20 z-30 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-[2.5px] border-[#00BFA5] overflow-hidden shadow-xl bg-white p-[2px] cursor-pointer"
-                >
-                  <div className="relative w-full h-full rounded-full overflow-hidden">
-                    <Image
-                      src="/images/hero_avatar_top.jpg"
-                      alt="Student Avatar Top Right"
-                      fill
-                      className="object-cover"
-                    />
+              {/* FLOATING PROOF WIDGET 3 (Bottom Left Outer Perimeter - At Waist Level) */}
+              <motion.div
+                animate={{ y: [0, 6, 0], x: [0, -2, 0] }}
+                transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+                whileHover={{ scale: 1.06, y: -4 }}
+                className="absolute bottom-20 -left-6 md:-left-10 lg:-left-16 z-30 bg-white/95 backdrop-blur-xl border border-white/80 p-2.5 sm:p-3 rounded-2xl shadow-[0_14px_35px_rgba(0,0,0,0.08)] hidden md:flex items-center gap-3 cursor-pointer group hover:border-brand-primary/40 hover:shadow-2xl transition-all"
+              >
+                {/* Overlapping Avatar Stack */}
+                <div className="flex -space-x-2 overflow-hidden">
+                  <div className="relative w-7 h-7 rounded-full border-2 border-white overflow-hidden shadow-sm">
+                    <Image src="/images/avatar_indian_girl.jpg" alt="Student" fill className="object-cover" />
                   </div>
-                </motion.div>
+                  <div className="relative w-7 h-7 rounded-full border-2 border-white overflow-hidden shadow-sm">
+                    <Image src="/images/avatar_indian_boy.jpg" alt="Student" fill className="object-cover" />
+                  </div>
+                  <div className="relative w-7 h-7 rounded-full border-2 border-white overflow-hidden shadow-sm">
+                    <Image src="/images/avatar_student_female2.jpg" alt="Student" fill className="object-cover" />
+                  </div>
+                </div>
+                <div>
+                  <p className="text-dark text-xs font-extrabold tracking-tight flex items-center gap-1.5">
+                    <span>15,000+</span>
+                    <span className="text-[9px] font-bold text-brand-primary bg-brand-greenTint px-1.5 py-0.5 rounded-full">
+                      Trained
+                    </span>
+                  </p>
+                  <p className="text-muted text-[10px]">Verified Student Journeys</p>
+                </div>
+              </motion.div>
 
-              </div>
+              {/* FLOATING PROOF WIDGET 4 (Bottom Right Outer Perimeter - At Waist Level) */}
+              <motion.div
+                animate={{ y: [0, -6, 0], x: [0, 2, 0] }}
+                transition={{ duration: 5.4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+                whileHover={{ scale: 1.06, y: -4 }}
+                className="absolute bottom-16 -right-6 md:-right-10 lg:-right-16 z-30 bg-white/95 backdrop-blur-xl border border-white/80 p-2.5 sm:p-3 rounded-2xl shadow-[0_14px_35px_rgba(6,84,165,0.12)] hidden md:flex items-center gap-2.5 cursor-pointer group hover:border-brand-accentDark/40 hover:shadow-2xl transition-all"
+              >
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-accentDark to-indigo-600 flex items-center justify-center text-white shadow-md shadow-indigo-500/25 group-hover:scale-110 transition-transform">
+                  <Zap className="w-4 h-4 text-amber-300" />
+                </div>
+                <div>
+                  <p className="text-dark text-xs font-extrabold tracking-tight flex items-center gap-1.5">
+                    <span>AI Mock Simulator</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  </p>
+                  <p className="text-muted text-[10px]">Instant Diagnostic Analytics</p>
+                </div>
+              </motion.div>
 
             </div>
           </motion.div>
 
         </div>
+      </div>
+
+      {/* FULL WIDTH (LEFT TO RIGHT EDGE-TO-EDGE) INFINITE SCROLLING TICKER CAROUSEL */}
+      <div className="relative z-10 w-full overflow-hidden mt-8 sm:mt-12 select-none py-3 [mask-image:linear-gradient(to_right,transparent_0%,black_6%,black_94%,transparent_100%)]">
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            duration: 28,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="flex items-center gap-10 sm:gap-14 whitespace-nowrap font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl tracking-widest text-[#0C9253]/35 uppercase"
+        >
+          {[...EXAM_LIST, ...EXAM_LIST, ...EXAM_LIST, ...EXAM_LIST].map((exam, idx) => (
+            <React.Fragment key={idx}>
+              <span className="hover:text-[#0C9253]/70 transition-colors cursor-default drop-shadow-sm">
+                {exam}
+              </span>
+              <span className="text-[#0C9253]/35 font-bold text-xl sm:text-2xl">
+                +
+              </span>
+            </React.Fragment>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
