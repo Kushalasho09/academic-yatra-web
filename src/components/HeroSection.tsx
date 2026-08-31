@@ -104,8 +104,8 @@ export default function HeroSection() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/test-prep"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-brand-accent hover:text-brand-accentDark font-semibold text-base px-6 py-4 rounded-xl border border-line shadow-sm hover:shadow-md hover:border-brand-accent/40 hover:-translate-y-0.5 transition-all duration-200"
+                href="/counselling-platform"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-brand-accent hover:text-brand-accentDark font-semibold text-base px-6 py-4 rounded-xl border border-line shadow-sm hover:shadow-md hover:border-brand-accent/40 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
               >
                 <span>Explore Programs</span>
               </Link>

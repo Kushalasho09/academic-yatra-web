@@ -10,6 +10,12 @@ import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const pathname = usePathname();
+
+  // Hide global navbar on the interactive counselling platform for full workspace view
+  if (pathname?.startsWith("/counselling-platform")) {
+    return null;
+  }
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
 
