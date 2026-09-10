@@ -29,7 +29,8 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-plus-jakarta)", "sans-serif"],
         heading: ["var(--font-plus-jakarta)", "sans-serif"],
-        body: ["var(--font-poppins)", "var(--font-dm-sans)", "sans-serif"],
+        body: ["var(--font-body)", "var(--font-poppins)", "sans-serif"],
+        display: ["'Instrument Serif'", "serif"],
         accent: ["var(--font-playfair)", "serif"],
       },
       borderRadius: {
@@ -53,10 +54,15 @@ const config: Config = {
           "0%, 100%": { opacity: "0.6", transform: "scale(1)" },
           "50%": { opacity: "0.9", transform: "scale(1.05)" },
         },
+        auroraBg: {
+          "0%": { backgroundPosition: "50% 50%, 50% 50%" },
+          "100%": { backgroundPosition: "350% 50%, 350% 50%" },
+        },
       },
       animation: {
         float: "float 5s ease-in-out infinite",
         "pulse-glow": "pulseGlow 4s ease-in-out infinite",
+        "aurora-bg": "auroraBg 60s linear infinite",
       },
     },
   },

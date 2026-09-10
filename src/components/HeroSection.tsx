@@ -12,6 +12,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
+import { Skiper8 } from "@/components/ui/skiper8";
 
 export default function HeroSection() {
   const easeCurve = [0.16, 1, 0.3, 1];
@@ -33,6 +34,20 @@ export default function HeroSection() {
 
   return (
     <section className="relative overflow-hidden bg-white pt-24 pb-8 sm:pt-28 sm:pb-10 lg:pt-32 lg:pb-10 flex flex-col justify-between">
+      {/* Skiper8: Dennis Snellenberg Words Preloader */}
+      <Skiper8
+        words={[
+          "Hello",
+          "Bonjour",
+          "Guten Tag",
+          "Namaste",
+          "Learn Without Limits",
+          "Academic Yatra",
+        ]}
+        durationPerWord={200}
+        backgroundColor="#031643"
+        dotColor="#0C9253"
+      />
       {/* Animated Light Theme Gradient Background using design.md Brand Tokens */}
       <AnimatedGradientBackground
         Breathing={true}
