@@ -129,7 +129,7 @@ export const STREAM_ITEMS: StreamItem[] = [
     icon: LayoutDashboard,
     badge: "Real-time AI Feedback",
     rating: "4.96",
-    href: "/free-resources",
+    href: "/counselling-platform",
     description: "Instant cloud mock test simulations, sectional practice drills, recorded archives, and mentor review reports.",
     highlights: ["Adaptive Performance Analytics", "Recorded HD Session Library", "Instant Sectional Scoring"],
     themeColor: {

@@ -3,8 +3,6 @@ import ComingSoon from "@/components/ComingSoon";
 export function generateStaticParams() {
   return [
     { coming_soon: ["free-resources"] },
-    { coming_soon: ["about-us"] },
-    { coming_soon: ["contacts"] },
     { coming_soon: ["blogs"] },
     { coming_soon: ["faq"] },
     { coming_soon: ["privacy-policy"] },

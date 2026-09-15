@@ -377,10 +377,10 @@ export function CinematicFooter() {
 
                 <MagneticButton
                   as={Link}
-                  href="/free-resources"
+                  href="/skill-catalyst"
                   className="footer-glass-pill px-4 sm:px-5 py-2.5 rounded-full text-slate-300 font-semibold text-xs sm:text-sm hover:text-white"
                 >
-                  Free Mock Resources
+                  Skill Catalyst
                 </MagneticButton>
 
                 <MagneticButton

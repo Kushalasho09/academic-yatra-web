@@ -99,7 +99,7 @@ const TRACKS: TrackPath[] = [
     image: "/images/path_learning_dashboard.jpg",
     icon: LayoutDashboard,
     shortDesc: "Timed full-length mocks, pacing analytics & 200+ recorded HD class archives.",
-    href: "/free-resources",
+    href: "/skill-catalyst",
     staggerOffset: "lg:translate-y-14",
     theme: {
       accentColor: "bg-indigo-600",

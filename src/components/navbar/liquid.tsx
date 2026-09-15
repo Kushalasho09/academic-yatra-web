@@ -16,7 +16,6 @@ export const NAV_LINKS: NavItem[] = [
   { label: "Languages Programs", href: "/languages" },
   { label: "Test Prep", href: "/test-prep" },
   { label: "Skill Catalyst", href: "/skill-catalyst" },
-  { label: "Free Resources", href: "/free-resources" },
   { label: "About Us", href: "/about-us" },
   { label: "Contacts", href: "/contacts" },
 ];

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, Sparkles } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
@@ -48,7 +49,6 @@ export default function Navbar() {
     { name: "Languages Programs", href: "/languages", aliases: ["/languages", "/languages-programs"] },
     { name: "Test Prep", href: "/test-prep", aliases: ["/test-prep", "/ielts", "/pte", "/celpip", "/gmat", "/gre"] },
     { name: "Skill Catalyst", href: "/skill-catalyst", aliases: ["/skill-catalyst"] },
-    { name: "Free Resources", href: "/free-resources", aliases: ["/free-resources"] },
     { name: "About Us", href: "/about-us", aliases: ["/about-us", "/about"] },
     { name: "Contacts", href: "/contacts", aliases: ["/contacts", "/contact"] },
   ];
@@ -66,52 +66,68 @@ export default function Navbar() {
       {/* Floating Glassmorphic Full Capsule Island */}
       <div className="pointer-events-auto max-w-7xl mx-auto bg-white/90 backdrop-blur-2xl border border-white/80 shadow-[0_10px_30px_-10px_rgba(18,36,71,0.12)] hover:shadow-[0_15px_35px_-8px_rgba(12,146,83,0.18)] rounded-full px-3.5 sm:px-5 lg:px-6 h-16 sm:h-18 flex items-center justify-between transition-all duration-300 group/nav gap-3">
         
-        {/* Desktop Full Navigation Links Pill */}
-        <nav className="hidden lg:flex items-center space-x-1 xl:space-x-1.5 bg-slate-100/70 p-1.5 rounded-full border border-slate-200/60">
-          {navLinks.map((link, idx) => {
-            const isActive =
-              link.href === "/"
-                ? pathname === "/"
-                : link.aliases.some(
-                    (alias) => pathname === alias || pathname?.startsWith(alias + "/")
-                  );
+        {/* Desktop Brand Logo + Full Navigation Links Pill */}
+        <div className="hidden lg:flex items-center space-x-3.5 xl:space-x-6">
+          <Link
+            href="/"
+            className="flex items-center shrink-0 pl-2 pr-1 hover:opacity-90 transition-all hover:scale-[1.02] cursor-pointer"
+            aria-label="Academic Yatra Home"
+          >
+            <Image
+              src="/images/Academic_Ya-removebg-preview.png"
+              alt="Academic Yatra — Making Global Education Easy"
+              width={200}
+              height={48}
+              className="h-9 lg:h-10 xl:h-11 w-auto object-contain"
+              priority
+            />
+          </Link>
 
-            return (
-              <Link
-                key={idx}
-                href={link.href}
-                className={cn(
-                  "relative px-3.5 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 flex items-center space-x-1 whitespace-nowrap",
-                  isActive
-                    ? "text-brand-navy bg-white shadow-sm font-extrabold border border-slate-200/80"
-                    : "text-muted hover:text-brand-navy hover:bg-white/80 hover:shadow-xs"
-                )}
-              >
-                <span>{link.name}</span>
-              </Link>
-            );
-          })}
-        </nav>
+          <nav className="flex items-center space-x-1 xl:space-x-1.5 bg-slate-100/70 p-1.5 rounded-full border border-slate-200/60">
+            {navLinks.map((link, idx) => {
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : link.aliases.some(
+                      (alias) => pathname === alias || pathname?.startsWith(alias + "/")
+                    );
 
-        {/* Mobile Brand Name Title */}
+              return (
+                <Link
+                  key={idx}
+                  href={link.href}
+                  className={cn(
+                    "relative px-3.5 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 flex items-center space-x-1 whitespace-nowrap",
+                    isActive
+                      ? "text-brand-navy bg-white shadow-sm font-extrabold border border-slate-200/80"
+                      : "text-muted hover:text-brand-navy hover:bg-white/80 hover:shadow-xs"
+                  )}
+                >
+                  <span>{link.name}</span>
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+
+        {/* Mobile Brand Logo */}
         <Link
           href="/"
-          className="lg:hidden flex items-center text-brand-navy font-heading font-extrabold text-base sm:text-lg tracking-tight pl-2"
+          className="lg:hidden flex items-center pl-2 shrink-0 hover:opacity-90 transition-opacity"
+          aria-label="Academic Yatra Home"
         >
-          <span className="text-brand-primary">Academic</span>
-          <span className="ml-1 text-brand-navy">Yatra</span>
+          <Image
+            src="/images/Academic_Ya-removebg-preview.png"
+            alt="Academic Yatra"
+            width={160}
+            height={38}
+            className="h-8 sm:h-9 w-auto object-contain"
+            priority
+          />
         </Link>
 
-        {/* Desktop Primary CTA Buttons */}
-        <div className="hidden lg:flex items-center space-x-2.5 xl:space-x-3 flex-shrink-0">
-          <a
-            href="tel:+919286844550"
-            className="inline-flex items-center space-x-2 text-xs xl:text-sm font-semibold text-brand-navy px-4 py-2.5 rounded-full border border-slate-200 hover:border-brand-primary hover:text-brand-primary bg-white hover:bg-slate-50 transition-all duration-200 shadow-sm whitespace-nowrap flex-shrink-0"
-          >
-            <Phone className="w-3.5 h-3.5 text-brand-primary flex-shrink-0" />
-            <span>+91-92868-44550</span>
-          </a>
-
+        {/* Desktop Primary CTA Button */}
+        <div className="hidden lg:flex items-center flex-shrink-0">
           <Link href="/contacts" className="flex-shrink-0">
             <HoverBorderGradient
               as="div"
@@ -148,6 +164,19 @@ export default function Navbar() {
             transition={{ duration: 0.2, ease: "easeOut" }}
             className="pointer-events-auto lg:hidden mt-3 max-w-7xl mx-auto bg-white/95 backdrop-blur-2xl border border-slate-200/80 rounded-3xl p-5 shadow-2xl space-y-2.5"
           >
+            {/* Mobile Header in Drawer */}
+            <div className="pb-3 mb-1 border-b border-slate-100 px-2 flex items-center justify-between">
+              <Image
+                src="/images/Academic_Ya-removebg-preview.png"
+                alt="Academic Yatra"
+                width={130}
+                height={32}
+                className="h-7 w-auto object-contain"
+              />
+              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                Navigation
+              </span>
+            </div>
             {navLinks.map((link, idx) => {
               const isActive =
                 link.href === "/"
