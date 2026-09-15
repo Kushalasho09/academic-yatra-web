@@ -26,8 +26,9 @@ export default function LearningModes() {
           >
             {/* Left Content */}
             <div className="space-y-1.5 z-10 max-w-[200px] sm:max-w-[240px]">
-              <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-brand-navy tracking-tight leading-[1.06]">
-                Individual<br />Learning
+              <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-brand-navy tracking-tight leading-snug sm:leading-[1.24]">
+                <span className="block mb-1 sm:mb-1.5">Individual</span>
+                <span className="block">Learning</span>
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 font-medium pt-1">
                 Self-paced + recorded content
@@ -77,8 +78,9 @@ export default function LearningModes() {
           >
             {/* Left Content */}
             <div className="space-y-1.5 z-10 max-w-[200px] sm:max-w-[240px]">
-              <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-brand-navy tracking-tight leading-[1.06]">
-                Live<br />Classes
+              <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-brand-navy tracking-tight leading-snug sm:leading-[1.24]">
+                <span className="block mb-1 sm:mb-1.5">Live</span>
+                <span className="block">Classes</span>
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 font-medium pt-1">
                 Trainer-led structured programs

@@ -4,29 +4,29 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FileText, Clock, Compass, Monitor } from "lucide-react";
 
-export default function LanguagesOverview() {
+export default function TestPrepOverview() {
   const cards = [
     {
-      value: "39+",
-      label: "Practice Tests Available",
+      value: "50+",
+      label: "Adaptive Full-Length Mocks",
       icon: FileText,
       color: "text-brand-accent",
     },
     {
-      value: "120+",
-      label: "Hours of Learning Content",
+      value: "140+",
+      label: "Hours of Live Masterclasses",
       icon: Clock,
       color: "text-brand-primary",
     },
     {
-      value: "10",
-      label: "Exam Pathways: IELTS, PTE, TOEFL & Duolingo",
+      value: "3",
+      label: "Global Pathways: SAT, GRE & GMAT",
       icon: Compass,
       color: "text-amber-500",
     },
     {
       value: "100%",
-      label: "Online Preparation Platform",
+      label: "Digital Learning & Analytics Dashboard",
       icon: Monitor,
       color: "text-purple-600",
     },
@@ -52,20 +52,24 @@ export default function LanguagesOverview() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6 space-y-5 sm:space-y-6"
           >
+            {/* Eyebrow */}
+            <div className="inline-block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-brand-primary">
+              Test Preparation Programs
+            </div>
+
             {/* Main Section Heading */}
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
               Everything You Need to{" "}
               <span className="text-brand-accent">Prepare for</span>{" "}
-              IELTS, PTE, TOEFL &amp; More
+              SAT, GRE &amp; GMAT
             </h2>
 
-            {/* Descriptive Paragraph */}
+            {/* Descriptive Paragraph from user prompt */}
             <p className="font-body text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl font-normal">
-              Whether you’re preparing for university admissions, career
-              opportunities, or migration pathways, our language programs
-              combine expert instruction, structured practice, personalized
-              feedback, and comprehensive support to help you build proficiency,
-              achieve target scores, and reach your goals confidently.
+              Academic Yatra helps students prepare for international admissions through
+              structured learning, live classes, mock tests, and performance tracking.
+              Whether you’re planning undergraduate studies, a master’s degree, or an MBA
+              abroad, you’ll find the right preparation pathway here.
             </p>
           </motion.div>
 

@@ -2,8 +2,6 @@ import ComingSoon from "@/components/ComingSoon";
 
 export function generateStaticParams() {
   return [
-    { coming_soon: ["test-prep"] },
-    { coming_soon: ["skill-catalyst"] },
     { coming_soon: ["free-resources"] },
     { coming_soon: ["about-us"] },
     { coming_soon: ["contacts"] },

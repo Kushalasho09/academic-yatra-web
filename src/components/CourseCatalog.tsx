@@ -109,7 +109,7 @@ export default function CourseCatalog() {
             <span>Comprehensive Test Prep & Language Catalog</span>
           </div>
 
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-dark tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-dark tracking-tight leading-snug sm:leading-[1.25]">
             Learn Fast, Speak Fluently. Explore Our Courses
           </h2>
 

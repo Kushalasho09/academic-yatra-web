@@ -90,12 +90,13 @@ export default function HeroSection() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-heading text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-dark leading-[1.12] tracking-tight">
-              Learn Without Limits
-              <br />
-              Grow Your{" "}
-              <span className="text-brand-primary font-accent italic font-normal">
-                Knowledge
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-dark leading-snug sm:leading-[1.26] lg:leading-[1.28] tracking-tight">
+              <span className="block mb-1.5 sm:mb-2.5">Learn Without Limits</span>
+              <span className="block">
+                Grow Your{" "}
+                <span className="text-brand-primary font-accent italic font-normal">
+                  Knowledge
+                </span>
               </span>
             </h1>
 

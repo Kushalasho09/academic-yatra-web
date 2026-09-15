@@ -77,7 +77,7 @@ export default function AchievementBanner() {
             className="lg:col-span-7 space-y-6"
           >
             {/* Main Headline */}
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.14]">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-snug sm:leading-[1.26] lg:leading-[1.28]">
               Master Skills for{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-400 font-accent italic font-normal">
                 Study Abroad, PR

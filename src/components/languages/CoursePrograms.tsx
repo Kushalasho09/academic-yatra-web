@@ -514,9 +514,9 @@ export default function CoursePrograms({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 gap-4">
           <div className="space-y-2">
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-[1.15] tracking-tight">
-              Choose Your <br />
-              <span className="text-brand-primary">Program</span>
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
+              <span className="block mb-1.5 sm:mb-2.5">Choose Your</span>
+              <span className="text-brand-primary block">Program</span>
             </h2>
           </div>
 

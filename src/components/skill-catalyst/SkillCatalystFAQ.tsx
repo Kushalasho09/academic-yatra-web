@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, ArrowUpRight, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
+import { Mail, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface FAQItem {
@@ -10,36 +10,36 @@ interface FAQItem {
   answer: string;
 }
 
-const FAQ_DATA: FAQItem[] = [
+const SKILL_FAQ_DATA: FAQItem[] = [
   {
-    question: "Which exam should I take for bachelor's admissions abroad?",
+    question: "Who should enroll in Skill Catalyst programs?",
     answer:
-      "The SAT is the most widely accepted test for undergraduate admissions at universities in the USA, Canada, and many European countries. Most top US colleges accept SAT scores as part of their holistic admissions review, combined with IELTS Academic or TOEFL for English proficiency.",
+      "College students, fresh graduates, and early-career professionals preparing for internships, campus placements, or corporate transitions who want hands-on practical skills in business, digital tools, communication, and productivity.",
   },
   {
-    question: "Which exam is required for master's admissions abroad?",
+    question: "Are live classes and interactive mentoring included?",
     answer:
-      "For master's degrees abroad, international universities primarily look for IELTS Academic (minimum Band 6.5–7.0) or PTE Academic (65+). If you are applying for STEM or technical programs in the US, GRE is typically required, while business programs may ask for GMAT.",
+      "Yes! All Skill Catalyst programs feature live interactive classes conducted by seasoned industry professionals with practical demonstrations, mock interviews, and live doubt resolution.",
   },
   {
-    question: "Is GMAT required for MBA admissions?",
+    question: "Will I receive a recognized certificate of achievement?",
     answer:
-      "Most top business schools globally accept either GMAT or GRE. However, many reputable institutions in the UK, Germany, and Australia now offer GMAT waivers based on substantial full-time work experience or prior high academic GPA.",
+      "Yes! Upon successful completion of the program, projects, and final skill assessment, you will receive an official, verifiable Certificate of Achievement from Academic Yatra to showcase on LinkedIn and your resume.",
   },
   {
-    question: "Do programs include mock tests?",
+    question: "How long do I get access to the recorded lessons and materials?",
     answer:
-      "Yes! All packages include full-length authentic Cambridge and Pearson-calibrated mock test simulations, sectional practice sets, and detailed rubric-based score evaluations by master trainers.",
+      "You receive 95 days of unrestricted portal access to revisit all recorded lecture videos, spreadsheet templates, presentation toolkits, and student resources at your own pace.",
   },
   {
-    question: "Are live classes available?",
+    question: "What is the benefit of the Skill Catalyst Combo Pack?",
     answer:
-      "Yes! Our Champion and Champion+ Packs offer 100 hours of live interactive lectures with flexible batch timings (Morning, Afternoon, Evening). All live sessions are simultaneously recorded and cataloged in your student portal for revision anytime.",
+      "The Combo Pack provides the complete 6-week professional transformation by combining Career Essentials, BizzTech, and Google Suite Hub with integrated capstones and personal career coaching at exceptional value.",
   },
 ];
 
-export default function LanguagesFAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0); // First item expanded by default as in screenshot
+export default function SkillCatalystFAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -56,6 +56,9 @@ export default function LanguagesFAQ() {
           {/* Left Column: Heading & Contact Box */}
           <div className="lg:col-span-5 space-y-5">
             <div className="space-y-2">
+              <div className="inline-block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-brand-primary">
+                FAQ
+              </div>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
                 <span className="block mb-1.5 sm:mb-2.5">Frequently Asked</span>
                 <span className="text-brand-primary block">Questions</span>
@@ -73,13 +76,12 @@ export default function LanguagesFAQ() {
                   Still have questions?
                 </h3>
                 <p className="font-body text-slate-500 text-sm mt-1 leading-relaxed">
-                  Speak directly with our expert counsellors. We&apos;re here to help
-                  you choose the right path.
+                  Speak directly with our career counsellors. We&apos;ll help you choose the best program for your professional goals.
                 </p>
               </div>
 
               <a
-                href="https://wa.me/919286844550?text=Hi,%20I%20have%20questions%20regarding%20Academic%20Yatra%20language%20programs."
+                href="https://web.whatsapp.com/send?phone=+919403892981&text=Hi,%20I%20have%20questions%20regarding%20the%20Skill%20Catalyst%20programs."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow-md transition-all hover:gap-3"
@@ -92,7 +94,7 @@ export default function LanguagesFAQ() {
 
           {/* Right Column: Accordions */}
           <div className="lg:col-span-7 space-y-3.5">
-            {FAQ_DATA.map((item, idx) => {
+            {SKILL_FAQ_DATA.map((item, idx) => {
               const isOpen = openIndex === idx;
               return (
                 <div

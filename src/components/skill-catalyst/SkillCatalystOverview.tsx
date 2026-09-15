@@ -2,39 +2,39 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FileText, Clock, Compass, Monitor } from "lucide-react";
+import { Briefcase, Calendar, Laptop, Award } from "lucide-react";
 
-export default function LanguagesOverview() {
+export default function SkillCatalystOverview() {
   const cards = [
     {
-      value: "39+",
-      label: "Practice Tests Available",
-      icon: FileText,
+      value: "4",
+      label: "Career Readiness Programs",
+      icon: Briefcase,
       color: "text-brand-accent",
     },
     {
-      value: "120+",
-      label: "Hours of Learning Content",
-      icon: Clock,
+      value: "95",
+      label: "Days Full Portal Access",
+      icon: Calendar,
       color: "text-brand-primary",
     },
     {
-      value: "10",
-      label: "Exam Pathways: IELTS, PTE, TOEFL & Duolingo",
-      icon: Compass,
+      value: "100%",
+      label: "Hands-On Capstone Projects",
+      icon: Laptop,
       color: "text-amber-500",
     },
     {
       value: "100%",
-      label: "Online Preparation Platform",
-      icon: Monitor,
+      label: "Industry-Standard Certification",
+      icon: Award,
       color: "text-purple-600",
     },
   ];
 
   return (
     <section className="relative py-10 sm:py-14 bg-gradient-to-r from-[#DFF2E8]/80 via-[#E4F1FD]/70 to-[#EAF7EE]/80 overflow-hidden">
-      {/* Seamless top and bottom feather fades to melt with adjacent sections */}
+      {/* Seamless top and bottom feather fades */}
       <div className="absolute top-0 left-0 right-0 h-12 sm:h-16 bg-gradient-to-b from-white to-transparent pointer-events-none z-10" />
       <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-16 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
 
@@ -52,24 +52,27 @@ export default function LanguagesOverview() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6 space-y-5 sm:space-y-6"
           >
-            {/* Main Section Heading */}
+            {/* Eyebrow */}
+            <div className="inline-block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-brand-primary">
+              Skill Catalyst Programs
+            </div>
+
+            {/* Main Section Heading with generous height spacing */}
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
-              Everything You Need to{" "}
-              <span className="text-brand-accent">Prepare for</span>{" "}
-              IELTS, PTE, TOEFL &amp; More
+              Learn Skills That Matter in the{" "}
+              <span className="text-brand-accent">Modern Workplace</span>
             </h2>
 
-            {/* Descriptive Paragraph */}
+            {/* Descriptive Paragraph from user prompt */}
             <p className="font-body text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl font-normal">
-              Whether you’re preparing for university admissions, career
-              opportunities, or migration pathways, our language programs
-              combine expert instruction, structured practice, personalized
-              feedback, and comprehensive support to help you build proficiency,
-              achieve target scores, and reach your goals confidently.
+              Build workplace-ready competencies through structured learning focused on
+              business, technology, communication, and productivity. Gain practical skills
+              employers value, improve professional confidence, and stay prepared for changing
+              industry expectations and future career opportunities.
             </p>
           </motion.div>
 
-          {/* Right Column: 2x2 Grid of Rounded White Cards (2x2 on mobile and desktop) */}
+          {/* Right Column: 2x2 Grid of Rounded White Cards */}
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}

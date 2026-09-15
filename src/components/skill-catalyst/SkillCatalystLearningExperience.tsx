@@ -4,39 +4,39 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Video, Users, PlaySquare, FileCheck2 } from "lucide-react";
 
-export default function LearningExperience() {
+export default function SkillCatalystLearningExperience() {
   const experiences = [
     {
       icon: Video,
       title: "Live Trainer Sessions",
       badge: "WEEKLY EXPERT-LED LIVE CLASSES",
-      subheading: "Live Trainer Sessions",
+      subheading: "Interactive Industry Mentorship",
       description:
-        "Join weekly live classes conducted by experienced trainers. Interact, ask questions, and get real-time guidance.",
+        "Join weekly live classes conducted by experienced trainers. Interact, ask questions, and get real-time guidance on difficult concepts.",
     },
     {
       icon: Users,
-      title: "Interactive Learning",
+      title: "Interactive Learning Environment",
       badge: "COLLABORATE WITH PEERS",
-      subheading: "Interactive Environment",
+      subheading: "Community & Peer Engagement",
       description:
-        "Engage in a collaborative environment with live Q&A, discussion boards, and real-time peer interactions.",
+        "Engage in a collaborative learning environment with live Q&A, discussion boards, and peer interaction during and after classes.",
     },
     {
       icon: PlaySquare,
-      title: "Recorded Lessons",
+      title: "Recorded Lessons for Revision",
       badge: "REVISIT ANYTIME AT YOUR PACE",
-      subheading: "Revision On Demand",
+      subheading: "24/7 Digital Portal Access",
       description:
-        "All live sessions are recorded and stored in your dashboard to revisit anytime you need revision.",
+        "All live sessions are recorded and stored in your dashboard. Revisit any class or topic whenever you need to revise, at your own pace.",
     },
     {
       icon: FileCheck2,
-      title: "Mock Test Simulations",
-      badge: "FULL-LENGTH EXAM BENCHMARKS",
-      subheading: "Realistic Test Simulations",
+      title: "Hands-On Capstone Projects",
+      badge: "REAL-WORLD PORTFOLIO ASSIGNMENTS",
+      subheading: "Interview & Skill Assessments",
       description:
-        "Practice with authentic Cambridge & Pearson calibrated mock tests with instant AI band scoring and diagnostic feedback.",
+        "Build practical dashboards, podcast presentations, and workplace deliverables reviewed directly by industry veterans.",
     },
   ];
 

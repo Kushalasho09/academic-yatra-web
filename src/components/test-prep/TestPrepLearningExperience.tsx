@@ -4,39 +4,39 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Video, Users, PlaySquare, FileCheck2 } from "lucide-react";
 
-export default function LearningExperience() {
+export default function TestPrepLearningExperience() {
   const experiences = [
     {
       icon: Video,
-      title: "Live Trainer Sessions",
-      badge: "WEEKLY EXPERT-LED LIVE CLASSES",
-      subheading: "Live Trainer Sessions",
+      title: "Live Faculty Masterclasses",
+      badge: "WEEKLY LIVE STRATEGY SESSIONS",
+      subheading: "Interactive Problem Solving",
       description:
-        "Join weekly live classes conducted by experienced trainers. Interact, ask questions, and get real-time guidance.",
+        "Learn directly from 99th percentile instructors with live question walkthroughs, short-cuts, and concept deep dives.",
     },
     {
       icon: Users,
-      title: "Interactive Learning",
-      badge: "COLLABORATE WITH PEERS",
-      subheading: "Interactive Environment",
+      title: "1-on-1 Score Strategy",
+      badge: "INDIVIDUAL WEAK-AREA CLINICS",
+      subheading: "Personalized Study Roadmaps",
       description:
-        "Engage in a collaborative environment with live Q&A, discussion boards, and real-time peer interactions.",
+        "Get dedicated reviews of your mock tests to identify pacing errors, careless mistakes, and tactical improvement areas.",
     },
     {
       icon: PlaySquare,
-      title: "Recorded Lessons",
-      badge: "REVISIT ANYTIME AT YOUR PACE",
-      subheading: "Revision On Demand",
+      title: "Recorded Lecture Vault",
+      badge: "REVISIT ANYTIME 24/7",
+      subheading: "On-Demand Video Revision",
       description:
-        "All live sessions are recorded and stored in your dashboard to revisit anytime you need revision.",
+        "Every live session is automatically recorded and archived with sectional bookmarks so you never miss a lecture.",
     },
     {
       icon: FileCheck2,
-      title: "Mock Test Simulations",
-      badge: "FULL-LENGTH EXAM BENCHMARKS",
-      subheading: "Realistic Test Simulations",
+      title: "Computer-Adaptive Mocks",
+      badge: "CALIBRATED TO OFFICIAL EXAM ENGINES",
+      subheading: "Realistic Exam Simulation",
       description:
-        "Practice with authentic Cambridge & Pearson calibrated mock tests with instant AI band scoring and diagnostic feedback.",
+        "Experience authentic section-adaptive testing environments matching College Board (SAT), ETS (GRE), and GMAC (GMAT).",
     },
   ];
 

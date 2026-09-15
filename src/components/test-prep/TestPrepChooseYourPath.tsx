@@ -20,146 +20,90 @@ export interface PathwayCourse {
   examKey: string;
 }
 
-const PATHWAY_COURSES: PathwayCourse[] = [
+const TEST_PREP_PATHWAYS: PathwayCourse[] = [
   {
-    id: "ielts-academic",
-    category: "IELTS Academic",
-    duration: "6–8 Weeks",
-    title: "IELTS Academic",
+    id: "sat-digital",
+    category: "Digital SAT",
+    duration: "8–10 Weeks",
+    title: "Digital SAT Preparation",
     tagline:
-      "Target Band 7.5+ with structured live masterclasses and Cambridge-aligned mock tests.",
+      "Target 1500+ for US, Canadian & European undergraduate admissions with official Bluebook-style adaptive mocks.",
     packType: "Champion Pack",
     popular: true,
     image: "/images/why_academic_students.jpg",
-    glowText: "Target Band 7.5+ with Cambridge AI Mocks",
-    shortGlowText: "Band 7.5+ AI Mocks",
-    examKey: "IELTS AC",
+    glowText: "Target 1500+ with Adaptive Bluebook Mocks",
+    shortGlowText: "Target 1500+ SAT Mocks",
+    examKey: "SAT",
   },
   {
-    id: "ielts-general",
-    category: "IELTS General",
-    duration: "6–8 Weeks",
-    title: "IELTS General",
+    id: "gre-general",
+    category: "GRE General",
+    duration: "8–10 Weeks",
+    title: "GRE General Preparation",
     tagline:
-      "Tailored for Canada PR & UK Work Visa with proven CLB 9/10 strategies and letter writing drills.",
+      "Target 325+ with high-frequency vocabulary mnemonics, advanced Quant shortcuts, and shorter GRE adaptive simulations.",
     packType: "Champion Pack",
     popular: true,
-    image: "/images/story_canada_settling.jpg",
-    glowText: "Target CLB 9/10 for Express Entry PR",
-    shortGlowText: "CLB 9/10 Express Entry",
-    examKey: "IELTS GN",
+    image: "/images/path_competitive_boy.jpg",
+    glowText: "Target 325+ for Top MS & STEM Universities",
+    shortGlowText: "Target 325+ GRE STEM",
+    examKey: "GRE",
   },
   {
-    id: "pte-academic",
-    category: "PTE Academic",
-    duration: "4–6 Weeks",
-    title: "PTE Academic",
+    id: "gmat-focus",
+    category: "GMAT Focus Edition",
+    duration: "10–12 Weeks",
+    title: "GMAT Focus Preparation",
     tagline:
-      "Score 79+ guaranteed with AI speech scoring engine, Pearson mock tests & high-scoring templates.",
-    packType: "Champion Pack",
+      "Aim for 705+ (99th percentile) with Data Insights mastery, Critical Reasoning logic, and Quant problem solving.",
+    packType: "Champion Pack +",
     popular: true,
     image: "/images/hero_center_laptop.jpg",
-    glowText: "Guaranteed 79+ with Pearson AI Templates",
-    shortGlowText: "Score 79+ Pearson AI",
-    examKey: "PTE AC",
+    glowText: "Top Business Schools & 99th Percentile Strategy",
+    shortGlowText: "705+ MBA Focus Prep",
+    examKey: "GMAT",
   },
   {
-    id: "pte-core",
-    category: "PTE Core",
-    duration: "4–6 Weeks",
-    title: "PTE Core",
+    id: "gre-ielts-combo",
+    category: "GRE + IELTS Combo",
+    duration: "12–14 Weeks",
+    title: "Master's Complete Pathway",
     tagline:
-      "Achieve CLB 7+ for Canadian PR, provincial nominations & Express Entry pathways.",
-    packType: "Fast-Track Pack",
-    popular: false,
-    image: "/images/indian_student_laptop.jpg",
-    glowText: "Official Canadian PR Score Booster",
-    shortGlowText: "Canadian PR Booster",
-    examKey: "PTE CORE",
-  },
-  {
-    id: "toefl-ibt",
-    category: "TOEFL iBT",
-    duration: "6–8 Weeks",
-    title: "TOEFL Preparation",
-    tagline:
-      "Comprehensive ETS-pattern preparation targeting 100+ scores for top US & Canadian universities.",
+      "Integrated preparation covering GRE General + IELTS Academic for seamless university admissions and visa approvals.",
     packType: "Mastery Pack",
     popular: false,
-    image: "/images/path_competitive_boy.jpg",
-    glowText: "ETS Tested Strategies & 100+ Score Focus",
-    shortGlowText: "Score 100+ Live Mocks",
-    examKey: "TOEFL",
+    image: "/images/indian_student_laptop.jpg",
+    glowText: "All-in-One Global Master's Prep Bundle",
+    shortGlowText: "GRE + IELTS Combo",
+    examKey: "COMBO",
   },
   {
-    id: "duolingo-det",
-    category: "Duolingo English Test",
-    duration: "3–4 Weeks",
-    title: "Duolingo English Test",
+    id: "sat-math-verbal-booster",
+    category: "SAT Score Booster",
+    duration: "4–6 Weeks",
+    title: "SAT 800 Math & Verbal Sprint",
     tagline:
-      "Target 125+ scores in 30 days with adaptive AI drills and full-length simulated mocks.",
+      "Intensive sprint for test-takers aiming to jump 150+ points with Desmos calculator mastery and punctuation drills.",
     packType: "Fast-Track Pack",
-    popular: true,
+    popular: false,
     image: "/images/path_learning_dashboard.jpg",
-    glowText: "Fast-Track 125+ Score Guarantee",
-    shortGlowText: "125+ Score Fast-Track",
-    examKey: "Duolingo",
+    glowText: "150+ Score Improvement Guarantee",
+    shortGlowText: "+150 Score Sprint",
+    examKey: "SAT",
   },
   {
-    id: "celpip-prep",
-    category: "CELPIP General",
-    duration: "4–6 Weeks",
-    title: "CELPIP Preparation",
+    id: "executive-mba-track",
+    category: "Executive MBA / EMBA",
+    duration: "6–8 Weeks",
+    title: "Executive MBA Track",
     tagline:
-      "Master all 4 Canadian English modules designed strictly for Express Entry and citizenship.",
-    packType: "Champion Pack",
+      "Weekend and evening batches designed for working professionals targeting premier global executive MBA programs.",
+    packType: "Executive Pack",
     popular: false,
-    image: "/images/dest_canada.png",
-    glowText: "100% Canadian PR Centric Curriculum",
-    shortGlowText: "100% Canadian PR Prep",
-    examKey: "CELPIP",
-  },
-  {
-    id: "french-prep",
-    category: "French (DELF / TEF)",
-    duration: "8–12 Weeks",
-    title: "French Preparation",
-    tagline:
-      "From A1 to B2 with native tutors. Gain up to 50 additional CRS bonus points for Canada PR.",
-    packType: "Multi-Level Pack",
-    popular: true,
-    image: "/images/dest_europe.png",
-    glowText: "Native Bilingual Mentors & TEF Certified",
-    shortGlowText: "TEF / DELF Canada Prep",
-    examKey: "French",
-  },
-  {
-    id: "german-prep",
-    category: "German (Goethe-Zertifikat)",
-    duration: "8–12 Weeks",
-    title: "German Preparation",
-    tagline:
-      "Master A1–C1 Goethe levels to secure admission to 100% tuition-free German universities.",
-    packType: "Multi-Level Pack",
-    popular: true,
-    image: "/images/carousel_explore_brands.png",
-    glowText: "Goethe-Zertifikat A1-B2 Free Uni Pathway",
-    shortGlowText: "Goethe A1-B2 Free Uni",
-    examKey: "German",
-  },
-  {
-    id: "spoken-english",
-    category: "Spoken English & Fluency",
-    duration: "4–6 Weeks",
-    title: "Spoken English",
-    tagline:
-      "Build unshakeable speaking confidence with daily conversation clubs and accent refinement.",
-    packType: "Fluency Pack",
-    popular: false,
-    image: "/images/hero_campus_life.png",
-    glowText: "Daily Live Speaking Clubs & Accent Training",
-    shortGlowText: "Daily Speaking Clubs",
-    examKey: "Spoken Eng",
+    image: "/images/carousel_founder_guidance.png",
+    glowText: "Flexible Weekend Batches for Working Pros",
+    shortGlowText: "Executive MBA Batches",
+    examKey: "GMAT",
   },
 ];
 
@@ -167,7 +111,7 @@ interface ChooseYourPathProps {
   onSelectPath?: (examKey: string) => void;
 }
 
-export default function ChooseYourPath({ onSelectPath }: ChooseYourPathProps) {
+export default function TestPrepChooseYourPath({ onSelectPath }: ChooseYourPathProps) {
   const handleScrollToPrograms = (examKey: string) => {
     if (onSelectPath) {
       onSelectPath(examKey);
@@ -184,6 +128,9 @@ export default function ChooseYourPath({ onSelectPath }: ChooseYourPathProps) {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
           <div className="space-y-2">
+            <div className="inline-block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-brand-primary">
+              Choose Your Path
+            </div>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
               Choose the Path You&apos;re{" "}
               <span className="text-brand-accent">Preparing For</span>
@@ -196,9 +143,9 @@ export default function ChooseYourPath({ onSelectPath }: ChooseYourPathProps) {
           </p>
         </div>
 
-        {/* State-of-the-Art Layered Glow Cards Grid (2 cards per row on mobile, strictly aligned) */}
+        {/* Layered Glow Cards Grid (2 cards per row on mobile, 3 on desktop) */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 sm:gap-x-6 lg:gap-x-8 gap-y-12 sm:gap-y-16 pb-8 items-stretch">
-          {PATHWAY_COURSES.map((course, idx) => (
+          {TEST_PREP_PATHWAYS.map((course, idx) => (
             <motion.div
               key={course.id}
               initial={{ opacity: 0, y: 16 }}
@@ -207,22 +154,26 @@ export default function ChooseYourPath({ onSelectPath }: ChooseYourPathProps) {
               transition={{ duration: 0.35, delay: (idx % 3) * 0.08 }}
               className="relative w-full h-full flex flex-col group"
             >
-              {/* Glowing Underlay Shelf: Uniform fixed bottom height and offset across ALL cards */}
+              {/* Glowing Underlay Shelf */}
               <div className="pointer-events-none absolute inset-x-1.5 sm:inset-x-3 -bottom-6 sm:-bottom-7 h-9 sm:h-11 rounded-b-[18px] sm:rounded-b-[24px] bg-brand-primary shadow-[0_16px_35px_-8px_rgba(12,146,83,0.55)] sm:shadow-[0_22px_50px_-10px_rgba(12,146,83,0.65)] z-0 transition-transform duration-300 group-hover:scale-[1.02]" />
 
-              {/* Glowing Bottom Shelf Text Indicator: PERFECTLY CENTERED and UNIFORM */}
+              {/* Glowing Bottom Shelf Text Indicator */}
               <div className="absolute inset-x-0 -bottom-6 sm:-bottom-7 h-6 sm:h-7 flex items-center justify-center z-0 pointer-events-none px-1 sm:px-4">
                 <div className="flex items-center justify-center gap-1 text-center text-white tracking-tight">
                   <Zap className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 text-amber-300 fill-amber-300 shrink-0" />
-                  <span className="text-[8.5px] sm:hidden font-extrabold leading-none">{course.shortGlowText || course.glowText}</span>
-                  <span className="hidden sm:inline text-xs font-bold">{course.glowText}</span>
+                  <span className="text-[8.5px] sm:hidden font-extrabold leading-none">
+                    {course.shortGlowText || course.glowText}
+                  </span>
+                  <span className="hidden sm:inline text-xs font-bold">
+                    {course.glowText}
+                  </span>
                 </div>
               </div>
 
-              {/* Main Card Surface: Strict h-full flex flex-col justify-between */}
+              {/* Main Card Surface */}
               <div className="relative z-10 w-full h-full overflow-hidden rounded-[18px] sm:rounded-[22px] bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-xl shadow-slate-200/50 p-3 sm:p-6 lg:p-7 flex flex-col justify-between transition-all duration-300 group-hover:-translate-y-1.5 group-hover:border-brand-primary/40">
                 <div className="flex-1 flex flex-col">
-                  {/* Top Status Header - no truncation */}
+                  {/* Top Status Header */}
                   <div className="mb-2 sm:mb-4 flex flex-wrap items-center justify-between gap-1 text-slate-500 font-medium">
                     <div className="flex items-center gap-1 min-w-0">
                       <span className="inline-block h-2 w-2 rounded-full bg-brand-primary animate-pulse shrink-0" />
@@ -236,7 +187,7 @@ export default function ChooseYourPath({ onSelectPath }: ChooseYourPathProps) {
                     </div>
                   </div>
 
-                  {/* Course Image Visual - consistent aspect ratio */}
+                  {/* Course Image Visual */}
                   <div className="relative aspect-[16/10] sm:aspect-[16/11] w-full shrink-0 overflow-hidden rounded-[14px] sm:rounded-[18px] ring-1 ring-slate-100 bg-slate-50">
                     <Image
                       src={course.image}
@@ -273,7 +224,7 @@ export default function ChooseYourPath({ onSelectPath }: ChooseYourPathProps) {
                   </div>
                 </div>
 
-                {/* Action Buttons: Pinned to bottom of card, identical alignment across adjacent cards */}
+                {/* Action Buttons */}
                 <div className="mt-3 sm:mt-6 pt-1 flex flex-col sm:grid sm:grid-cols-2 gap-1.5 sm:gap-3">
                   <Link
                     href="/contacts"

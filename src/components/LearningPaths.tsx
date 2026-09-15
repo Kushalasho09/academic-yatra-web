@@ -138,7 +138,7 @@ export default function LearningPaths() {
           </div>
 
           {/* Headline with Playfair Display Accent */}
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-brand-navy tracking-tight leading-[1.14]">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-brand-navy tracking-tight leading-snug sm:leading-[1.26] lg:leading-[1.28]">
             Choose Your{" "}
             <span className="text-brand-primary font-accent italic font-normal">
               Learning Path

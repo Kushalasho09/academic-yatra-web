@@ -169,7 +169,7 @@ export default function FeaturesPillars() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-10 sm:mb-12">
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-brand-navy tracking-tight leading-[1.16]">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-brand-navy tracking-tight leading-snug sm:leading-[1.26] lg:leading-[1.28]">
             Built Around Real Student Goals
           </h2>
 

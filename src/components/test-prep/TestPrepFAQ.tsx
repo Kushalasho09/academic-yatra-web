@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, ArrowUpRight, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
+import { Mail, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface FAQItem {
@@ -14,32 +14,32 @@ const FAQ_DATA: FAQItem[] = [
   {
     question: "Which exam should I take for bachelor's admissions abroad?",
     answer:
-      "The SAT is the most widely accepted test for undergraduate admissions at universities in the USA, Canada, and many European countries. Most top US colleges accept SAT scores as part of their holistic admissions review, combined with IELTS Academic or TOEFL for English proficiency.",
+      "The SAT is the most widely accepted test for undergraduate admissions at universities in the USA, Canada, and many European countries. Most top US colleges accept SAT scores as part of their holistic admissions review. Combining a strong SAT score (1450+) with IELTS Academic or TOEFL creates a robust global university application profile.",
   },
   {
     question: "Which exam is required for master's admissions abroad?",
     answer:
-      "For master's degrees abroad, international universities primarily look for IELTS Academic (minimum Band 6.5–7.0) or PTE Academic (65+). If you are applying for STEM or technical programs in the US, GRE is typically required, while business programs may ask for GMAT.",
+      "For master's programs in STEM, Engineering, Economics, and Data Science, the GRE General Test is the primary requirement across top universities in the US, Canada, and Europe. For management master's degrees (such as MiM, MS in Finance, or MSBA), universities usually accept either the GRE or GMAT.",
   },
   {
     question: "Is GMAT required for MBA admissions?",
     answer:
-      "Most top business schools globally accept either GMAT or GRE. However, many reputable institutions in the UK, Germany, and Australia now offer GMAT waivers based on substantial full-time work experience or prior high academic GPA.",
+      "Yes, GMAT (or GRE) is widely required and preferred for top MBA and executive business programs globally (including Harvard, Stanford, Wharton, INSEAD, LBS, and ISB). A competitive score on the new GMAT Focus Edition (685+) significantly strengthens your candidacy and qualifies you for substantial merit-based scholarships.",
   },
   {
     question: "Do programs include mock tests?",
     answer:
-      "Yes! All packages include full-length authentic Cambridge and Pearson-calibrated mock test simulations, sectional practice sets, and detailed rubric-based score evaluations by master trainers.",
+      "Yes! All programs include full-length adaptive mock tests calibrated strictly to official exam formats (Digital SAT Bluebook algorithm, ETS Shorter GRE, and GMAC GMAT Focus Edition). You receive question-by-question explanations, timing analytics, and actionable diagnostic reports.",
   },
   {
     question: "Are live classes available?",
     answer:
-      "Yes! Our Champion and Champion+ Packs offer 100 hours of live interactive lectures with flexible batch timings (Morning, Afternoon, Evening). All live sessions are simultaneously recorded and cataloged in your student portal for revision anytime.",
+      "Yes! Our Champion and Champion+ programs feature live interactive classes conducted by 99th percentile master instructors with flexible batch options (Morning, Evening, Weekend). All live lectures are recorded and cataloged in your student portal for unlimited 24/7 revision.",
   },
 ];
 
-export default function LanguagesFAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0); // First item expanded by default as in screenshot
+export default function TestPrepFAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0); // First item expanded by default
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -56,6 +56,9 @@ export default function LanguagesFAQ() {
           {/* Left Column: Heading & Contact Box */}
           <div className="lg:col-span-5 space-y-5">
             <div className="space-y-2">
+              <div className="inline-block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-brand-primary">
+                FAQ
+              </div>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
                 <span className="block mb-1.5 sm:mb-2.5">Frequently Asked</span>
                 <span className="text-brand-primary block">Questions</span>
@@ -73,13 +76,12 @@ export default function LanguagesFAQ() {
                   Still have questions?
                 </h3>
                 <p className="font-body text-slate-500 text-sm mt-1 leading-relaxed">
-                  Speak directly with our expert counsellors. We&apos;re here to help
-                  you choose the right path.
+                  Speak directly with our senior test prep advisors. We&apos;ll evaluate your academic profile and recommend the ideal target score.
                 </p>
               </div>
 
               <a
-                href="https://wa.me/919286844550?text=Hi,%20I%20have%20questions%20regarding%20Academic%20Yatra%20language%20programs."
+                href="https://web.whatsapp.com/send?phone=+919403892981&text=Hi,%20I%20have%20questions%20regarding%20SAT,%20GRE%20or%20GMAT%20preparation%20at%20Academic%20Yatra."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow-md transition-all hover:gap-3"

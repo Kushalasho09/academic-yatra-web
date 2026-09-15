@@ -3,13 +3,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Check, Send, Sparkles, CheckCircle2 } from "lucide-react";
+import { Check, Send, Sparkles, CheckCircle2, MessageCircle } from "lucide-react";
 
-export default function TrialLessonBanner() {
+export default function TestPrepTrialBanner() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    exam: "Digital SAT",
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -52,39 +53,44 @@ export default function TrialLessonBanner() {
                   />
                 </div>
                 <div className="w-7 h-7 rounded-full bg-slate-800 text-slate-200 border-2 border-brand-navy flex items-center justify-center text-[10px] font-bold">
-                  🇬🇧
+                  🎓
                 </div>
               </div>
               <div className="text-left">
                 <span className="font-heading font-extrabold text-white text-sm">
-                  200+
+                  500+
                 </span>
                 <span className="text-xs text-slate-300 ml-1.5 font-medium">
-                  Happy Students
+                  Global Admissions
                 </span>
               </div>
             </div>
 
-            {/* Massive Heading */}
-            <h2 className="font-heading text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-white leading-snug sm:leading-[1.26] lg:leading-[1.28] tracking-tight">
-              <span className="block mb-1.5 sm:mb-2.5">Start Your</span>
-              <span className="text-brand-primary block drop-shadow-[0_0_25px_rgba(12,146,83,0.35)]">
-                Trial Lesson
-              </span>
-            </h2>
+            {/* Eyebrow and Massive Heading */}
+            <div className="space-y-2">
+              <div className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-emerald-400">
+                Get Started Today
+              </div>
+              <h2 className="font-heading text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-white leading-snug sm:leading-[1.26] lg:leading-[1.28] tracking-tight">
+                <span className="block mb-1.5 sm:mb-2.5">Start Your Preparation</span>
+                <span className="text-brand-primary block drop-shadow-[0_0_25px_rgba(12,146,83,0.35)]">
+                  With Confidence
+                </span>
+              </h2>
+            </div>
 
-            {/* Description */}
+            {/* Description from user prompt */}
             <p className="font-body text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl font-normal">
-              You’ll gain practical language skills, expand your vocabulary, and
-              master grammar through engaging activities and real-world practice.
+              Join students preparing for bachelor&apos;s, master&apos;s, and MBA admissions abroad
+              through structured learning, expert guidance, and exam-focused preparation.
             </p>
 
             {/* Feature Checklist */}
             <div className="space-y-3.5 pt-2">
               {[
-                "Comprehensive Language Skills",
-                "Personalized Learning",
-                "Interactive Tools and Resources",
+                "Diagnostic Assessment & Baseline Score Mapping",
+                "1-on-1 Guidance with 99th Percentile Mentors",
+                "Adaptive Test Engine & Sectional Strategy Drills",
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 shrink-0">
@@ -96,18 +102,30 @@ export default function TrialLessonBanner() {
                 </div>
               ))}
             </div>
+
+            {/* Direct WhatsApp Action Link */}
+            <div className="pt-2">
+              <a
+                href="https://web.whatsapp.com/send?phone=+919403892981&text=Hi,%20I%20would%20like%20to%20connect%20with%20an%20adviser%20for%20SAT/GRE/GMAT%20preparation."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg shadow-emerald-900/40 transition-all hover:scale-105"
+              >
+                <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
+                <span>Chat Instantly on WhatsApp</span>
+              </a>
+            </div>
           </div>
 
-          {/* Right Column: Register for Trial Lesson Form */}
+          {/* Right Column: Register for Trial / Diagnostic Form */}
           <div className="lg:col-span-6 flex justify-center lg:justify-end">
-            <div className="w-full max-w-lg bg-white/[0.08] backdrop-blur-2xl border border-white/20 rounded-3xl p-7 sm:p-9 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] relative overflow-hidden">
+            <div className="w-full max-w-lg bg-white/[0.08] backdrop-blur-2xl border border-white/20 rounded-3xl p-6 sm:p-9 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] relative overflow-hidden">
               <div className="mb-6">
                 <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white">
-                  Register for Trial Lesson
+                  Book Free 5-Day Trial
                 </h3>
                 <p className="text-xs text-slate-300 mt-1 font-body">
-                  Your email address will not be published. Required fields are
-                  marked *
+                  Experience live classes, take a diagnostic mock, and get your target score roadmap.
                 </p>
               </div>
 
@@ -119,12 +137,11 @@ export default function TrialLessonBanner() {
                 >
                   <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
                   <h4 className="font-heading font-extrabold text-lg text-white">
-                    Registration Received!
+                    Booking Received!
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    Thank you {formData.name}! Our senior academic mentor will
-                    contact you at {formData.phone} shortly with your trial class
-                    schedule.
+                    Thank you, {formData.name}! Our senior test prep academic counsellor will
+                    contact you at {formData.phone} shortly with your trial class login credentials.
                   </p>
                 </motion.div>
               ) : (
@@ -136,7 +153,7 @@ export default function TrialLessonBanner() {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Rahul Sharma"
+                      placeholder="e.g. Aryan Sharma"
                       value={formData.name}
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
@@ -145,45 +162,64 @@ export default function TrialLessonBanner() {
                     />
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">
-                      Your Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="e.g. rahul@example.com"
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-hidden focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all"
-                    />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-300 mb-1">
+                        Phone *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="+91 94038 92981"
+                        value={formData.phone}
+                        onChange={(e) =>
+                          setFormData({ ...formData, phone: e.target.value })
+                        }
+                        className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-hidden focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-300 mb-1">
+                        Email (Optional)
+                      </label>
+                      <input
+                        type="email"
+                        placeholder="aryan@example.com"
+                        value={formData.email}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
+                        className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-hidden focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all"
+                      />
+                    </div>
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1">
-                      Your Phone *
+                      Target Exam *
                     </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="+91 98765 43210"
-                      value={formData.phone}
+                    <select
+                      value={formData.exam}
                       onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
+                        setFormData({ ...formData, exam: e.target.value })
                       }
-                      className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-hidden focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all"
-                    />
+                      className="w-full bg-[#091D3C] border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-hidden focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-all"
+                    >
+                      <option value="Digital SAT">Digital SAT (Undergraduate Admissions)</option>
+                      <option value="GRE General">GRE General (Master&apos;s &amp; STEM)</option>
+                      <option value="GMAT Focus">GMAT Focus Edition (MBA Admissions)</option>
+                      <option value="GRE + IELTS Combo">GRE + IELTS Master&apos;s Combo</option>
+                    </select>
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1">
-                      Message (Optional)
+                      Message / Target Score (Optional)
                     </label>
                     <textarea
-                      rows={3}
-                      placeholder="Which exam are you preparing for? (IELTS, PTE, French...)"
+                      rows={2}
+                      placeholder="Tell us about your target university or target score..."
                       value={formData.message}
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })
@@ -196,7 +232,7 @@ export default function TrialLessonBanner() {
                     type="submit"
                     className="w-full mt-2 bg-white hover:bg-emerald-50 text-brand-navy hover:text-brand-primary font-heading font-extrabold text-sm py-4 rounded-full shadow-lg transition-all duration-200 cursor-pointer flex items-center justify-center gap-2"
                   >
-                    <span>Try for Free</span>
+                    <span>Start 5-Day Free Trial</span>
                     <Sparkles className="w-4 h-4 text-brand-primary" />
                   </button>
                 </form>

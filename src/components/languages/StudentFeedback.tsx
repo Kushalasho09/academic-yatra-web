@@ -74,9 +74,9 @@ export default function StudentFeedback() {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">
           <div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-[1.15] tracking-tight">
-              What Students Like <br />
-              <span className="text-brand-primary">About Academic Yatra</span>
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
+              <span className="block mb-1.5 sm:mb-2.5">What Students Like</span>
+              <span className="text-brand-primary block">About Academic Yatra</span>
             </h2>
           </div>
 
