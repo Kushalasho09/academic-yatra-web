@@ -115,7 +115,11 @@ export default function AboutUsStatsStrip() {
   ];
 
   return (
-    <section className="relative w-full bg-gradient-to-r from-[#EBF7F2] via-[#F4FAF6] to-[#EBF7F2] border-y border-emerald-200/60 py-6 sm:py-8 overflow-hidden shadow-xs">
+    <section className="relative w-full bg-gradient-to-r from-[#EBF7F2] via-[#F4FAF6] to-[#EBF7F2] py-6 sm:py-8 overflow-hidden shadow-xs">
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-white to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-0">
           {stats.map((stat, index) => (

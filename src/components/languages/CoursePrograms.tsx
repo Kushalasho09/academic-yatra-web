@@ -505,7 +505,7 @@ export default function CoursePrograms({
   const plans = activeData.plans;
 
   return (
-    <section id="course-programs" className="relative py-10 sm:py-14 bg-gradient-to-b from-white via-[#F6FAF8] to-white z-10 overflow-hidden">
+    <section id="course-programs" className="relative py-8 sm:py-12 bg-gradient-to-b from-white via-[#F6FAF8] to-white z-10 overflow-hidden">
       {/* Seamless top and bottom feather fades */}
       <div className="absolute top-0 left-0 right-0 h-12 sm:h-16 bg-gradient-to-b from-white to-transparent pointer-events-none z-10" />
       <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-16 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
@@ -555,7 +555,7 @@ export default function CoursePrograms({
             plans.length === 1 && "grid-cols-1 max-w-md"
           )}
         >
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="popLayout">
             {plans.map((plan) => {
               const isFeatured = plan.styleType === "featured";
 

@@ -10,7 +10,11 @@ export default function LearningModes() {
   const easeCurve = [0.16, 1, 0.3, 1];
 
   return (
-    <section className="py-12 sm:py-16 bg-white relative overflow-hidden">
+    <section className="py-8 sm:py-12 bg-white relative overflow-hidden">
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-slate-50/50 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-slate-50/50 to-transparent pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* 2 Big Comparative Cards */}
@@ -52,10 +56,10 @@ export default function LearningModes() {
 
             {/* Right Student Photo with Seamless Fade */}
             <div
-              className="absolute right-0 bottom-0 top-0 w-[55%] sm:w-[50%] overflow-hidden pointer-events-none"
+              className="absolute right-0 bottom-0 top-0 w-[54%] sm:w-[50%] overflow-hidden pointer-events-none pr-1 sm:pr-2"
               style={{
-                maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 15%, rgba(0,0,0,1) 35%)",
-                WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 15%, rgba(0,0,0,1) 35%)",
+                maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 12%, rgba(0,0,0,1) 28%)",
+                WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 12%, rgba(0,0,0,1) 28%)",
               }}
             >
               <Image
@@ -63,7 +67,7 @@ export default function LearningModes() {
                 alt="Individual Learning Student"
                 fill
                 priority
-                className="object-cover object-left-top sm:object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="object-cover object-[70%_15%] group-hover:scale-105 transition-transform duration-700 ease-out"
               />
             </div>
           </motion.div>

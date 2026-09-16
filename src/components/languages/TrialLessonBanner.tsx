@@ -21,7 +21,10 @@ export default function TrialLessonBanner() {
   };
 
   return (
-    <section className="relative py-12 sm:py-16 bg-gradient-to-r from-[#051124] via-[#091D3C] to-[#0A264F] text-white overflow-hidden">
+    <section className="relative py-8 sm:py-12 bg-gradient-to-r from-[#051124] via-[#091D3C] to-[#0A264F] text-white overflow-hidden">
+      {/* Seamless Top Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+
       {/* Ambient background glows */}
       <div className="absolute top-0 right-1/4 w-[450px] h-[450px] bg-brand-primary/15 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-brand-accent/20 rounded-full blur-[120px] pointer-events-none" />

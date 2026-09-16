@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { COURSES_DATA, COURSE_CATEGORIES, Course } from "@/lib/courseData";
 import {
   Clock,
-  Sparkles,
   ArrowRight,
   Search,
   Zap,
@@ -99,16 +98,15 @@ export default function CourseCatalog() {
   };
 
   return (
-    <section id="courses" className="py-16 sm:py-24 bg-[#F8FAF8] relative overflow-hidden border-b border-slate-100">
+    <section id="courses" className="py-10 sm:py-14 lg:py-16 bg-[#F8FAF8] relative overflow-hidden">
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto space-y-3.5 mb-12">
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-greenTint text-brand-primary text-xs font-bold uppercase tracking-wider border border-brand-primary/20 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Comprehensive Test Prep & Language Catalog</span>
-          </div>
-
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-dark tracking-tight leading-snug sm:leading-[1.25]">
             Learn Fast, Speak Fluently. Explore Our Courses
           </h2>
@@ -293,44 +291,73 @@ export default function CourseCatalog() {
 
         {/* PAGINATION CONTROLS */}
         {totalPages > 1 && (
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 select-none">
+          <div className="mt-8 flex items-center justify-center gap-1.5 sm:gap-2 select-none">
             {/* Prev Button */}
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-brand-primary/40 disabled:opacity-40 disabled:pointer-events-none transition-all shadow-xs cursor-pointer"
+              aria-label="Previous Page"
+              className="inline-flex items-center gap-1 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-brand-primary/40 disabled:opacity-40 disabled:pointer-events-none transition-all shadow-xs cursor-pointer shrink-0"
             >
               <ChevronLeft className="w-4 h-4" />
-              <span>Previous</span>
+              <span className="hidden sm:inline">Previous</span>
             </button>
 
-            {/* Page Number Buttons */}
-            <div className="flex items-center gap-1.5">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => {
-                const isActive = currentPage === pageNum;
-                return (
-                  <button
-                    key={pageNum}
-                    onClick={() => handlePageChange(pageNum)}
-                    className={`w-9 h-9 rounded-xl text-xs font-bold transition-all shadow-xs cursor-pointer flex items-center justify-center ${
-                      isActive
-                        ? "bg-brand-primary text-white shadow-md shadow-brand-primary/30 scale-105"
-                        : "bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 hover:border-brand-primary/40"
-                    }`}
-                  >
-                    {pageNum}
-                  </button>
-                );
-              })}
+            {/* Responsive Page Numbers */}
+            <div className="flex items-center gap-1 sm:gap-1.5 py-1">
+              {(() => {
+                const pages: (number | "...")[] = [];
+                if (totalPages <= 5) {
+                  for (let i = 1; i <= totalPages; i++) pages.push(i);
+                } else {
+                  pages.push(1);
+                  if (currentPage > 3) pages.push("...");
+                  const start = Math.max(2, currentPage - 1);
+                  const end = Math.min(totalPages - 1, currentPage + 1);
+                  for (let i = start; i <= end; i++) pages.push(i);
+                  if (currentPage < totalPages - 2) pages.push("...");
+                  pages.push(totalPages);
+                }
+
+                return pages.map((item, idx) => {
+                  if (item === "...") {
+                    return (
+                      <span
+                        key={`dots-${idx}`}
+                        className="w-5 sm:w-7 text-center text-xs font-bold text-slate-400 select-none"
+                      >
+                        ...
+                      </span>
+                    );
+                  }
+
+                  const pageNum = item as number;
+                  const isActive = currentPage === pageNum;
+                  return (
+                    <button
+                      key={pageNum}
+                      onClick={() => handlePageChange(pageNum)}
+                      className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl text-xs font-bold transition-all shadow-xs cursor-pointer flex items-center justify-center shrink-0 ${
+                        isActive
+                          ? "bg-brand-primary text-white shadow-md shadow-brand-primary/30 scale-105"
+                          : "bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 hover:border-brand-primary/40"
+                      }`}
+                    >
+                      {pageNum}
+                    </button>
+                  );
+                });
+              })()}
             </div>
 
             {/* Next Button */}
             <button
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-brand-primary/40 disabled:opacity-40 disabled:pointer-events-none transition-all shadow-xs cursor-pointer"
+              aria-label="Next Page"
+              className="inline-flex items-center gap-1 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-brand-primary/40 disabled:opacity-40 disabled:pointer-events-none transition-all shadow-xs cursor-pointer shrink-0"
             >
-              <span>Next</span>
+              <span className="hidden sm:inline">Next</span>
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>

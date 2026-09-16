@@ -68,8 +68,12 @@ export default function AboutCorporateEcosystem() {
   return (
     <section
       id="corporate-ecosystem"
-      className="py-16 sm:py-24 bg-white relative overflow-hidden"
+      className="py-10 sm:py-14 bg-white relative overflow-hidden"
     >
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none" />
+
       {/* Subtle Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-50 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -77,7 +81,7 @@ export default function AboutCorporateEcosystem() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-14">
+        <div className="max-w-3xl mb-8 sm:mb-10">
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-dark tracking-tight leading-[1.18]">
             About <span className="text-brand-primary">Future Yatra Private Limited</span>
           </h2>

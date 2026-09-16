@@ -18,6 +18,8 @@ import {
   Zap,
   ArrowRight,
   Radio,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -160,15 +162,31 @@ export default function FeaturesPillars() {
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
+  const currentIndex = PILLARS_DATA.findIndex((p) => p.id === activeTab);
+  const handlePrev = () => {
+    setIsAutoPlaying(false);
+    const nextIdx = (currentIndex - 1 + PILLARS_DATA.length) % PILLARS_DATA.length;
+    setActiveTab(PILLARS_DATA[nextIdx].id);
+  };
+  const handleNext = () => {
+    setIsAutoPlaying(false);
+    const nextIdx = (currentIndex + 1) % PILLARS_DATA.length;
+    setActiveTab(PILLARS_DATA[nextIdx].id);
+  };
+
   return (
-    <section className="py-20 sm:py-24 lg:py-28 bg-white relative overflow-hidden border-b border-slate-100">
+    <section className="py-10 sm:py-14 lg:py-16 bg-white relative overflow-hidden">
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none" />
+
       {/* Background Subtle Gradient Lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[750px] h-[350px] bg-brand-tint/30 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-3 mb-10 sm:mb-12">
+        <div className="text-center max-w-2xl mx-auto space-y-3 mb-8 sm:mb-10">
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-brand-navy tracking-tight leading-snug sm:leading-[1.26] lg:leading-[1.28]">
             Built Around Real Student Goals
           </h2>
@@ -178,9 +196,10 @@ export default function FeaturesPillars() {
           </p>
         </div>
 
-        {/* Segmented Tab Bar */}
-        <div className="flex justify-center mb-8 sm:mb-10">
-          <div className="inline-flex p-1.5 rounded-2xl bg-white border border-slate-200 shadow-md gap-1 sm:gap-2 max-w-full overflow-x-auto">
+        {/* Responsive Carousel Header */}
+        <div className="flex flex-col items-center justify-center mb-8 sm:mb-10 space-y-3">
+          {/* Desktop Full Segmented Tabs */}
+          <div className="hidden sm:inline-flex p-1.5 rounded-2xl bg-white border border-slate-200 shadow-md gap-1 sm:gap-2">
             {PILLARS_DATA.map((pillar) => {
               const isActive = activeTab === pillar.id;
 
@@ -192,7 +211,7 @@ export default function FeaturesPillars() {
                     setIsAutoPlaying(false);
                   }}
                   className={cn(
-                    "relative px-4 sm:px-6 py-2.5 rounded-xl font-heading text-xs sm:text-sm font-bold transition-all duration-300 flex items-center space-x-2 whitespace-nowrap select-none",
+                    "relative px-4 sm:px-6 py-2.5 rounded-xl font-heading text-xs sm:text-sm font-bold transition-all duration-300 flex items-center space-x-2 whitespace-nowrap select-none cursor-pointer",
                     isActive
                       ? "text-brand-navy shadow-xs"
                       : "text-slate-500 hover:text-slate-800 hover:bg-slate-50"
@@ -219,6 +238,52 @@ export default function FeaturesPillars() {
                 </button>
               );
             })}
+          </div>
+
+          {/* Mobile Sleek Carousel Bar with Left/Right Navigation */}
+          <div className="flex sm:hidden items-center justify-between w-full max-w-sm px-2 py-1.5 rounded-2xl bg-white border border-slate-200 shadow-md">
+            <button
+              onClick={handlePrev}
+              aria-label="Previous Slide"
+              className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-600 hover:bg-slate-100 active:scale-95 transition-all cursor-pointer shrink-0"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center space-x-2 font-heading text-xs font-bold text-brand-navy">
+              <span className="w-5 h-5 rounded-md bg-brand-navy text-white flex items-center justify-center text-[11px] font-black shrink-0">
+                {activePillar.stepNumber}
+              </span>
+              <span className="truncate max-w-[170px]">{activePillar.tabLabel}</span>
+            </div>
+
+            <button
+              onClick={handleNext}
+              aria-label="Next Slide"
+              className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-600 hover:bg-slate-100 active:scale-95 transition-all cursor-pointer shrink-0"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Carousel Step Indicators (Dots) */}
+          <div className="flex items-center space-x-1.5">
+            {PILLARS_DATA.map((pillar, idx) => (
+              <button
+                key={pillar.id}
+                onClick={() => {
+                  setActiveTab(pillar.id);
+                  setIsAutoPlaying(false);
+                }}
+                className={cn(
+                  "h-1.5 rounded-full transition-all duration-300 cursor-pointer",
+                  activeTab === pillar.id
+                    ? "w-6 bg-brand-primary"
+                    : "w-2 bg-slate-200 hover:bg-slate-300"
+                )}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
           </div>
         </div>
 
@@ -249,22 +314,22 @@ export default function FeaturesPillars() {
               </div>
 
               {/* Top Floating Glass HUD */}
-              <div className="relative z-10 p-5 sm:p-6 flex items-center justify-between">
-                <div className="flex items-center space-x-3 px-3.5 py-2 rounded-xl bg-black/60 backdrop-blur-md border border-white/15 text-white shadow-md">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400">
+              <div className="relative z-10 p-3.5 sm:p-6 flex items-center justify-between gap-2.5 max-w-full">
+                <div className="flex items-center space-x-2.5 sm:space-x-3 px-3 py-2 sm:px-3.5 sm:py-2 rounded-xl bg-black/70 backdrop-blur-md border border-white/15 text-white shadow-md min-w-0 flex-1 sm:flex-initial">
+                  <div className="w-7 h-7 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
                     <activePillar.hudTop.icon className="w-3.5 h-3.5" />
                   </div>
-                  <div>
-                    <div className="font-heading text-xs font-bold text-white">
+                  <div className="min-w-0">
+                    <div className="font-heading text-xs font-bold text-white truncate">
                       {activePillar.hudTop.title}
                     </div>
-                    <div className="text-[10px] text-slate-300">
+                    <div className="text-[10px] text-slate-300 truncate">
                       {activePillar.hudTop.subtitle}
                     </div>
                   </div>
                 </div>
 
-                <span className="px-2.5 py-1 rounded-full bg-emerald-500 text-white text-[10px] font-black tracking-wider uppercase shadow-sm">
+                <span className="px-2.5 py-1 rounded-full bg-emerald-500 text-white text-[10px] font-black tracking-wider uppercase shadow-sm whitespace-nowrap shrink-0">
                   {activePillar.hudTop.badge}
                 </span>
               </div>

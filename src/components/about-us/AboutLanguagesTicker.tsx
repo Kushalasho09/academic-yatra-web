@@ -15,7 +15,11 @@ export default function AboutLanguagesTicker() {
   const singleSet = [...languages, ...languages, ...languages];
 
   return (
-    <div className="relative w-full overflow-hidden bg-white py-8 sm:py-12 border-y border-slate-100 select-none">
+    <div className="relative w-full overflow-hidden bg-white py-6 sm:py-8 select-none">
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none z-10" />
+      <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none z-10" />
+
       {/* Soft Gradient Edge Masks for Seamless Fade */}
       <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-r from-white via-white/90 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-l from-white via-white/90 to-transparent z-10 pointer-events-none" />

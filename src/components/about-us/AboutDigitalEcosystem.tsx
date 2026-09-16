@@ -67,7 +67,11 @@ export default function AboutDigitalEcosystem() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white relative overflow-hidden">
+    <section className="py-10 sm:py-14 bg-white relative overflow-hidden">
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none" />
+
       {/* Decorative Gradients */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-emerald-50 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -75,7 +79,7 @@ export default function AboutDigitalEcosystem() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-dark tracking-tight">
             Digital Learning Ecosystem{" "}
             <span className="text-brand-primary">(Included with All Programs)</span>

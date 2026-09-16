@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 interface StatItemProps {
   target: number;
   label: string;
-  isFirst?: boolean;
+  index: number;
 }
 
-function StatCounterItem({ target, label, isFirst }: StatItemProps) {
+function StatCounterItem({ target, label, index }: StatItemProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-40px" });
   const [count, setCount] = useState<number>(0);
@@ -45,13 +45,14 @@ function StatCounterItem({ target, label, isFirst }: StatItemProps) {
     <div
       ref={containerRef}
       className={cn(
-        "relative flex flex-col justify-center px-4 sm:px-6 lg:px-8 py-6 sm:py-8",
-        !isFirst && "lg:border-l lg:border-brand-primary"
+        "relative flex flex-col justify-center px-3 sm:px-6 lg:px-8 py-4 sm:py-8",
+        index % 2 !== 0 && "border-l border-emerald-200/50 lg:border-l-0",
+        index !== 0 && "lg:border-l lg:border-emerald-200/50"
       )}
     >
       {/* Hollow Gradient Outlined Number with percentage */}
       <div
-        className="font-heading text-5xl sm:text-6xl lg:text-[76px] font-black tracking-tight select-none leading-none mb-3"
+        className="font-heading text-4xl sm:text-6xl lg:text-[76px] font-black tracking-tight select-none leading-none mb-1.5 sm:mb-3"
         style={{
           WebkitTextStroke: "2.2px #0C9253",
           WebkitTextFillColor: "transparent",
@@ -65,7 +66,7 @@ function StatCounterItem({ target, label, isFirst }: StatItemProps) {
       </div>
 
       {/* Metric Label */}
-      <div className="font-heading font-extrabold text-sm sm:text-base lg:text-[17px] text-brand-navy tracking-tight leading-snug">
+      <div className="font-heading font-extrabold text-xs sm:text-base lg:text-[17px] text-brand-navy tracking-tight leading-snug">
         {label}
       </div>
     </div>
@@ -81,15 +82,19 @@ const STATS_DATA = [
 
 export default function StatsSection() {
   return (
-    <section className="py-10 sm:py-14 bg-white relative z-20 border-b border-slate-100">
+    <section className="py-8 sm:py-12 bg-white relative z-20">
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-4 lg:gap-0 items-center">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-5 gap-x-2 sm:gap-6 lg:gap-0 items-center">
           {STATS_DATA.map((stat, idx) => (
             <StatCounterItem
               key={stat.label}
               target={stat.target}
               label={stat.label}
-              isFirst={idx === 0}
+              index={idx}
             />
           ))}
         </div>

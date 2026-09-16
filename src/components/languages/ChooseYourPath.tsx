@@ -179,7 +179,11 @@ export default function ChooseYourPath({ onSelectPath }: ChooseYourPathProps) {
   };
 
   return (
-    <section className="py-10 sm:py-14 bg-white relative z-10">
+    <section className="py-8 sm:py-12 bg-white relative z-10 overflow-hidden">
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">

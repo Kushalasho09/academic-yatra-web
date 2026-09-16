@@ -32,7 +32,10 @@ export default function AboutContactSection() {
   };
 
   return (
-    <section id="contact-section" className="py-16 sm:py-24 bg-white relative overflow-hidden">
+    <section id="contact-section" className="py-10 sm:py-14 bg-white relative overflow-hidden">
+      {/* Seamless Top Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">

@@ -38,7 +38,7 @@ export default function TestPrepPlatformPreview() {
   ];
 
   return (
-    <section className="relative py-10 sm:py-14 bg-gradient-to-b from-white via-[#EBF7F2]/50 to-white overflow-hidden">
+    <section className="relative py-8 sm:py-12 bg-gradient-to-b from-white via-[#EBF7F2]/50 to-white overflow-hidden">
       {/* Seamless top and bottom feather fades */}
       <div className="absolute top-0 left-0 right-0 h-12 sm:h-16 bg-gradient-to-b from-white to-transparent pointer-events-none z-10" />
       <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-16 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />

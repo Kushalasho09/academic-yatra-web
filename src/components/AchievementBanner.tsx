@@ -50,7 +50,11 @@ export default function AchievementBanner() {
   const easeCurve = [0.16, 1, 0.3, 1];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#0A192F] via-[#122447] to-[#0A192F] text-white relative overflow-hidden border-y border-slate-800/80">
+    <section className="py-10 sm:py-14 lg:py-16 bg-gradient-to-br from-[#0A192F] via-[#122447] to-[#0A192F] text-white relative overflow-hidden">
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white/15 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white/15 to-transparent pointer-events-none" />
+
       {/* Dynamic Ambient Background Flares */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-brand-primary/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-brand-accent/20 rounded-full blur-3xl pointer-events-none" />

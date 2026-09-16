@@ -35,7 +35,11 @@ export default function AboutLegalDisclosure() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-[#F4FAF6] border-y border-emerald-200/60 relative overflow-hidden">
+    <section className="py-8 sm:py-12 bg-[#F4FAF6] relative overflow-hidden">
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-white to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Card Container */}

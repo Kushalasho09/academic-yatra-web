@@ -111,17 +111,17 @@ export default function HeroSection() {
             </p>
 
             {/* Primary Action Button Group */}
-            <div className="pt-2 flex flex-wrap gap-4 items-center">
+            <div className="pt-2 flex flex-row items-center gap-2.5 sm:gap-4 w-full sm:w-auto">
               <Link
                 href="/contacts"
-                className="inline-flex items-center justify-center gap-2.5 bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg shadow-brand-primary/25 hover:shadow-xl hover:shadow-brand-primary/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
+                className="flex-1 sm:flex-initial sm:w-[224px] h-12 sm:h-14 inline-flex items-center justify-center gap-2 bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-xs sm:text-base px-2 sm:px-6 rounded-xl shadow-lg shadow-brand-primary/25 hover:shadow-xl hover:shadow-brand-primary/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer whitespace-nowrap"
               >
                 <span>Get Free Consultation</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
               </Link>
               <Link
                 href="/counselling-platform"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-brand-accent hover:text-brand-accentDark font-semibold text-base px-6 py-4 rounded-xl border border-line shadow-sm hover:shadow-md hover:border-brand-accent/40 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+                className="flex-1 sm:flex-initial sm:w-[224px] h-12 sm:h-14 inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-brand-accent hover:text-brand-accentDark font-semibold text-xs sm:text-base px-2 sm:px-6 rounded-xl border border-line shadow-sm hover:shadow-md hover:border-brand-accent/40 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer whitespace-nowrap"
               >
                 <span>Explore Programs</span>
               </Link>
@@ -299,7 +299,7 @@ export default function HeroSection() {
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
           transition={{
-            duration: 28,
+            duration: 16,
             repeat: Infinity,
             ease: "linear",
           }}

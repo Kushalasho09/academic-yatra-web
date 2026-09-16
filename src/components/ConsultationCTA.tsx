@@ -11,7 +11,10 @@ export default function ConsultationCTA() {
     "http://wa.me/919286844550?text=Hi,%20I%20would%20like%20to%20speak%20with%20an%20academic%20counselor%20regarding%20test%20preparation%20and%20study%20abroad%20programs.";
 
   return (
-    <section className="py-20 sm:py-24 bg-[#0A1120] text-white relative overflow-hidden">
+    <section className="py-12 sm:py-16 bg-[#0A1120] text-white relative overflow-hidden">
+      {/* Seamless Top Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+
       {/* Background Soft Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-primary/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -48,14 +51,14 @@ export default function ConsultationCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2, ease: easeCurve }}
-          className="flex flex-wrap items-center justify-center gap-4 pt-6"
+          className="flex flex-row items-center justify-center gap-2.5 sm:gap-4 pt-6 w-full max-w-lg mx-auto"
         >
           {/* Button 1: Book 5 Day Demo */}
           <Link
             href="/contacts"
-            className="inline-flex items-center space-x-2.5 px-7 py-3.5 rounded-xl bg-[#1B273D] hover:bg-[#253552] text-white font-heading font-extrabold text-xs sm:text-sm border border-slate-700/80 transition-all shadow-md hover:scale-[1.02] active:scale-[0.98]"
+            className="flex-1 sm:flex-initial sm:w-[224px] h-12 sm:h-14 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 rounded-xl bg-[#1B273D] hover:bg-[#253552] text-white font-heading font-extrabold text-xs sm:text-sm border border-slate-700/80 transition-all shadow-md hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap cursor-pointer text-center"
           >
-            <ArrowRight className="w-4 h-4 text-slate-300" />
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300 shrink-0" />
             <span>Book 5 Day Demo</span>
           </Link>
 
@@ -64,9 +67,9 @@ export default function ConsultationCTA() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2.5 px-7 py-3.5 rounded-xl bg-[#1B273D] hover:bg-[#253552] text-white font-heading font-extrabold text-xs sm:text-sm border border-slate-700/80 transition-all shadow-md hover:scale-[1.02] active:scale-[0.98]"
+            className="flex-1 sm:flex-initial sm:w-[224px] h-12 sm:h-14 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 rounded-xl bg-[#1B273D] hover:bg-[#253552] text-white font-heading font-extrabold text-xs sm:text-sm border border-slate-700/80 transition-all shadow-md hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap cursor-pointer text-center"
           >
-            <ArrowRight className="w-4 h-4 text-slate-300" />
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300 shrink-0" />
             <span>Book Free Consultation</span>
           </a>
         </motion.div>

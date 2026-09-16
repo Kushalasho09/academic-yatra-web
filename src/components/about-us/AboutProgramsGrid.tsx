@@ -114,11 +114,15 @@ export default function AboutProgramsGrid() {
   const currentProgram = programs.find((p) => p.id === activeTab) || programs[0];
 
   return (
-    <section className="py-16 sm:py-24 bg-[#F8FAF9] relative overflow-hidden">
+    <section className="py-10 sm:py-14 bg-[#F8FAF9] relative overflow-hidden">
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-dark tracking-tight">
             Our Training & <span className="text-brand-primary">Preparation Programs</span>
           </h2>

@@ -315,7 +315,11 @@ export default function TestPrepCoursePrograms({
     TEST_PREP_EXAM_PROGRAMS[selectedExam] || TEST_PREP_EXAM_PROGRAMS["SAT"];
 
   return (
-    <section id="course-programs" className="py-12 sm:py-16 bg-slate-50 relative z-10 scroll-mt-20">
+    <section id="course-programs" className="py-8 sm:py-12 bg-slate-50 relative z-10 scroll-mt-20 overflow-hidden">
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">

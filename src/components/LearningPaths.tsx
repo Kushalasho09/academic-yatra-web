@@ -116,7 +116,11 @@ export default function LearningPaths() {
   const easeCurve = [0.16, 1, 0.3, 1];
 
   return (
-    <section className="py-14 sm:py-18 lg:py-20 bg-white relative overflow-hidden border-b border-slate-100">
+    <section className="py-10 sm:py-14 bg-white relative overflow-hidden">
+      {/* Seamless Top & Bottom Ambient Fade */}
+      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none" />
+
       {/* Background Decorative Soft Tints */}
       <div className="absolute top-1/4 -left-20 w-[550px] h-[550px] bg-gradient-to-br from-brand-tint/50 via-blue-50/30 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 -right-20 w-[550px] h-[550px] bg-gradient-to-tl from-brand-greenTint/50 via-emerald-50/30 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
@@ -129,7 +133,7 @@ export default function LearningPaths() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: easeCurve }}
-          className="space-y-3.5 text-left max-w-3xl mb-14 sm:mb-18"
+          className="space-y-3.5 text-left max-w-3xl mb-8 sm:mb-12"
         >
           {/* Green Bullet Tag */}
           <div className="flex items-center space-x-2 text-brand-primary text-xs sm:text-sm font-extrabold uppercase tracking-wider">
