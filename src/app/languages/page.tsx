@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import LanguagesHero from "@/components/languages/LanguagesHero";
 import LanguagesStatsStrip from "@/components/languages/LanguagesStatsStrip";
-import LanguagesOverview from "@/components/languages/LanguagesOverview";
 import ChooseYourPath from "@/components/languages/ChooseYourPath";
 import PlatformPreview from "@/components/languages/PlatformPreview";
 import LearningExperience from "@/components/languages/LearningExperience";
@@ -27,10 +26,7 @@ export default function LanguagesProgramsPage() {
       {/* 2. 4-Stat Metric Strip */}
       <LanguagesStatsStrip />
 
-      {/* 3. Everything You Need to Prepare Overview */}
-      <LanguagesOverview />
-
-      {/* 4. Choose Your Path (10 Pathways) */}
+      {/* 3. Choose Your Path (10 Pathways) */}
       <ChooseYourPath onSelectPath={handleSelectPath} />
 
       {/* 5. Complete Platform Preview (macOS Mockup with Interactive Tabs) */}

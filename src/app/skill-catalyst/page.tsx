@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import SkillCatalystHero from "@/components/skill-catalyst/SkillCatalystHero";
 import SkillCatalystStatsStrip from "@/components/skill-catalyst/SkillCatalystStatsStrip";
-import SkillCatalystOverview from "@/components/skill-catalyst/SkillCatalystOverview";
 import SkillCatalystChooseYourPath from "@/components/skill-catalyst/SkillCatalystChooseYourPath";
 import SkillCatalystPlatformPreview from "@/components/skill-catalyst/SkillCatalystPlatformPreview";
 import SkillCatalystLearningExperience from "@/components/skill-catalyst/SkillCatalystLearningExperience";
@@ -27,10 +26,7 @@ export default function SkillCatalystPage() {
       {/* 2. 4-Stat Metric Strip (100% Online Dashboard, 100% Tracking, 99% Accuracy, 100% Attendance) */}
       <SkillCatalystStatsStrip />
 
-      {/* 3. Learn Skills That Matter in the Modern Workplace Overview */}
-      <SkillCatalystOverview />
-
-      {/* 4. Choose Your Path (Career Essentials, BizzTech, Google Suite Hub, Combo with glowing shelves) */}
+      {/* 3. Choose Your Path (Career Essentials, BizzTech, Google Suite Hub, Combo) */}
       <SkillCatalystChooseYourPath onSelectPath={handleSelectPath} />
 
       {/* 5. Complete Platform Preview (macOS Window Mockup with Student Dashboard Image) */}

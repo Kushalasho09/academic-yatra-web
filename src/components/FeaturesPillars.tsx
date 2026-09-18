@@ -299,7 +299,7 @@ export default function FeaturesPillars() {
           >
             
             {/* HERO IMAGE CONTAINER (Left 7 Cols) */}
-            <div className="lg:col-span-7 relative rounded-[28px] overflow-hidden bg-slate-900 border border-slate-200/80 shadow-lg min-h-[380px] sm:min-h-[440px] flex flex-col justify-between group">
+            <div className="lg:col-span-7 relative rounded-[28px] overflow-hidden bg-slate-900 border border-slate-200/80 shadow-lg min-h-[380px] sm:min-h-[440px] flex flex-col justify-end group">
               
               {/* Image */}
               <div className="absolute inset-0 z-0 overflow-hidden">
@@ -310,42 +310,15 @@ export default function FeaturesPillars() {
                   priority
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
               </div>
 
-              {/* Top Floating Glass HUD */}
-              <div className="relative z-10 p-3.5 sm:p-6 flex items-center justify-between gap-2.5 max-w-full">
-                <div className="flex items-center space-x-2.5 sm:space-x-3 px-3 py-2 sm:px-3.5 sm:py-2 rounded-xl bg-black/70 backdrop-blur-md border border-white/15 text-white shadow-md min-w-0 flex-1 sm:flex-initial">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
-                    <activePillar.hudTop.icon className="w-3.5 h-3.5" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="font-heading text-xs font-bold text-white truncate">
-                      {activePillar.hudTop.title}
-                    </div>
-                    <div className="text-[10px] text-slate-300 truncate">
-                      {activePillar.hudTop.subtitle}
-                    </div>
-                  </div>
-                </div>
-
-                <span className="px-2.5 py-1 rounded-full bg-emerald-500 text-white text-[10px] font-black tracking-wider uppercase shadow-sm whitespace-nowrap shrink-0">
-                  {activePillar.hudTop.badge}
-                </span>
-              </div>
-
-              {/* Bottom Info on Image */}
-              <div className="relative z-10 p-5 sm:p-6 space-y-2">
-                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-lg bg-white/15 backdrop-blur-md border border-white/20 text-white text-xs">
-                  <activePillar.hudBottom.icon className="w-3.5 h-3.5 text-emerald-300" />
-                  <span className="font-bold">{activePillar.hudBottom.value}</span>
-                  <span className="text-slate-300">• {activePillar.hudBottom.subtitle}</span>
-                </div>
-
-                <h3 className="font-heading text-2xl font-extrabold text-white">
+              {/* Bottom Info on Image: Clean normal text without overlay badges */}
+              <div className="relative z-10 p-5 sm:p-7 lg:p-8 space-y-2">
+                <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white leading-tight">
                   {activePillar.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-200 max-w-lg">
+                <p className="text-xs sm:text-sm text-slate-200 max-w-lg leading-relaxed font-normal">
                   {activePillar.description}
                 </p>
               </div>
@@ -389,21 +362,21 @@ export default function FeaturesPillars() {
                           key={item.id}
                           onClick={() => setSelectedCohort(item.id)}
                           className={cn(
-                            "p-2.5 rounded-xl border text-center transition-all text-xs font-bold",
+                            "p-2.5 sm:p-3 rounded-xl border-2 text-center transition-all text-xs font-bold cursor-pointer select-none",
                             selectedCohort === item.id
-                              ? "bg-brand-navy text-white border-brand-navy shadow-sm"
-                              : "bg-slate-50 hover:bg-slate-100 border-slate-200 text-slate-700"
+                              ? "bg-brand-navy text-white border-emerald-400 shadow-md scale-[1.02] ring-2 ring-emerald-400/40"
+                              : "bg-emerald-50/30 hover:bg-emerald-50/80 border-emerald-400/70 hover:border-emerald-600 text-slate-800 shadow-xs"
                           )}
                         >
-                          <div>{item.label}</div>
-                          <div className={cn("text-[10px]", selectedCohort === item.id ? "text-emerald-300" : "text-slate-500")}>
+                          <div className="font-heading font-extrabold text-xs sm:text-sm">{item.label}</div>
+                          <div className={cn("text-[10px] font-semibold mt-0.5", selectedCohort === item.id ? "text-emerald-300" : "text-emerald-700")}>
                             {item.time}
                           </div>
                         </button>
                       ))}
                     </div>
 
-                    <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-between text-xs text-emerald-900 font-bold">
+                    <div className="p-3 rounded-xl bg-emerald-50/80 border-2 border-emerald-300/80 flex items-center justify-between text-xs text-emerald-950 font-bold shadow-xs">
                       <div className="flex items-center space-x-2">
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                         <span>Live cohorts with recorded backups</span>
@@ -420,16 +393,16 @@ export default function FeaturesPillars() {
                   <div className="space-y-3">
                     <div className="flex items-center justify-between text-xs font-semibold text-slate-600">
                       <span>Exam Target:</span>
-                      <div className="flex space-x-1 bg-slate-100 p-0.5 rounded-md">
+                      <div className="flex space-x-1.5 p-0.5 rounded-xl">
                         {["IELTS", "SAT", "GRE"].map((m) => (
                           <button
                             key={m}
                             onClick={() => setActiveExamMode(m)}
                             className={cn(
-                              "px-2 py-0.5 rounded text-[10px] font-bold transition-all",
+                              "px-3 py-1.5 rounded-xl border-2 text-xs font-extrabold transition-all cursor-pointer",
                               activeExamMode === m
-                                ? "bg-white text-brand-navy shadow-2xs"
-                                : "text-slate-500 hover:text-slate-800"
+                                ? "bg-brand-navy text-white border-emerald-400 shadow-md ring-2 ring-emerald-400/40"
+                                : "bg-emerald-50/30 hover:bg-emerald-50/80 border-emerald-400/70 hover:border-emerald-600 text-slate-800 shadow-xs"
                             )}
                           >
                             {m}
@@ -439,7 +412,7 @@ export default function FeaturesPillars() {
                     </div>
 
                     {/* Progress Bar Chart */}
-                    <div className="p-3 rounded-xl bg-blue-50/70 border border-blue-200/80 space-y-2">
+                    <div className="p-3 rounded-xl bg-blue-50/80 border-2 border-blue-200 flex flex-col space-y-2 shadow-xs">
                       <div className="flex items-center justify-between text-xs">
                         <span className="text-slate-600 font-medium">Performance Track:</span>
                         <span className="font-bold text-brand-accent">
@@ -474,21 +447,21 @@ export default function FeaturesPillars() {
                           key={slot.id}
                           onClick={() => setSelectedSlot(slot.id)}
                           className={cn(
-                            "p-2.5 rounded-xl border text-center transition-all text-xs font-bold",
+                            "p-2.5 sm:p-3 rounded-xl border-2 text-center transition-all text-xs font-bold cursor-pointer select-none",
                             selectedSlot === slot.id
-                              ? "bg-brand-navy text-white border-brand-navy shadow-sm"
-                              : "bg-slate-50 hover:bg-slate-100 border-slate-200 text-slate-700"
+                              ? "bg-brand-navy text-white border-emerald-400 shadow-md scale-[1.02] ring-2 ring-emerald-400/40"
+                              : "bg-emerald-50/30 hover:bg-emerald-50/80 border-emerald-400/70 hover:border-emerald-600 text-slate-800 shadow-xs"
                           )}
                         >
-                          <div>{slot.day}</div>
-                          <div className={cn("text-[10px]", selectedSlot === slot.id ? "text-amber-300" : "text-slate-500")}>
+                          <div className="font-heading font-extrabold text-xs sm:text-sm">{slot.day}</div>
+                          <div className={cn("text-[10px] font-semibold mt-0.5", selectedSlot === slot.id ? "text-amber-300" : "text-emerald-700")}>
                             {slot.time}
                           </div>
                         </button>
                       ))}
                     </div>
 
-                    <div className="p-3 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-between text-xs text-amber-950 font-bold">
+                    <div className="p-3 rounded-xl bg-amber-50/90 border-2 border-amber-300/80 flex items-center justify-between text-xs text-amber-950 font-bold shadow-xs">
                       <div className="flex items-center space-x-2">
                         <Users className="w-4 h-4 text-amber-600 shrink-0" />
                         <span>Study Abroad Mentor Session</span>

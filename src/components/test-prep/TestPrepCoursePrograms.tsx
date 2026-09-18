@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Check, X, ArrowRight, Sparkles } from "lucide-react";
+import { Check, HelpCircle, Users, Rocket, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface ProgramFeature {
@@ -360,6 +360,8 @@ export default function TestPrepCoursePrograms({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {currentExamData.plans.map((plan, idx) => {
             const isFeatured = plan.styleType === "featured";
+            const PlanIcon = idx === 0 ? Users : idx === 1 ? Rocket : Sparkles;
+
             return (
               <motion.div
                 key={plan.id}
@@ -367,111 +369,111 @@ export default function TestPrepCoursePrograms({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: idx * 0.08 }}
                 className={cn(
-                  "relative rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300",
+                  "relative rounded-[28px] bg-white p-7 sm:p-9 flex flex-col justify-between transition-all duration-300",
                   isFeatured
-                    ? "bg-white border-2 border-brand-primary shadow-2xl shadow-brand-primary/15 md:-translate-y-2 ring-4 ring-brand-primary/10"
-                    : "bg-white/90 border border-slate-200/90 shadow-md hover:shadow-xl hover:border-slate-300"
+                    ? "border-2 border-[#00B074] shadow-xl shadow-emerald-500/10 md:-translate-y-2 hover:-translate-y-3"
+                    : "border border-slate-200/90 shadow-sm hover:shadow-lg hover:border-slate-300 hover:-translate-y-1.5"
                 )}
               >
-                {/* Popular Pill */}
-                {plan.badge && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span
-                      className={cn(
-                        "px-4 py-1 rounded-full text-[11px] font-extrabold tracking-wide uppercase shadow-sm flex items-center gap-1.5 whitespace-nowrap",
-                        isFeatured
-                          ? "bg-brand-primary text-white"
-                          : "bg-slate-800 text-white"
-                      )}
-                    >
-                      <Sparkles className="w-3 h-3 text-amber-300" />
-                      <span>{plan.badge}</span>
+                {/* Top-Right POPULAR Badge for Featured Card */}
+                {isFeatured && (
+                  <div className="absolute top-5 right-5 rotate-12">
+                    <span className="px-3.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#00B074] text-white shadow-xs">
+                      POPULAR
                     </span>
                   </div>
                 )}
 
                 <div>
-                  {/* Plan Name */}
-                  <div className="pt-2">
-                    <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-brand-navy">
+                  {/* Top Icon */}
+                  <div className="w-9 h-9 rounded-full bg-[#00B074] flex items-center justify-center text-white mb-6 shadow-xs">
+                    <PlanIcon className="w-4 h-4 fill-white stroke-[2.2]" />
+                  </div>
+
+                  {/* Plan Header */}
+                  <div className="mb-6 text-left">
+                    <h3 className="font-heading font-bold text-xl sm:text-2xl text-slate-900 tracking-tight">
                       {plan.name}
                     </h3>
-                    <p className="text-xs text-slate-500 mt-1 min-h-[36px] leading-relaxed">
-                      {plan.description}
-                    </p>
-                  </div>
-
-                  {/* Price Block */}
-                  <div className="my-6 pb-6 border-b border-slate-100">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-sm font-bold text-slate-400">₹</span>
-                      <span className="font-heading text-4xl sm:text-5xl font-black text-brand-navy tracking-tight">
-                        {plan.price}
-                      </span>
-                      <span className="text-xs text-slate-500 font-semibold">{plan.period}</span>
-                    </div>
-                    <div className="mt-2 flex items-center justify-between text-xs font-semibold text-slate-500">
-                      <span>{plan.totalText}</span>
-                      <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
-                        {plan.validityText}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Features List */}
-                  <div className="space-y-3 pb-6">
-                    <p className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400">
-                      What&apos;s Included
-                    </p>
-                    {plan.features.map((feature, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm">
-                        {feature.included ? (
-                          <div className="w-4 h-4 rounded-full bg-emerald-100 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
-                            <Check className="w-2.5 h-2.5 stroke-[3]" />
-                          </div>
-                        ) : (
-                          <div className="w-4 h-4 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 mt-0.5">
-                            <X className="w-2.5 h-2.5 stroke-[2]" />
-                          </div>
-                        )}
-                        <span
-                          className={cn(
-                            "leading-snug",
-                            feature.included ? "text-slate-700 font-medium" : "text-slate-400 line-through"
-                          )}
-                        >
-                          {feature.text}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Bottom CTA Buttons */}
-                <div className="pt-4 space-y-2 border-t border-slate-100">
-                  <a
-                    href={`https://web.whatsapp.com/send?phone=+919403892981&text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
-                      currentExamData.examName
-                    )}%20-${encodeURIComponent(plan.name)}.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cn(
-                      "w-full py-3.5 px-4 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-sm",
-                      isFeatured
-                        ? "bg-brand-primary hover:bg-brand-primaryHover text-white shadow-brand-primary/25 hover:shadow-lg"
-                        : "bg-brand-navy hover:bg-slate-800 text-white"
+                    {plan.description && (
+                      <p className="text-sm text-slate-500 mt-1 min-h-[38px] leading-relaxed font-normal">
+                        {plan.description}
+                      </p>
                     )}
-                  >
-                    <span>Enroll Now</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </div>
 
-                  <Link
-                    href="/contacts"
-                    className="w-full py-2.5 px-4 rounded-xl font-bold text-xs text-slate-600 hover:text-brand-navy hover:bg-slate-100 flex items-center justify-center transition-colors"
-                  >
-                    <span>Book 5-Day Free Trial</span>
-                  </Link>
+                  {/* Clean Centered Price Block (No border lines, matching reference screenshot) */}
+                  <div className="text-center py-5 my-2">
+                    <div className="font-heading font-bold text-5xl sm:text-[52px] text-slate-900 tracking-tight leading-none">
+                      ₹{plan.price}
+                    </div>
+                    <div className="text-xs sm:text-sm text-slate-400 font-normal mt-2">
+                      {plan.period}
+                    </div>
+                    {plan.totalText && (
+                      <div className="text-[11px] font-medium text-slate-400 mt-1">
+                        {plan.totalText} • {plan.validityText}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Action CTA Button (Directly under the price, exact color variants from reference screenshot) */}
+                  <div className="my-5 space-y-2">
+                    <a
+                      href={`https://web.whatsapp.com/send?phone=+919403892981&text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
+                        currentExamData.examName
+                      )}%20-${encodeURIComponent(plan.name)}.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cn(
+                        "w-full py-3.5 px-4 rounded-xl text-sm font-semibold flex items-center justify-center transition-all duration-200 cursor-pointer",
+                        isFeatured
+                          ? "bg-[#00B074] hover:bg-[#009b66] text-white font-bold shadow-sm shadow-emerald-600/20 hover:scale-[1.01]"
+                          : idx === 2
+                          ? "bg-[#E6F7F0] hover:bg-[#d8f4e9] text-[#00A86B] font-bold hover:scale-[1.01]"
+                          : "bg-[#F1F2F4] hover:bg-slate-200 text-slate-500 hover:text-slate-700 hover:scale-[1.01]"
+                      )}
+                    >
+                      <span>
+                        {isFeatured
+                          ? `Get ${plan.name}`
+                          : idx === 2
+                          ? `Get ${plan.name}`
+                          : `Current plan`}
+                      </span>
+                    </a>
+
+                    <Link
+                      href="/contacts"
+                      className="w-full py-1.5 px-4 rounded-xl font-medium text-xs text-slate-400 hover:text-slate-700 text-center flex items-center justify-center transition-colors"
+                    >
+                      <span>Book 5-Day Free Trial</span>
+                    </Link>
+                  </div>
+
+                  {/* Features Checklist Header */}
+                  <div className="pt-3 text-left">
+                    <p className="font-bold text-sm text-slate-900 mb-4">
+                      Free features
+                    </p>
+
+                    {/* Features List */}
+                    <div className="space-y-3.5">
+                      {plan.features.map((feature, fIdx) => (
+                        <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-[13px]">
+                          <div className="w-4 h-4 rounded-full bg-[#00B074] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                            <Check className="w-2.5 h-2.5 stroke-[3.2]" />
+                          </div>
+                          <span className="leading-snug text-slate-700 font-normal flex-1">
+                            {feature.text}
+                          </span>
+                          {fIdx % 2 === 0 && (
+                            <HelpCircle className="w-3.5 h-3.5 text-slate-300 shrink-0 mt-0.5" />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             );

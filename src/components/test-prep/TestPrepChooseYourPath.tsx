@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Clock, Star, Plus, ArrowRight, Zap } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export interface PathwayCourse {
   id: string;
@@ -147,108 +147,88 @@ export default function TestPrepChooseYourPath({ onSelectPath }: ChooseYourPathP
           </p>
         </div>
 
-        {/* Layered Glow Cards Grid (2 cards per row on mobile, 3 on desktop) */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 sm:gap-x-6 lg:gap-x-8 gap-y-12 sm:gap-y-16 pb-8 items-stretch">
-          {TEST_PREP_PATHWAYS.map((course, idx) => (
-            <motion.div
-              key={course.id}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: (idx % 3) * 0.08 }}
-              className="relative w-full h-full flex flex-col group"
-            >
-              {/* Glowing Underlay Shelf */}
-              <div className="pointer-events-none absolute inset-x-1.5 sm:inset-x-3 -bottom-6 sm:-bottom-7 h-9 sm:h-11 rounded-b-[18px] sm:rounded-b-[24px] bg-brand-primary shadow-[0_16px_35px_-8px_rgba(12,146,83,0.55)] sm:shadow-[0_22px_50px_-10px_rgba(12,146,83,0.65)] z-0 transition-transform duration-300 group-hover:scale-[1.02]" />
+        {/* Course Cards Grid matching Image 1 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-8 items-stretch">
+          {TEST_PREP_PATHWAYS.map((course, idx) => {
+            const level =
+              idx % 3 === 0
+                ? "Intermediate"
+                : idx % 3 === 1
+                ? "Advanced"
+                : "Beginner";
+            const rating = idx % 3 === 0 ? "4.8" : idx % 3 === 1 ? "4.9" : "4.7";
+            const reviews =
+              idx % 3 === 0
+                ? "356 reviews"
+                : idx % 3 === 1
+                ? "576 reviews"
+                : "210 reviews";
 
-              {/* Glowing Bottom Shelf Text Indicator */}
-              <div className="absolute inset-x-0 -bottom-6 sm:-bottom-7 h-6 sm:h-7 flex items-center justify-center z-0 pointer-events-none px-1 sm:px-4">
-                <div className="flex items-center justify-center gap-1 text-center text-white tracking-tight">
-                  <Zap className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 text-amber-300 fill-amber-300 shrink-0" />
-                  <span className="text-[8.5px] sm:hidden font-extrabold leading-none">
-                    {course.shortGlowText || course.glowText}
-                  </span>
-                  <span className="hidden sm:inline text-xs font-bold">
-                    {course.glowText}
-                  </span>
-                </div>
-              </div>
-
-              {/* Main Card Surface */}
-              <div className="relative z-10 w-full h-full overflow-hidden rounded-[18px] sm:rounded-[22px] bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-xl shadow-slate-200/50 p-3 sm:p-6 lg:p-7 flex flex-col justify-between transition-all duration-300 group-hover:-translate-y-1.5 group-hover:border-brand-primary/40">
-                <div className="flex-1 flex flex-col">
-                  {/* Top Status Header */}
-                  <div className="mb-2 sm:mb-4 flex flex-wrap items-center justify-between gap-1 text-slate-500 font-medium">
-                    <div className="flex items-center gap-1 min-w-0">
-                      <span className="inline-block h-2 w-2 rounded-full bg-brand-primary animate-pulse shrink-0" />
-                      <span className="font-bold text-slate-800 text-[10px] sm:text-xs leading-none whitespace-nowrap">
-                        {course.category}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1 bg-slate-100/90 px-1.5 sm:px-2.5 py-0.5 rounded-full text-slate-600 font-semibold text-[9px] sm:text-[11px] shrink-0">
-                      <Clock className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 text-brand-accent shrink-0" />
-                      <span>{course.duration}</span>
-                    </div>
-                  </div>
-
-                  {/* Course Image Visual */}
-                  <div className="relative aspect-[16/10] sm:aspect-[16/11] w-full shrink-0 overflow-hidden rounded-[14px] sm:rounded-[18px] ring-1 ring-slate-100 bg-slate-50">
+            return (
+              <motion.div
+                key={course.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: (idx % 3) * 0.08 }}
+                className="relative w-full h-full flex flex-col group pb-2"
+              >
+                <div
+                  onClick={() => handleScrollToPrograms(course.examKey)}
+                  className="relative w-full h-full overflow-hidden rounded-[22px] bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer text-left"
+                >
+                  {/* Top Edge-to-Edge Image matching Image 1 */}
+                  <div className="relative aspect-[16/10] sm:aspect-[16/10.5] w-full shrink-0 overflow-hidden bg-slate-100">
                     <Image
                       src={course.image}
                       alt={course.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-35 transition-opacity" />
-
-                    {/* Popular Badge */}
                     {course.popular && (
-                      <div className="absolute top-1.5 right-1.5 sm:top-3 sm:right-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[8px] sm:text-[10px] font-extrabold px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-md uppercase tracking-wider flex items-center space-x-0.5 sm:space-x-1">
-                        <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-white" />
-                        <span>Popular</span>
+                      <div className="absolute top-3 right-3 bg-amber-500 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-md uppercase tracking-wider">
+                        ★ Popular
                       </div>
                     )}
+                  </div>
 
-                    {/* Pack Tag on Image */}
-                    <div className="absolute bottom-1.5 left-1.5 sm:bottom-3 sm:left-3">
-                      <span className="px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-md sm:rounded-xl text-[9px] sm:text-xs font-bold text-white bg-black/65 backdrop-blur-md border border-white/20 shadow-sm">
-                        {course.packType}
+                  {/* Content Body matching Image 1 */}
+                  <div className="p-5 sm:p-6 flex flex-col justify-between flex-1 text-left">
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug">
+                        {course.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal line-clamp-2 mt-2 font-body">
+                        {course.tagline}
+                      </p>
+                    </div>
+
+                    {/* Bottom Rating and Level Badge matching Image 1 */}
+                    <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
+                        <span>{rating}</span>
+                        <span className="text-[#7C3AED] font-bold">★</span>
+                        <span className="text-slate-400 font-normal text-[11px]">
+                          ({reviews})
+                        </span>
+                      </div>
+
+                      <span
+                        className={cn(
+                          "text-[11px] font-bold px-2.5 py-0.5 rounded-md",
+                          level === "Beginner" && "bg-sky-100 text-sky-800",
+                          level === "Intermediate" && "bg-amber-100 text-amber-900",
+                          level === "Advanced" && "bg-emerald-100 text-emerald-800"
+                        )}
+                      >
+                        {level}
                       </span>
                     </div>
                   </div>
-
-                  {/* Title & Full Summary */}
-                  <div className="mt-2.5 sm:mt-5 text-left space-y-1 sm:space-y-1.5 flex-1 flex flex-col">
-                    <h3 className="text-sm sm:text-lg lg:text-xl font-bold font-heading text-brand-primary group-hover:text-brand-primaryHover transition-colors leading-snug">
-                      {course.title}
-                    </h3>
-                    <p className="text-[10.5px] sm:text-xs text-slate-500 leading-normal font-normal">
-                      {course.tagline}
-                    </p>
-                  </div>
                 </div>
-
-                {/* Action Buttons */}
-                <div className="mt-3 sm:mt-6 pt-1 flex flex-col sm:grid sm:grid-cols-2 gap-1.5 sm:gap-3">
-                  <Link
-                    href="/contacts"
-                    className="w-full h-8 sm:h-11 px-2 sm:px-3 inline-flex items-center justify-center gap-1.5 rounded-lg sm:rounded-xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-brand-primary/40 text-slate-700 font-bold text-[11px] sm:text-xs transition-all shadow-xs hover:shadow-sm"
-                  >
-                    <Plus className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-brand-primary shrink-0" />
-                    <span>Book Demo</span>
-                  </Link>
-
-                  <button
-                    onClick={() => handleScrollToPrograms(course.examKey)}
-                    className="w-full h-8 sm:h-11 px-2 sm:px-3 inline-flex items-center justify-center gap-1.5 rounded-lg sm:rounded-xl bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-[11px] sm:text-xs shadow-md shadow-brand-primary/30 hover:shadow-lg hover:shadow-brand-primary/40 transition-all cursor-pointer"
-                  >
-                    <span>Enroll Now</span>
-                    <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

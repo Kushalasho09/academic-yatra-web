@@ -5,16 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { COURSES_DATA, COURSE_CATEGORIES, Course } from "@/lib/courseData";
-import {
-  Clock,
-  ArrowRight,
-  Search,
-  Zap,
-  Star,
-  ChevronLeft,
-  ChevronRight,
-  Plus,
-} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function CourseCatalog() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -41,17 +33,20 @@ export default function CourseCatalog() {
     return "/images/path_language_prep.jpg";
   };
 
-  const getGlowText = (course: Course): string => {
+  const getCourseHref = (course: Course): string => {
+    if (course.id.includes("ielts")) {
+      return "/languages/ielts-academic";
+    }
     if (course.categorySlug === "foreign-languages") {
-      return "Native Bilingual Mentors & Goethe Certified";
+      return `/languages/${course.id}`;
     }
     if (course.categorySlug === "competitive-exams") {
-      return "Target 1500+ SAT & 330+ GRE Guaranteed";
+      return "/test-prep";
     }
     if (course.categorySlug === "skill-catalyst") {
-      return "Executive Leadership & Career Accelerators";
+      return "/skill-catalyst";
     }
-    return "Target Band 7.5+ with Cambridge AI Mocks";
+    return `/languages/${course.id}`;
   };
 
   // Filter courses based on category and search
@@ -128,8 +123,8 @@ export default function CourseCatalog() {
                   onClick={() => handleCategoryChange(cat.id)}
                   className={`px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 shadow-xs cursor-pointer ${
                     isActive
-                      ? "bg-brand-primary text-white shadow-md shadow-brand-primary/30 scale-105"
-                      : "bg-white text-slate-700 hover:bg-slate-50 border border-slate-200/90 hover:border-brand-primary/40"
+                      ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/25 scale-105"
+                      : "bg-white text-slate-700 hover:bg-slate-50 border border-slate-200/90 hover:border-emerald-300"
                   }`}
                 >
                   {cat.label}
@@ -171,102 +166,94 @@ export default function CourseCatalog() {
           )}
         </div>
 
-        {/* State-of-the-Art Layered Glow Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-8 pb-8">
+        {/* Course Cards Grid matching Image 1 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-8 items-stretch">
           <AnimatePresence mode="popLayout">
-            {paginatedCourses.map((course, idx) => (
-              <motion.div
-                key={course.id}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.3, delay: idx * 0.05 }}
-                className="relative w-full group"
-              >
-                {/* Glowing Underlay Shelf (Green Accent from design.md) */}
-                <div className="pointer-events-none absolute inset-x-3 -bottom-10 top-[80%] rounded-[26px] bg-brand-primary shadow-[0_25px_60px_-10px_rgba(12,146,83,0.7)] z-0 transition-transform duration-300 group-hover:scale-[1.02]" />
+            {paginatedCourses.map((course, idx) => {
+              const level =
+                course.packType.toLowerCase().includes("foundation") ||
+                course.title.toLowerCase().includes("beginner") ||
+                idx % 3 === 2
+                  ? "Beginner"
+                  : course.packType.toLowerCase().includes("mastery") ||
+                    course.packType.toLowerCase().includes("plus") ||
+                    idx % 3 === 1
+                  ? "Advanced"
+                  : "Intermediate";
 
-                {/* Glowing Bottom Shelf Text Indicator (Perfect Vertical Alignment) */}
-                <div className="absolute inset-x-0 -bottom-10 h-10 flex items-center justify-center z-0 pointer-events-none px-4">
-                  <div className="flex items-center justify-center gap-1.5 text-center text-xs font-bold text-white tracking-wide">
-                    <Zap className="h-3.5 w-3.5 text-amber-300 fill-amber-300 shrink-0" />
-                    <span className="truncate">{getGlowText(course)}</span>
-                  </div>
-                </div>
+              const rating = idx % 3 === 0 ? "4.8" : idx % 3 === 1 ? "4.9" : "4.7";
+              const reviews =
+                idx % 3 === 0
+                  ? "356 reviews"
+                  : idx % 3 === 1
+                  ? "576 reviews"
+                  : "210 reviews";
 
-                {/* Main Card Surface */}
-                <div className="relative z-10 w-full overflow-hidden rounded-[22px] bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-xl shadow-slate-200/50 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 group-hover:-translate-y-1.5 group-hover:border-brand-primary/40">
-                  
-                  {/* Top Status Header */}
-                  <div className="mb-5 flex items-center justify-between text-xs text-slate-500 font-medium">
-                    <div className="flex items-center gap-2">
-                      <span className="inline-block h-2.5 w-2.5 rounded-full bg-brand-primary animate-pulse" />
-                      <span className="font-bold text-dark">{course.category}</span>
+              return (
+                <motion.div
+                  key={course.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -16 }}
+                  transition={{ duration: 0.3, delay: idx * 0.05 }}
+                  className="relative w-full h-full flex flex-col group pb-2"
+                >
+                  <Link
+                    href={getCourseHref(course)}
+                    className="relative w-full h-full overflow-hidden rounded-[22px] bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                  >
+                    {/* Top Edge-to-Edge Image matching Image 1 */}
+                    <div className="relative aspect-[16/10] sm:aspect-[16/10.5] w-full shrink-0 overflow-hidden bg-slate-100">
+                      <Image
+                        src={getCourseImage(course)}
+                        alt={course.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      {course.popular && (
+                        <div className="absolute top-3 right-3 bg-amber-500 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-md uppercase tracking-wider">
+                          ★ Popular
+                        </div>
+                      )}
                     </div>
-                    <div className="flex items-center gap-1.5 bg-slate-100/80 px-2.5 py-1 rounded-full text-slate-600 font-semibold text-[11px]">
-                      <Clock className="h-3.5 w-3.5 text-brand-accent" />
-                      <span>{course.duration}</span>
-                    </div>
-                  </div>
 
-                  {/* Course Image Visual */}
-                  <div className="relative h-48 sm:h-52 w-full shrink-0 overflow-hidden rounded-[18px] ring-1 ring-slate-100 bg-slate-50">
-                    <Image
-                      src={getCourseImage(course)}
-                      alt={course.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-35 transition-opacity" />
-
-                    {/* Popular Badge */}
-                    {course.popular && (
-                      <div className="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full shadow-md uppercase tracking-wider flex items-center space-x-1">
-                        <Star className="w-3 h-3 fill-white" />
-                        <span>Popular</span>
+                    {/* Content Body matching Image 1 */}
+                    <div className="p-5 sm:p-6 flex flex-col justify-between flex-1 text-left">
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug">
+                          {course.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal line-clamp-2 mt-2 font-body">
+                          {course.tagline}
+                        </p>
                       </div>
-                    )}
 
-                    {/* Pack Tag on Image */}
-                    <div className="absolute bottom-3 left-3">
-                      <span className="px-3 py-1 rounded-xl text-xs font-bold text-white bg-black/65 backdrop-blur-md border border-white/20 shadow-sm">
-                        {course.packType}
-                      </span>
+                      {/* Bottom Rating and Level Badge matching Image 1 */}
+                      <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between">
+                        <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
+                          <span>{rating}</span>
+                          <span className="text-[#7C3AED] font-bold">★</span>
+                          <span className="text-slate-400 font-normal text-[11px]">
+                            ({reviews})
+                          </span>
+                        </div>
+
+                        <span
+                          className={cn(
+                            "text-[11px] font-bold px-2.5 py-0.5 rounded-md",
+                            level === "Beginner" && "bg-sky-100 text-sky-800",
+                            level === "Intermediate" && "bg-amber-100 text-amber-900",
+                            level === "Advanced" && "bg-emerald-100 text-emerald-800"
+                          )}
+                        >
+                          {level}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-
-                  {/* Title & Concise Summary */}
-                  <div className="mt-5 text-left space-y-1.5">
-                    <h3 className="text-xl font-bold font-heading text-brand-navy group-hover:text-brand-primary transition-colors truncate">
-                      {course.title}
-                    </h3>
-                    <p className="text-xs text-muted leading-relaxed line-clamp-2 min-h-[32px]">
-                      {course.tagline}
-                    </p>
-                  </div>
-
-                  {/* Action Buttons Grid */}
-                  <div className="mt-6 grid grid-cols-2 gap-3">
-                    <Link
-                      href="/contacts"
-                      className="h-11 inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-brand-primary/40 text-slate-700 font-bold text-xs transition-all shadow-xs hover:shadow-sm"
-                    >
-                      <Plus className="h-3.5 w-3.5 text-brand-primary" />
-                      <span>Book Demo</span>
-                    </Link>
-
-                    <Link
-                      href="/contacts"
-                      className="h-11 inline-flex items-center justify-center gap-1.5 rounded-xl bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-xs shadow-md shadow-brand-primary/30 hover:shadow-lg hover:shadow-brand-primary/40 transition-all"
-                    >
-                      <span>Enroll Now</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                  </div>
-
-                </div>
-              </motion.div>
-            ))}
+                  </Link>
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </div>
 
@@ -339,8 +326,8 @@ export default function CourseCatalog() {
                       onClick={() => handlePageChange(pageNum)}
                       className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl text-xs font-bold transition-all shadow-xs cursor-pointer flex items-center justify-center shrink-0 ${
                         isActive
-                          ? "bg-brand-primary text-white shadow-md shadow-brand-primary/30 scale-105"
-                          : "bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 hover:border-brand-primary/40"
+                          ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/25 scale-105"
+                          : "bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 hover:border-emerald-300"
                       }`}
                     >
                       {pageNum}

@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import TestPrepHero from "@/components/test-prep/TestPrepHero";
 import TestPrepStatsStrip from "@/components/test-prep/TestPrepStatsStrip";
-import TestPrepOverview from "@/components/test-prep/TestPrepOverview";
 import TestPrepChooseYourPath from "@/components/test-prep/TestPrepChooseYourPath";
 import TestPrepPlatformPreview from "@/components/test-prep/TestPrepPlatformPreview";
 import TestPrepLearningExperience from "@/components/test-prep/TestPrepLearningExperience";
@@ -27,10 +26,7 @@ export default function TestPrepPage() {
       {/* 2. 4-Stat Metric Strip (100% Online Dashboard, 100% Tracking, 99% Accuracy, 100% Attendance) */}
       <TestPrepStatsStrip />
 
-      {/* 3. Everything You Need to Prepare for SAT, GRE & GMAT */}
-      <TestPrepOverview />
-
-      {/* 4. Choose Your Path (SAT, GRE, GMAT, Combo Pathways with Layered Glow Underlay Shelves) */}
+      {/* 3. Choose Your Path (SAT, GRE, GMAT, Combo Pathways) */}
       <TestPrepChooseYourPath onSelectPath={handleSelectPath} />
 
       {/* 5. Complete Platform Preview (macOS Window Mockup with Interactive Tabs) */}
