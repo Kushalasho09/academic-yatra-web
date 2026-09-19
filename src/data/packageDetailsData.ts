@@ -12,6 +12,7 @@ export interface GuideItem {
 export interface EcosystemCard {
   title: string;
   iconType: "dashboard" | "lessons" | "classes" | "practice" | "mock" | "evaluation";
+  description?: string;
   items: string[];
 }
 
@@ -89,10 +90,10 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       "Structured preparation for students pursuing undergraduate, postgraduate, and professional admissions across leading international universities worldwide today.",
     heroImage: "/images/student_ielts_tablet.jpg",
     stats: [
-      { value: "100%", label: "Online Digital Dashboard" },
-      { value: "100%", label: "Live Performance Tracking" },
-      { value: "99%", label: "Result Accuracy" },
-      { value: "100%", label: "Attendance • Recorded Sessions" },
+      { value: "100%", label: "Learning. No Tab Chaos." },
+      { value: "100%", label: "Progress, Minus the Guesswork." },
+      { value: "99%", label: "Spot the Gaps. Fix the Gaps." },
+      { value: "100%", label: "Missed Class? We Kept It." },
     ],
     audience: {
       badge: "Is This Course For You?",
@@ -182,57 +183,58 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     },
     whyChoose: {
       badge: "Why Academic Yatra",
-      headingPrefix: "Why Students Choose",
-      headingHighlight: "Academic Yatra",
-      subtitle: "Everything you need to hit your target band — in one complete learning ecosystem.",
+      headingPrefix: "Built Around",
+      headingHighlight: "How You Learn",
+      subtitle:
+        "A complete learning ecosystem where structured lessons, live instruction, practice, performance tracking, and expert feedback work together to move your preparation forward.",
       cards: [
         {
           title: "Student Dashboard",
           iconType: "dashboard",
           items: [
-            "Personalised student profile",
-            "Study progress tracking",
-            "Course overview",
-            "Notice board & updates",
+            "Personalised learning profile",
+            "Real-time progress tracking",
+            "Course & session overview",
+            "Important updates in one place",
           ],
         },
         {
-          title: "Lessons",
+          title: "Structured Lessons",
           iconType: "lessons",
           items: [
-            "Video lessons",
-            "Text lessons",
-            "Practice quizzes",
-            "Instant feedback",
+            "Expert-led video lessons",
+            "Concept-focused learning modules",
+            "Interactive practice quizzes",
+            "Instant performance feedback",
           ],
         },
         {
           title: "Live Interactive Classes",
           iconType: "classes",
           items: [
-            "Certified trainers",
-            "Live doubt solving",
-            "Recorded sessions",
-            "Flexible schedules",
+            "Expert-led live instruction",
+            "Real-time doubt resolution",
+            "Recorded class access",
+            "Flexible learning schedules",
           ],
         },
         {
           title: "Practice Tests",
           iconType: "practice",
           items: [
-            "Topic-wise exercises",
-            "Skill-building modules",
-            "Instant scoring",
-            "Performance tracking",
+            "Topic-wise practice sets",
+            "Skill-focused exercises",
+            "Instant performance insights",
+            "Continuous progress tracking",
           ],
         },
         {
-          title: "Mock Tests",
+          title: "Full-Length Mock Tests",
           iconType: "mock",
           items: [
-            "Real IELTS exam pattern",
-            "Actual test simulation",
-            "Band prediction",
+            "Authentic exam-style simulations",
+            "Timed testing environment",
+            "Detailed score analysis",
             "Performance benchmarking",
           ],
         },
@@ -241,9 +243,9 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           iconType: "evaluation",
           items: [
             "Instant assessments",
-            "Detailed trainer review",
-            "Personalised improvement plan",
-            "Expert guidance",
+            "Detailed trainer evaluation",
+            "Personalised improvement insights",
+            "Expert-led performance guidance",
           ],
         },
       ],
@@ -332,10 +334,10 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       "Target CLB 9/10 with proven immigration strategies for Canada Express Entry, Australian PR & UK Skilled Worker Visas.",
     heroImage: "/images/student_ielts_tablet.jpg",
     stats: [
-      { value: "100%", label: "Online Digital Dashboard" },
-      { value: "100%", label: "Live Performance Tracking" },
-      { value: "99%", label: "Result Accuracy" },
-      { value: "100%", label: "Attendance • Recorded Sessions" },
+      { value: "100%", label: "Learning. No Tab Chaos." },
+      { value: "100%", label: "Progress, Minus the Guesswork." },
+      { value: "99%", label: "Spot the Gaps. Fix the Gaps." },
+      { value: "100%", label: "Missed Class? We Kept It." },
     ],
     audience: {
       badge: "Is This Course For You?",
@@ -383,57 +385,58 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     },
     whyChoose: {
       badge: "Why Academic Yatra",
-      headingPrefix: "Why Students Choose",
-      headingHighlight: "Academic Yatra",
-      subtitle: "Everything you need to hit your target band — in one complete learning ecosystem.",
+      headingPrefix: "Built Around",
+      headingHighlight: "How You Learn",
+      subtitle:
+        "A complete learning ecosystem where structured lessons, live instruction, practice, performance tracking, and expert feedback work together to move your preparation forward.",
       cards: [
         {
           title: "Student Dashboard",
           iconType: "dashboard",
           items: [
-            "Personalised student profile",
-            "Study progress tracking",
-            "Course overview",
-            "Notice board & updates",
+            "Personalised learning profile",
+            "Real-time progress tracking",
+            "Course & session overview",
+            "Important updates in one place",
           ],
         },
         {
-          title: "Lessons",
+          title: "Structured Lessons",
           iconType: "lessons",
           items: [
-            "Video lessons",
-            "Text lessons",
-            "Practice quizzes",
-            "Instant feedback",
+            "Expert-led video lessons",
+            "Concept-focused learning modules",
+            "Interactive practice quizzes",
+            "Instant performance feedback",
           ],
         },
         {
           title: "Live Interactive Classes",
           iconType: "classes",
           items: [
-            "Certified trainers",
-            "Live doubt solving",
-            "Recorded sessions",
-            "Flexible schedules",
+            "Expert-led live instruction",
+            "Real-time doubt resolution",
+            "Recorded class access",
+            "Flexible learning schedules",
           ],
         },
         {
           title: "Practice Tests",
           iconType: "practice",
           items: [
-            "Topic-wise exercises",
-            "Skill-building modules",
-            "Instant scoring",
-            "Performance tracking",
+            "Topic-wise practice sets",
+            "Skill-focused exercises",
+            "Instant performance insights",
+            "Continuous progress tracking",
           ],
         },
         {
-          title: "Mock Tests",
+          title: "Full-Length Mock Tests",
           iconType: "mock",
           items: [
-            "Real IELTS exam pattern",
-            "Actual test simulation",
-            "Band prediction",
+            "Authentic exam-style simulations",
+            "Timed testing environment",
+            "Detailed score analysis",
             "Performance benchmarking",
           ],
         },
@@ -442,9 +445,9 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           iconType: "evaluation",
           items: [
             "Instant assessments",
-            "Detailed trainer review",
-            "Personalised improvement plan",
-            "Expert guidance",
+            "Detailed trainer evaluation",
+            "Personalised improvement insights",
+            "Expert-led performance guidance",
           ],
         },
       ],

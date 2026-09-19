@@ -72,10 +72,10 @@ function StatCounterItem({ target, label, index }: StatItemProps) {
 }
 
 const STATS_DATA = [
-  { target: 100, label: "Online Digital Dashboard" },
-  { target: 100, label: "Live Performance Tracking" },
-  { target: 99, label: "Result Accuracy" },
-  { target: 100, label: "Attendance · Recorded Sessions" },
+  { target: 100, label: "Learning. No Tab Chaos." },
+  { target: 100, label: "Progress, Minus the Guesswork." },
+  { target: 99, label: "Spot the Gaps. Fix the Gaps." },
+  { target: 100, label: "Missed Class? We Kept It." },
 ];
 
 export default function TestPrepStatsStrip() {

@@ -70,17 +70,12 @@ export default function SkillCatalystTrialBanner() {
             </div>
 
             {/* Eyebrow and Massive Heading */}
-            <div className="space-y-2">
-              <div className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-emerald-400">
-                Get Started Today
-              </div>
               <h2 className="font-heading text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-white leading-snug sm:leading-[1.26] lg:leading-[1.28] tracking-tight">
                 <span className="block mb-1.5 sm:mb-2.5">Start Your Preparation</span>
                 <span className="text-brand-primary block drop-shadow-[0_0_25px_rgba(12,146,83,0.35)]">
                   With Confidence
                 </span>
               </h2>
-            </div>
 
             {/* Description from user prompt */}
             <p className="font-body text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl font-normal">

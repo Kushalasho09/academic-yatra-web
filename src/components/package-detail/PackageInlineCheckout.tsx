@@ -23,6 +23,8 @@ import {
   LogOut,
   UserCheck,
   ExternalLink,
+  Check,
+  X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -33,67 +35,96 @@ export interface CoursePlanCard {
   title: string;
   packType: string;
   popular?: boolean;
-  image: string;
+  badge?: string;
+  theme: "mint" | "lime" | "lavender";
   tagline: string;
+  description: string;
+  image: string;
   glowText: string;
   priceFormatted: string;
   monthlyPrice: string;
   rating: string;
   reviewsCount: string;
+  features: { text: string; included: boolean }[];
   level: "Beginner" | "Intermediate" | "Advanced";
 }
 
 const IELTS_CARDS: CoursePlanCard[] = [
   {
+    id: "self-prep",
+    category: "IELTS Academic",
+    duration: "Self-Paced (6 Months Access)",
+    title: "Self-Prep Pack",
+    packType: "Self Preparation Pack",
+    popular: false,
+    theme: "mint",
+    tagline: "Best for self-paced independent learners",
+    description: "All the essentials to prepare and practice at your own flexible pace.",
+    image: "/images/subscription_self_prep.jpg",
+    glowText: "Target Band 7.5+ with Cambridge AI Mocks",
+    priceFormatted: "₹13,194.00",
+    monthlyPrice: "/6 months",
+    rating: "4.7",
+    reviewsCount: "356 reviews",
+    features: [
+      { text: "100+ on-demand video lessons", included: true },
+      { text: "Cambridge AI mock test bank", included: true },
+      { text: "6 months full LMS access", included: true },
+      { text: "Live interactive masterclasses", included: false },
+      { text: "1-on-1 mentor band evaluation", included: false },
+    ],
+    level: "Beginner",
+  },
+  {
     id: "champ",
     category: "IELTS Academic",
     duration: "6–8 Weeks",
-    title: "IELTS Academic",
+    title: "Champion Pack",
     packType: "Champion Pack",
     popular: true,
-    image: "/images/why_academic_students.jpg",
-    tagline:
-      "Target Band 7.5+ with structured live masterclasses and Cambridge-aligned mock tests.",
+    badge: "until may",
+    theme: "lime",
+    tagline: "Target Band 7.5+ with Live Masterclasses",
+    description: "The complete preparation system for students targeting Band 7.5+ with expert guidance.",
+    image: "/images/subscription_champion_live.jpg",
     glowText: "Target Band 7.5+ with Cambridge AI Mocks",
     priceFormatted: "₹23,994.00",
-    monthlyPrice: "₹3,999/m",
+    monthlyPrice: "/8 weeks",
     rating: "4.8",
     reviewsCount: "236 reviews",
+    features: [
+      { text: "Live daily interactive masterclasses", included: true },
+      { text: "Cambridge-aligned full mock tests", included: true },
+      { text: "Real-time doubt clearing sessions", included: true },
+      { text: "6 months LMS & recorded archives", included: true },
+      { text: "1-on-1 mentor band evaluation", included: false },
+    ],
     level: "Intermediate",
   },
   {
     id: "champ-plus",
     category: "IELTS Academic",
     duration: "8–10 Weeks",
-    title: "IELTS Academic",
+    title: "Champion Pack +",
     packType: "Champion Pack +",
-    popular: true,
-    image: "/images/hero_center_laptop.jpg",
-    tagline:
-      "Premium 1-on-1 mentor guidance with unlimited mock assessments and guaranteed score booster.",
+    popular: false,
+    theme: "lavender",
+    tagline: "Guaranteed Score Booster & 1-on-1 Mentorship",
+    description: "Full power for ambitious students who need dedicated 1-on-1 mentorship and score assurance.",
+    image: "/images/subscription_champion_plus.jpg",
     glowText: "Target Band 7.5+ with Cambridge AI Mocks",
     priceFormatted: "₹26,994.00",
-    monthlyPrice: "₹4,499/m",
+    monthlyPrice: "/10 weeks",
     rating: "4.9",
     reviewsCount: "576 reviews",
+    features: [
+      { text: "Everything in Champion Pack", included: true },
+      { text: "1-on-1 personal mentor guidance", included: true },
+      { text: "Unlimited writing & speaking reviews", included: true },
+      { text: "Guaranteed band score booster", included: true },
+      { text: "Priority 24/7 doubt resolution", included: true },
+    ],
     level: "Advanced",
-  },
-  {
-    id: "self-prep",
-    category: "IELTS Academic",
-    duration: "Self-Paced (6 Months Access)",
-    title: "IELTS Academic",
-    packType: "Self Preparation Pack",
-    popular: false,
-    image: "/images/path_learning_dashboard.jpg",
-    tagline:
-      "Learn at your own pace with comprehensive video lectures, test bank, and solved examples.",
-    glowText: "Target Band 7.5+ with Cambridge AI Mocks",
-    priceFormatted: "₹13,194.00",
-    monthlyPrice: "₹2,199/m",
-    rating: "4.7",
-    reviewsCount: "356 reviews",
-    level: "Beginner",
   },
 ];
 
@@ -189,74 +220,114 @@ export default function PackageInlineCheckout({ onOpenDemo }: PackageInlineCheck
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch pb-12">
           {IELTS_CARDS.map((course) => {
             const isSelected = selectedPlan?.id === course.id;
+            const isLime = course.theme === "lime";
+
+            // Box tint classes matching the reference image
+            const boxBgClass =
+              course.theme === "mint"
+                ? "bg-[#F0F9EE] border-emerald-100/80"
+                : course.theme === "lime"
+                ? "bg-[#F8F9E4] border-lime-200/80"
+                : "bg-[#F7EEF5] border-pink-200/70";
 
             return (
               <div
                 key={course.id}
                 onClick={() => handleSelectPlan(course)}
                 className={cn(
-                  "relative rounded-[22px] overflow-hidden bg-white border shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer group",
+                  "relative rounded-[32px] p-6 sm:p-8 bg-white border flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-2xl hover:-translate-y-1 cursor-pointer group text-left",
                   isSelected
-                    ? "border-emerald-500 ring-2 ring-emerald-500/30 shadow-lg shadow-emerald-500/10"
-                    : "border-slate-200/90 hover:border-emerald-300"
+                    ? "border-emerald-500 ring-2 ring-emerald-500/30 shadow-xl shadow-emerald-500/10"
+                    : isLime
+                    ? "border-lime-300 shadow-lg md:-translate-y-1.5"
+                    : "border-slate-200/80"
                 )}
               >
-                {/* Top Edge-to-Edge Image matching Image 1 */}
-                <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-slate-100">
-                  <Image
-                    src={course.image}
-                    alt={course.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {isSelected && (
-                    <div className="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full shadow-md">
-                      Selected ✓
-                    </div>
-                  )}
-                  {course.popular && !isSelected && (
-                    <div className="absolute top-3 right-3 bg-amber-500 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-md uppercase tracking-wider">
-                      ★ Popular
-                    </div>
-                  )}
-                </div>
-
-                {/* Content Body matching Image 1 */}
-                <div className="p-5 sm:p-6 flex flex-col justify-between flex-1 text-left">
-                  <div>
-                    <div className="flex items-baseline justify-between gap-2">
-                      <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug">
-                        {course.title}
-                      </h3>
-                      <span className="text-xs font-bold text-emerald-600 shrink-0">
-                        {course.monthlyPrice}
-                      </span>
-                    </div>
-
-                    <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal line-clamp-2 mt-2 font-body">
+                <div>
+                  {/* Top Header: Title & Subtitle */}
+                  <div className="text-left">
+                    <h3 className="font-heading font-extrabold text-2xl sm:text-[28px] text-slate-900 tracking-tight">
+                      {course.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-400 font-normal mt-1 leading-relaxed">
                       {course.tagline}
                     </p>
                   </div>
 
-                  {/* Bottom Rating and Level Badge matching Image 1 */}
-                  <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between">
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
-                      <span>{course.rating}</span>
-                      <span className="text-[#7C3AED] font-bold">★</span>
-                      <span className="text-slate-400 font-normal text-[11px]">({course.reviewsCount})</span>
-                    </div>
+                  {/* Price Block */}
+                  <div className="relative mt-6 mb-4 text-left">
+                    {/* Highlight Badge (matching "until may" in reference image) */}
+                    {course.badge && (
+                      <div className="absolute -top-3.5 right-2 sm:right-4 z-10">
+                        <span className="inline-block bg-[#D4F938] text-slate-900 text-[11px] font-black px-3 py-0.5 rounded-full -rotate-6 shadow-xs select-none uppercase tracking-wider">
+                          {course.badge}
+                        </span>
+                      </div>
+                    )}
 
-                    <span
-                      className={cn(
-                        "text-[11px] font-bold px-2.5 py-0.5 rounded-md",
-                        course.level === "Beginner" && "bg-sky-100 text-sky-800",
-                        course.level === "Intermediate" && "bg-amber-100 text-amber-900",
-                        course.level === "Advanced" && "bg-emerald-100 text-emerald-800"
-                      )}
-                    >
-                      {course.level}
-                    </span>
+                    <div className="flex items-baseline gap-1">
+                      <span className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 tracking-tight leading-none">
+                        {course.priceFormatted.replace(".00", "")}
+                      </span>
+                      <span className="text-xs sm:text-sm text-slate-500 font-medium ml-1">
+                        {course.monthlyPrice}
+                      </span>
+                    </div>
                   </div>
+
+                  {/* Tinted Features Box (Signature Reference UI Element) */}
+                  <div className={cn("rounded-2xl p-4 sm:p-5 my-5 border", boxBgClass)}>
+                    <div className="space-y-2.5">
+                      {course.features.map((feat, fIdx) => (
+                        <div key={fIdx} className="flex items-center gap-2.5 text-xs sm:text-[13px]">
+                          {feat.included ? (
+                            <div className="w-4 h-4 rounded-full bg-emerald-100 border border-emerald-500 text-emerald-600 flex items-center justify-center shrink-0">
+                              <Check className="w-2.5 h-2.5 stroke-[3.5]" />
+                            </div>
+                          ) : (
+                            <div className="w-4 h-4 rounded-full bg-rose-100 border border-rose-300 text-rose-500 flex items-center justify-center shrink-0">
+                              <X className="w-2.5 h-2.5 stroke-[3.5]" />
+                            </div>
+                          )}
+
+                          <span
+                            className={cn(
+                              "leading-snug flex-1",
+                              feat.included
+                                ? "text-slate-700 font-medium"
+                                : "text-slate-400 font-normal line-through"
+                            )}
+                          >
+                            {feat.text}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Footer Description below features box */}
+                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed my-4 text-left font-normal">
+                    {course.description}
+                  </p>
+                </div>
+
+                {/* Action Button: BUY NOW (per explicit user instruction) */}
+                <div className="pt-2">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSelectPlan(course);
+                    }}
+                    className={cn(
+                      "w-full py-3.5 px-6 rounded-full font-bold text-sm flex items-center justify-center transition-all shadow-sm active:scale-[0.98] cursor-pointer",
+                      isLime
+                        ? "bg-[#D4F938] hover:bg-[#cbf133] text-slate-950 font-black shadow-lime-500/20"
+                        : "bg-[#111827] hover:bg-black text-white"
+                    )}
+                  >
+                    <span>Buy Now</span>
+                  </button>
                 </div>
               </div>
             );
@@ -571,9 +642,10 @@ export default function PackageInlineCheckout({ onOpenDemo }: PackageInlineCheck
                         <div className="flex items-center gap-3.5 min-w-0">
                           <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-100 shrink-0 border border-slate-200/80">
                             <Image
-                              src={selectedPlan.image}
+                              src={selectedPlan.image || "/images/subscription_champion_live.jpg"}
                               alt={selectedPlan.packType}
                               fill
+                              unoptimized
                               className="object-cover"
                             />
                           </div>
@@ -844,9 +916,10 @@ export default function PackageInlineCheckout({ onOpenDemo }: PackageInlineCheck
                         <div className="flex items-center gap-3.5 min-w-0">
                           <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-slate-100 shrink-0 border border-slate-200/80">
                             <Image
-                              src={selectedPlan.image}
+                              src={selectedPlan.image || "/images/subscription_champion_live.jpg"}
                               alt={selectedPlan.packType}
                               fill
+                              unoptimized
                               className="object-cover"
                             />
                           </div>

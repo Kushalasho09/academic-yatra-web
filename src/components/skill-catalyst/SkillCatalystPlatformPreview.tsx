@@ -11,33 +11,54 @@ import {
   CalendarCheck,
   Award,
 } from "lucide-react";
+import SteppedProcessCards, { SteppedProcessCardItem } from "@/components/ui/SteppedProcessCards";
 
 export default function SkillCatalystPlatformPreview() {
-  const highlightFeatures = [
+  const steppedFeatures: SteppedProcessCardItem[] = [
     {
+      number: "01",
+      title: "Track Your Skill Growth",
+      pillLabel: "1 Week",
+      pillTheme: "green",
+      cardTheme: "mint",
       icon: TrendingUp,
-      title: "Real-Time Competency Tracking",
-      description: "Live feedback on capstones, case studies, and presentation drills.",
+      description:
+        "Monitor your progress across every course, module, and learning goal from one personalised dashboard.",
     },
     {
+      number: "02",
+      title: "Skill-Wise Performance Insights",
+      pillLabel: "2 Week",
+      pillTheme: "dark",
+      cardTheme: "white",
       icon: BarChart3,
-      title: "Practical Workplace Analytics",
-      description: "Measure spreadsheet, digital tool, and communication proficiency.",
+      description:
+        "Understand where you’re improving and where you need more practice with clear, data-driven performance insights.",
     },
     {
+      number: "03",
+      title: "100% Recorded Learning Archive",
+      pillLabel: "1-2 Days",
+      pillTheme: "dark",
+      cardTheme: "white",
       icon: CalendarCheck,
-      title: "100% Attendance & Recorded Vault",
-      description: "Catch up on live workshops anytime through archived video lessons.",
+      description:
+        "Revisit lessons, resources, and key concepts anytime to reinforce learning at your own pace.",
     },
     {
+      number: "04",
+      title: "Learning & Progress Analytics",
+      pillLabel: "1-2 Days",
+      pillTheme: "green",
+      cardTheme: "mint",
       icon: Award,
-      title: "Verified Skill Certification",
-      description: "Industry-standard shareable certificates for LinkedIn and resume.",
+      description:
+        "Track course completion, practice performance, skill development, and improvement trends as you learn.",
     },
   ];
 
   return (
-    <section className="relative py-8 sm:py-12 bg-gradient-to-b from-white via-[#EBF7F2]/50 to-white overflow-hidden">
+    <section className="relative py-8 sm:py-14 bg-gradient-to-b from-white via-[#EBF7F2]/50 to-white overflow-hidden">
       {/* Seamless top and bottom feather fades */}
       <div className="absolute top-0 left-0 right-0 h-12 sm:h-16 bg-gradient-to-b from-white to-transparent pointer-events-none z-10" />
       <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-16 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
@@ -48,19 +69,13 @@ export default function SkillCatalystPlatformPreview() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
-          <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-extrabold uppercase tracking-wide">
-              <Sparkles className="w-3.5 h-3.5 text-brand-primary" />
-              <span>Student Dashboard</span>
-            </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
-              A Complete Learning Platform{" "}
-              <span className="text-brand-accent">for Career Preparation</span>
-            </h2>
-          </div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 sm:gap-6">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight max-w-2xl">
+            A Complete Learning Platform{" "}
+            <span className="text-brand-accent">for Career Preparation</span>
+          </h2>
 
-          <p className="font-body text-slate-500 text-sm sm:text-base max-w-md leading-relaxed">
+          <p className="font-body text-slate-500 text-sm sm:text-base max-w-md leading-relaxed md:pb-1.5">
             Track progress, attend classes, complete practice tests, and improve
             through detailed performance insights.
           </p>
@@ -109,31 +124,9 @@ export default function SkillCatalystPlatformPreview() {
           </div>
         </motion.div>
 
-        {/* 4 Mobile-Responsive Feature Badges Underneath */}
-        <div className="max-w-5xl mx-auto mt-6 sm:mt-8 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          {highlightFeatures.map((feat, idx) => {
-            const Icon = feat.icon;
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: idx * 0.08 }}
-                className="bg-white/90 backdrop-blur-md rounded-xl sm:rounded-2xl p-3.5 sm:p-4 border border-slate-200/80 shadow-xs hover:border-brand-primary/40 hover:shadow-sm transition-all"
-              >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center mb-2">
-                  <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                </div>
-                <h4 className="font-heading font-extrabold text-xs sm:text-sm text-brand-navy leading-snug">
-                  {feat.title}
-                </h4>
-                <p className="font-body text-[10px] sm:text-xs text-slate-500 mt-0.5 leading-normal">
-                  {feat.description}
-                </p>
-              </motion.div>
-            );
-          })}
+        {/* Stepped Process Cards matching Reference Design */}
+        <div className="mt-8 sm:mt-12">
+          <SteppedProcessCards items={steppedFeatures} />
         </div>
       </div>
     </section>

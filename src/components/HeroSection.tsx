@@ -61,18 +61,6 @@ export default function HeroSection() {
       {/* Hero Section Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-8 sm:pt-36 sm:pb-12 flex flex-col items-center justify-center flex-1 text-center">
         
-        {/* Eyebrow Pill */}
-        <motion.div
-          initial={{ opacity: 0, y: -16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-emerald-300 mb-5 sm:mb-7 shadow-sm"
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase">
-            Your Knowledge Is Our Priority
-          </span>
-        </motion.div>
 
         {/* Main Headline */}
         <motion.h1

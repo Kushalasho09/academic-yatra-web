@@ -36,12 +36,12 @@ interface TrackPath {
 const TRACKS: TrackPath[] = [
   {
     numeral: "01",
-    id: "competitive-exams",
-    title: "Competitive Exams",
+    id: "test-preparation",
+    title: "Test Preparation",
     subtitle: "SAT • GRE • GMAT",
     image: "/images/path_competitive_exams.jpg",
     icon: Globe,
-    shortDesc: "Bluebook & Pearson adaptive mocks with 1-on-1 strategy for top global scores.",
+    shortDesc: "Get familiar with the test, sharpen your approach, and practise until your performance starts making sense.",
     href: "/test-prep",
     theme: {
       accentColor: "bg-brand-accent",
@@ -54,12 +54,12 @@ const TRACKS: TrackPath[] = [
   },
   {
     numeral: "02",
-    id: "language-programs",
-    title: "Language Programs",
-    subtitle: "IELTS • TOEFL • PTE • CELPIP",
+    id: "language-training",
+    title: "Language Training",
+    subtitle: "IELTS • PTE • TOEFL • CELPIP",
     image: "/images/path_language_prep.jpg",
     icon: GraduationCap,
-    shortDesc: "Real-time Pearson AI speaking score engine & certified British Council mentors.",
+    shortDesc: "Build the language skills you’ll actually use, with structured lessons, live practice, and feedback that keeps you moving.",
     href: "/languages",
     theme: {
       accentColor: "bg-brand-primary",
@@ -72,12 +72,12 @@ const TRACKS: TrackPath[] = [
   },
   {
     numeral: "03",
-    id: "skill-development",
-    title: "Skill Development",
-    subtitle: "Career & Workplace",
+    id: "skill-catalyst",
+    title: "Skill Catalyst",
+    subtitle: "CAREER • WORKPLACE • DIGITAL SKILLS",
     image: "/images/path_skill_development.jpg",
     icon: Briefcase,
-    shortDesc: "Executive communication, corporate presentation design & Google Suite mastery.",
+    shortDesc: "Practical skills for presentations, communication, productivity, and the kind of work that goes beyond a certificate.",
     href: "/skill-catalyst",
     theme: {
       accentColor: "bg-amber-500",
@@ -168,23 +168,17 @@ export default function LearningPaths() {
             transition={{ duration: 0.7, ease: easeCurve }}
             className="space-y-3 text-left max-w-2xl"
           >
-            {/* Green Bullet Tag */}
-            <div className="flex items-center space-x-2 text-brand-primary text-xs sm:text-sm font-extrabold uppercase tracking-wider">
-              <span className="w-2.5 h-2.5 rounded-full bg-brand-primary inline-block animate-pulse" />
-              <span>PROGRAMS</span>
-            </div>
-
             {/* Headline with Playfair Display Accent */}
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-brand-navy tracking-tight leading-snug sm:leading-[1.26] lg:leading-[1.28]">
-              Choose Your{" "}
+              Three Tracks.{" "}
               <span className="text-brand-primary font-accent italic font-normal">
-                Learning Path
+                Pick Your Focus.
               </span>
             </h2>
 
             {/* Description */}
             <p className="font-body text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed font-normal">
-              Explore structured learning programs designed around study abroad preparation, language proficiency, and competitive exams.
+              Three focused tracks. One learning ecosystem, built around what comes next.
             </p>
           </motion.div>
 
@@ -298,7 +292,7 @@ export default function LearningPaths() {
                       track.theme.buttonHover
                     )}
                   >
-                    <span>Explore Track</span>
+                    <span>Explore Program</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>

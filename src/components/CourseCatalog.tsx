@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,8 +11,10 @@ import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 export default function CourseCatalog() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const ITEMS_PER_PAGE = 3; // Show 3 premium cards per page
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const getCourseImage = (course: Course): string => {
     if (course.categorySlug === "foreign-languages") {
@@ -63,37 +65,72 @@ export default function CourseCatalog() {
     });
   }, [selectedCategory, searchQuery]);
 
-  // Total pages
-  const totalPages = Math.ceil(filteredCourses.length / ITEMS_PER_PAGE);
+  const updateScrollState = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+    setCanScrollLeft(scrollLeft > 10);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
 
-  // Paginated slice
-  const paginatedCourses = useMemo(() => {
-    const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
-    return filteredCourses.slice(startIdx, startIdx + ITEMS_PER_PAGE);
-  }, [filteredCourses, currentPage]);
-
-  const handleCategoryChange = (catId: string) => {
-    setSelectedCategory(catId);
-    setCurrentPage(1);
+    const firstChild = scrollRef.current.firstElementChild as HTMLElement | null;
+    if (firstChild) {
+      const itemWidth = firstChild.offsetWidth + 24;
+      const index = Math.round(scrollLeft / itemWidth);
+      setActiveIndex(Math.min(Math.max(0, index), filteredCourses.length - 1));
+    }
   };
 
-  const handleSearchChange = (query: string) => {
-    setSearchQuery(query);
-    setCurrentPage(1);
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    updateScrollState();
+    el.addEventListener("scroll", updateScrollState, { passive: true });
+    window.addEventListener("resize", updateScrollState);
+    return () => {
+      el.removeEventListener("scroll", updateScrollState);
+      window.removeEventListener("resize", updateScrollState);
+    };
+  }, [filteredCourses.length]);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { clientWidth } = scrollRef.current;
+      const scrollAmount = clientWidth * 0.85;
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
-  const handlePageChange = (page: number) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-      const section = document.getElementById("courses");
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
+  const scrollToIndex = (index: number) => {
+    if (scrollRef.current) {
+      const firstChild = scrollRef.current.firstElementChild as HTMLElement | null;
+      if (firstChild) {
+        const itemWidth = firstChild.offsetWidth + 24;
+        scrollRef.current.scrollTo({
+          left: index * itemWidth,
+          behavior: "smooth",
+        });
       }
     }
   };
 
+  const handleCategoryChange = (catId: string) => {
+    setSelectedCategory(catId);
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+    }
+  };
+
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query);
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+    }
+  };
+
   return (
-    <section id="courses" className="py-10 sm:py-14 lg:py-16 bg-[#F8FAF8] relative overflow-hidden">
+    <section id="courses" className="py-12 sm:py-16 lg:py-20 bg-[#F8FAF8] relative overflow-hidden">
       {/* Seamless Top & Bottom Ambient Fade */}
       <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white to-transparent pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none" />
@@ -112,7 +149,7 @@ export default function CourseCatalog() {
         </div>
 
         {/* Filter Tabs & Search Bar */}
-        <div className="space-y-6 mb-12">
+        <div className="space-y-6 mb-8">
           {/* Category Tabs */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             {COURSE_CATEGORIES.map((cat) => {
@@ -154,22 +191,46 @@ export default function CourseCatalog() {
           </div>
         </div>
 
-        {/* Results Counter */}
-        <div className="flex items-center justify-between max-w-7xl mx-auto mb-8 px-1">
+        {/* Results Counter & Horizontal Carousel Navigation Controls */}
+        <div className="flex items-center justify-between max-w-7xl mx-auto mb-6 px-1">
           <p className="text-xs sm:text-sm font-medium text-slate-500">
-            Showing <span className="font-bold text-dark">{filteredCourses.length === 0 ? 0 : (currentPage - 1) * ITEMS_PER_PAGE + 1}</span>–<span className="font-bold text-dark">{Math.min(currentPage * ITEMS_PER_PAGE, filteredCourses.length)}</span> of <span className="font-bold text-brand-primary">{filteredCourses.length}</span> programs
+            Showing <span className="font-bold text-dark">{filteredCourses.length}</span> programs
           </p>
-          {totalPages > 1 && (
-            <p className="text-xs sm:text-sm font-medium text-slate-500">
-              Page <span className="font-bold text-dark">{currentPage}</span> of <span className="font-bold text-dark">{totalPages}</span>
-            </p>
-          )}
+
+          {/* Carousel Prev/Next Buttons */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => scroll("left")}
+              disabled={!canScrollLeft}
+              aria-label="Scroll left"
+              className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-emerald-50 hover:border-emerald-300 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center text-slate-700 hover:text-emerald-700 shadow-sm transition-all cursor-pointer"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            <button
+              onClick={() => scroll("right")}
+              disabled={!canScrollRight}
+              aria-label="Scroll right"
+              className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-emerald-50 hover:border-emerald-300 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center text-slate-700 hover:text-emerald-700 shadow-sm transition-all cursor-pointer"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
-        {/* Course Cards Grid matching Image 1 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-8 items-stretch">
-          <AnimatePresence mode="popLayout">
-            {paginatedCourses.map((course, idx) => {
+        {/* Horizontal Carousel Track (Web & Mobile) */}
+        {filteredCourses.length > 0 ? (
+          <div
+            ref={scrollRef}
+            className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pt-2 pb-6 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 no-scrollbar items-stretch"
+            style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              WebkitOverflowScrolling: "touch",
+            }}
+          >
+            {filteredCourses.map((course, idx) => {
               const level =
                 course.packType.toLowerCase().includes("foundation") ||
                 course.title.toLowerCase().includes("beginner") ||
@@ -190,19 +251,15 @@ export default function CourseCatalog() {
                   : "210 reviews";
 
               return (
-                <motion.div
+                <div
                   key={course.id}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -16 }}
-                  transition={{ duration: 0.3, delay: idx * 0.05 }}
-                  className="relative w-full h-full flex flex-col group pb-2"
+                  className="relative w-[85vw] xs:w-[320px] sm:w-[350px] lg:w-[380px] shrink-0 snap-start h-full flex flex-col group pb-2"
                 >
                   <Link
                     href={getCourseHref(course)}
                     className="relative w-full h-full overflow-hidden rounded-[22px] bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
                   >
-                    {/* Top Edge-to-Edge Image matching Image 1 */}
+                    {/* Top Edge-to-Edge Image */}
                     <div className="relative aspect-[16/10] sm:aspect-[16/10.5] w-full shrink-0 overflow-hidden bg-slate-100">
                       <Image
                         src={getCourseImage(course)}
@@ -217,7 +274,7 @@ export default function CourseCatalog() {
                       )}
                     </div>
 
-                    {/* Content Body matching Image 1 */}
+                    {/* Content Body */}
                     <div className="p-5 sm:p-6 flex flex-col justify-between flex-1 text-left">
                       <div>
                         <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug">
@@ -228,7 +285,7 @@ export default function CourseCatalog() {
                         </p>
                       </div>
 
-                      {/* Bottom Rating and Level Badge matching Image 1 */}
+                      {/* Bottom Rating and Level Badge */}
                       <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between">
                         <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
                           <span>{rating}</span>
@@ -251,15 +308,13 @@ export default function CourseCatalog() {
                       </div>
                     </div>
                   </Link>
-                </motion.div>
+                </div>
               );
             })}
-          </AnimatePresence>
-        </div>
-
-        {/* Empty Search Result */}
-        {filteredCourses.length === 0 && (
-          <div className="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 max-w-md mx-auto shadow-sm">
+          </div>
+        ) : (
+          /* Empty Search Result */
+          <div className="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 max-w-md mx-auto shadow-sm my-6">
             <p className="text-slate-600 text-sm font-semibold">
               No courses found matching &quot;{searchQuery}&quot;.
             </p>
@@ -267,7 +322,6 @@ export default function CourseCatalog() {
               onClick={() => {
                 setSelectedCategory("all");
                 setSearchQuery("");
-                setCurrentPage(1);
               }}
               className="mt-3 text-xs text-brand-primary font-bold hover:underline cursor-pointer"
             >
@@ -276,77 +330,22 @@ export default function CourseCatalog() {
           </div>
         )}
 
-        {/* PAGINATION CONTROLS */}
-        {totalPages > 1 && (
-          <div className="mt-8 flex items-center justify-center gap-1.5 sm:gap-2 select-none">
-            {/* Prev Button */}
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-              aria-label="Previous Page"
-              className="inline-flex items-center gap-1 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-brand-primary/40 disabled:opacity-40 disabled:pointer-events-none transition-all shadow-xs cursor-pointer shrink-0"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              <span className="hidden sm:inline">Previous</span>
-            </button>
-
-            {/* Responsive Page Numbers */}
-            <div className="flex items-center gap-1 sm:gap-1.5 py-1">
-              {(() => {
-                const pages: (number | "...")[] = [];
-                if (totalPages <= 5) {
-                  for (let i = 1; i <= totalPages; i++) pages.push(i);
-                } else {
-                  pages.push(1);
-                  if (currentPage > 3) pages.push("...");
-                  const start = Math.max(2, currentPage - 1);
-                  const end = Math.min(totalPages - 1, currentPage + 1);
-                  for (let i = start; i <= end; i++) pages.push(i);
-                  if (currentPage < totalPages - 2) pages.push("...");
-                  pages.push(totalPages);
-                }
-
-                return pages.map((item, idx) => {
-                  if (item === "...") {
-                    return (
-                      <span
-                        key={`dots-${idx}`}
-                        className="w-5 sm:w-7 text-center text-xs font-bold text-slate-400 select-none"
-                      >
-                        ...
-                      </span>
-                    );
-                  }
-
-                  const pageNum = item as number;
-                  const isActive = currentPage === pageNum;
-                  return (
-                    <button
-                      key={pageNum}
-                      onClick={() => handlePageChange(pageNum)}
-                      className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl text-xs font-bold transition-all shadow-xs cursor-pointer flex items-center justify-center shrink-0 ${
-                        isActive
-                          ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/25 scale-105"
-                          : "bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 hover:border-emerald-300"
-                      }`}
-                    >
-                      {pageNum}
-                    </button>
-                  );
-                });
-              })()}
-            </div>
-
-            {/* Next Button */}
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              aria-label="Next Page"
-              className="inline-flex items-center gap-1 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-brand-primary/40 disabled:opacity-40 disabled:pointer-events-none transition-all shadow-xs cursor-pointer shrink-0"
-            >
-              <span className="hidden sm:inline">Next</span>
-              <ChevronRight className="w-4 h-4" />
-            </button>
+        {/* Carousel Pagination Dots */}
+        {filteredCourses.length > 1 && (
+          <div className="mt-6 flex items-center justify-center gap-1.5 select-none">
+            {filteredCourses.slice(0, Math.min(filteredCourses.length, 12)).map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => scrollToIndex(idx)}
+                aria-label={`Scroll to course ${idx + 1}`}
+                className={cn(
+                  "h-2 rounded-full transition-all duration-300 cursor-pointer",
+                  activeIndex === idx
+                    ? "w-7 bg-emerald-600 shadow-xs"
+                    : "w-2 bg-slate-300 hover:bg-slate-400"
+                )}
+              />
+            ))}
           </div>
         )}
 

@@ -43,11 +43,6 @@ export default function AboutContactSection() {
           {/* Left Column: Direct Connect & Company Details */}
           <div className="lg:col-span-5 space-y-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-200">
-                <Sparkles className="w-3.5 h-3.5 text-brand-primary" />
-                <span>Get In Touch</span>
-              </div>
-
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-dark tracking-tight leading-tight">
                 Connect with <span className="text-brand-primary">Our Academic Team</span>
               </h2>

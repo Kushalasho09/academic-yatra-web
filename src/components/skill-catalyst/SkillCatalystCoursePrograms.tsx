@@ -3,8 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Sparkles, Clock, Calendar, Award } from "lucide-react";
 import { cn } from "@/lib/utils";
+import SubscriptionCard from "@/components/ui/SubscriptionCard";
 
 export interface CoursePlan {
   id: string;
@@ -159,10 +159,6 @@ export default function SkillCatalystCoursePrograms({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">
-          <div className="inline-flex items-center gap-1.5 bg-emerald-100/80 text-emerald-800 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wide">
-            <Sparkles className="w-3.5 h-3.5 text-brand-primary" />
-            <span>Course Programs</span>
-          </div>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
             Choose Your <span className="text-brand-primary">Program</span>
           </h2>
@@ -192,115 +188,41 @@ export default function SkillCatalystCoursePrograms({
           })}
         </div>
 
-        {/* Pricing Cards Grid */}
+        {/* Pricing Cards Grid matching Reference UI */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 items-stretch">
           {filteredPlans.map((plan, idx) => {
+            const isFeatured = plan.isFeatured || idx === 1;
+            const theme = idx % 3 === 0 ? "mint" : idx % 3 === 1 ? "lime" : "lavender";
+            const badge = isFeatured ? (plan.badge || "Popular") : undefined;
+            const ctaHref = `https://web.whatsapp.com/send?phone=+919403892981&text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
+              plan.name
+            )}.`;
+
             return (
               <motion.div
                 key={plan.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: idx * 0.08 }}
-                className={cn(
-                  "relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300",
-                  plan.isFeatured
-                    ? "bg-white border-2 border-brand-primary shadow-2xl shadow-brand-primary/15 md:-translate-y-2 ring-4 ring-brand-primary/10"
-                    : "bg-white/90 border border-slate-200/90 shadow-md hover:shadow-xl hover:border-slate-300"
-                )}
+                className="h-full"
               >
-                {/* Badge */}
-                {plan.badge && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span
-                      className={cn(
-                        "px-3.5 py-1 rounded-full text-[10.5px] font-extrabold tracking-wide uppercase shadow-sm flex items-center gap-1.5 whitespace-nowrap",
-                        plan.isFeatured
-                          ? "bg-brand-primary text-white"
-                          : "bg-slate-800 text-white"
-                      )}
-                    >
-                      <Sparkles className="w-3 h-3 text-amber-300" />
-                      <span>{plan.badge}</span>
-                    </span>
-                  </div>
-                )}
-
-                <div>
-                  {/* Category Pill */}
-                  <div className="pt-2 flex items-center justify-between gap-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                    <span>Skill Catalyst</span>
-                    <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md text-[10px]">
-                      {plan.duration}
-                    </span>
-                  </div>
-
-                  {/* Plan Name */}
-                  <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-brand-navy mt-1.5 leading-snug">
-                    {plan.name}
-                  </h3>
-                  <p className="text-xs text-slate-500 mt-1 min-h-[36px] leading-relaxed">
-                    {plan.description}
-                  </p>
-
-                  {/* Price Block */}
-                  <div className="my-5 pb-5 border-b border-slate-100">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-sm font-bold text-slate-400">₹</span>
-                      <span className="font-heading text-3xl sm:text-4xl font-black text-brand-navy tracking-tight">
-                        {plan.price}
-                      </span>
-                      <span className="text-xs text-slate-500 font-semibold">{plan.period}</span>
-                    </div>
-                    <div className="mt-2 flex items-center justify-between text-xs font-semibold text-slate-500">
-                      <span>{plan.validityText}</span>
-                      <span className="text-brand-primary font-bold">{plan.liveHours}</span>
-                    </div>
-                  </div>
-
-                  {/* Features List */}
-                  <div className="space-y-2.5 pb-6">
-                    <p className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400">
-                      What&apos;s Included
-                    </p>
-                    {plan.features.map((feature, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-2 text-xs">
-                        <div className="w-4 h-4 rounded-full bg-emerald-100 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
-                          <Check className="w-2.5 h-2.5 stroke-[3]" />
-                        </div>
-                        <span className="text-slate-700 font-medium leading-snug">
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Bottom CTA Buttons */}
-                <div className="pt-4 space-y-2 border-t border-slate-100">
-                  <a
-                    href={`https://web.whatsapp.com/send?phone=+919403892981&text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
-                      plan.name
-                    )}.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cn(
-                      "w-full py-3 px-4 rounded-xl font-bold text-xs transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-sm",
-                      plan.isFeatured
-                        ? "bg-brand-primary hover:bg-brand-primaryHover text-white shadow-brand-primary/25 hover:shadow-lg"
-                        : "bg-brand-navy hover:bg-slate-800 text-white"
-                    )}
-                  >
-                    <span>Enroll Now</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-
-                  <Link
-                    href="/contacts"
-                    className="w-full py-2 px-4 rounded-xl font-bold text-xs text-slate-600 hover:text-brand-navy hover:bg-slate-100 flex items-center justify-center transition-colors"
-                  >
-                    <span>Book Demo</span>
-                  </Link>
-                </div>
+                <SubscriptionCard
+                  id={plan.id}
+                  name={plan.name}
+                  subtitle={plan.duration ? `${plan.duration} • ${plan.liveHours}` : "Career Ready Curriculum"}
+                  price={plan.price}
+                  period={plan.period || "/course"}
+                  currency="₹"
+                  totalText={plan.validityText}
+                  badge={badge}
+                  isFeatured={isFeatured}
+                  theme={theme}
+                  features={plan.features}
+                  description={plan.description}
+                  ctaText="Choose"
+                  ctaHref={ctaHref}
+                  trialHref="/contacts"
+                />
               </motion.div>
             );
           })}

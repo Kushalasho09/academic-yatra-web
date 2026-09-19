@@ -10,7 +10,6 @@ import PackageCourseGuide from "@/components/package-detail/PackageCourseGuide";
 import PackageWhyChoose from "@/components/package-detail/PackageWhyChoose";
 import PackageInlineCheckout from "@/components/package-detail/PackageInlineCheckout";
 import PackageCTABanner from "@/components/package-detail/PackageCTABanner";
-import PackageFloatingDock from "@/components/package-detail/PackageFloatingDock";
 import PackageBookingModal from "@/components/package-detail/PackageBookingModal";
 
 export default function PackageDetailPage() {
@@ -62,9 +61,6 @@ export default function PackageDetailPage() {
         ctaBanner={data.ctaBanner}
         onOpenBooking={handleOpenBooking}
       />
-
-      {/* 8. Right-Edge Fixed Floating Dock (Images 1-3) */}
-      <PackageFloatingDock onOpenContact={() => handleOpenBooking("Contact Academic Yatra")} />
 
       {/* 9. Interactive Booking & Consultation Modal */}
       <PackageBookingModal
