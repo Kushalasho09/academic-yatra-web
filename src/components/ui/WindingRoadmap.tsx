@@ -233,54 +233,152 @@ export default function WindingRoadmap({
         </div>
 
         {/* ============================================================ */}
-        {/* MOBILE VIEW: Clean Responsive Vertical Path with Same Circles */}
+        {/* MOBILE VIEW: Alternating Serpentine Road (Light Brand Theme)  */}
         {/* ============================================================ */}
-        <div className="block md:hidden relative">
-          {/* Vertical Connecting Track on Left */}
-          <div className="absolute left-[39px] top-6 bottom-6 w-1 bg-[#2E7D72] rounded-full" />
+        <div className="block md:hidden relative w-full max-w-[360px] mx-auto text-slate-800">
+          {/* Continuous Serpentine SVG Road mathematically centered on each circle */}
+          <svg
+            className="absolute inset-0 w-full h-[600px] pointer-events-none z-0"
+            viewBox="0 0 360 600"
+            fill="none"
+          >
+            {/* Soft Shadow / Glow Path */}
+            <path
+              d="
+                M 312 31
+                A 44 44 0 0 1 356 75
+                A 44 44 0 0 1 312 119
+                A 31 31 0 0 1 281 150
+                L 79 150
+                A 31 31 0 0 0 48 181
+                A 44 44 0 0 0 4 225
+                A 44 44 0 0 0 48 269
+                A 31 31 0 0 0 79 300
+                L 281 300
+                A 31 31 0 0 1 312 331
+                A 44 44 0 0 1 356 375
+                A 44 44 0 0 1 312 419
+                A 31 31 0 0 1 281 450
+                L 79 450
+                A 31 31 0 0 0 48 481
+                A 44 44 0 0 0 4 525
+                A 44 44 0 0 0 48 569
+                A 31 31 0 0 0 95 600
+              "
+              stroke="#2E7D72"
+              strokeWidth="8"
+              className="opacity-15 blur-[2px]"
+            />
 
-          <div className="space-y-8 relative z-10">
+            {/* Main Crisp Teal Connecting Road */}
+            <path
+              d="
+                M 312 31
+                A 44 44 0 0 1 356 75
+                A 44 44 0 0 1 312 119
+                A 31 31 0 0 1 281 150
+                L 79 150
+                A 31 31 0 0 0 48 181
+                A 44 44 0 0 0 4 225
+                A 44 44 0 0 0 48 269
+                A 31 31 0 0 0 79 300
+                L 281 300
+                A 31 31 0 0 1 312 331
+                A 44 44 0 0 1 356 375
+                A 44 44 0 0 1 312 419
+                A 31 31 0 0 1 281 450
+                L 79 450
+                A 31 31 0 0 0 48 481
+                A 44 44 0 0 0 4 525
+                A 44 44 0 0 0 48 569
+                A 31 31 0 0 0 95 600
+              "
+              stroke="#2E7D72"
+              strokeWidth="3.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+
+            {/* Walking Silhouette on the Horizontal Path between Row 1 and 2 */}
+            <g transform="translate(170, 268)">
+              <ellipse cx="14" cy="32" rx="10" ry="2" fill="#1E4D46" opacity="0.35" />
+              <path
+                d="M 12 7 C 13.5 7 15 5.5 15 4 C 15 2.5 13.5 1 12 1 C 10.5 1 9 2.5 9 4 C 9 5.5 10.5 7 12 7 Z M 13 8 L 10.5 8 C 9.5 8 8.8 8.7 8.8 9.7 L 7.8 15 L 9.2 15.3 L 9.8 11.5 L 10.5 16.5 L 9.2 25 L 10.8 25.3 L 12.2 18 L 13.5 25.3 L 15.2 25 L 13.8 16 L 14.8 11.5 L 15.5 15.3 L 16.8 15 L 15.8 9.7 C 15.8 8.7 15.1 8 14.1 8 Z"
+                fill="#1E293B"
+              />
+            </g>
+          </svg>
+
+          {/* 4 Alternating Mobile Step Rows */}
+          <div className="relative z-10">
             {steps.map((step, idx) => {
               const Icon = step.icon || DEFAULT_ICONS[idx % DEFAULT_ICONS.length];
+              const isCircleRight = idx % 2 === 0; // Steps 1 & 3: Circle on right, Steps 2 & 4: Circle on left
+              const actionLabels = ["STUDY", "PRACTICE", "FLEXIBLE", "GROW"];
+              const actionLabel = actionLabels[idx % actionLabels.length];
 
               return (
                 <motion.div
                   key={step.number}
-                  initial={{ opacity: 0, x: -15 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  className="flex items-start gap-4"
+                  transition={{ duration: 0.45, delay: idx * 0.08 }}
+                  className="relative h-[150px] flex items-center"
                 >
-                  {/* Red Circle Disc */}
-                  <div className="shrink-0 relative">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#E04343] via-[#D33434] to-[#B92727] shadow-lg border-2 border-white flex items-center justify-center text-white">
-                      <Icon className="w-7 h-7 text-white" />
-                    </div>
-                  </div>
-
-                  {/* Step Info */}
-                  <div className="space-y-1 pt-1 text-left flex-1">
-                    <div className="flex items-baseline gap-2">
-                      <span className="font-heading text-lg font-black text-slate-900">
+                  {/* Text Content */}
+                  <div
+                    className={cn(
+                      "text-left flex flex-col justify-center",
+                      isCircleRight ? "pr-[96px] pl-2" : "pl-[96px] pr-2"
+                    )}
+                  >
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="font-heading text-lg font-black text-slate-900 tracking-tight">
                         {step.number}
                       </span>
-                      <h3 className="font-heading text-base font-extrabold text-brand-navy">
+                      <h4 className="font-heading font-extrabold text-sm sm:text-base text-brand-navy leading-snug">
                         {step.title}
-                      </h3>
+                      </h4>
                     </div>
 
-                    <div className="text-[11px] font-black text-brand-primary tracking-wider uppercase">
+                    <div className="text-[10px] font-black text-brand-primary tracking-wider uppercase mt-0.5">
                       {step.tagline}
                     </div>
 
-                    <p className="font-body text-slate-600 text-xs sm:text-sm leading-relaxed font-normal pt-0.5">
+                    <p className="font-body text-slate-600 text-[11px] sm:text-xs leading-relaxed mt-1 line-clamp-3">
                       {step.description}
                     </p>
+                  </div>
+
+                  {/* Circular Node centered exactly at (48, 75) or (312, 75) */}
+                  <div
+                    className={cn(
+                      "absolute top-[39px] w-[72px] h-[72px] flex items-center justify-center shrink-0",
+                      isCircleRight ? "right-[12px]" : "left-[12px]"
+                    )}
+                  >
+                    {/* Outer subtle concentric ring */}
+                    <div className="w-[72px] h-[72px] rounded-full p-1 border-2 border-[#2E7D72]/25 flex items-center justify-center bg-white/50 backdrop-blur-xs">
+                      {/* Red Circular Disk matching desktop */}
+                      <div className="w-full h-full rounded-full bg-gradient-to-br from-[#E04343] via-[#D33434] to-[#B92727] shadow-[0_10px_22px_rgba(211,52,52,0.3)] border-2 border-white flex flex-col items-center justify-center text-white">
+                        <Icon className="w-5 h-5 text-white drop-shadow stroke-[1.8]" />
+                        <span className="text-[7px] font-black uppercase tracking-wider text-white/90 mt-0.5 select-none">
+                          {actionLabel}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               );
             })}
+          </div>
+
+          {/* Reference Quote Tagline at Bottom */}
+          <div className="mt-4 pt-2 text-right">
+            <p className="font-serif italic text-xs sm:text-sm text-slate-500 tracking-wide">
+              Wherever you’re starting, there’s a Yatra for it.
+            </p>
           </div>
         </div>
       </div>

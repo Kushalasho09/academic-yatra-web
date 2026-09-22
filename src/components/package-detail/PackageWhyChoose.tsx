@@ -26,8 +26,18 @@ interface StepConfig {
   bubbleColor: string;
   checkColor: string;
   fallbackDesc: string;
+  videoSrc: string;
   icon: React.ElementType;
 }
+
+const VIDEO_FILES = [
+  "/images/1.mp4",
+  "/images/2.mp4",
+  "/images/3.mp4",
+  "/images/4.mp4",
+  "/images/5.mp4",
+  "/images/6.mp4",
+];
 
 const STEP_CONFIGS: Record<EcosystemCard["iconType"], StepConfig> = {
   dashboard: {
@@ -39,6 +49,7 @@ const STEP_CONFIGS: Record<EcosystemCard["iconType"], StepConfig> = {
     checkColor: "text-sky-500",
     fallbackDesc:
       "Access your personalized student dashboard to track study progress, view upcoming schedules, and inspect real-time module performance analytics.",
+    videoSrc: "/images/1.mp4",
     icon: LayoutDashboard,
   },
   lessons: {
@@ -50,6 +61,7 @@ const STEP_CONFIGS: Record<EcosystemCard["iconType"], StepConfig> = {
     checkColor: "text-fuchsia-500",
     fallbackDesc:
       "Master exam fundamentals with structured on-demand video lectures, interactive text lessons, practice quizzes, and instant scoring feedback.",
+    videoSrc: "/images/2.mp4",
     icon: BookOpen,
   },
   classes: {
@@ -61,6 +73,7 @@ const STEP_CONFIGS: Record<EcosystemCard["iconType"], StepConfig> = {
     checkColor: "text-emerald-500",
     fallbackDesc:
       "Engage directly with certified trainers in live interactive sessions with real-time doubt clearing, flexible schedules, and recorded class archives.",
+    videoSrc: "/images/3.mp4",
     icon: Megaphone,
   },
   practice: {
@@ -72,6 +85,7 @@ const STEP_CONFIGS: Record<EcosystemCard["iconType"], StepConfig> = {
     checkColor: "text-amber-500",
     fallbackDesc:
       "Sharpen every module with timed topic-wise exercises, adaptive skill-building question banks, instant scoring, and granular progress tracking.",
+    videoSrc: "/images/4.mp4",
     icon: Award,
   },
   mock: {
@@ -83,6 +97,7 @@ const STEP_CONFIGS: Record<EcosystemCard["iconType"], StepConfig> = {
     checkColor: "text-indigo-500",
     fallbackDesc:
       "Experience authentic test-day pressure with full-length adaptive mock exams matching official scoring criteria and accurate band predictions.",
+    videoSrc: "/images/5.mp4",
     icon: Target,
   },
   evaluation: {
@@ -94,14 +109,20 @@ const STEP_CONFIGS: Record<EcosystemCard["iconType"], StepConfig> = {
     checkColor: "text-rose-500",
     fallbackDesc:
       "Receive in-depth line-by-line diagnostic reviews, individual band improvement strategies, and personalized 1-on-1 mentor guidance.",
+    videoSrc: "/images/6.mp4",
     icon: MessageSquare,
   },
 };
 
-const VIDEO_URL =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4";
+function VideoCard({
+  config,
+  videoSrc,
+}: {
+  config: StepConfig;
+  videoSrc?: string;
+}) {
+  const src = videoSrc || config.videoSrc || "/images/1.mp4";
 
-function VideoCard({ config }: { config: StepConfig }) {
   return (
     <div className="relative w-full max-w-[560px] mx-auto group">
       {/* Decorative Soft Pastel Circles */}
@@ -131,11 +152,13 @@ function VideoCard({ config }: { config: StepConfig }) {
         {/* Horizontal Video Element (16:9 Aspect Ratio) */}
         <div className="relative aspect-video w-full rounded-[18px] sm:rounded-[26px] overflow-hidden bg-slate-950 border border-slate-200/60 shadow-inner">
           <video
-            src={VIDEO_URL}
+            key={src}
+            src={src}
             autoPlay
             loop
             muted
             playsInline
+            preload="metadata"
             className="w-full h-full object-cover"
           />
         </div>
@@ -166,8 +189,7 @@ export default function PackageWhyChoose({ whyChoose }: PackageWhyChooseProps) {
         </div>
 
         {/* ========================================================================= */}
-        {/* MOBILE VIEW: Single Hero Video Showcase (Zero Extra Text / Zero Clutter)   */}
-        {/* The video displays the full learning ecosystem in one sleek display card   */}
+        {/* MOBILE VIEW: Single Hero Full Video Showcase ('full video.mp4')           */}
         {/* ========================================================================= */}
         <div className="block lg:hidden">
           <div className="relative w-full max-w-[540px] mx-auto py-2">
@@ -182,11 +204,12 @@ export default function PackageWhyChoose({ whyChoose }: PackageWhyChooseProps) {
             <div className="relative rounded-[28px] bg-white p-3 border border-slate-200/80 shadow-[0_20px_50px_rgba(15,23,42,0.1)]">
               <div className="relative aspect-video w-full rounded-[20px] overflow-hidden bg-slate-950 border border-slate-200/60 shadow-inner">
                 <video
-                  src={VIDEO_URL}
+                  src="/images/full%20video.mp4"
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -196,11 +219,13 @@ export default function PackageWhyChoose({ whyChoose }: PackageWhyChooseProps) {
 
         {/* ========================================================================= */}
         {/* DESKTOP VIEW: Full Alternating Zigzag Process with Horizontal Video Cards */}
+        {/* Each card renders its unique video (1.mp4 to 6.mp4)                       */}
         {/* ========================================================================= */}
         <div className="hidden lg:block space-y-8 sm:space-y-12">
           {whyChoose.cards.map((card, idx) => {
             const config = STEP_CONFIGS[card.iconType] || STEP_CONFIGS.dashboard;
             const Icon = config.icon;
+            const videoSrc = VIDEO_FILES[idx] || config.videoSrc || `/images/${idx + 1}.mp4`;
             // Alternating pattern on desktop: even on left (text left, video right), odd on right (video left, text right)
             const isVideoLeft = idx % 2 === 1;
 
@@ -273,7 +298,7 @@ export default function PackageWhyChoose({ whyChoose }: PackageWhyChooseProps) {
                     isVideoLeft ? "lg:order-1" : "lg:order-2"
                   )}
                 >
-                  <VideoCard config={config} />
+                  <VideoCard config={config} videoSrc={videoSrc} />
                 </div>
               </motion.div>
             );

@@ -137,79 +137,122 @@ export default function SteppedProcessCards({
       </div>
 
       {/* ================================================================= */}
-      {/* MOBILE & TABLET VIEW (< lg:): Clean Vertical Flow with Guides     */}
+      {/* MOBILE & TABLET VIEW (< lg:): Staggered Zigzag Flow with Elbow     */}
+      {/* Connectors & Downward Arrows (matching Reference 2)              */}
       {/* ================================================================= */}
-      <div className="block lg:hidden max-w-lg mx-auto space-y-4">
+      <div className="block lg:hidden relative max-w-lg mx-auto px-1 sm:px-3">
         {items.map((item, idx) => {
+          const isRightAligned = idx % 2 === 1;
           const Icon = item.icon;
           const isMint = item.cardTheme === "mint";
           const isGreenPill = item.pillTheme === "green";
+          const isLast = idx === items.length - 1;
 
           return (
             <React.Fragment key={idx}>
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: idx * 0.08 }}
+              {/* Row Container for Zigzag Step Card */}
+              <div
                 className={cn(
-                  "relative rounded-[22px] p-4 flex items-start gap-3.5 transition-all shadow-xs",
-                  isMint
-                    ? "bg-[#f2f8f2] border border-[#d8ecd8]"
-                    : "bg-white border border-slate-200/90"
+                  "relative flex w-full",
+                  isRightAligned ? "justify-end" : "justify-start"
                 )}
               >
-                {/* Left Vertical Pill Badge */}
-                <div
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: idx * 0.08 }}
                   className={cn(
-                    "w-7 py-2.5 rounded-full flex items-center justify-center shrink-0 self-stretch my-0.5",
-                    isGreenPill
-                      ? "bg-[#0c4a2f] text-emerald-100"
-                      : "bg-[#1e293b] text-slate-200"
+                    "relative w-[54%] xs:w-[52%] sm:w-[50%] rounded-[20px] sm:rounded-[24px] p-2.5 sm:p-3.5 flex items-start gap-2 sm:gap-3 transition-all shadow-xs",
+                    isMint
+                      ? "bg-[#f2f8f2] border border-[#d8ecd8]"
+                      : "bg-white border border-slate-200/90"
                   )}
                 >
-                  <span
-                    className="text-[9px] font-extrabold tracking-wider uppercase select-none whitespace-nowrap"
-                    style={{
-                      writingMode: "vertical-rl",
-                      transform: "rotate(180deg)",
-                    }}
+                  {/* Left Vertical Pill Badge */}
+                  <div
+                    className={cn(
+                      "w-5 sm:w-6 py-2 sm:py-2.5 rounded-full flex items-center justify-center shrink-0 self-stretch my-0.5",
+                      isGreenPill
+                        ? "bg-[#0c4a2f] text-emerald-100"
+                        : "bg-[#1e293b] text-slate-200"
+                    )}
                   >
-                    {item.pillLabel}
-                  </span>
-                </div>
-
-                {/* Card Content */}
-                <div className="flex-1 min-w-0">
-                  {/* Header: Icon + Numbered Title */}
-                  <div className="flex items-center gap-2">
-                    <div
-                      className={cn(
-                        "w-7 h-7 rounded-full flex items-center justify-center shrink-0",
-                        isMint
-                          ? "bg-white text-emerald-700 shadow-xs border border-emerald-100"
-                          : "bg-emerald-50 text-emerald-700 border border-emerald-100/60"
-                      )}
+                    <span
+                      className="text-[7.5px] sm:text-[9px] font-extrabold tracking-wider uppercase select-none whitespace-nowrap"
+                      style={{
+                        writingMode: "vertical-rl",
+                        transform: "rotate(180deg)",
+                      }}
                     >
-                      <Icon className="w-3.5 h-3.5" />
-                    </div>
-                    <h4 className="font-heading font-extrabold text-sm text-slate-900 tracking-tight leading-snug">
-                      <span className="text-emerald-700 mr-1">{item.number}</span>
-                      {item.title}
-                    </h4>
+                      {item.pillLabel}
+                    </span>
                   </div>
 
-                  {/* Description */}
-                  <p className="font-body text-xs text-slate-600 leading-relaxed mt-2 pl-9">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
+                  {/* Card Content */}
+                  <div className="flex-1 min-w-0 pt-0.5">
+                    {/* Header: Icon + Numbered Title */}
+                    <div className="flex items-start gap-1.5 sm:gap-2">
+                      <div
+                        className={cn(
+                          "w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5",
+                          isMint
+                            ? "bg-white text-emerald-700 shadow-xs border border-emerald-100"
+                            : "bg-emerald-50 text-emerald-700 border border-emerald-100/60"
+                        )}
+                      >
+                        <Icon className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                      </div>
+                      <h4 className="font-heading font-extrabold text-[11px] sm:text-xs text-slate-900 tracking-tight leading-snug">
+                        <span className="text-emerald-700 mr-1">{item.number}</span>
+                        {item.title}
+                      </h4>
+                    </div>
 
-              {/* Vertical Dashed Connector Between Cards on Mobile */}
-              {idx < items.length - 1 && (
-                <div className="flex justify-center -my-2">
-                  <div className="h-5 w-0.5 border-l-2 border-dashed border-emerald-400/80" />
+                    {/* Description */}
+                    <p className="font-body text-[9.5px] sm:text-[11px] text-slate-600 leading-snug sm:leading-relaxed mt-1.5">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Dashed Elbow Connector with Arrowhead between Cards */}
+              {!isLast && (
+                <div className="relative w-full h-9 sm:h-10 pointer-events-none -my-2.5 sm:-my-3 z-0">
+                  {!isRightAligned ? (
+                    /* Left Card -> Right Card: line goes right, curves down with arrow */
+                    <div
+                      className="absolute top-2 sm:top-2.5 h-7 sm:h-8 border-t-2 border-r-2 border-dashed border-slate-400/90 rounded-tr-xl"
+                      style={{
+                        left: "53%",
+                        right: "25%",
+                      }}
+                    >
+                      {/* Downward Arrowhead pointing directly into next card */}
+                      <div className="absolute -bottom-1 -right-[5px] text-slate-400/90">
+                        <svg viewBox="0 0 10 8" className="w-2.5 h-2 fill-current">
+                          <path d="M0 0 L10 0 L5 8 Z" />
+                        </svg>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Right Card -> Left Card: line goes left, curves down with arrow */
+                    <div
+                      className="absolute top-2 sm:top-2.5 h-7 sm:h-8 border-t-2 border-l-2 border-dashed border-slate-400/90 rounded-tl-xl"
+                      style={{
+                        left: "25%",
+                        right: "53%",
+                      }}
+                    >
+                      {/* Downward Arrowhead pointing directly into next card */}
+                      <div className="absolute -bottom-1 -left-[5px] text-slate-400/90">
+                        <svg viewBox="0 0 10 8" className="w-2.5 h-2 fill-current">
+                          <path d="M0 0 L10 0 L5 8 Z" />
+                        </svg>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </React.Fragment>
