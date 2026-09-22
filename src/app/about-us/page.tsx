@@ -6,7 +6,7 @@ import AboutHowWeTeach from "@/components/about-us/AboutHowWeTeach";
 import AboutOurPurpose from "@/components/about-us/AboutOurPurpose";
 import AboutOurApproach from "@/components/about-us/AboutOurApproach";
 import AboutUsStatsStrip from "@/components/about-us/AboutUsStatsStrip";
-import AboutCorporateEcosystem from "@/components/about-us/AboutCorporateEcosystem";
+import AboutWhoWeAre from "@/components/about-us/AboutWhoWeAre";
 import AboutLanguagesTicker from "@/components/about-us/AboutLanguagesTicker";
 import AboutDigitalEcosystem from "@/components/about-us/AboutDigitalEcosystem";
 import AboutLegalDisclosure from "@/components/about-us/AboutLegalDisclosure";
@@ -47,8 +47,8 @@ export default function AboutUsPage() {
       {/* Key Numbers & Metric Counter Strip */}
       <AboutUsStatsStrip />
 
-      {/* Corporate Group Profile & 3 Consumer Brands */}
-      <AboutCorporateEcosystem />
+      {/* 06. Who We Are: Dark Navy Closing Section */}
+      <AboutWhoWeAre />
 
       {/* Continuous Flowing Languages & Exams Marquee Ticker */}
       <AboutLanguagesTicker />
