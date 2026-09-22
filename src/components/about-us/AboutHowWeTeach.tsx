@@ -278,72 +278,80 @@ export default function AboutHowWeTeach() {
         </div>
 
         {/* ========================================================================= */}
-        {/* MOBILE VIEW (< md): Vertical timeline with matching glow circles & arrows */}
+        {/* MOBILE VIEW (< md): Clean Connected Step Cards without Text Overlaps       */}
         {/* ========================================================================= */}
-        <div className="block md:hidden relative max-w-sm mx-auto">
-          
-          {/* Vertical Dotted Connector Line */}
-          <div className="absolute top-16 bottom-16 left-1/2 -translate-x-1/2 w-0.5 pointer-events-none z-0">
-            <svg
-              className="w-4 h-full"
-              viewBox="0 0 16 600"
-              fill="none"
-              preserveAspectRatio="none"
-            >
-              <line
-                x1="8"
-                y1="0"
-                x2="8"
-                y2="600"
-                stroke="#1E293B"
-                strokeWidth="2"
-                strokeDasharray="4 4"
-              />
-            </svg>
-          </div>
+        <div className="block md:hidden max-w-sm mx-auto">
+          {STEPS.map((step, idx) => {
+            const isLast = idx === STEPS.length - 1;
 
-          <div className="space-y-12 relative z-10">
-            {STEPS.map((step, idx) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.1 }}
-                className="flex flex-col items-center text-center bg-white/98 rounded-3xl p-5 border border-slate-100 shadow-sm"
-              >
-                {/* Icon */}
-                <div className="mb-2">
-                  <StepIcon type={step.iconType} />
-                </div>
-
-                {/* Glow Circle with Center Dot */}
-                <div className="relative w-28 h-28 flex items-center justify-center my-1">
+            return (
+              <React.Fragment key={step.number}>
+                {/* Step Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: 0.05 }}
+                  className="flex flex-col items-center text-center bg-white rounded-2xl p-6 border border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] relative"
+                >
+                  {/* Icon Badge */}
                   <div
-                    className="absolute inset-0 rounded-full"
-                    style={{ background: step.accentGlow }}
-                  />
-                  <div className="relative z-10 w-3.5 h-3.5 rounded-full bg-white border-2 border-slate-900 shadow-sm" />
-                </div>
-
-                {/* Step Info */}
-                <div className="mt-3 space-y-1">
-                  <h4 className="font-heading text-base font-bold text-slate-900">
-                    {step.number}
-                  </h4>
-                  <div
-                    className="text-xs font-black tracking-wider uppercase font-heading"
-                    style={{ color: step.accentColor }}
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center mb-3 shadow-xs"
+                    style={{ backgroundColor: `${step.accentColor}14` }}
                   >
-                    {step.label}
+                    <StepIcon type={step.iconType} />
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed max-w-[260px] mx-auto pt-1">
-                    {step.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+
+                  {/* Radial Glow Circle with Centered Target Dot */}
+                  <div className="relative w-24 h-24 flex items-center justify-center my-2">
+                    <div
+                      className="absolute inset-0 rounded-full"
+                      style={{ background: step.accentGlow }}
+                    />
+                    <div className="relative z-10 w-4 h-4 rounded-full bg-white border-2 border-slate-900 shadow-sm" />
+                  </div>
+
+                  {/* Step Info */}
+                  <div className="mt-3 space-y-1 w-full">
+                    <h4 className="font-heading text-base font-bold text-slate-900 tracking-tight">
+                      {step.number}
+                    </h4>
+                    <div
+                      className="text-xs font-black tracking-wider uppercase font-heading"
+                      style={{ color: step.accentColor }}
+                    >
+                      {step.label}
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed max-w-[260px] mx-auto pt-1 font-normal">
+                      {step.description}
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Connecting Dotted Arrow Flow (Between Cards Only) */}
+                {!isLast && (
+                  <div className="flex flex-col items-center justify-center py-2.5">
+                    <div className="h-4 w-0 border-r-2 border-dashed border-slate-300" />
+                    <div className="w-7 h-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-600 shadow-xs my-0.5">
+                      <svg
+                        className="w-3.5 h-3.5 text-slate-600"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M6 2v8" />
+                        <path d="M3 7l3 3 3-3" />
+                      </svg>
+                    </div>
+                    <div className="h-4 w-0 border-r-2 border-dashed border-slate-300" />
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
         </div>
 
       </div>
