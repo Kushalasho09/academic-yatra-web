@@ -28,19 +28,8 @@ export default function AboutWhoWeAre() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Top Header Label */}
+        {/* Top Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-emerald-400 text-xs sm:text-sm font-bold tracking-wide mb-4 shadow-sm"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-            <span>06. WHO WE ARE</span>
-          </motion.div>
-
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
