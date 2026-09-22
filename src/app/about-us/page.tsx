@@ -4,6 +4,7 @@ import AboutUsHero from "@/components/about-us/AboutUsHero";
 import AboutWhatWeDo from "@/components/about-us/AboutWhatWeDo";
 import AboutHowWeTeach from "@/components/about-us/AboutHowWeTeach";
 import AboutOurPurpose from "@/components/about-us/AboutOurPurpose";
+import AboutOurApproach from "@/components/about-us/AboutOurApproach";
 import AboutUsStatsStrip from "@/components/about-us/AboutUsStatsStrip";
 import AboutCorporateEcosystem from "@/components/about-us/AboutCorporateEcosystem";
 import AboutLanguagesTicker from "@/components/about-us/AboutLanguagesTicker";
@@ -39,6 +40,9 @@ export default function AboutUsPage() {
 
       {/* 04. Our Purpose: 4 Pillars */}
       <AboutOurPurpose />
+
+      {/* 05. Our Approach: Interlocking Chain Brand Personality */}
+      <AboutOurApproach />
 
       {/* Key Numbers & Metric Counter Strip */}
       <AboutUsStatsStrip />
