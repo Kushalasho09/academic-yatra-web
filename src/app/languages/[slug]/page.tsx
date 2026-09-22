@@ -54,7 +54,10 @@ export default function PackageDetailPage() {
       <PackageWhyChoose whyChoose={data.whyChoose} />
 
       {/* 6. Course Cards & Inline Checkout Directly Below (Images 2 & 3) */}
-      <PackageInlineCheckout onOpenDemo={() => handleOpenBooking("Book 5 Day Demo")} />
+      <PackageInlineCheckout
+        categoryName={data.category}
+        onOpenDemo={() => handleOpenBooking("Book 5 Day Demo")}
+      />
 
       {/* 7. Bottom CTA Banner & Indicative Fee Disclaimer (Image 5) */}
       <PackageCTABanner

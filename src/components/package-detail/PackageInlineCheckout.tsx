@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -130,11 +130,34 @@ const IELTS_CARDS: CoursePlanCard[] = [
 
 interface PackageInlineCheckoutProps {
   onOpenDemo: () => void;
+  categoryName?: string;
 }
 
-export default function PackageInlineCheckout({ onOpenDemo }: PackageInlineCheckoutProps) {
+export default function PackageInlineCheckout({
+  onOpenDemo,
+  categoryName,
+}: PackageInlineCheckoutProps) {
+  const currentCategory = categoryName || "IELTS Academic";
+  const activeCards = React.useMemo(() => {
+    return IELTS_CARDS.map((card) => ({
+      ...card,
+      category: currentCategory,
+    }));
+  }, [currentCategory]);
+
   // Selected course plan
-  const [selectedPlan, setSelectedPlan] = useState<CoursePlanCard>(IELTS_CARDS[1]); // Default to Champion Pack +
+  const [selectedPlan, setSelectedPlan] = useState<CoursePlanCard>(() => ({
+    ...IELTS_CARDS[1],
+    category: currentCategory,
+  }));
+
+  // Update selected plan if category changes
+  useEffect(() => {
+    setSelectedPlan((prev) => ({
+      ...prev,
+      category: currentCategory,
+    }));
+  }, [currentCategory]);
 
   // Authentication State
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -209,7 +232,7 @@ export default function PackageInlineCheckout({ onOpenDemo }: PackageInlineCheck
           </div>
 
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug tracking-tight">
-            Choose Your <span className="text-emerald-600">IELTS Plan</span>
+            Choose Your <span className="text-emerald-600">{currentCategory} Plan</span>
           </h2>
           <p className="text-slate-500 text-sm sm:text-base font-normal max-w-xl">
             Select the course pack below to begin your checkout instantly without leaving the page.
@@ -218,7 +241,7 @@ export default function PackageInlineCheckout({ onOpenDemo }: PackageInlineCheck
 
         {/* 3 Course Cards Grid matching Image 1 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch pb-12">
-          {IELTS_CARDS.map((course) => {
+          {activeCards.map((course) => {
             const isSelected = selectedPlan?.id === course.id;
             const isLime = course.theme === "lime";
 
