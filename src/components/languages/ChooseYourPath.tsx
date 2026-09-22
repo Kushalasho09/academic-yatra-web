@@ -36,7 +36,7 @@ const PATHWAY_COURSES: PathwayCourse[] = [
     duration: "6–8 Weeks",
     title: "IELTS Academic",
     tagline:
-      "Target Band 7.5+ with structured live masterclasses and Cambridge-aligned mock tests.",
+      "Build academic English with structured practice, feedback, and IELTS aligned mock tests.",
     packType: "Champion Pack",
     popular: true,
     image: "/images/why_academic_students.jpg",
@@ -50,7 +50,7 @@ const PATHWAY_COURSES: PathwayCourse[] = [
     duration: "6–8 Weeks",
     title: "IELTS General",
     tagline:
-      "Tailored for Canada PR & UK Work Visa with proven CLB 9/10 strategies and letter writing drills.",
+      "Sharpen everyday English for work, migration, and communication through focused practice.",
     packType: "Champion Pack",
     popular: true,
     image: "/images/story_canada_settling.jpg",
@@ -64,7 +64,7 @@ const PATHWAY_COURSES: PathwayCourse[] = [
     duration: "4–6 Weeks",
     title: "PTE Academic",
     tagline:
-      "Score 79+ guaranteed with AI speech scoring engine, Pearson mock tests & high-scoring templates.",
+      "Master computer-based English with timed practice, feedback, and every exam-focused strategy.",
     packType: "Champion Pack",
     popular: true,
     image: "/images/hero_center_laptop.jpg",
@@ -78,7 +78,7 @@ const PATHWAY_COURSES: PathwayCourse[] = [
     duration: "4–6 Weeks",
     title: "PTE Core",
     tagline:
-      "Achieve CLB 7+ for Canadian PR, provincial nominations & Express Entry pathways.",
+      "Prepare practical English skills for Canadian pathways through focused, structured practice.",
     packType: "Fast-Track Pack",
     popular: false,
     image: "/images/indian_student_laptop.jpg",
@@ -92,7 +92,7 @@ const PATHWAY_COURSES: PathwayCourse[] = [
     duration: "6–8 Weeks",
     title: "TOEFL Preparation",
     tagline:
-      "Comprehensive ETS-pattern preparation targeting 100+ scores for top US & Canadian universities.",
+      "Build academic English skills with targeted practice across every tested section.",
     packType: "Mastery Pack",
     popular: false,
     image: "/images/path_competitive_boy.jpg",
@@ -106,7 +106,7 @@ const PATHWAY_COURSES: PathwayCourse[] = [
     duration: "3–4 Weeks",
     title: "Duolingo English Test",
     tagline:
-      "Target 125+ scores in 30 days with adaptive AI drills and full-length simulated mocks.",
+      "Prepare flexibly with focused practice for the fully online English test.",
     packType: "Fast-Track Pack",
     popular: true,
     image: "/images/path_learning_dashboard.jpg",
@@ -120,7 +120,7 @@ const PATHWAY_COURSES: PathwayCourse[] = [
     duration: "4–6 Weeks",
     title: "CELPIP Preparation",
     tagline:
-      "Master all 4 Canadian English modules designed strictly for Express Entry and citizenship.",
+      "Strengthen practical English for Canada with targeted practice and test strategies.",
     packType: "Champion Pack",
     popular: false,
     image: "/images/dest_canada.png",
@@ -134,7 +134,7 @@ const PATHWAY_COURSES: PathwayCourse[] = [
     duration: "8–12 Weeks",
     title: "French Preparation",
     tagline:
-      "From A1 to B2 with native tutors. Gain up to 50 additional CRS bonus points for Canada PR.",
+      "Build practical French for study, work, communication, and Canadian pathways abroad.",
     packType: "Multi-Level Pack",
     popular: true,
     image: "/images/dest_europe.png",
@@ -148,7 +148,7 @@ const PATHWAY_COURSES: PathwayCourse[] = [
     duration: "8–12 Weeks",
     title: "German Preparation",
     tagline:
-      "Master A1–C1 Goethe levels to secure admission to 100% tuition-free German universities.",
+      "Develop practical German for study, university applications, and everyday communication confidently.",
     packType: "Multi-Level Pack",
     popular: true,
     image: "/images/carousel_explore_brands.png",
@@ -162,7 +162,7 @@ const PATHWAY_COURSES: PathwayCourse[] = [
     duration: "4–6 Weeks",
     title: "Spoken English",
     tagline:
-      "Build unshakeable speaking confidence with daily conversation clubs and accent refinement.",
+      "Improve everyday English fluency through guided speaking practice, feedback, and assignments.",
     packType: "Fluency Pack",
     popular: false,
     image: "/images/hero_campus_life.png",

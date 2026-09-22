@@ -27,7 +27,7 @@ const SKILL_CATALYST_PATHWAYS: SkillPathway[] = [
     duration: "10 Days",
     title: "Career Essentials",
     tagline:
-      "For internships, jobs, and workplace readiness. Master communication, resume building, and mock interviews.",
+      "Build workplace-ready skills for internships, applications, communication, and professional confidence readiness.",
     packType: "Career Essentials Pack",
     popular: true,
     image: "/images/why_academic_students.jpg",
@@ -39,9 +39,9 @@ const SKILL_CATALYST_PATHWAYS: SkillPathway[] = [
     id: "bizz-tech",
     category: "Business & Technology",
     duration: "7 Days",
-    title: "BizzTech Program",
+    title: "BizzTech",
     tagline:
-      "For practical business and digital workplace skills. Explore business analytics, podcasts, and data-driven execution.",
+      "Learn practical business and digital tools through focused, hands-on skill building.",
     packType: "Premium Pack",
     popular: false,
     image: "/images/hero_center_laptop.jpg",
@@ -55,7 +55,7 @@ const SKILL_CATALYST_PATHWAYS: SkillPathway[] = [
     duration: "7 Days",
     title: "Google Suite Hub",
     tagline:
-      "For hands-on Google tools and productivity skills. Master Docs, Sheets, Slides, Forms, and automated workflows.",
+      "Master everyday Google tools for smoother, faster, more organised workplace productivity.",
     packType: "Most Popular",
     popular: true,
     image: "/images/path_learning_dashboard.jpg",

@@ -44,12 +44,12 @@ export default function AboutUsHero() {
       {/* Skiper8: Dennis Snellenberg Words Preloader */}
       <Skiper8
         words={[
-          "About Academic Yatra",
-          "Future Yatra Pvt Ltd",
-          "Language Mastery",
+          "Academic Yatra",
+          "For the language your dreams speak",
+          "Language Training",
           "Test Preparation",
+          "Skill Development",
           "Global Education",
-          "New Delhi",
         ]}
         durationPerWord={190}
         backgroundColor="#031643"
@@ -105,29 +105,17 @@ export default function AboutUsHero() {
           {/* LEFT COLUMN: Hero Messaging & CTAs (7 Columns) */}
           <div className="lg:col-span-7 space-y-5 sm:space-y-6 text-left">
             
-            {/* Top Corporate Pill Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-              <span className="text-white/95 text-xs sm:text-sm font-semibold tracking-wide">
-                Future Yatra Private Limited • New Delhi
-              </span>
-            </motion.div>
 
             {/* Dynamic Typography with Animated Gradient Shine */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="space-y-1"
+              className="space-y-2"
             >
-              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[62px] xl:text-[68px] font-extrabold text-white leading-[1.1] tracking-tight">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[58px] xl:text-[64px] font-extrabold text-white leading-[1.12] tracking-tight">
                 <span className="block font-heading text-white">
-                  Empowering Global
+                  For the language
                 </span>
                 <span
                   className="block font-black text-transparent bg-clip-text"
@@ -139,29 +127,34 @@ export default function AboutUsHero() {
                     filter: "url(#text-glow)",
                   }}
                 >
-                  Education & Careers
+                  your dreams speak
                 </span>
               </h1>
-              <p
-                style={{ fontFamily: "'Instrument Serif', serif" }}
-                className="font-normal text-emerald-300 text-2xl sm:text-4xl lg:text-5xl italic pt-1 drop-shadow-md"
-              >
-                Shaping Tomorrow's Global Leaders.
-              </p>
             </motion.div>
 
-            {/* Subtitle / Mission Statement */}
+            {/* Subtitle / Brand Introduction */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xs sm:text-base lg:text-lg text-slate-200 leading-relaxed max-w-xl font-normal drop-shadow-sm"
             >
-              Academic Yatra, by Future Yatra Private Limited, empowers students and professionals
-              through expert language training, test preparation, and digital learning solutions,
-              helping them build the skills and proficiency needed for global education, careers,
-              and international opportunities.
+              Academic Yatra is a digital learning platform for language training, test preparation, and practical skill development, built for students and professionals preparing for education, career, and international opportunities.
             </motion.p>
+
+            {/* Highlights Track Strip */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="inline-flex items-center flex-wrap gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-2 rounded-xl bg-white/10 border border-white/15 backdrop-blur-md text-xs sm:text-sm font-semibold shadow-sm"
+            >
+              <span className="text-emerald-300">Language Training</span>
+              <span className="text-white/40">•</span>
+              <span className="text-sky-300">Test Preparation</span>
+              <span className="text-white/40">•</span>
+              <span className="text-amber-300">Skill Development</span>
+            </motion.div>
 
             {/* Buttons Row (Side-by-side on both Mobile and Desktop) */}
             <motion.div
@@ -171,12 +164,11 @@ export default function AboutUsHero() {
               className="flex flex-row items-center gap-3 sm:gap-4 pt-1"
             >
               <a
-                href="#corporate-ecosystem"
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center space-x-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-emerald-500 via-[#0C9253] to-emerald-600 text-white font-heading font-extrabold text-xs sm:text-sm transition-all duration-300 hover:scale-105 shadow-[0_10px_25px_rgba(12,146,83,0.4)] cursor-pointer whitespace-nowrap group"
+                href="#what-we-do"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-emerald-500 via-[#0C9253] to-emerald-600 text-white font-heading font-extrabold text-xs sm:text-sm transition-all duration-300 hover:scale-105 shadow-[0_10px_25px_rgba(12,146,83,0.4)] cursor-pointer whitespace-nowrap group"
               >
-                <Building2 className="w-4 h-4 text-emerald-100 shrink-0" />
-                <span>Explore Verticals</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform shrink-0" />
+                <span>Explore Programs</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
               </a>
 
               <a

@@ -35,7 +35,7 @@ export const SKILL_CATALYST_PLANS: CoursePlan[] = [
     duration: "10 Day Program",
     liveHours: "20 Hours Live Lectures",
     description:
-      "Master workplace communication, presentation skills, resume building, and ace mock interviews.",
+      "Build workplace-ready skills for internships, applications, communication, and professional confidence readiness.",
     features: [
       "95 Days Full Portal Access",
       "20 Hours of Live Expert Lectures",
@@ -59,7 +59,7 @@ export const SKILL_CATALYST_PLANS: CoursePlan[] = [
     duration: "7 Day Program",
     liveHours: "14 Hours Live Lectures",
     description:
-      "Become a power user in Google Docs, Advanced Sheets formulas, interactive Slides, and automated Forms.",
+      "Master everyday Google tools for smoother, faster, more organised workplace productivity.",
     features: [
       "95 Days Full Portal Validity",
       "14 Hours of Live Hands-On Lectures",
@@ -72,7 +72,7 @@ export const SKILL_CATALYST_PLANS: CoursePlan[] = [
   },
   {
     id: "bizz-tech",
-    name: "Bizz Tech Course",
+    name: "BizzTech",
     category: "BIZZ_TECH",
     badge: "Premium",
     price: "15,000",
@@ -82,7 +82,7 @@ export const SKILL_CATALYST_PLANS: CoursePlan[] = [
     duration: "7 Day Program",
     liveHours: "14 Hours Live Lectures",
     description:
-      "Bridge technology and business strategy with podcast creations, digital workflows, and analytics mastery.",
+      "Learn practical business and digital tools through focused, hands-on skill building.",
     features: [
       "95 Days Full Portal Access",
       "14 Hours Live Interactive Lectures",
