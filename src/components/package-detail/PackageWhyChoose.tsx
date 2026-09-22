@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   LayoutDashboard,
@@ -130,7 +131,7 @@ function formatTime(seconds: number): string {
 
 /**
  * Mobile Interactive Video Player with Progress Indicator,
- * Play/Pause, Volume Toggle, and Expandable Horizontal View.
+ * Play/Pause, Volume Toggle, and True Fullscreen Horizontal Landscape View.
  */
 function MobileInteractiveVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -138,11 +139,16 @@ function MobileInteractiveVideo() {
   const modalVideoRef = useRef<HTMLVideoElement>(null);
   const modalProgressBarRef = useRef<HTMLDivElement>(null);
 
+  const [mounted, setMounted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = e.currentTarget;
@@ -189,8 +195,55 @@ function MobileInteractiveVideo() {
     if (modalVideoRef.current) modalVideoRef.current.currentTime = targetTime;
   };
 
-  const handleOpenExpand = () => {
-    const time = videoRef.current?.currentTime || currentTime;
+  // Open True Horizontal View (Native Fullscreen or Rotated Landscape Lightbox via Portal)
+  const handleOpenExpand = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // 1. Try iOS Safari Native Fullscreen
+    if ((video as any).webkitEnterFullscreen) {
+      try {
+        (video as any).webkitEnterFullscreen();
+        if (video.paused) {
+          video.play().catch(() => {});
+          setIsPlaying(true);
+        }
+        return;
+      } catch (e) {
+        console.log("iOS webkitEnterFullscreen fallback", e);
+      }
+    }
+
+    // 2. Try Standard Fullscreen with Landscape Lock
+    if (video.requestFullscreen) {
+      try {
+        await video.requestFullscreen();
+        if ((screen.orientation as any)?.lock) {
+          (screen.orientation as any).lock("landscape").catch(() => {});
+        }
+        if (video.paused) {
+          video.play().catch(() => {});
+          setIsPlaying(true);
+        }
+        return;
+      } catch (e) {
+        console.log("Standard requestFullscreen fallback", e);
+      }
+    } else if ((video as any).webkitRequestFullscreen) {
+      try {
+        await (video as any).webkitRequestFullscreen();
+        if (video.paused) {
+          video.play().catch(() => {});
+          setIsPlaying(true);
+        }
+        return;
+      } catch (e) {
+        console.log("webkitRequestFullscreen fallback", e);
+      }
+    }
+
+    // 3. Fallback: Full Horizontal View Portal (Auto-rotated landscape on mobile portrait)
+    const time = video.currentTime || currentTime;
     setIsExpanded(true);
     setTimeout(() => {
       if (modalVideoRef.current) {
@@ -252,7 +305,7 @@ function MobileInteractiveVideo() {
               <button
                 onClick={togglePlay}
                 aria-label="Play video"
-                className="absolute inset-0 flex items-center justify-center bg-black/35 backdrop-blur-[1px] transition-all cursor-pointer"
+                className="absolute inset-0 flex items-center justify-center bg-black/35 backdrop-blur-[1px] transition-all cursor-pointer z-10"
               >
                 <div className="w-14 h-14 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-transform">
                   <Play className="w-6 h-6 fill-white ml-0.5" />
@@ -260,14 +313,14 @@ function MobileInteractiveVideo() {
               </button>
             )}
 
-            {/* Top Right Quick Expand Floating Badge */}
+            {/* Top Right Quick Horizontal Expand Button */}
             <button
               onClick={handleOpenExpand}
               aria-label="Expand video to horizontal view"
-              className="absolute top-2.5 right-2.5 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md text-white text-[11px] font-semibold border border-white/20 shadow-md cursor-pointer transition-all active:scale-95"
+              className="absolute top-2.5 right-2.5 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/65 hover:bg-black/85 backdrop-blur-md text-white text-[11px] font-bold border border-white/20 shadow-md cursor-pointer transition-all active:scale-95"
             >
-              <Maximize2 className="w-3 h-3 text-emerald-400" />
-              <span>Expand</span>
+              <Maximize2 className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Full Screen</span>
             </button>
 
             {/* Bottom Overlay Controls Bar */}
@@ -326,10 +379,10 @@ function MobileInteractiveVideo() {
                 <button
                   onClick={handleOpenExpand}
                   aria-label="Expand video"
-                  className="flex items-center gap-1 text-[11px] font-semibold text-white/90 hover:text-emerald-300 transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 text-[11px] font-bold text-white/95 hover:text-emerald-300 transition-colors cursor-pointer bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-full border border-white/15"
                 >
-                  <Maximize2 className="w-3.5 h-3.5" />
-                  <span className="hidden xs:inline">Fullscreen</span>
+                  <Maximize2 className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Full View</span>
                 </button>
               </div>
             </div>
@@ -338,121 +391,123 @@ function MobileInteractiveVideo() {
       </div>
 
       {/* ========================================================================= */}
-      {/* HORIZONTAL EXPANDED LIGHTBOX MODAL (Mobile Fullscreen View)                */}
+      {/* REACT PORTAL: TRUE HORIZONTAL FULLSCREEN LIGHTBOX (Rotated on Portrait)   */}
+      {/* Rendered directly at document.body level so it NEVER breaks page layout   */}
       {/* ========================================================================= */}
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[120] bg-black/95 backdrop-blur-xl flex flex-col justify-between p-3 sm:p-6"
-          >
-            {/* Top Modal Header */}
-            <div className="flex items-center justify-between text-white z-10 w-full max-w-5xl mx-auto">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-xs sm:text-sm font-bold tracking-tight text-white/90 font-heading">
-                  Preparation Ecosystem • Horizontal View
-                </span>
-              </div>
-
-              <button
-                onClick={handleCloseExpand}
-                aria-label="Close expanded video"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-all active:scale-95 cursor-pointer border border-white/10"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Centered Large Horizontal 16:9 Video */}
-            <div className="relative aspect-video w-full max-w-5xl mx-auto rounded-2xl overflow-hidden bg-black shadow-2xl border border-white/10 my-auto flex items-center justify-center">
-              <video
-                ref={modalVideoRef}
-                src="/images/full%20video.mp4"
-                autoPlay
-                loop
-                muted={isMuted}
-                playsInline
-                preload="metadata"
-                onTimeUpdate={handleTimeUpdate}
-                onLoadedMetadata={handleLoadedMetadata}
-                className="w-full h-full object-contain cursor-pointer"
-                onClick={togglePlay}
-              />
-
-              {/* Center Play Button in Modal */}
-              {!isPlaying && (
-                <button
-                  onClick={togglePlay}
-                  className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[2px] cursor-pointer"
-                >
-                  <div className="w-16 h-16 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform">
-                    <Play className="w-8 h-8 fill-white ml-1" />
-                  </div>
-                </button>
-              )}
-            </div>
-
-            {/* Bottom Controls Bar in Modal */}
-            <div className="w-full max-w-5xl mx-auto z-10 space-y-3 bg-gradient-to-t from-black/80 to-transparent p-3 rounded-2xl">
-              {/* Progress Scrubber */}
-              <div
-                ref={modalProgressBarRef}
-                onClick={(e) => handleSeek(e, true)}
-                className="relative w-full h-2 bg-white/20 hover:h-3 rounded-full cursor-pointer transition-all flex items-center group/modalScrubber"
-              >
-                <div
-                  className="h-full bg-emerald-500 rounded-full relative"
-                  style={{ width: `${progressPercent}%` }}
-                >
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-white rounded-full shadow-lg scale-100 group-hover/modalScrubber:scale-125 transition-transform" />
-                </div>
-              </div>
-
-              {/* Modal Buttons Toolbar */}
-              <div className="flex items-center justify-between text-white">
-                <div className="flex items-center gap-3">
-                  <button
-                    onClick={togglePlay}
-                    className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-all active:scale-95 cursor-pointer"
-                  >
-                    {isPlaying ? (
-                      <Pause className="w-4 h-4 fill-white" />
-                    ) : (
-                      <Play className="w-4 h-4 fill-white ml-0.5" />
-                    )}
-                  </button>
-
-                  <button
-                    onClick={toggleMute}
-                    className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-all active:scale-95 cursor-pointer"
-                  >
-                    {isMuted ? (
-                      <VolumeX className="w-4 h-4 text-slate-300" />
-                    ) : (
-                      <Volume2 className="w-4 h-4 text-emerald-400" />
-                    )}
-                  </button>
-
-                  <span className="text-xs text-white/90 font-mono font-medium">
-                    {formatTime(currentTime)} / {formatTime(duration)}
+      {mounted &&
+        isExpanded &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div className="fixed inset-0 z-[999999] bg-black flex items-center justify-center overflow-hidden">
+            {/* Horizontal view container - auto-rotates 90 deg on portrait mobile phones to fill horizontal view */}
+            <div className="relative w-full h-full flex flex-col justify-between p-2 sm:p-5 portrait:rotate-90 portrait:w-[100vh] portrait:h-[100vw] portrait:fixed portrait:top-1/2 portrait:left-1/2 portrait:-translate-x-1/2 portrait:-translate-y-1/2 bg-black select-none">
+              
+              {/* Top Bar */}
+              <div className="flex items-center justify-between px-3 pt-2 text-white z-30 shrink-0 w-full">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-xs sm:text-sm font-bold text-white font-heading tracking-wide">
+                    Academic Yatra • Full Horizontal View
                   </span>
                 </div>
 
                 <button
                   onClick={handleCloseExpand}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold cursor-pointer border border-white/10"
+                  aria-label="Close full view"
+                  className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white active:scale-95 transition-all cursor-pointer border border-white/20"
                 >
-                  <Minimize2 className="w-3.5 h-3.5" />
-                  <span>Exit Fullscreen</span>
+                  <X className="w-5 h-5" />
                 </button>
               </div>
+
+              {/* 16:9 Video centered to fill horizontal screen */}
+              <div className="relative w-full flex-1 flex items-center justify-center overflow-hidden my-auto max-h-[82vh]">
+                <video
+                  ref={modalVideoRef}
+                  src="/images/full%20video.mp4"
+                  autoPlay
+                  loop
+                  muted={isMuted}
+                  playsInline
+                  preload="metadata"
+                  onTimeUpdate={handleTimeUpdate}
+                  onLoadedMetadata={handleLoadedMetadata}
+                  className="w-full h-full object-contain cursor-pointer"
+                  onClick={togglePlay}
+                />
+
+                {/* Big center play icon in modal */}
+                {!isPlaying && (
+                  <button
+                    onClick={togglePlay}
+                    className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[2px] cursor-pointer"
+                  >
+                    <div className="w-16 h-16 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform">
+                      <Play className="w-8 h-8 fill-white ml-1" />
+                    </div>
+                  </button>
+                )}
+              </div>
+
+              {/* Bottom Control Bar in Modal */}
+              <div className="w-full px-3 pb-2 space-y-2 z-30 shrink-0 bg-gradient-to-t from-black via-black/80 to-transparent">
+                {/* Scrubber Bar */}
+                <div
+                  ref={modalProgressBarRef}
+                  onClick={(e) => handleSeek(e, true)}
+                  className="relative w-full h-2 bg-white/25 hover:h-3 rounded-full cursor-pointer transition-all flex items-center"
+                >
+                  <div
+                    className="h-full bg-emerald-500 rounded-full relative"
+                    style={{ width: `${progressPercent}%` }}
+                  >
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-white rounded-full shadow-lg" />
+                  </div>
+                </div>
+
+                {/* Controls Row */}
+                <div className="flex items-center justify-between text-white text-xs">
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={togglePlay}
+                      className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center cursor-pointer active:scale-95"
+                    >
+                      {isPlaying ? (
+                        <Pause className="w-4 h-4 fill-white" />
+                      ) : (
+                        <Play className="w-4 h-4 fill-white ml-0.5" />
+                      )}
+                    </button>
+
+                    <button
+                      onClick={toggleMute}
+                      className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center cursor-pointer active:scale-95"
+                    >
+                      {isMuted ? (
+                        <VolumeX className="w-4 h-4 text-slate-300" />
+                      ) : (
+                        <Volume2 className="w-4 h-4 text-emerald-400" />
+                      )}
+                    </button>
+
+                    <span className="font-mono text-white/90">
+                      {formatTime(currentTime)} / {formatTime(duration)}
+                    </span>
+                  </div>
+
+                  <button
+                    onClick={handleCloseExpand}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-semibold cursor-pointer border border-white/20"
+                  >
+                    <Minimize2 className="w-3.5 h-3.5" />
+                    <span>Exit Full View</span>
+                  </button>
+                </div>
+              </div>
             </div>
-          </motion.div>
+          </div>,
+          document.body
         )}
-      </AnimatePresence>
     </>
   );
 }
