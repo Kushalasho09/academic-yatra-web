@@ -80,7 +80,8 @@ export default function AboutOurApproach() {
       <div className="absolute top-10 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-indigo-600/30 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Expanded Container Width to Match Site System (max-w-7xl) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
@@ -106,8 +107,10 @@ export default function AboutOurApproach() {
           </motion.p>
         </div>
 
-        {/* 4 Interlocking Chain Banners */}
-        <div className="space-y-6 sm:space-y-8">
+        {/* ========================================================================= */}
+        {/* DESKTOP & TABLET VIEW (sm+): Full-Width Horizontal Interlocking Banners    */}
+        {/* ========================================================================= */}
+        <div className="hidden sm:block space-y-6 sm:space-y-8 max-w-6xl mx-auto">
           {APPROACH_ITEMS.map((item, idx) => {
             const isLeft = item.variant === "left";
 
@@ -118,7 +121,7 @@ export default function AboutOurApproach() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="relative w-full max-w-4xl mx-auto select-none"
+                className="relative w-full mx-auto select-none"
               >
                 {/* SVG Vector Canvas: Real compound paths with genuine transparent holes */}
                 <svg
@@ -137,9 +140,6 @@ export default function AboutOurApproach() {
                   </defs>
 
                   {isLeft ? (
-                    /* ========================================================================= */
-                    /* VARIANT A: LEFT BADGE -> RIGHT PILL (Items 01 & 03)                       */
-                    /* ========================================================================= */
                     <>
                       {/* 1. Base Badge with real punched-out hole */}
                       <path
@@ -177,7 +177,7 @@ export default function AboutOurApproach() {
                         fill="#FFFFFF"
                       />
 
-                      {/* Thin gray header accent line inside white pill */}
+                      {/* Thin gray header accent line */}
                       <line
                         x1="360"
                         y1="36"
@@ -199,9 +199,6 @@ export default function AboutOurApproach() {
                       />
                     </>
                   ) : (
-                    /* ========================================================================= */
-                    /* VARIANT B: LEFT PILL -> RIGHT BADGE (Items 02 & 04)                       */
-                    /* ========================================================================= */
                     <>
                       {/* 1. Base Badge with real punched-out hole */}
                       <path
@@ -239,7 +236,7 @@ export default function AboutOurApproach() {
                         fill="#FFFFFF"
                       />
 
-                      {/* Thin gray header accent line inside white pill */}
+                      {/* Thin gray header accent line */}
                       <line
                         x1="80"
                         y1="36"
@@ -263,7 +260,7 @@ export default function AboutOurApproach() {
                   )}
                 </svg>
 
-                {/* HTML Typography Overlay (Crisp, perfectly positioned over badge and pill) */}
+                {/* HTML Typography Overlay */}
                 {isLeft ? (
                   <>
                     {/* Badge Text (Left) */}
@@ -318,6 +315,83 @@ export default function AboutOurApproach() {
               </motion.div>
             );
           })}
+        </div>
+
+        {/* ========================================================================= */}
+        {/* MOBILE VIEW (< sm): Dedicated Mobile Cards with 3D Interlocking Chains     */}
+        {/* ========================================================================= */}
+        <div className="block sm:hidden space-y-8 max-w-sm mx-auto">
+          {APPROACH_ITEMS.map((item, idx) => (
+            <motion.div
+              key={`mob-${item.id}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: idx * 0.08 }}
+              className="flex flex-col items-center"
+            >
+              {/* 1. Speech Bubble Header Badge */}
+              <div
+                className="w-full relative rounded-2xl p-4 flex items-center justify-between shadow-lg text-slate-900"
+                style={{ backgroundColor: item.colors.badge }}
+              >
+                <div className="flex items-center gap-3">
+                  <span className="font-heading text-3xl font-black text-slate-900 leading-none">
+                    {item.number}
+                  </span>
+                  <span className="font-heading text-sm font-extrabold text-white leading-tight drop-shadow-xs">
+                    {item.badgeTitle}
+                  </span>
+                </div>
+
+                {/* Speech Bubble Pointer Tail at Bottom */}
+                <svg
+                  className="absolute -bottom-3 left-8 w-4 h-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M0 0 C 0 16 -2 22 -10 24 C -2 22 8 18 8 10 Z"
+                    fill={item.colors.badge}
+                  />
+                </svg>
+              </div>
+
+              {/* 2. 3D Interlocking Chain Connector */}
+              <div className="relative -my-3 z-10">
+                <svg className="w-16 h-16 drop-shadow-md" viewBox="0 0 80 80" fill="none">
+                  {/* Top Ring (Badge Color) */}
+                  <circle cx="40" cy="28" r="18" stroke={item.colors.badge} strokeWidth="9" />
+                  {/* Bottom Ring (White) */}
+                  <circle cx="40" cy="52" r="18" stroke="#FFFFFF" strokeWidth="9" />
+                  {/* 3D Overlapping Arc */}
+                  <path
+                    d="M 23.5 35 A 18 18 0 0 1 56.5 35"
+                    stroke={item.colors.badge}
+                    strokeWidth="9"
+                    strokeLinecap="round"
+                  />
+                  {/* Natural Background Holes */}
+                  <circle cx="40" cy="28" r="12" fill={SECTION_BG} />
+                  <circle cx="40" cy="52" r="12" fill={SECTION_BG} />
+                </svg>
+              </div>
+
+              {/* 3. White Pill Content Card */}
+              <div className="w-full bg-white rounded-2xl p-5 shadow-lg border border-white/60 text-left">
+                <div className="w-12 h-0.5 bg-slate-200 rounded-full mb-2.5" />
+                <h4
+                  className="font-heading text-sm font-black tracking-wide uppercase"
+                  style={{ color: item.colors.pillTitle }}
+                >
+                  {item.pillTitle}
+                </h4>
+                <p className="text-slate-600 text-xs font-medium leading-relaxed mt-1">
+                  {item.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
       </div>

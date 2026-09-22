@@ -89,7 +89,7 @@ export default function AboutOurPurpose() {
         </div>
 
         {/* 4 Pillars Grid (2x2 on desktop, 1 col on mobile) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
           {PILLARS.map((pillar, idx) => {
             const Icon = pillar.icon;
 

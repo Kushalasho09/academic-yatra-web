@@ -222,7 +222,7 @@ export default function AboutWhatWeDo() {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-7xl mx-auto">
           
           {/* Top Track Navigation Switcher Tabs */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-5 sm:mb-6">

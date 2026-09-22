@@ -91,7 +91,7 @@ export default function AboutDigitalEcosystem() {
         </div>
 
         {/* Modern LMS Showcase Container with Responsive Window Frame */}
-        <div className="mb-16 max-w-5xl mx-auto px-1 sm:px-0">
+        <div className="mb-16 max-w-7xl mx-auto px-1 sm:px-0">
           <div className="relative rounded-2xl sm:rounded-3xl bg-slate-900/90 p-2 sm:p-4 shadow-[0_20px_50px_rgba(3,22,67,0.25)] border border-slate-700/60 backdrop-blur-xl ring-1 ring-white/10">
             {/* macOS Browser Header */}
             <div className="flex items-center justify-between px-2 sm:px-4 py-2 sm:py-2.5 border-b border-slate-800 mb-2 sm:mb-3">

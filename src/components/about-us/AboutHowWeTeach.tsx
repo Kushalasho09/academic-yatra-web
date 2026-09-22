@@ -183,7 +183,7 @@ export default function AboutHowWeTeach() {
         {/* ========================================================================= */}
         {/* DESKTOP VIEW (md+): 100% Mathematically Centered Dotted Connectors & Nodes */}
         {/* ========================================================================= */}
-        <div className="hidden md:block max-w-5xl mx-auto">
+        <div className="hidden md:block max-w-7xl mx-auto">
           
           {/* Row 1: Circles & Direct Connecting Dotted Arrows (Aligned on Same Horizontal Y-Centerline) */}
           <div className="flex items-center justify-between w-full">
