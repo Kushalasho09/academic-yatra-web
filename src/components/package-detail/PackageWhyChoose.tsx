@@ -18,6 +18,7 @@ import {
   Maximize2,
   Minimize2,
   X,
+  RotateCw,
 } from "lucide-react";
 import { PackageDetailData, EcosystemCard } from "@/data/packageDetailsData";
 import { cn } from "@/lib/utils";
@@ -145,10 +146,35 @@ function MobileInteractiveVideo() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isRotated, setIsRotated] = useState(true);
+  const [isDeviceLandscape, setIsDeviceLandscape] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    const updateOrientation = () => {
+      if (typeof window !== "undefined") {
+        setIsDeviceLandscape(window.innerWidth > window.innerHeight);
+      }
+    };
+    updateOrientation();
+    window.addEventListener("resize", updateOrientation);
+    window.addEventListener("orientationchange", updateOrientation);
+    return () => {
+      window.removeEventListener("resize", updateOrientation);
+      window.removeEventListener("orientationchange", updateOrientation);
+    };
   }, []);
+
+  // Lock body scroll when expanded
+  useEffect(() => {
+    if (isExpanded) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [isExpanded]);
 
   const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = e.currentTarget;
@@ -195,56 +221,11 @@ function MobileInteractiveVideo() {
     if (modalVideoRef.current) modalVideoRef.current.currentTime = targetTime;
   };
 
-  // Open True Horizontal View (Native Fullscreen or Rotated Landscape Lightbox via Portal)
-  const handleOpenExpand = async () => {
+  const handleOpenExpand = () => {
     const video = videoRef.current;
-    if (!video) return;
-
-    // 1. Try iOS Safari Native Fullscreen
-    if ((video as any).webkitEnterFullscreen) {
-      try {
-        (video as any).webkitEnterFullscreen();
-        if (video.paused) {
-          video.play().catch(() => {});
-          setIsPlaying(true);
-        }
-        return;
-      } catch (e) {
-        console.log("iOS webkitEnterFullscreen fallback", e);
-      }
-    }
-
-    // 2. Try Standard Fullscreen with Landscape Lock
-    if (video.requestFullscreen) {
-      try {
-        await video.requestFullscreen();
-        if ((screen.orientation as any)?.lock) {
-          (screen.orientation as any).lock("landscape").catch(() => {});
-        }
-        if (video.paused) {
-          video.play().catch(() => {});
-          setIsPlaying(true);
-        }
-        return;
-      } catch (e) {
-        console.log("Standard requestFullscreen fallback", e);
-      }
-    } else if ((video as any).webkitRequestFullscreen) {
-      try {
-        await (video as any).webkitRequestFullscreen();
-        if (video.paused) {
-          video.play().catch(() => {});
-          setIsPlaying(true);
-        }
-        return;
-      } catch (e) {
-        console.log("webkitRequestFullscreen fallback", e);
-      }
-    }
-
-    // 3. Fallback: Full Horizontal View Portal (Auto-rotated landscape on mobile portrait)
-    const time = video.currentTime || currentTime;
+    const time = video?.currentTime || currentTime;
     setIsExpanded(true);
+    setIsRotated(true);
     setTimeout(() => {
       if (modalVideoRef.current) {
         modalVideoRef.current.currentTime = time;
@@ -253,7 +234,7 @@ function MobileInteractiveVideo() {
           modalVideoRef.current.play().catch(() => {});
         }
       }
-    }, 50);
+    }, 60);
   };
 
   const handleCloseExpand = () => {
@@ -267,10 +248,36 @@ function MobileInteractiveVideo() {
           videoRef.current.play().catch(() => {});
         }
       }
-    }, 50);
+    }, 60);
+  };
+
+  const toggleRotate = () => {
+    setIsRotated((prev) => !prev);
   };
 
   const progressPercent = duration ? (currentTime / duration) * 100 : 0;
+  const shouldRotate = !isDeviceLandscape && isRotated;
+
+  const rotatedContainerStyle: React.CSSProperties = shouldRotate
+    ? {
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        width: "100vh",
+        height: "100vw",
+        transform: "translate(-50%, -50%) rotate(90deg)",
+        transformOrigin: "center center",
+        maxWidth: "100vh",
+        maxHeight: "100vw",
+      }
+    : {
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        transform: "none",
+      };
 
   return (
     <>
@@ -313,14 +320,14 @@ function MobileInteractiveVideo() {
               </button>
             )}
 
-            {/* Top Right Quick Horizontal Expand Button */}
+            {/* Top Right Quick Landscape Expand Button */}
             <button
               onClick={handleOpenExpand}
-              aria-label="Expand video to horizontal view"
+              aria-label="Expand video to landscape view"
               className="absolute top-2.5 right-2.5 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/65 hover:bg-black/85 backdrop-blur-md text-white text-[11px] font-bold border border-white/20 shadow-md cursor-pointer transition-all active:scale-95"
             >
-              <Maximize2 className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Full Screen</span>
+              <RotateCw className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Rotate Landscape</span>
             </button>
 
             {/* Bottom Overlay Controls Bar */}
@@ -381,8 +388,8 @@ function MobileInteractiveVideo() {
                   aria-label="Expand video"
                   className="flex items-center gap-1.5 text-[11px] font-bold text-white/95 hover:text-emerald-300 transition-colors cursor-pointer bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-full border border-white/15"
                 >
-                  <Maximize2 className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Full View</span>
+                  <RotateCw className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Landscape</span>
                 </button>
               </div>
             </div>
@@ -391,37 +398,50 @@ function MobileInteractiveVideo() {
       </div>
 
       {/* ========================================================================= */}
-      {/* REACT PORTAL: TRUE HORIZONTAL FULLSCREEN LIGHTBOX (Rotated on Portrait)   */}
-      {/* Rendered directly at document.body level so it NEVER breaks page layout   */}
+      {/* REACT PORTAL: TRUE HORIZONTAL LANDSCAPE FULLSCREEN LIGHTBOX               */}
+      {/* Rotated 90 degrees on portrait mobile screens to fill the screen edge-to-edge */}
       {/* ========================================================================= */}
       {mounted &&
         isExpanded &&
         typeof document !== "undefined" &&
         createPortal(
-          <div className="fixed inset-0 z-[999999] bg-black flex items-center justify-center overflow-hidden">
-            {/* Horizontal view container - auto-rotates 90 deg on portrait mobile phones to fill horizontal view */}
-            <div className="relative w-full h-full flex flex-col justify-between p-2 sm:p-5 portrait:rotate-90 portrait:w-[100vh] portrait:h-[100vw] portrait:fixed portrait:top-1/2 portrait:left-1/2 portrait:-translate-x-1/2 portrait:-translate-y-1/2 bg-black select-none">
-              
+          <div className="fixed inset-0 w-screen h-screen z-[99999999] bg-black overflow-hidden flex items-center justify-center touch-none">
+            {/* Rotated container that fills mobile screen in landscape orientation */}
+            <div
+              style={rotatedContainerStyle}
+              className="flex flex-col justify-between bg-black select-none overflow-hidden p-2 sm:p-4"
+            >
               {/* Top Bar */}
-              <div className="flex items-center justify-between px-3 pt-2 text-white z-30 shrink-0 w-full">
-                <div className="flex items-center gap-2.5">
+              <div className="flex items-center justify-between px-3 pt-1 pb-1.5 text-white z-30 shrink-0 w-full">
+                <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-xs sm:text-sm font-bold text-white font-heading tracking-wide">
-                    Academic Yatra • Full Horizontal View
+                    Academic Yatra • Landscape View
                   </span>
                 </div>
 
-                <button
-                  onClick={handleCloseExpand}
-                  aria-label="Close full view"
-                  className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white active:scale-95 transition-all cursor-pointer border border-white/20"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={toggleRotate}
+                    title="Rotate orientation"
+                    className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/20 hover:bg-white/30 text-white text-xs font-semibold active:scale-95 transition-all cursor-pointer border border-white/20"
+                  >
+                    <RotateCw className="w-3.5 h-3.5" />
+                    <span>Rotate</span>
+                  </button>
+
+                  <button
+                    onClick={handleCloseExpand}
+                    aria-label="Close full view"
+                    className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white active:scale-95 transition-all cursor-pointer border border-white/20"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
 
-              {/* 16:9 Video centered to fill horizontal screen */}
-              <div className="relative w-full flex-1 flex items-center justify-center overflow-hidden my-auto max-h-[82vh]">
+              {/* Centered Video filling horizontal view */}
+              <div className="relative w-full flex-1 flex items-center justify-center overflow-hidden my-auto max-h-[85vh]">
                 <video
                   ref={modalVideoRef}
                   src="/images/full%20video.mp4"
@@ -450,7 +470,7 @@ function MobileInteractiveVideo() {
               </div>
 
               {/* Bottom Control Bar in Modal */}
-              <div className="w-full px-3 pb-2 space-y-2 z-30 shrink-0 bg-gradient-to-t from-black via-black/80 to-transparent">
+              <div className="w-full px-3 pb-2 pt-1 space-y-2 z-30 shrink-0 bg-gradient-to-t from-black via-black/85 to-transparent">
                 {/* Scrubber Bar */}
                 <div
                   ref={modalProgressBarRef}
@@ -495,13 +515,23 @@ function MobileInteractiveVideo() {
                     </span>
                   </div>
 
-                  <button
-                    onClick={handleCloseExpand}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-semibold cursor-pointer border border-white/20"
-                  >
-                    <Minimize2 className="w-3.5 h-3.5" />
-                    <span>Exit Full View</span>
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={toggleRotate}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-semibold cursor-pointer border border-white/20"
+                    >
+                      <RotateCw className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Rotate</span>
+                    </button>
+
+                    <button
+                      onClick={handleCloseExpand}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-semibold cursor-pointer border border-white/20"
+                    >
+                      <Minimize2 className="w-3.5 h-3.5" />
+                      <span>Exit Full View</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
