@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   HelpCircle,
@@ -119,14 +119,98 @@ const ITEM_THEMES: ItemTheme[] = [
 ];
 
 export default function PackageCourseGuide({ guide }: PackageCourseGuideProps) {
-  const [openCardId, setOpenCardId] = useState<string | null>("01");
+  const [activeCardId, setActiveCardId] = useState<string | null>("01");
+  const activeCardIdRef = useRef<string | null>("01");
+  const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const lastManualScrollY = useRef<number | null>(null);
+  const isManualOverride = useRef<boolean>(false);
+
+  // Sync ref with current active state
+  useEffect(() => {
+    activeCardIdRef.current = activeCardId;
+  }, [activeCardId]);
 
   const toggleCard = (id: string) => {
-    setOpenCardId((prev) => (prev === id ? null : id));
+    isManualOverride.current = true;
+    lastManualScrollY.current = typeof window !== "undefined" ? window.scrollY : 0;
+    setActiveCardId((prev) => (prev === id ? null : id));
   };
 
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // If user manually tapped, only release override once they scroll > 50px
+          if (isManualOverride.current && lastManualScrollY.current !== null) {
+            if (Math.abs(window.scrollY - lastManualScrollY.current) > 50) {
+              isManualOverride.current = false;
+              lastManualScrollY.current = null;
+            } else {
+              ticking = false;
+              return;
+            }
+          }
+
+          const section = sectionRef.current;
+          if (!section) {
+            ticking = false;
+            return;
+          }
+
+          const sectionRect = section.getBoundingClientRect();
+          const viewportHeight = window.innerHeight;
+          const focalY = viewportHeight * 0.45; // Natural visual focus line (45% from top)
+
+          // Only spy when section is within relevant viewport view
+          if (sectionRect.bottom < focalY * 0.5 || sectionRect.top > viewportHeight * 0.85) {
+            ticking = false;
+            return;
+          }
+
+          let closestId: string | null = null;
+          let minDistance = Infinity;
+
+          guide.items.forEach((item) => {
+            const el = itemRefs.current[item.id];
+            if (!el) return;
+            const rect = el.getBoundingClientRect();
+            // Anchor at the node center (top of row + 30px) so height changes don't cause jitter
+            const nodeCenter = rect.top + 30;
+            const distance = Math.abs(nodeCenter - focalY);
+
+            if (distance < minDistance) {
+              minDistance = distance;
+              closestId = item.id;
+            }
+          });
+
+          if (closestId && closestId !== activeCardIdRef.current) {
+            activeCardIdRef.current = closestId;
+            setActiveCardId(closestId);
+          }
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [guide.items]);
+
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50/50 to-white relative z-10 overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50/50 to-white relative z-10 overflow-hidden"
+    >
       {/* Ambient background soft glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[400px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
@@ -146,7 +230,7 @@ export default function PackageCourseGuide({ guide }: PackageCourseGuideProps) {
         {/* ========================================================== */}
         {/* UNIFIED ALTERNATING TIMELINE (One in Right, One in Left)   */}
         {/* Symmetrical Left Wing + Center Fixed Node + Right Wing     */}
-        {/* Works seamlessly on both Mobile View & Web View            */}
+        {/* Bidirectional Scroll-Spy: Opens active, Closes inactive    */}
         {/* ========================================================== */}
         <div className="relative w-full">
           {/* Continuous Central Vertical Spine Line (Exact 50% Center) */}
@@ -156,12 +240,19 @@ export default function PackageCourseGuide({ guide }: PackageCourseGuideProps) {
             {guide.items.map((item, idx) => {
               const theme = ITEM_THEMES[idx % ITEM_THEMES.length];
               const Icon = theme.icon;
-              const isOpen = openCardId === item.id;
+              const isOpen = activeCardId === item.id;
               const isEven = idx % 2 === 1; // Even rows: Card on Left, Pill on Right
 
               return (
-                <div
+                <motion.div
                   key={item.id}
+                  ref={(el) => {
+                    itemRefs.current[item.id] = el;
+                  }}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "0px 0px -80px 0px" }}
+                  transition={{ duration: 0.45, ease: "easeOut" }}
                   className="flex items-start justify-center w-full relative"
                 >
                   {/* LEFT WING AREA (Exactly 50% width minus half-node) */}
@@ -369,7 +460,7 @@ export default function PackageCourseGuide({ guide }: PackageCourseGuideProps) {
                       </div>
                     )}
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>

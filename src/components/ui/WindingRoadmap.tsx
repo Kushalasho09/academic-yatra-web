@@ -91,8 +91,8 @@ export default function WindingRoadmap({
                 A 80 80 0 0 1 760 260
                 A 80 80 0 0 1 680 340
                 L 220 340
-                A 80 80 0 0 1 140 420
-                A 80 80 0 0 1 220 500
+                A 80 80 0 0 0 140 420
+                A 80 80 0 0 0 220 500
                 L 680 500
                 A 80 80 0 0 1 760 580
                 L 760 680
@@ -106,6 +106,7 @@ export default function WindingRoadmap({
 
             {/* Main Crisp Teal Connecting Road */}
             <path
+              id="desktopRoadmapPath"
               d="
                 M 140 0
                 L 140 100
@@ -114,8 +115,8 @@ export default function WindingRoadmap({
                 A 80 80 0 0 1 760 260
                 A 80 80 0 0 1 680 340
                 L 220 340
-                A 80 80 0 0 1 140 420
-                A 80 80 0 0 1 220 500
+                A 80 80 0 0 0 140 420
+                A 80 80 0 0 0 220 500
                 L 680 500
                 A 80 80 0 0 1 760 580
                 L 760 680
@@ -126,15 +127,158 @@ export default function WindingRoadmap({
               strokeLinejoin="round"
             />
 
-            {/* Walking Silhouette on the Horizontal Path between Row 2 and 3 */}
-            <g transform="translate(435, 308)">
-              {/* Silhouette shadow on the line */}
-              <ellipse cx="22" cy="32" rx="14" ry="2.5" fill="#1E4D46" opacity="0.45" />
-              {/* Person Walking Silhouette */}
-              <path
-                d="M 20 5 C 22.2 5 24 3.2 24 1 C 24 -1.2 22.2 -3 20 -3 C 17.8 -3 16 -1.2 16 1 C 16 3.2 17.8 5 20 5 Z M 22 7 L 18 7 C 16.5 7 15.5 8 15.5 9.5 L 14 17 L 16 17.5 L 17 12 L 18 19 L 16 31 L 18.5 31.5 L 20.5 21 L 22.5 31.5 L 25 31 L 23 18 L 24.5 12 L 25.5 17.5 L 27.5 17 L 26 9.5 C 26 8 25 7 23.5 7 Z"
-                fill="#1E293B"
-              />
+            {/* Dynamic Walking Student along the Serpentine Track (with realistic gait steps) */}
+            <g className="walking-student pointer-events-none">
+              {/* Moves along the exact continuous road track */}
+              <animateMotion
+                dur="18s"
+                repeatCount="indefinite"
+                fill="freeze"
+                calcMode="linear"
+              >
+                <mpath href="#desktopRoadmapPath" />
+              </animateMotion>
+
+              {/* Ground-contact shadow directly on the road under feet */}
+              <ellipse cx="0" cy="0" rx="9" ry="2.2" fill="#1E4D46" opacity="0.4">
+                <animate
+                  attributeName="rx"
+                  values="9; 7; 9; 7; 9"
+                  dur="0.6s"
+                  repeatCount="indefinite"
+                />
+              </ellipse>
+
+              {/* Character Rig (Facing orientation flips dynamically based on path direction) */}
+              <g>
+                <animateTransform
+                  attributeName="transform"
+                  type="scale"
+                  values="1 1; 1 1; -1 1; -1 1; 1 1; 1 1"
+                  keyTimes="0; 0.35; 0.38; 0.65; 0.68; 1"
+                  dur="18s"
+                  repeatCount="indefinite"
+                />
+
+                {/* Torso & Head vertical bounce gait */}
+                <g>
+                  <animateTransform
+                    attributeName="transform"
+                    type="translate"
+                    values="0 0; 0 -2.5; 0 0; 0 -2.5; 0 0"
+                    dur="0.6s"
+                    repeatCount="indefinite"
+                  />
+
+                  {/* BACK ARM (swings opposite to front leg) */}
+                  <g>
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      values="24 0 -22; -24 0 -22; 24 0 -22"
+                      dur="0.6s"
+                      repeatCount="indefinite"
+                    />
+                    <path
+                      d="M 0 -22 L 5 -14 L 8 -13"
+                      stroke="#475569"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </g>
+
+                  {/* BACK LEG (swings opposite to front leg) */}
+                  <g>
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      values="-26 0 -13; 26 0 -13; -26 0 -13"
+                      dur="0.6s"
+                      repeatCount="indefinite"
+                    />
+                    <path
+                      d="M 0 -13 L -3 -6 L -1.5 0 L 2.5 0"
+                      stroke="#334155"
+                      strokeWidth="3.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </g>
+
+                  {/* STUDENT BACKPACK & JACKET */}
+                  {/* Emerald Green Student Backpack */}
+                  <rect
+                    x="-7.5"
+                    y="-23"
+                    width="4.5"
+                    height="9"
+                    rx="2"
+                    fill="#0C9253"
+                  />
+                  {/* Body / Jacket */}
+                  <path
+                    d="M -3.5 -25 L 3.5 -25 L 2.5 -13 L -2.5 -13 Z"
+                    fill="#1E293B"
+                  />
+
+                  {/* HEAD & ACADEMIC CAP */}
+                  {/* Head */}
+                  <circle cx="0" cy="-29" r="4.2" fill="#1E293B" />
+                  {/* Cap Crown */}
+                  <path
+                    d="M -5 -33 L 0 -35 L 5 -33 L 0 -31 Z"
+                    fill="#0C9253"
+                  />
+                  {/* Tassel */}
+                  <path
+                    d="M 5 -33 L 5.5 -29.5"
+                    stroke="#F59E0B"
+                    strokeWidth="0.9"
+                    strokeLinecap="round"
+                  />
+
+                  {/* FRONT LEG (realistic stride forward/back) */}
+                  <g>
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      values="26 0 -13; -26 0 -13; 26 0 -13"
+                      dur="0.6s"
+                      repeatCount="indefinite"
+                    />
+                    <path
+                      d="M 0 -13 L 3 -6 L 1.5 0 L 5.5 0"
+                      stroke="#0F172A"
+                      strokeWidth="3.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </g>
+
+                  {/* FRONT ARM (swings opposite to front leg) */}
+                  <g>
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      values="-24 0 -22; 24 0 -22; -24 0 -22"
+                      dur="0.6s"
+                      repeatCount="indefinite"
+                    />
+                    <path
+                      d="M 0 -22 L -4 -14 L -6 -13"
+                      stroke="#0F172A"
+                      strokeWidth="2.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </g>
+                </g>
+              </g>
             </g>
           </svg>
 
@@ -272,6 +416,7 @@ export default function WindingRoadmap({
 
             {/* Main Crisp Teal Connecting Road */}
             <path
+              id="mobileRoadmapPath"
               d="
                 M 312 31
                 A 44 44 0 0 1 356 75
@@ -299,13 +444,153 @@ export default function WindingRoadmap({
               strokeLinejoin="round"
             />
 
-            {/* Walking Silhouette on the Horizontal Path between Row 1 and 2 */}
-            <g transform="translate(170, 268)">
-              <ellipse cx="14" cy="32" rx="10" ry="2" fill="#1E4D46" opacity="0.35" />
-              <path
-                d="M 12 7 C 13.5 7 15 5.5 15 4 C 15 2.5 13.5 1 12 1 C 10.5 1 9 2.5 9 4 C 9 5.5 10.5 7 12 7 Z M 13 8 L 10.5 8 C 9.5 8 8.8 8.7 8.8 9.7 L 7.8 15 L 9.2 15.3 L 9.8 11.5 L 10.5 16.5 L 9.2 25 L 10.8 25.3 L 12.2 18 L 13.5 25.3 L 15.2 25 L 13.8 16 L 14.8 11.5 L 15.5 15.3 L 16.8 15 L 15.8 9.7 C 15.8 8.7 15.1 8 14.1 8 Z"
-                fill="#1E293B"
-              />
+            {/* Dynamic Walking Student along the Mobile Serpentine Track */}
+            <g className="walking-student-mobile pointer-events-none">
+              {/* Moves along the exact mobile road track */}
+              <animateMotion
+                dur="16s"
+                repeatCount="indefinite"
+                fill="freeze"
+                calcMode="linear"
+              >
+                <mpath href="#mobileRoadmapPath" />
+              </animateMotion>
+
+              {/* Ground-contact shadow */}
+              <ellipse cx="0" cy="0" rx="7" ry="1.8" fill="#1E4D46" opacity="0.38">
+                <animate
+                  attributeName="rx"
+                  values="7; 5.5; 7; 5.5; 7"
+                  dur="0.55s"
+                  repeatCount="indefinite"
+                />
+              </ellipse>
+
+              {/* Mobile Character Rig scaled to 0.78 for mobile proportion */}
+              <g transform="scale(0.78)">
+                <animateTransform
+                  attributeName="transform"
+                  type="scale"
+                  values="-0.78 0.78; -0.78 0.78; 0.78 0.78; 0.78 0.78; -0.78 0.78; -0.78 0.78"
+                  keyTimes="0; 0.32; 0.36; 0.65; 0.69; 1"
+                  dur="16s"
+                  repeatCount="indefinite"
+                />
+
+                {/* Torso & Head vertical bounce gait */}
+                <g>
+                  <animateTransform
+                    attributeName="transform"
+                    type="translate"
+                    values="0 0; 0 -2.2; 0 0; 0 -2.2; 0 0"
+                    dur="0.55s"
+                    repeatCount="indefinite"
+                  />
+
+                  {/* BACK ARM */}
+                  <g>
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      values="24 0 -22; -24 0 -22; 24 0 -22"
+                      dur="0.55s"
+                      repeatCount="indefinite"
+                    />
+                    <path
+                      d="M 0 -22 L 5 -14 L 8 -13"
+                      stroke="#475569"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </g>
+
+                  {/* BACK LEG */}
+                  <g>
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      values="-26 0 -13; 26 0 -13; -26 0 -13"
+                      dur="0.55s"
+                      repeatCount="indefinite"
+                    />
+                    <path
+                      d="M 0 -13 L -3 -6 L -1.5 0 L 2.5 0"
+                      stroke="#334155"
+                      strokeWidth="3.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </g>
+
+                  {/* BACKPACK & JACKET */}
+                  <rect
+                    x="-7.5"
+                    y="-23"
+                    width="4.5"
+                    height="9"
+                    rx="2"
+                    fill="#0C9253"
+                  />
+                  <path
+                    d="M -3.5 -25 L 3.5 -25 L 2.5 -13 L -2.5 -13 Z"
+                    fill="#1E293B"
+                  />
+
+                  {/* HEAD & CAP */}
+                  <circle cx="0" cy="-29" r="4.2" fill="#1E293B" />
+                  <path
+                    d="M -5 -33 L 0 -35 L 5 -33 L 0 -31 Z"
+                    fill="#0C9253"
+                  />
+                  <path
+                    d="M 5 -33 L 5.5 -29.5"
+                    stroke="#F59E0B"
+                    strokeWidth="0.9"
+                    strokeLinecap="round"
+                  />
+
+                  {/* FRONT LEG */}
+                  <g>
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      values="26 0 -13; -26 0 -13; 26 0 -13"
+                      dur="0.55s"
+                      repeatCount="indefinite"
+                    />
+                    <path
+                      d="M 0 -13 L 3 -6 L 1.5 0 L 5.5 0"
+                      stroke="#0F172A"
+                      strokeWidth="3.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </g>
+
+                  {/* FRONT ARM */}
+                  <g>
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      values="-24 0 -22; 24 0 -22; -24 0 -22"
+                      dur="0.55s"
+                      repeatCount="indefinite"
+                    />
+                    <path
+                      d="M 0 -22 L -4 -14 L -6 -13"
+                      stroke="#0F172A"
+                      strokeWidth="2.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </g>
+                </g>
+              </g>
             </g>
           </svg>
 

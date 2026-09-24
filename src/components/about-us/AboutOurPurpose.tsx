@@ -2,71 +2,86 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Target, Layers, TrendingUp, RefreshCw, ArrowUpRight } from "lucide-react";
+import {
+  Target,
+  Layers,
+  TrendingUp,
+  RefreshCw,
+  ChevronRight,
+  ChevronLeft,
+  ArrowUpRight,
+} from "lucide-react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 interface PurposePillar {
-  number: string;
+  numeral: string;
   title: string;
   description: string;
   icon: React.ElementType;
-  accent: string;
-  bgAccent: string;
+  color: string;
+  bgClass: string;
+  textClass: string;
 }
 
 const PILLARS: PurposePillar[] = [
   {
-    number: "01",
+    numeral: "01",
     title: "Build Real Capability",
     description:
       "Go beyond completing a course. Build language, test readiness, and practical skills you can actually use.",
     icon: Target,
-    accent: "#0C9253",
-    bgAccent: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
+    color: "#1D4ED8", // Deep Blue
+    bgClass: "bg-[#1D4ED8]",
+    textClass: "text-[#1D4ED8]",
   },
   {
-    number: "02",
+    numeral: "02",
     title: "Make Better Preparation Possible",
     description:
       "Bring expert teaching, structured learning, and technology together in one place.",
     icon: Layers,
-    accent: "#3B82F6",
-    bgAccent: "bg-sky-50 text-sky-600 border-sky-200/60",
+    color: "#E11D48", // Crimson / Red-Pink
+    bgClass: "bg-[#E11D48]",
+    textClass: "text-[#E11D48]",
   },
   {
-    number: "03",
+    numeral: "03",
     title: "Put Progress in Perspective",
     description:
       "Help learners understand where they are today and what they need to improve next.",
     icon: TrendingUp,
-    accent: "#8B5CF6",
-    bgAccent: "bg-purple-50 text-purple-600 border-purple-200/60",
+    color: "#0D9488", // Teal / Emerald
+    bgClass: "bg-[#0D9488]",
+    textClass: "text-[#0D9488]",
   },
   {
-    number: "04",
+    numeral: "04",
     title: "Keep Moving With Learners",
     description:
       "Continuously evolve our programs, tools, and learning experience around changing academic and professional needs.",
     icon: RefreshCw,
-    accent: "#F97316",
-    bgAccent: "bg-amber-50 text-amber-600 border-amber-200/60",
+    color: "#7C3AED", // Purple
+    bgClass: "bg-[#7C3AED]",
+    textClass: "text-[#7C3AED]",
   },
 ];
 
 export default function AboutOurPurpose() {
+  const easeCurve = [0.16, 1, 0.3, 1];
+
   return (
     <section
       id="our-purpose"
-      className="relative py-14 sm:py-20 bg-[#FBFDFB] overflow-hidden"
+      className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-[#F9FBFA] via-white to-[#F9FBFA] relative z-10 overflow-hidden"
     >
       {/* Ambient soft glow backdrop */}
-      <div className="absolute top-1/3 -left-32 w-80 h-80 bg-emerald-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 -right-32 w-80 h-80 bg-sky-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -82,57 +97,121 @@ export default function AboutOurPurpose() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.1 }}
-            className="mt-3.5 text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed font-normal"
+            className="text-slate-600 text-xs sm:text-base leading-relaxed font-body max-w-2xl mx-auto"
           >
             Academic Yatra exists to make learning more focused, accessible, and useful — from the first lesson to the moment those skills are put to work.
           </motion.p>
         </div>
 
-        {/* 4 Pillars Grid (2x2 on desktop, 1 col on mobile) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
+        {/* ========================================================================= */}
+        {/* CENTER-LOCKED SPINE LAYOUT (Matching PackageTargetAudience Spine Design)  */}
+        {/* 3-Column CSS Grid locks the central spine mathematically to exact center. */}
+        {/* Alternating left and right cards for 01, 02, 03, 04.                      */}
+        {/* ========================================================================= */}
+        <div className="w-full max-w-xl sm:max-w-4xl lg:max-w-5xl mx-auto flex flex-col items-center relative select-none">
           {PILLARS.map((pillar, idx) => {
             const Icon = pillar.icon;
+            const isFirst = idx === 0;
+            const isLast = idx === PILLARS.length - 1;
+            const isEven = idx % 2 === 1; // Even rows: 02, 04 (Text on Left, Icon on Right)
 
             return (
               <motion.div
-                key={pillar.number}
-                initial={{ opacity: 0, y: 20 }}
+                key={pillar.numeral}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.08 }}
-                className="group relative rounded-2xl sm:rounded-3xl bg-white border border-slate-200/80 p-6 sm:p-8 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex flex-col justify-between"
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.45, delay: idx * 0.06, ease: easeCurve }}
+                className="w-full grid grid-cols-[1fr_44px_1fr] sm:grid-cols-[1fr_64px_1fr] items-center -my-[1px] relative z-10 group"
               >
-                {/* Top Row: Icon + Number Badge */}
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div
-                      className={`w-12 h-12 rounded-2xl border flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-xs ${pillar.bgAccent}`}
-                    >
-                      <Icon className="w-5 h-5" />
+                {/* LEFT COLUMN: Exactly 1fr */}
+                <div className="w-full flex items-center justify-end pr-0">
+                  {!isEven ? (
+                    // ODD ROW: Icon capsule on the left side
+                    <div className="w-12 sm:w-20 lg:w-24 h-[68px] sm:h-[80px] lg:h-[88px] rounded-l-full bg-white border-y border-l border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-md transition-all duration-300 flex items-center justify-center shrink-0 pr-1 pl-1.5 sm:pl-2">
+                      <Icon
+                        className={cn(
+                          "w-4 h-4 sm:w-6 sm:h-6 lg:w-7 lg:h-7 transition-transform duration-300 group-hover:scale-110",
+                          pillar.textClass
+                        )}
+                        strokeWidth={1.8}
+                      />
                     </div>
-
-                    <span className="font-heading text-xl sm:text-2xl font-black tracking-tight text-slate-300 group-hover:text-slate-900 transition-colors duration-300">
-                      {pillar.number}
-                    </span>
-                  </div>
-
-                  {/* Title & Description */}
-                  <h3 className="font-heading text-lg sm:text-xl font-bold text-slate-900 tracking-tight mb-2.5">
-                    {pillar.title}
-                  </h3>
-
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                    {pillar.description}
-                  </p>
+                  ) : (
+                    // EVEN ROW: Wide Text capsule on the left side (Right-aligned text)
+                    <div className="w-full max-w-[280px] sm:max-w-[420px] lg:max-w-[500px] h-[68px] sm:h-[80px] lg:h-[88px] rounded-l-full bg-white border-y border-l border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center justify-end pl-3 sm:pl-6 lg:pl-7 pr-2.5 sm:pr-4 lg:pr-5 gap-1.5 sm:gap-3 text-right">
+                      <div className="min-w-0 flex-1 space-y-0.5 sm:space-y-1">
+                        <h4
+                          className="font-heading text-[11px] sm:text-sm lg:text-base font-black tracking-tight group-hover:text-emerald-700 transition-colors truncate"
+                          style={{ color: pillar.color }}
+                        >
+                          {pillar.title}
+                        </h4>
+                        <p className="font-body text-[10px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-snug line-clamp-2">
+                          {pillar.description}
+                        </p>
+                      </div>
+                      <ChevronLeft
+                        className={cn(
+                          "w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0 transition-transform duration-300 group-hover:-translate-x-1",
+                          pillar.textClass
+                        )}
+                        strokeWidth={2.5}
+                      />
+                    </div>
+                  )}
                 </div>
 
-                {/* Subtle Accent Bottom Line */}
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-slate-700 transition-colors duration-300">
-                  <span className="uppercase tracking-wider">Academic Yatra Principle</span>
+                {/* CENTER COLUMN: Locked rigidly at 44px (mobile) / 64px (desktop) */}
+                <div className="w-full flex items-center justify-center z-20">
                   <div
-                    className="w-2 h-2 rounded-full opacity-60 group-hover:opacity-100 transition-opacity"
-                    style={{ backgroundColor: pillar.accent }}
-                  />
+                    className={cn(
+                      "w-11 sm:w-16 h-[76px] sm:h-[88px] lg:h-[96px] flex items-center justify-center text-white font-black font-heading text-sm sm:text-lg lg:text-xl tracking-wider select-none shadow-md shrink-0 transition-transform duration-300 group-hover:scale-[1.03]",
+                      pillar.bgClass,
+                      isFirst && "rounded-t-full",
+                      isLast && "rounded-b-full"
+                    )}
+                  >
+                    {pillar.numeral}
+                  </div>
+                </div>
+
+                {/* RIGHT COLUMN: Exactly 1fr */}
+                <div className="w-full flex items-center justify-start pl-0">
+                  {!isEven ? (
+                    // ODD ROW: Wide Text capsule on the right side (Left-aligned text)
+                    <div className="w-full max-w-[280px] sm:max-w-[420px] lg:max-w-[500px] h-[68px] sm:h-[80px] lg:h-[88px] rounded-r-full bg-white border-y border-r border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center justify-start pr-3 sm:pr-6 lg:pr-7 pl-2.5 sm:pl-4 lg:pl-5 gap-1.5 sm:gap-3 text-left">
+                      <ChevronRight
+                        className={cn(
+                          "w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1",
+                          pillar.textClass
+                        )}
+                        strokeWidth={2.5}
+                      />
+                      <div className="min-w-0 flex-1 space-y-0.5 sm:space-y-1">
+                        <h4
+                          className="font-heading text-[11px] sm:text-sm lg:text-base font-black tracking-tight group-hover:text-emerald-700 transition-colors truncate"
+                          style={{ color: pillar.color }}
+                        >
+                          {pillar.title}
+                        </h4>
+                        <p className="font-body text-[10px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-snug line-clamp-2">
+                          {pillar.description}
+                        </p>
+                      </div>
+                    </div>
+                  ) : (
+                    // EVEN ROW: Icon capsule on the right side
+                    <div className="w-12 sm:w-20 lg:w-24 h-[68px] sm:h-[80px] lg:h-[88px] rounded-r-full bg-white border-y border-r border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-md transition-all duration-300 flex items-center justify-center shrink-0 pl-1 pr-1.5 sm:pr-2">
+                      <Icon
+                        className={cn(
+                          "w-4 h-4 sm:w-6 sm:h-6 lg:w-7 lg:h-7 transition-transform duration-300 group-hover:scale-110",
+                          pillar.textClass
+                        )}
+                        strokeWidth={1.8}
+                      />
+                    </div>
+                  )}
                 </div>
               </motion.div>
             );

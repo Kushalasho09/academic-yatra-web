@@ -309,7 +309,7 @@ export default function TestPrepCoursePrograms({
                   theme={theme}
                   features={plan.features}
                   description={plan.description || "All the essentials to build and master your test-prep score"}
-                  ctaText="Choose"
+                  ctaText="Buy Now"
                   ctaHref={ctaHref}
                   trialHref="/contacts"
                 />

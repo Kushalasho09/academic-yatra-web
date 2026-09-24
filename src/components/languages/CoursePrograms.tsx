@@ -51,7 +51,7 @@ export const EXAM_PROGRAMS_DATA: Record<string, { examName: string; plans: Progr
       {
         id: "ielts-ac-champ",
         name: "Champion Pack",
-        badge: "Popular",
+        badge: "Comprehensive",
         badgeDotColor: "green",
         styleType: "warm",
         price: "4,333",
@@ -657,7 +657,7 @@ export default function CoursePrograms({
                     theme={theme}
                     features={plan.features}
                     description={plan.description || "All the essentials to build and master your target language score"}
-                    ctaText="Choose"
+                    ctaText="Buy Now"
                     ctaHref={ctaHref}
                     trialHref={detailHref}
                   />

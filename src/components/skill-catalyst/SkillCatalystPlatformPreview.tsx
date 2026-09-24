@@ -19,8 +19,7 @@ export default function SkillCatalystPlatformPreview() {
       number: "01",
       title: "Track Your Skill Growth",
       pillLabel: "1 Week",
-      pillTheme: "green",
-      cardTheme: "mint",
+      theme: "emerald",
       icon: TrendingUp,
       description:
         "Monitor your progress across every course, module, and learning goal from one personalised dashboard.",
@@ -29,8 +28,7 @@ export default function SkillCatalystPlatformPreview() {
       number: "02",
       title: "Skill-Wise Performance Insights",
       pillLabel: "2 Week",
-      pillTheme: "dark",
-      cardTheme: "white",
+      theme: "blue",
       icon: BarChart3,
       description:
         "Understand where you’re improving and where you need more practice with clear, data-driven performance insights.",
@@ -39,8 +37,7 @@ export default function SkillCatalystPlatformPreview() {
       number: "03",
       title: "100% Recorded Learning Archive",
       pillLabel: "1-2 Days",
-      pillTheme: "dark",
-      cardTheme: "white",
+      theme: "navy",
       icon: CalendarCheck,
       description:
         "Revisit lessons, resources, and key concepts anytime to reinforce learning at your own pace.",
@@ -49,8 +46,7 @@ export default function SkillCatalystPlatformPreview() {
       number: "04",
       title: "Learning & Progress Analytics",
       pillLabel: "1-2 Days",
-      pillTheme: "green",
-      cardTheme: "mint",
+      theme: "amber",
       icon: Award,
       description:
         "Track course completion, practice performance, skill development, and improvement trends as you learn.",

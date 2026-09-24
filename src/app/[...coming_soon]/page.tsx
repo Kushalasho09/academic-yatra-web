@@ -5,9 +5,6 @@ export function generateStaticParams() {
     { coming_soon: ["free-resources"] },
     { coming_soon: ["blogs"] },
     { coming_soon: ["faq"] },
-    { coming_soon: ["privacy-policy"] },
-    { coming_soon: ["terms"] },
-    { coming_soon: ["refund-policy"] },
   ];
 }
 

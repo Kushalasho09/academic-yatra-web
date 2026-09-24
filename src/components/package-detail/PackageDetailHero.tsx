@@ -61,10 +61,15 @@ export default function PackageDetailHero({ data, onOpenBooking }: PackageDetail
             style={{ fontFamily: "'Instrument Serif', serif" }}
             className="text-4xl sm:text-7xl md:text-8xl leading-[1.14] sm:leading-[1.08] md:leading-[1.05] tracking-[-1.5px] sm:tracking-[-2px] font-normal text-white animate-fade-rise"
           >
-            {data.titlePrefix}{" "}
-            <em className="not-italic text-emerald-400">
-              {data.titleHighlight}
-            </em>
+            {data.titlePrefix}
+            {data.titleHighlight && (
+              <>
+                {data.titlePrefix ? " " : ""}
+                <em className="not-italic text-emerald-400">
+                  {data.titleHighlight}
+                </em>
+              </>
+            )}
           </h1>
 
           {/* Subtext */}

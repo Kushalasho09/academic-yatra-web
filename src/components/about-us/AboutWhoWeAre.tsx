@@ -58,10 +58,10 @@ export default function AboutWhoWeAre() {
         {/* 2-Column Content Grid: Left Pillar Cards + Right Action Hub */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           
-          {/* Left Column (7 cols): Our Core Focus + Stated Future Direction */}
+          {/* Left Column (7 cols): Our Mission + Our Vision */}
           <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
             
-            {/* Card 1: Our Core Focus */}
+            {/* Card 1: Our Mission */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export default function AboutWhoWeAre() {
                 </div>
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
-                    Our Core Focus
+                    Our Mission
                   </span>
                   <h3 className="font-heading text-xl font-bold text-white tracking-tight">
                     Structured & Human-Centered Learning
@@ -88,7 +88,7 @@ export default function AboutWhoWeAre() {
               </p>
             </motion.div>
 
-            {/* Card 2: Future Stated Direction */}
+            {/* Card 2: Our Vision */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -102,7 +102,7 @@ export default function AboutWhoWeAre() {
                 </div>
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-sky-400">
-                    Stated Future Direction
+                    Our Vision
                   </span>
                   <h3 className="font-heading text-xl font-bold text-white tracking-tight">
                     Continuous Innovation & AI Expansion

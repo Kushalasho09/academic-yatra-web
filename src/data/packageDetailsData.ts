@@ -231,6 +231,13 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           answer:
             "A valid, original Passport is the only acceptable identity proof required for booking and attending the IELTS exam on test day. Expired passports, photocopies, notarized copies, or student IDs are strictly not accepted by the test centre authorities.",
         },
+        {
+          id: "09",
+          number: "09",
+          question: "What Does the Test Contain?",
+          answer:
+            "IELTS Academic consists of 4 modules with a total duration of approx. 2 hours and 45 minutes: Listening (4 sections, 40 questions, ~30 mins), Reading (3 academic texts, 40 questions, 60 mins), Writing (Task 1 visual report & Task 2 academic essay, 60 mins), and Speaking (face-to-face 3-part interview with an examiner, 11–14 mins).",
+        },
       ],
     },
     whyChoose: {
@@ -269,7 +276,6 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           name: "Champion Pack",
           priceMonth: "₹4,333/m",
           totalText: "Total: ₹25,999 (incl. 18% GST)",
-          badge: "Popular",
           badgeColor: "green",
           features: [
             { text: "6 Months Validity" },
@@ -279,6 +285,26 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
             { text: "15 Mock Tests" },
             { text: "20+ Hours video lessons" },
             { text: "500+ Grammar & Vocabulary lessons" },
+          ],
+          buttonText: "Get Started",
+        },
+        {
+          id: "champ-plus",
+          category: "IELTS Academic",
+          name: "Champion Pack +",
+          priceMonth: "₹4,833/m",
+          totalText: "Total: ₹28,999 (incl. 18% GST)",
+          badge: "Most Popular",
+          badgeColor: "gold",
+          featured: true,
+          features: [
+            { text: "6 Months Validity" },
+            { text: "All 3 Batch Timings (M/A/E)" },
+            { text: "100 Hours of Live Lectures" },
+            { text: "60 Sectional Tests" },
+            { text: "15 Mock Tests" },
+            { text: "20+ Hours video lessons" },
+            { text: "1-on-1 Mentor Evaluation" },
           ],
           buttonText: "Get Started",
         },
@@ -423,9 +449,9 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     category: "PTE Academic",
     titlePrefix: "PTE",
     titleHighlight: "Academic",
-    eyebrow: "Pearson AI Simulator • Sectional Mocks • Fast Results in 48 Hours",
+    eyebrow: "Mock Exams • Score Analysis • Live Classes",
     heroDescription:
-      "Master computer-delivered Pearson PTE Academic with AI scoring alignment, Repeat Sentence mastery, SST templates, and proven 79+ target strategies for universities and global migration.",
+      "Comprehensive preparation designed for students seeking university admissions through fast, widely accepted English proficiency assessments.",
     heroImage: "/images/hero_center_laptop.jpg",
     stats: [
       { value: "79+", label: "Target Score Strategy" },
@@ -440,46 +466,82 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "Pearson Test of English (PTE Academic) is a fully computer-based English exam accepted by thousands of universities worldwide and immigration authorities in Australia, New Zealand, and the UK. It is ideal for:",
       cards: [
-        { title: "Students applying to Australian, UK, US, Canadian & European universities" },
-        { title: "Australian PR aspirants targeting 20 migration points (Superior English: 79+)" },
-        { title: "Candidates who prefer fast computer grading over subjective human examiners" },
-        { title: "Healthcare, IT, and Engineering professionals seeking immediate score delivery" },
-        { title: "Test takers needing quick exam retakes and score reporting within 48 hours" },
+        { title: "Bachelor's applicants" },
+        { title: "Master's applicants" },
+        { title: "MBA applicants" },
+        { title: "PhD candidates" },
+        { title: "Students applying to universities in Australia, New Zealand, the UK, Canada, the USA, and Europe" },
+        { title: "Applicants seeking a fully computer-based testing experience" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
       headingHighlight: "PTE Academic",
-      subtitle: "Tap any card to expand — scoring, AI algorithm, templates & testing tips.",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
           question: "What is PTE Academic?",
           answer:
-            "PTE Academic is a 2-hour, computer-delivered language assessment evaluated entirely by Pearson's patented automated scoring algorithm. It tests Speaking, Writing, Reading, and Listening in an integrated format with zero human examiner bias.",
+            "The Pearson Test of English (PTE) Academic is a computer-based English language test designed to assess the readiness of non-native English speakers to participate in a university-level English-language instruction program. Accepted by 3,300+ institutions globally including Oxford, Harvard, and governments of Australia, New Zealand, and the UK for student visas.",
         },
         {
           id: "02",
           number: "02",
-          question: "How is PTE Academic Scored?",
+          question: "When is PTE Academic Conducted?",
           answer:
-            "Scores range from 10 to 90 on the Global Scale of English. PTE features integrated cross-scoring: for example, 'Read Aloud' contributes points to both Speaking and Reading, while 'Write From Dictation' contributes to Listening and Writing.",
+            "PTE Academic is conducted round the year with flexible test slots available almost every day, multiple times a day (morning, afternoon, and evening) across Pearson VUE authorized test centres.",
         },
         {
           id: "03",
           number: "03",
-          question: "How fast do you get PTE results?",
+          question: "How Much Does PTE Academic Cost?",
           answer:
-            "PTE results are typically released within 48 hours (often within 24 hours) through your online MyPTE portal, making it the fastest major English proficiency test available.",
+            "The official Pearson PTE Academic test fee is approximately ₹17,000 INR in India (approx. $200–$250 USD internationally depending on the test location). Academic Yatra coaching packages are priced independently and include comprehensive live training, mock tests, and AI portal access.",
         },
         {
           id: "04",
           number: "04",
-          question: "Why choose Academic Yatra for PTE?",
+          question: "How Do You Check Your PTE Results?",
           answer:
-            "Academic Yatra provides access to an AI-powered mock engine calibrated to Pearson's scoring criteria, tested oral fluency templates, Repeat Sentence prediction files, and live 1-on-1 pitch and pronunciation clinics.",
+            "PTE Academic results are typically available online within 48 hours, and often in as little as 24 hours. You receive an email notification when your scores are ready, which you can view and send directly to institutions through your Pearson account (myPTE).",
+        },
+        {
+          id: "05",
+          number: "05",
+          question: "What is a PTE Academic Score?",
+          answer:
+            "PTE Academic scores are reported on the Global Scale of English from 10 to 90. Most top universities require an overall score between 58 and 65 (equivalent to IELTS 6.5–7.0), while competitive programs require 65 to 79+.",
+        },
+        {
+          id: "06",
+          number: "06",
+          question: "Where Can You Take PTE Academic?",
+          answer:
+            "You can take PTE Academic at certified Pearson VUE test centres in over 115 countries worldwide. In India, official test centres are located in all major cities. A remote online proctored version (PTE Academic Online) is also available in select regions.",
+        },
+        {
+          id: "07",
+          number: "07",
+          question: "How Do I Register for PTE Academic?",
+          answer:
+            "You can register online 24/7 on the official Pearson website (pearsonpte.com) or book through Academic Yatra's assistance desk. Simply create a Pearson account, select your preferred date and test centre, enter your passport information, and pay the fee online.",
+        },
+        {
+          id: "08",
+          number: "08",
+          question: "Documents Required for PTE Academic",
+          answer:
+            "A valid, original Passport is the mandatory identity document required to register and sit for the PTE Academic exam at test centres in India and most countries. The details on your ID must match your Pearson booking exactly.",
+        },
+        {
+          id: "09",
+          number: "09",
+          question: "What Does the Test Contain?",
+          answer:
+            "PTE Academic is a 2-hour single test session covering 3 parts: Part 1 - Speaking & Writing (54–67 mins, including Personal Introduction, Read Aloud, Repeat Sentence, Essay), Part 2 - Reading (29–30 mins, Multiple Choice, Re-order paragraphs, Fill in the blanks), and Part 3 - Listening (30–43 mins, Summarize Spoken Text, Multiple Choice, Write from Dictation).",
         },
       ],
     },
@@ -535,10 +597,10 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     slug: "pte-core",
     category: "PTE Core",
     titlePrefix: "PTE",
-    titleHighlight: "Core (Canada PR)",
-    eyebrow: "IRCC Approved • Express Entry • CLB 9/10 Focus",
+    titleHighlight: "Core",
+    eyebrow: "Practice Tests • Expert Support • Feedback",
     heroDescription:
-      "Target high CLB benchmarks for Canada Express Entry and Provincial Nominee Programs with focused training on PTE Core's vocational, real-world communication format.",
+      "Targeted preparation for individuals pursuing Canadian immigration pathways, employment opportunities, and permanent residency goals successfully.",
     heroImage: "/images/indian_student_laptop.jpg",
     stats: [
       { value: "CLB 9+", label: "Target Benchmark" },
@@ -553,38 +615,82 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "PTE Core is the new English test officially approved by Immigration, Refugees and Citizenship Canada (IRCC) for economic immigration and Canadian citizenship. It is recommended for:",
       cards: [
-        { title: "Canada Express Entry applicants (FSWP, CEC, FSTP)" },
-        { title: "Provincial Nominee Program (PNP) candidates across Canadian provinces" },
-        { title: "Applicants seeking an easier alternative to IELTS General and CELPIP" },
-        { title: "Skilled workers and trades professionals targeting fast PR invitations" },
+        { title: "Canadian immigration applicants" },
+        { title: "Permanent residency candidates" },
+        { title: "Skilled worker applicants" },
+        { title: "Economic immigration program candidates" },
+        { title: "Professionals relocating to Canada" },
+        { title: "Individuals seeking language certification for work-related requirements" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
       headingHighlight: "PTE Core",
-      subtitle: "Canada immigration guidelines, format differences, and CLB conversions.",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
           question: "What is PTE Core?",
           answer:
-            "PTE Core is a 2-hour, computer-based English test approved by IRCC for all Canadian economic immigration streams and citizenship applications. It replaces academic topics with practical workplace and everyday English.",
+            "PTE Core is a 2-hour, computer-based English language proficiency test approved by Immigration, Refugees and Citizenship Canada (IRCC) for economic immigration streams (Express Entry, PNP) and Canadian citizenship. It evaluates everyday, practical English skills across Speaking, Writing, Reading, and Listening.",
         },
         {
           id: "02",
           number: "02",
-          question: "How does PTE Core differ from PTE Academic?",
+          question: "How Much Does PTE Core Cost?",
           answer:
-            "Instead of academic lectures and graph analysis, PTE Core tests email writing (Respond to a Situation), workplace phone conversations, and vocational listening clips.",
+            "The official Pearson PTE Core test fee is approximately ₹17,000 INR in India (approx. $340 CAD in Canada or $200–$250 USD globally). Academic Yatra coaching packages are priced independently and include targeted mock tests, CLB score tracking, and expert-led live classes.",
         },
         {
           id: "03",
           number: "03",
-          question: "What are the CLB 9 equivalents for PTE Core?",
+          question: "When is PTE Core Conducted?",
           answer:
-            "To hit CLB 9: Listening 82–88, Reading 78–87, Speaking 84–88, and Writing 88–89. Academic Yatra's Canada immigration specialists provide exact rubrics to hit these scores.",
+            "PTE Core is conducted year-round with test sessions available multiple times a day across authorized Pearson VUE test centres worldwide. Because test administration is fully computerized, test slots are available frequently throughout each month.",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "How Do You Check Your PTE Core Results?",
+          answer:
+            "PTE Core scores are typically delivered online within 48 hours (often in under 24 hours). You will receive an automated email notification once your digital scorecard is ready in your Pearson online account (myPTE), which can be directly linked to your IRCC profile.",
+        },
+        {
+          id: "05",
+          number: "05",
+          question: "What is a PTE Core Score?",
+          answer:
+            "PTE Core scores range from 10 to 90 and map directly to Canadian Language Benchmark (CLB) levels. For example, CLB 7 requires 60–68 in Listening, 60–68 in Reading, 68–75 in Speaking, and 69–78 in Writing; while CLB 9 requires 82–88 in Listening, 78–87 in Reading, 84–88 in Speaking, and 88–89 in Writing.",
+        },
+        {
+          id: "06",
+          number: "06",
+          question: "Where Can You Take PTE Core?",
+          answer:
+            "PTE Core can be taken at certified Pearson VUE test centres across more than 115 countries, including extensive networks in India and Canada. Please note that IRCC only accepts in-person test centre results; at-home online proctored tests are not accepted for Canadian immigration.",
+        },
+        {
+          id: "07",
+          number: "07",
+          question: "How Do I Register for PTE Core?",
+          answer:
+            "Registration is completed online 24/7 at pearsonpte.com/pte-core or assisted by Academic Yatra's admissions desk. You simply create an account, choose your test centre and date, enter your passport information, and pay the registration fee.",
+        },
+        {
+          id: "08",
+          number: "08",
+          question: "Documents Required for PTE Core",
+          answer:
+            "A valid, original Passport is the mandatory government-issued ID required on test day. The name, date of birth, and identity details must strictly match your Pearson exam registration.",
+        },
+        {
+          id: "09",
+          number: "09",
+          question: "What Does the Test Contain?",
+          answer:
+            "PTE Core is divided into 3 modules taken in a single 2-hour sitting: Part 1 - Speaking & Writing (approx. 50 mins: Read Aloud, Repeat Sentence, Describe Image, Respond to a Situation, and Write Email), Part 2 - Reading (approx. 30 mins: Multiple Choice, Re-order Paragraphs, Fill in the Blanks), and Part 3 - Listening (approx. 30 mins: Summarize Spoken Text, Multiple Choice, Fill in Blanks, Write from Dictation).",
         },
       ],
     },
@@ -635,12 +741,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
   "toefl-ibt": {
     id: "toefl-ibt",
     slug: "toefl-ibt",
-    category: "TOEFL iBT",
+    category: "TOEFL",
     titlePrefix: "TOEFL",
-    titleHighlight: "iBT (ETS)",
-    eyebrow: "Shorter Format • 100+ Score Focus • Ivy League & US Admissions",
+    titleHighlight: "",
+    eyebrow: "Sectional Practice • Mock Tests • Live Classes",
     heroDescription:
-      "Build elite academic English proficiency for top American, Canadian, and global universities with intensive training on ETS testing patterns, integrated tasks, and academic writing discussions.",
+      "Structured training for students applying to universities requiring TOEFL scores for academic admissions and scholarship opportunities.",
     heroImage: "/images/path_competitive_boy.jpg",
     stats: [
       { value: "100+", label: "Target Score Strategy" },
@@ -651,42 +757,86 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     audience: {
       badge: "Is This Course For You?",
       headingPrefix: "Who Needs",
-      headingHighlight: "TOEFL iBT?",
+      headingHighlight: "TOEFL?",
       description:
-        "TOEFL iBT is the premier English test preferred by 9 out of 10 US universities and accepted worldwide. It is designed for:",
+        "TOEFL is the premier English test preferred by 9 out of 10 US universities and accepted worldwide. It is designed for:",
       cards: [
-        { title: "Undergraduate and Graduate applicants targeting top US & Ivy League schools" },
-        { title: "Candidates applying for Graduate Assistantships (TA/RA) requiring high speaking scores" },
-        { title: "Healthcare and Pharmacy licensing boards in the USA (NABP requirements)" },
-        { title: "Students targeting European and Canadian STEM master's programs" },
+        { title: "Bachelor's applicants" },
+        { title: "Master's applicants" },
+        { title: "PhD candidates" },
+        { title: "Research scholars" },
+        { title: "Exchange program students" },
+        { title: "Students targeting universities in the USA, Canada, Europe, and Asia" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
-      headingHighlight: "TOEFL iBT",
-      subtitle: "New shorter format, section breakdowns, and scoring criteria.",
+      headingHighlight: "TOEFL",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
-          question: "What is the New TOEFL iBT format?",
+          question: "What is TOEFL iBT?",
           answer:
-            "In July 2023, ETS streamlined the TOEFL iBT to under 2 hours. It features a new 'Writing for an Academic Discussion' task, streamlined reading passages, and eliminated all unscored test questions.",
+            "The Test of English as a Foreign Language (TOEFL) iBT is an internationally standardized test that measures the English language proficiency of non-native speakers wishing to enroll in English-speaking universities. Administered by ETS, it is accepted by more than 12,500 institutions across 160+ countries, including 100% of US universities and leading institutions worldwide.",
         },
         {
           id: "02",
           number: "02",
-          question: "How is TOEFL iBT scored?",
+          question: "TOEFL iBT Dates",
           answer:
-            "Each of the 4 sections (Reading, Listening, Speaking, Writing) is scored from 0 to 30, resulting in a total score out of 120. Top-tier US universities typically require an overall score of 100+ with 25+ in Speaking.",
+            "TOEFL iBT is offered more than 60 times a year at authorized test centres worldwide. Test dates are available on almost all weekends (Saturdays and Sundays), and the TOEFL Home Edition is available 24 hours a day, 4 days a week.",
         },
         {
           id: "03",
           number: "03",
-          question: "Where is TOEFL accepted?",
+          question: "TOEFL iBT Fees (India 2026)",
           answer:
-            "TOEFL iBT is accepted by over 12,500 institutions in 160+ countries, including 100% of US universities, all UK Russell Group institutions, and major universities across Canada, Australia, and New Zealand.",
+            "The official TOEFL iBT registration fee in India is approximately $205 USD (approx. ₹17,000 INR). Rescheduling or late registration fees may apply. Academic Yatra preparation packages are priced separately and cover personalized coaching, diagnostic feedback, and full mock simulations.",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "TOEFL iBT Results",
+          answer:
+            "Your unofficial Reading and Listening scores are displayed immediately upon completing the exam on test day. Your official, complete score report (including Speaking and Writing) is available online in your ETS account within 4 to 8 calendar days.",
+        },
+        {
+          id: "05",
+          number: "05",
+          question: "What is a TOEFL Score?",
+          answer:
+            "TOEFL iBT is scored on a scale of 0 to 120, with each of the four sections (Reading, Listening, Speaking, and Writing) graded out of 30. Most top 100 global universities require a minimum composite score between 85 and 100, while competitive Ivy League and STEM programs often recommend 100+.",
+        },
+        {
+          id: "06",
+          number: "06",
+          question: "TOEFL Test Centres",
+          answer:
+            "TOEFL iBT test centres are available in major cities across India and worldwide, equipped with secure computer stations and audio headsets. You can also opt for the TOEFL iBT Home Edition, taken on your own PC monitored by online human proctors.",
+        },
+        {
+          id: "07",
+          number: "07",
+          question: "TOEFL Registration",
+          answer:
+            "Registration can be completed online via the official ETS portal (ets.org/toefl) or with assistance from Academic Yatra's counselling team. You must create an ETS account, choose your preferred testing location and date, enter your passport information, and pay the fee online.",
+        },
+        {
+          id: "08",
+          number: "08",
+          question: "TOEFL Eligibility",
+          answer:
+            "There are no specific minimum age or academic qualification restrictions set by ETS to take the TOEFL iBT. Anyone planning to pursue higher education, scholarships, or international certification where English is the medium of instruction is eligible to register.",
+        },
+        {
+          id: "09",
+          number: "09",
+          question: "TOEFL Syllabus & Pattern",
+          answer:
+            "The streamlined TOEFL iBT format takes under 2 hours to complete and consists of 4 sections: Reading (20 questions, 35 mins), Listening (28 questions, 36 mins), Speaking (4 tasks, 16 mins), and Writing (2 tasks: Integrated Writing & Writing for an Academic Discussion, 29 mins).",
         },
       ],
     },
@@ -702,12 +852,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     pricing: {
       badge: "Course Packages",
       headingPrefix: "Choose Your",
-      headingHighlight: "TOEFL iBT Plan",
+      headingHighlight: "TOEFL Plan",
       subtitle: "Target top global university admissions.",
       plans: [
         {
           id: "toefl-champ",
-          category: "TOEFL iBT",
+          category: "TOEFL",
           name: "Champion Pack",
           priceMonth: "₹4,166/m",
           totalText: "Total: ₹24,999 (incl. 18% GST)",
@@ -731,7 +881,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "Start with a complimentary live session and test your TOEFL diagnostic level.",
       disclaimer:
-        "TOEFL iBT is a registered trademark of Educational Testing Service (ETS).",
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance.",
     },
   },
 
@@ -741,10 +891,10 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     slug: "duolingo-det",
     category: "Duolingo English Test",
     titlePrefix: "Duolingo",
-    titleHighlight: "English Test (DET)",
-    eyebrow: "100% Online • 1-Hour Test • Certified Results in 48h",
+    titleHighlight: "English Test",
+    eyebrow: "Mock Tests • Q Banks • Expert Guidance",
     heroDescription:
-      "Prepare flexibly for the computer-adaptive Duolingo English Test accepted by 5,000+ universities worldwide. Master interactive question patterns and subscore strategies.",
+      "Flexible preparation for students seeking convenient English proficiency certification accepted by universities across numerous countries.",
     heroImage: "/images/path_learning_dashboard.jpg",
     stats: [
       { value: "125+", label: "Target Score Focus" },
@@ -755,42 +905,86 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     audience: {
       badge: "Is This Course For You?",
       headingPrefix: "Who Needs",
-      headingHighlight: "Duolingo DET?",
+      headingHighlight: "Duolingo?",
       description:
         "The Duolingo English Test is an affordable, accessible English assessment taken from home on your computer with a webcam. It is ideal for:",
       cards: [
-        { title: "Students needing fast certified results for immediate intake deadlines" },
-        { title: "Applicants to US, Canadian, UK, and European universities accepting DET" },
-        { title: "Students seeking an affordable test without travelling to physical test centres" },
-        { title: "Candidates who excel in rapid, computer-adaptive question formats" },
+        { title: "Undergraduate applicants" },
+        { title: "Master's applicants" },
+        { title: "International students with limited access to test centres" },
+        { title: "Students applying to universities that accept Duolingo scores" },
+        { title: "Applicants seeking faster score reporting" },
+        { title: "Budget-conscious study-abroad candidates" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
-      headingHighlight: "Duolingo DET",
-      subtitle: "Computer adaptivity, 160-point scale, and subscores.",
+      headingHighlight: "Duolingo",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
-          question: "What is the Duolingo English Test?",
+          question: "What is the Duolingo English Test (DET)?",
           answer:
-            "The Duolingo English Test is a 1-hour computer-adaptive test proctored remotely using AI and human supervisors. It measures Literacy, Comprehension, Conversation, and Production on a 10–160 point scale.",
+            "The Duolingo English Test (DET) is a modern, computer-adaptive English proficiency assessment designed for international students and institutions. It evaluates real-world language ability across Literacy, Comprehension, Conversation, and Production, and is accepted by over 5,000 university programs globally including Columbia, Yale, and NYU.",
         },
         {
           id: "02",
           number: "02",
-          question: "How does computer adaptivity work?",
+          question: "When is the DET Conducted?",
           answer:
-            "As you answer questions correctly, subsequent questions become harder, allowing the test to measure your true ability in less than an hour. A mistake lowers question difficulty.",
+            "The DET is available 24 hours a day, 365 days a year, on-demand. There is no need to make an appointment or travel to a test centre; you can take the test online from home whenever you are ready.",
         },
         {
           id: "03",
           number: "03",
-          question: "Which universities accept DET?",
+          question: "How Much Does the DET Cost?",
           answer:
-            "Over 5,000 programs accept DET, including Yale, Columbia, NYU, University of Toronto, and Imperial College London programs.",
+            "The official Duolingo English Test fee is $65 USD (approx. ₹5,400 INR) for a single test, or $110 USD for a 2-test bundle. This makes it substantially more affordable than traditional in-person language exams. Academic Yatra's coaching packages are priced independently and include adaptive question bank access, live masterclasses, and production subscore workshops.",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "How Do You Check Your DET Results?",
+          answer:
+            "Your certified DET scores are available online within 48 hours of completing the test (or in as little as 12 hours with expedited results). You will receive an email notification to log into your Duolingo account, view your breakdown, and share your score report with an unlimited number of universities at no extra charge.",
+        },
+        {
+          id: "05",
+          number: "05",
+          question: "What is a Duolingo English Test Score?",
+          answer:
+            "The DET is scored on a holistic scale from 10 to 160 in 5-point increments, aligned with the CEFR levels. It also includes four integrated subscores: Literacy, Comprehension, Conversation, and Production. A score of 120–135 is roughly equivalent to IELTS 7.0–7.5 or TOEFL 95–105.",
+        },
+        {
+          id: "06",
+          number: "06",
+          question: "Where Can You Take the DET?",
+          answer:
+            "You can take the DET from anywhere in the world on a desktop or laptop computer equipped with a webcam, microphone, speakers, and a stable internet connection in a quiet, private room. Physical exam centres are not required.",
+        },
+        {
+          id: "07",
+          number: "07",
+          question: "How Do I Register for the DET?",
+          answer:
+            "Registration is straightforward: create an account on englishtest.duolingo.com or sign up through Academic Yatra's team. Purchase your test credit, download the secure Duolingo testing application, verify your government ID with your webcam, and begin testing within 21 days of purchase.",
+        },
+        {
+          id: "08",
+          number: "08",
+          question: "Documents Required for DET",
+          answer:
+            "You need an official, unexpired government-issued photo ID such as a Passport, National Identity Card, or Driver's License. Your ID must be in its original physical format and presented to the camera during pre-test identity verification.",
+        },
+        {
+          id: "09",
+          number: "09",
+          question: "What Does the Test Contain?",
+          answer:
+            "The DET takes about 1 hour and includes two main sections: an adaptive test (approx. 45 mins) featuring Read and Select, Fill in the Blanks, Listen and Type, Read Aloud, and Write/Speak About the Photo; followed by an unproctored video interview and writing sample (approx. 10 mins) sent directly to institutions along with your numerical score.",
         },
       ],
     },
@@ -841,12 +1035,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
   "celpip-prep": {
     id: "celpip-prep",
     slug: "celpip-prep",
-    category: "CELPIP General",
+    category: "CELPIP",
     titlePrefix: "CELPIP",
-    titleHighlight: "General",
-    eyebrow: "Canadian PR • Citizenship • 100% Canadian English",
+    titleHighlight: "",
+    eyebrow: "Canada Pathways • Mock Tests • Score Improvement",
     heroDescription:
-      "Strengthen practical English for Canadian immigration and citizenship. Master Canadian accents, workplace writing tasks, and speaking prompts designed for IRCC criteria.",
+      "Practical preparation for individuals pursuing immigration, licensing, and professional opportunities requiring English proficiency in Canada.",
     heroImage: "/images/dest_canada.png",
     stats: [
       { value: "CLB 9/10", label: "Target Benchmark" },
@@ -857,35 +1051,86 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     audience: {
       badge: "Is This Course For You?",
       headingPrefix: "Who Needs",
-      headingHighlight: "CELPIP General?",
+      headingHighlight: "CELPIP?",
       description:
         "CELPIP is designed specifically for Canadian immigration and professional designation in Canada. It is recommended for:",
       cards: [
-        { title: "Express Entry candidates targeting maximum CRS points" },
-        { title: "Provincial Nominee Program (PNP) applicants" },
+        { title: "Permanent residency applicants" },
         { title: "Canadian citizenship applicants" },
-        { title: "Professionals seeking certification from Canadian regulatory bodies" },
+        { title: "Skilled immigration candidates" },
+        { title: "Provincial nominee program applicants" },
+        { title: "Professionals seeking Canadian licensing requirements" },
+        { title: "Individuals settling in Canada" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
-      headingHighlight: "CELPIP General",
-      subtitle: "Format, scoring levels, and Canadian English strategies.",
+      headingHighlight: "CELPIP",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
-          question: "What is CELPIP General?",
+          question: "What is CELPIP?",
           answer:
-            "CELPIP (Canadian English Language Proficiency Index Program) is a 3-hour, 100% computer-delivered test conducted in one sitting. It uses Canadian English spelling, grammar, and workplace scenarios.",
+            "The Canadian English Language Proficiency Index Program (CELPIP) is a 100% computer-delivered English language assessment officially designated by Immigration, Refugees and Citizenship Canada (IRCC) for permanent residency and citizenship. It uses practical, everyday Canadian English scenarios rather than abstract academic topics.",
         },
         {
           id: "02",
           number: "02",
-          question: "How is CELPIP scored?",
+          question: "When is the CELPIP Exam Conducted?",
           answer:
-            "CELPIP scores map directly 1-to-1 to Canadian Language Benchmark (CLB) levels, ranging from Level 3 to Level 12. Level 9 is the coveted target for Express Entry.",
+            "CELPIP is conducted year-round with multiple test dates available every week, including weekend sessions, across designated test centres. The entire test is completed in a single 3-hour sitting with no separate speaking appointment.",
+        },
+        {
+          id: "03",
+          number: "03",
+          question: "How Much Does CELPIP Cost?",
+          answer:
+            "The CELPIP - General test fee is approximately ₹14,000 to ₹17,000 INR in India (approx. $280 CAD + tax in Canada). Academic Yatra coaching packages are priced separately and provide targeted Canadian accent listening practice, writing survey templates, and full simulation mock evaluations.",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "How Do You Check Your CELPIP Results?",
+          answer:
+            "CELPIP test results are available online in your CELPIP account within 3 to 4 business days after test day (or within 1 business day with Express Rating). You can view your official score report online and submit the score details directly to IRCC.",
+        },
+        {
+          id: "05",
+          number: "05",
+          question: "What is a CELPIP Score?",
+          answer:
+            "CELPIP scores range from Level 3 to Level 12 for each component (Listening, Reading, Writing, Speaking) and align directly 1-to-1 with Canadian Language Benchmark (CLB) levels. For example, a CELPIP Level 9 corresponds to CLB 9, which awards maximum CRS points for Express Entry applicants.",
+        },
+        {
+          id: "06",
+          number: "06",
+          question: "Where Can You Take CELPIP?",
+          answer:
+            "CELPIP is administered at certified Prometric and Paragon test centres in major cities across India (such as Delhi, Mumbai, Bengaluru, Chandigarh, Hyderabad), throughout Canada, and internationally across several countries. It must be taken at an official in-person test centre for IRCC applications.",
+        },
+        {
+          id: "07",
+          number: "07",
+          question: "How Do I Register for CELPIP?",
+          answer:
+            "You can register online at the official CELPIP website (celpip.ca) or through Academic Yatra's counselling team. Select your preferred test location, date, and sitting time, submit your passport identification details, and pay the registration fee online.",
+        },
+        {
+          id: "08",
+          number: "08",
+          question: "Documents Required for CELPIP",
+          answer:
+            "A valid, original Passport is the required photo identification for test-takers taking CELPIP in India and most international centres. The name, date of birth, and identity number must match your test booking confirmation exactly.",
+        },
+        {
+          id: "09",
+          number: "09",
+          question: "What Does the Test Contain?",
+          answer:
+            "The CELPIP - General test takes approximately 3 hours in one continuous sitting and consists of 4 components: Listening (47–55 mins, 6 parts with Canadian audio clips), Reading (55–60 mins, 4 parts including reading correspondence and diagrams), Writing (53–60 mins, 2 tasks: writing an email and responding to a survey), and Speaking (15–20 mins, 8 tasks recorded into a microphone).",
         },
       ],
     },
@@ -906,7 +1151,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       plans: [
         {
           id: "celpip-champ",
-          category: "CELPIP General",
+          category: "CELPIP",
           name: "Champion Pack",
           priceMonth: "₹3,999/m",
           totalText: "Total: ₹23,999 (incl. 18% GST)",
@@ -929,7 +1174,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "Book a free live trial class and get your CELPIP baseline score.",
       disclaimer:
-        "CELPIP is a registered trademark of Paragon Testing Enterprises.",
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance — not the official IELTS examination.",
     },
   },
 
@@ -937,51 +1182,87 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
   "french-prep": {
     id: "french-prep",
     slug: "french-prep",
-    category: "French (DELF / TEF)",
+    category: "French Language",
     titlePrefix: "French",
-    titleHighlight: "Preparation (DELF / TEF)",
-    eyebrow: "TEF Canada 50+ Bonus CRS Points • DELF A1–B2 • Native Mentors",
+    titleHighlight: "Language",
+    eyebrow: "Speaking Practice • Grammar Support • Assessments",
     heroDescription:
-      "Comprehensive French pathways from beginner A1 to fluent B2/C1. Boost your Canada Express Entry PR score by up to 50+ bonus points through targeted TEF Canada training.",
+      "Build practical French communication skills for academic, professional, and immigration goals across French-speaking regions worldwide.",
     heroImage: "/images/dest_europe.png",
     stats: [
-      { value: "50+", label: "Bonus CRS Points (Canada)" },
-      { value: "A1–B2", label: "CEFR Structured Levels" },
-      { value: "100%", label: "Native Bilingual Mentors" },
-      { value: "Daily", label: "Live Speaking Practice" },
+      { value: "100%", label: "Online Digital Dashboard" },
+      { value: "100%", label: "Live Performance Tracking" },
+      { value: "99%", label: "Result Accuracy" },
+      { value: "100%", label: "Attendance · Recorded Sessions" },
     ],
     audience: {
       badge: "Is This Course For You?",
       headingPrefix: "Who Needs",
-      headingHighlight: "French Preparation?",
+      headingHighlight: "French Language?",
       description:
         "French opens doors to bilingual PR invitations, European master's degrees, and global careers. It is designed for:",
       cards: [
-        { title: "Canada Express Entry applicants needing 50 bonus CRS bilingual points" },
-        { title: "Candidates targeting Quebec Immigration & Francophone Mobility Visas" },
-        { title: "Students applying to universities in France, Switzerland, Belgium & Canada" },
-        { title: "Professionals seeking international mobility in multinational corporations" },
+        { title: "Canadian immigration applicants" },
+        { title: "Future international students" },
+        { title: "Working professionals" },
+        { title: "DELF, TEF, or TCF candidates" },
+        { title: "Travel and language enthusiasts" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
-      headingHighlight: "French (DELF / TEF)",
-      subtitle: "CEFR progression, exam dates, and Canada immigration bonus rules.",
+      headingHighlight: "French language",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
-          question: "How does French give 50+ bonus points in Canada Express Entry?",
+          question: "Why Learn French for Your Global Career?",
           answer:
-            "Under IRCC rules, achieving NCLC 7 (approx. B2 level) in TEF or TCF Canada earns you 50 additional Comprehensive Ranking System (CRS) points if you already have English skills. This often guarantees an invitation to apply (ITA).",
+            "French is an official language in 29 countries and spoken by over 300 million people worldwide. For career and immigration, it provides unmatched advantages: earning up to 50+ bonus CRS points in Canada's Express Entry via TEF/TCF Canada, unlocking Francophone Mobility work permits, and opening high-paying opportunities in international diplomacy, multinational corporations, hospitality, and European institutions.",
         },
         {
           id: "02",
           number: "02",
-          question: "What is the difference between DELF and TEF Canada?",
+          question: "What Is Taught in French Language Courses?",
           answer:
-            "DELF/DALF are diplomas awarded by the French Ministry of Education and are valid for life (ideal for university admissions and European visas). TEF Canada is specifically recognized by IRCC for Canadian immigration and is valid for 2 years.",
+            "Our French curriculum is structured according to the international CEFR framework. Courses cover all four core language competencies: Listening (understanding native accents, radio, and conversations), Reading (comprehending articles, literary excerpts, and official documents), Writing (mastering grammar, conjugations, formal correspondence, and essays), and Speaking (interactive conversation, pronunciation, and spontaneous oral debate).",
+        },
+        {
+          id: "03",
+          number: "03",
+          question: "What Are French Language Certifications?",
+          answer:
+            "The primary international French certifications include DELF/DALF (diplomas awarded by the French Ministry of Education, valid for life and ideal for European study), and TEF / TCF (Test d'Évaluation de Français / Test de Connaissance du Français), which are standardized tests recognized by IRCC for Canadian immigration, Quebec PR, and citizenship.",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "French Language Proficiency Levels (CEFR Framework)",
+          answer:
+            "The Common European Framework of Reference for Languages (CEFR) divides French into six levels: A1 (Complete Beginner), A2 (Elementary), B1 (Intermediate), B2 (Upper Intermediate - the standard benchmark for Canadian immigration NCLC 7 and European university admissions), C1 (Advanced / Professional Fluency), and C2 (Mastery / Bilingual Proficiency).",
+        },
+        {
+          id: "05",
+          number: "05",
+          question: "Time Required to Reach B2 Level French",
+          answer:
+            "Reaching a B2 level typically requires between 500 to 650 guided study hours starting from zero. With Academic Yatra's intensive cohort program (combining live masterclasses, daily conversation clubs, and homework drills), dedicated students typically progress from beginner (A1) to a confident B2 proficiency within 6 to 9 months.",
+        },
+        {
+          id: "06",
+          number: "06",
+          question: "Can You Pass TEF or TCF Through Self-Study?",
+          answer:
+            "While basic vocabulary and grammar can be explored independently, passing TEF or TCF Canada at an NCLC 7 level through self-study alone is challenging. The exams have fast-paced audio formats, strict time limits, and complex oral evaluation criteria that require structured feedback, native-speaker accent training, and timed exam simulation.",
+        },
+        {
+          id: "07",
+          number: "07",
+          question: "What Is the Validity of French Language Certifications?",
+          answer:
+            "DELF and DALF diplomas have lifelong validity—once earned, they never expire. In contrast, TEF Canada and TCF Canada test results are valid for 2 years from the date of the exam for immigration and visa purposes with IRCC and Quebec authorities.",
         },
       ],
     },
@@ -1034,51 +1315,87 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
   "german-prep": {
     id: "german-prep",
     slug: "german-prep",
-    category: "German (Goethe-Zertifikat)",
+    category: "German Language",
     titlePrefix: "German",
-    titleHighlight: "Preparation (Goethe A1–B2)",
-    eyebrow: "Goethe-Zertifikat • Free German Public Universities • Ausbildung",
+    titleHighlight: "Language",
+    eyebrow: "Speaking Practice • Structured Learning • Assessments",
     heroDescription:
-      "Structured German language training for study, work, and healthcare visas. Prepare for Goethe-Institut and telc certifications with native pedagogy, grammar clarity, and speaking clubs.",
+      "Develop German language proficiency for university admissions, career advancement, and opportunities across German-speaking countries.",
     heroImage: "/images/carousel_explore_brands.png",
     stats: [
-      { value: "€0", label: "Public University Tuition" },
-      { value: "A1–B2", label: "Complete CEFR Pathway" },
-      { value: "100%", label: "Goethe Exam Aligned" },
-      { value: "Chancenkarte", label: "Opportunity Card Ready" },
+      { value: "100%", label: "Online Digital Dashboard" },
+      { value: "100%", label: "Live Performance Tracking" },
+      { value: "99%", label: "Result Accuracy" },
+      { value: "100%", label: "Attendance · Recorded Sessions" },
     ],
     audience: {
       badge: "Is This Course For You?",
       headingPrefix: "Who Needs",
-      headingHighlight: "German Preparation?",
+      headingHighlight: "German Language?",
       description:
         "Germany is the top study and work destination in Europe offering tuition-free world-class education. This pathway is designed for:",
       cards: [
-        { title: "Students targeting tuition-free German Public Universities (TU9 & Elite unis)" },
-        { title: "Nurses and medical doctors preparing for German healthcare licensing (B2 FSP)" },
-        { title: "Engineers and IT professionals applying for the German Opportunity Card (Chancenkarte)" },
-        { title: "Candidates pursuing vocational training programs (Ausbildung) in Germany" },
+        { title: "Students applying to German-taught bachelor's or master's programs" },
+        { title: "Candidates preparing for Goethe-Zertifikat, TestDaF, or DSH examinations" },
+        { title: "Individuals pursuing vocational training (Ausbildung) programs" },
+        { title: "Professionals seeking employment in Germany, Austria, or Switzerland" },
+        { title: "Applicants targeting work visas, EU Blue Card pathways, or long-term settlement" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
-      headingHighlight: "German (Goethe / telc)",
-      subtitle: "Public university requirements, visa benchmarks, and study duration.",
+      headingHighlight: "German language",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
-          question: "Can international students really study in Germany for free?",
+          question: "Why Learn German for Your Global Career?",
           answer:
-            "Yes! Public universities in Germany charge zero tuition fees for all students, including non-EU international students (only a small semester fee of €150–€350 is required). Most programs require B1/B2/TestDaF German certification.",
+            "German is the most widely spoken native language in the European Union and the official language of Germany, Austria, and Switzerland—three of Europe's strongest economies. Learning German opens access to tuition-free world-class education at prestigious German public universities, fast-tracks work visas and EU Blue Cards in engineering, IT, and healthcare, and unlocks structured vocational training (Ausbildung) pathways.",
         },
         {
           id: "02",
           number: "02",
-          question: "Which German exam should I take: Goethe or telc?",
+          question: "What Is Taught in German Language Courses?",
           answer:
-            "Both Goethe-Zertifikat and telc are officially recognized by German embassies, universities, and professional boards. Goethe is widely known globally, while telc offers frequent exam dates in many locations.",
+            "Our German curriculum adheres strictly to the international CEFR standard and develops all 4 communicative skills: Hörverstehen (Listening to native dialogues, announcements, and lectures), Leseverstehen (Reading articles, job descriptions, and technical texts), Schriftlicher Ausdruck (Writing formal emails, motivation letters, and essays with correct case declensions), and Mündlicher Ausdruck (Speaking with natural pronunciation, pitch, and spontaneous discussion).",
+        },
+        {
+          id: "03",
+          number: "03",
+          question: "Official German Language Certifications",
+          answer:
+            "The primary internationally recognized German certifications include: Goethe-Zertifikat (awarded by the Goethe-Institut for study, visas, and employment), TestDaF (advanced academic language exam for university entrance), telc Deutsch (standardized test used for healthcare licensing and visas), and DSH (university-administered entrance examination).",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "German Language Proficiency Levels (CEFR Framework)",
+          answer:
+            "The CEFR framework defines 6 progressive levels: A1 (Beginner: basic everyday phrases), A2 (Elementary: routine conversational exchanges), B1 (Intermediate: independent user for vocational Ausbildung entry), B2 (Upper Intermediate: required for hybrid university degrees and healthcare professions), and C1/C2 (Advanced/Mastery: complex academic research and effortless native fluency).",
+        },
+        {
+          id: "05",
+          number: "05",
+          question: "Time Required to Reach B2 Level German",
+          answer:
+            "Reaching B2 level German typically requires 600 to 750 hours of structured instruction and practice. In Academic Yatra's intensive cohort program, students committing 2 to 3 hours daily typically progress through each level (A1 to B2) in approximately 6 to 9 months with guided grammar clinics and interactive speaking clubs.",
+        },
+        {
+          id: "06",
+          number: "06",
+          question: "Self-Study vs. Taking a German Course",
+          answer:
+            "While apps and textbooks can teach basic introductory vocabulary, German grammar (four grammatical cases, genders, adjective endings, and word order rules) is notoriously difficult to master without expert feedback. Enrolling in a structured course with native-fluent instructors provides essential real-time speaking practice, error correction, and targeted exam preparation.",
+        },
+        {
+          id: "07",
+          number: "07",
+          question: "Do German Certifications Expire?",
+          answer:
+            "Official Goethe-Zertifikat, telc, and TestDaF certificates do not have an expiration date and remain valid indefinitely. However, German embassies, universities, and professional licensing authorities often require certificates that were issued within the last 1 to 2 years to verify that your language skills remain active and current.",
         },
       ],
     },
@@ -1130,18 +1447,18 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
   "spoken-english": {
     id: "spoken-english",
     slug: "spoken-english",
-    category: "Spoken English & Fluency",
-    titlePrefix: "Spoken English &",
-    titleHighlight: "Fluency Mastery",
-    eyebrow: "Daily Speaking Clubs • Accent Training • Corporate Confidence",
+    category: "Spoken English",
+    titlePrefix: "Spoken",
+    titleHighlight: "English",
+    eyebrow: "Fluency Training • Vocabulary Building • Expert Guidance",
     heroDescription:
-      "Break through hesitation, build natural vocabulary, and speak English with confidence in social, academic, and high-stakes corporate environments.",
+      "Improve everyday communication skills through practical speaking exercises designed for academic and professional environments.",
     heroImage: "/images/hero_campus_life.png",
     stats: [
-      { value: "Daily", label: "Live Speaking Clubs" },
-      { value: "1-on-1", label: "Confidence Coaching" },
-      { value: "100%", label: "Hesitation Removal" },
-      { value: "500+", label: "Real Dialogue Prompts" },
+      { value: "100%", label: "Online Digital Dashboard" },
+      { value: "100%", label: "Live Performance Tracking" },
+      { value: "99%", label: "Result Accuracy" },
+      { value: "100%", label: "Attendance · Recorded Sessions" },
     ],
     audience: {
       badge: "Is This Course For You?",
@@ -1150,24 +1467,46 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "Fluency is the key to career promotions, interview success, and social influence. It is designed for:",
       cards: [
-        { title: "College students preparing for placement interviews and group discussions" },
-        { title: "Working professionals aiming for promotions and client-facing presentations" },
-        { title: "Individuals seeking to eliminate mother-tongue influence (MTI) and refine pronunciation" },
-        { title: "Homemakers and entrepreneurs looking to communicate confidently in English" },
+        { title: "Working professionals" },
+        { title: "Job seekers preparing for interviews" },
+        { title: "Entrepreneurs and freelancers" },
+        { title: "University students" },
+        { title: "Public speaking aspirants" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
       headingHighlight: "Spoken English",
-      subtitle: "Class structure, daily speaking topics, and fluency milestones.",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
-          question: "How do you help students overcome hesitation?",
+          question: "Why Learn Spoken English for Career Growth?",
           answer:
-            "Through our safe, supportive small-group environment and daily guided conversation topics. Trainers gently correct pronunciation, eliminate grammatical fear, and encourage spontaneous thought in English.",
+            "English is the universal language of global business, higher education, and multinational corporations. Developing confident spoken English enables you to clear competitive job interviews, present ideas persuasively in corporate meetings, negotiate deals effectively, and build professional rapport with international clients and leaders, directly accelerating salary growth and executive promotions.",
+        },
+        {
+          id: "02",
+          number: "02",
+          question: "What Is Taught in Spoken English Courses?",
+          answer:
+            "Our Spoken English curriculum focuses on practical application rather than textbook memorization. Key modules include Conversational Fluency (overcoming hesitation and spontaneous speech flow), Accent & Pronunciation (voice modulation, rhythm, stress patterns, and neutralizing MTI), Grammar & Vocabulary (corporate terminology, idioms, and eliminating recurring grammatical errors), and Public Speaking (argument structuring, extempore, and confident body language).",
+        },
+        {
+          id: "03",
+          number: "03",
+          question: "How Can Spoken English Improve Communication Skills?",
+          answer:
+            "Spoken English training transforms passive language knowledge into active oral expression. By participating in daily interactive speaking clubs, roleplays, and guided debates, learners gain real-time error correction in a supportive environment. This builds active listening skills, eliminates social anxiety, and trains you to think directly in English without translating from your native language.",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "What Skills Will You Develop Through a Spoken English Course?",
+          answer:
+            "Throughout the course, students develop: unshakeable conversational confidence in social and professional settings; interview mastery for campus placements, HR rounds, and executive panels; formal corporate communication including email etiquette, client pitching, and presentation delivery; and advanced vocabulary to articulate complex thoughts clearly and concisely.",
         },
       ],
     },
@@ -1219,10 +1558,10 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     slug: "sat-digital",
     category: "Digital SAT",
     titlePrefix: "Digital",
-    titleHighlight: "SAT Preparation",
-    eyebrow: "Adaptive Bluebook Engine • Desmos Mastery • 1500+ Target",
+    titleHighlight: "SAT",
+    eyebrow: "Mock Tests • Expert Mentoring • Progress Tracking",
     heroDescription:
-      "Target 1500+ with master trainers on the Digital SAT. Master built-in Desmos calculator shortcuts, punctuation rules, reading synthesis, and computer-adaptive strategy.",
+      "Modern preparation designed to help students excel in the digital format through structured practice sessions.",
     heroImage: "/images/why_academic_students.jpg",
     stats: [
       { value: "1500+", label: "Target Score Strategy" },
@@ -1233,35 +1572,86 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     audience: {
       badge: "Is This Course For You?",
       headingPrefix: "Who Needs",
-      headingHighlight: "Digital SAT Prep?",
+      headingHighlight: "Digital SAT?",
       description:
         "The Digital SAT is required for undergraduate college admissions in the USA, Canada, and leading global universities. It is essential for:",
       cards: [
-        { title: "High school students (Grades 10–12) applying to US colleges & Ivy Leagues" },
-        { title: "Applicants targeting merit scholarships in the US, Canada, Singapore, and Europe" },
-        { title: "Students applying to leading Indian universities accepting SAT (Ashoka, Plaksha, Bennett)" },
-        { title: "Test takers wanting to maximize both Math 800 and Reading/Writing scores" },
+        { title: "Class 11–12 students planning abroad studies" },
+        { title: "Recent school graduates applying for bachelor’s programs" },
+        { title: "Applicants to USA, Canada, Europe, and Asia universities" },
+        { title: "Students targeting scholarships or competitive courses" },
+        { title: "Engineering, Business, CS, and other major applicants" },
+        { title: "Candidates applying to selective global universities" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
-      headingHighlight: "Digital SAT",
-      subtitle: "Adaptive modules, Desmos calculator hacks, and College Board format.",
+      headingHighlight: "DSAT",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
-          question: "How does the Digital SAT's multistage adaptivity work?",
+          question: "What is the Digital SAT?",
           answer:
-            "Both Reading & Writing and Math are split into two modules. Your performance on Module 1 determines whether Module 2 gives you easier or harder questions. Hitting the harder Module 2 is required to achieve scores above 1350+.",
+            "The Digital SAT is a computer-adaptive standardized test administered by the College Board, required or accepted for undergraduate admissions and merit scholarships by thousands of universities worldwide, including colleges across the USA, Canada, Europe, Asia, and India.",
         },
         {
           id: "02",
           number: "02",
-          question: "How important is the Desmos graphing calculator?",
+          question: "SAT Dates: When is the Digital SAT Conducted?",
           answer:
-            "Desmos is built directly into every math question on the Digital SAT. At Academic Yatra, we teach students how to solve up to 40% of math problems in seconds using Desmos regressions and graph intersections without manual algebra.",
+            "The Digital SAT is administered globally 7 times a year: typically in March, May, June, August, October, November, and December. Tests are held on Saturday mornings at authorized testing centres.",
+        },
+        {
+          id: "03",
+          number: "03",
+          question: "How Much Does the Digital SAT Cost?",
+          answer:
+            "The official registration fee for the Digital SAT is $68 USD plus a regional international fee (approx. $43 USD), bringing the total to approximately $111 USD (approx. ₹9,200 INR) in India. Academic Yatra coaching packages are priced independently and cover live classes, Desmos calculator shortcuts, and adaptive mock simulations.",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "How Do You Check Your SAT Results?",
+          answer:
+            "Digital SAT results are released online within 2 to 3 weeks after your test date. You can log into your personal College Board student account to view your total score, section breakdown, percentile ranking, and send score reports directly to universities.",
+        },
+        {
+          id: "05",
+          number: "05",
+          question: "What is an SAT Score?",
+          answer:
+            "The Digital SAT is scored on a scale of 400 to 1600, calculated by combining two section scores: Reading and Writing (200–800) and Math (200–800). Scores above 1400 are competitive for top 50 global universities, while 1500+ is the benchmark for Ivy League and highly selective programs.",
+        },
+        {
+          id: "06",
+          number: "06",
+          question: "Where Can You Take the Digital SAT?",
+          answer:
+            "The Digital SAT is taken in-person at certified College Board test centres (usually international schools and universities) across major cities globally. Test-takers bring their own approved laptop or tablet running the official Bluebook application.",
+        },
+        {
+          id: "07",
+          number: "07",
+          question: "How Do I Register for the Digital SAT?",
+          answer:
+            "Registration is completed online through your student account on the official College Board website (satsuite.collegeboard.org). You choose your test date and preferred test centre, upload an acceptable student photo, and pay the registration fee.",
+        },
+        {
+          id: "08",
+          number: "08",
+          question: "Documents Required for the Digital SAT",
+          answer:
+            "On test day, you must present a printed SAT Admission Ticket and an original, valid government-issued photo ID (a valid Passport is mandatory in India). You must also bring your fully charged device with the Bluebook application installed and your exam setup completed.",
+        },
+        {
+          id: "09",
+          number: "09",
+          question: "What Does the Test Contain?",
+          answer:
+            "The Digital SAT takes 2 hours and 14 minutes and consists of 2 sections: Reading & Writing (64 minutes, 54 questions across two 32-minute modules) and Math (70 minutes, 44 questions across two 35-minute modules with built-in Desmos graphing calculator allowed throughout).",
         },
       ],
     },
@@ -1313,12 +1703,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
   "gre-general": {
     id: "gre-general",
     slug: "gre-general",
-    category: "GRE General",
+    category: "GRE",
     titlePrefix: "GRE",
-    titleHighlight: "General Preparation",
-    eyebrow: "Shorter GRE Format • Quant 170 Strategy • 325+ Target",
+    titleHighlight: "",
+    eyebrow: "Quant Practice • Mock Tests • Mentor Support",
     heroDescription:
-      "Target 325+ for top MS, STEM, and PhD programs. High-yield Quant shortcut frameworks, 1,000+ root-word vocabulary mastery, and computer-adaptive mock test simulations.",
+      "Comprehensive preparation helping students strengthen analytical, quantitative, and verbal skills for graduate school admissions.",
     heroImage: "/images/path_competitive_boy.jpg",
     stats: [
       { value: "325+", label: "Target Score Strategy" },
@@ -1329,35 +1719,89 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     audience: {
       badge: "Is This Course For You?",
       headingPrefix: "Who Needs",
-      headingHighlight: "GRE General?",
+      headingHighlight: "GRE?",
       description:
         "The GRE is the standard admissions test for graduate Master's and PhD programs globally. It is designed for:",
       cards: [
-        { title: "Engineers and Science graduates targeting US/European Master's (MS/STEM)" },
-        { title: "Business school applicants submitting GRE scores for top MBA programs" },
-        { title: "Fellowship, Assistantship (TA/RA), and research scholarship candidates" },
-        { title: "Aspirants targeting premier technical universities (CMU, Georgia Tech, TU Munich)" },
+        { title: "Students applying for Master's programs abroad" },
+        { title: "PhD and research applicants" },
+        { title: "Engineering and Technology graduates pursuing MS degrees" },
+        { title: "Computer Science, AI, Data Science, and IT applicants" },
+        { title: "Economics, Psychology, and Social Science students" },
+        { title: "Candidates applying for STEM programs" },
+        { title: "Working professionals planning higher education abroad" },
+        { title: "Students targeting universities in the USA, Canada, Europe, and other GRE-accepting destinations" },
+        { title: "Applicants seeking merit-based scholarships" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
-      headingHighlight: "GRE General",
-      subtitle: "Shorter format, Quant strategies, and Verbal text completion hacks.",
+      headingHighlight: "GRE",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
-          question: "What is the new Shorter GRE format?",
+          question: "What is the Shorter GRE?",
           answer:
-            "Introduced by ETS in September 2023, the Shorter GRE takes less than 2 hours. It has only one Analytical Writing essay, 54 Quant questions, and 54 Verbal questions, with zero unscored sections.",
+            "The Shorter GRE is the modernized version of the GRE General Test introduced by ETS in September 2023. Taking under 2 hours (halving the previous test duration), it evaluates Verbal Reasoning, Quantitative Reasoning, and Analytical Writing for graduate, master's, business, and doctoral admissions worldwide.",
         },
         {
           id: "02",
           number: "02",
-          question: "How is the GRE scored?",
+          question: "GRE Dates",
           answer:
-            "Verbal and Quantitative Reasoning are scored from 130 to 170 in 1-point increments. Analytical Writing is scored from 0 to 6 in half-point increments. A combined score of 320–325+ opens doors to the world's top 20 universities.",
+            "The computer-delivered GRE is offered year-round at authorized Prometric test centres on almost every weekday and weekend. Additionally, the GRE General Test at Home is available 24 hours a day, 7 days a week, year-round.",
+        },
+        {
+          id: "03",
+          number: "03",
+          question: "GRE Fees (India 2026)",
+          answer:
+            "The official GRE General Test registration fee in India is $228 USD (approx. ₹19,000 INR). Academic Yatra coaching packages are priced independently and cover comprehensive Quant shortcut masterclasses, vocabulary root training, and adaptive sectional mocks.",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "How Do You Check Your GRE Results?",
+          answer:
+            "Your unofficial Quantitative and Verbal Reasoning scores are displayed on screen immediately upon completing the exam. Your official score report—including your Analytical Writing score and percentile ranks—is published in your ETS account online within 8 to 10 calendar days.",
+        },
+        {
+          id: "05",
+          number: "05",
+          question: "What is a GRE Score?",
+          answer:
+            "The GRE provides three separate scores: Verbal Reasoning (130–170 in 1-point increments), Quantitative Reasoning (130–170 in 1-point increments), and Analytical Writing (0–6 in half-point increments). A combined score of 320+ (with Quant 165+) is considered competitive for premier global graduate and STEM programs.",
+        },
+        {
+          id: "06",
+          number: "06",
+          question: "GRE Test Centres",
+          answer:
+            "GRE test centres are operational in major cities across India and over 160 countries worldwide, administered in secure computer testing labs. Test-takers can also choose the official GRE at Home option if they meet equipment and room requirements.",
+        },
+        {
+          id: "07",
+          number: "07",
+          question: "GRE Registration",
+          answer:
+            "You can register online 24/7 on the official ETS website (ets.org/gre) or through Academic Yatra's guidance team. Create an ETS account, choose your preferred test centre or home edition, select your test date, and complete payment online.",
+        },
+        {
+          id: "08",
+          number: "08",
+          question: "GRE Eligibility",
+          answer:
+            "There are no official minimum age, GPA, or academic prerequisite requirements set by ETS to register for the GRE. Anyone with an undergraduate degree or in their final college years planning to pursue a Master's, MS, PhD, or MBA degree is eligible to take the test.",
+        },
+        {
+          id: "09",
+          number: "09",
+          question: "GRE Syllabus & Pattern",
+          answer:
+            "The Shorter GRE takes 1 hour and 58 minutes in total and consists of 3 sections: Analytical Writing (1 'Analyze an Issue' task, 30 mins), Quantitative Reasoning (2 sections, 27 questions total, 47 mins), and Verbal Reasoning (2 sections, 27 questions total, 41 mins).",
         },
       ],
     },
@@ -1409,12 +1853,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
   "gmat-focus": {
     id: "gmat-focus",
     slug: "gmat-focus",
-    category: "GMAT Focus Edition",
+    category: "GMAT",
     titlePrefix: "GMAT",
-    titleHighlight: "Focus Edition",
-    eyebrow: "Data Insights • 99th Percentile Mentors • Top MBA Target 705+",
+    titleHighlight: "",
+    eyebrow: "Mock Exams • Strategy Sessions • Performance Tracking",
     heroDescription:
-      "Engineered for elite MBA admissions. Master Data Insights, Critical Reasoning frameworks, and problem-solving speed for Harvard, Stanford, INSEAD, and ISB.",
+      "Structured preparation for students targeting competitive business school admissions through focused practice and expert guidance.",
     heroImage: "/images/hero_center_laptop.jpg",
     stats: [
       { value: "705+", label: "Target Score Strategy (99th %ile)" },
@@ -1425,35 +1869,89 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     audience: {
       badge: "Is This Course For You?",
       headingPrefix: "Who Needs",
-      headingHighlight: "GMAT Focus?",
+      headingHighlight: "GMAT?",
       description:
         "The GMAT Focus Edition is the gold standard for global business school admissions. It is tailored for:",
       cards: [
-        { title: "MBA aspirants targeting top global B-Schools (Harvard, Wharton, INSEAD, LBS, ISB)" },
-        { title: "Working professionals with 2–8 years of experience aiming for career acceleration" },
-        { title: "Deferred MBA applicants and Master's in Management (MiM) candidates" },
-        { title: "Consultants, bankers, and corporate leaders seeking top percentile scores" },
+        { title: "Students applying for MBA programs abroad" },
+        { title: "Candidates pursuing Master in Management (MiM) degrees" },
+        { title: "Applicants targeting business and management schools" },
+        { title: "Working professionals seeking career advancement through higher education" },
+        { title: "Candidates applying to Executive MBA programs" },
+        { title: "Professionals transitioning into leadership and management roles" },
+        { title: "Applicants targeting top-ranked global business schools" },
+        { title: "Students pursuing Finance, Consulting, Marketing, or Business Analytics programs" },
+        { title: "Candidates seeking merit-based scholarships at business schools" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
-      headingHighlight: "GMAT Focus Edition",
-      subtitle: "New 205–805 scoring scale, Data Insights section, and question editing.",
+      headingHighlight: "GMAT",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
-          question: "What is the GMAT Focus Edition structure?",
+          question: "What is the GMAT Focus Edition?",
           answer:
-            "The test consists of three 45-minute sections: Quantitative Reasoning (21 questions), Verbal Reasoning (23 questions), and Data Insights (20 questions). There is no essay (AWA) or sentence correction.",
+            "The GMAT Focus Edition is the official standard for global business school admissions, engineered specifically for graduate business and management programs (MBA, MiM, Executive MBA). It features 3 sections (Quantitative Reasoning, Verbal Reasoning, and Data Insights) taken in just 2 hours and 15 minutes, with no essay section.",
         },
         {
           id: "02",
           number: "02",
-          question: "What is the new Question Review & Edit feature?",
+          question: "GMAT Dates: When is the GMAT Conducted?",
           answer:
-            "Unlike the old GMAT, the Focus Edition allows you to bookmark questions and review or change up to 3 answers per section before time runs out.",
+            "The GMAT Focus Edition is available round the year, up to 6 months in advance. You can book an appointment almost any day of the week at Pearson VUE test centres or opt for the online proctored format available 24/7.",
+        },
+        {
+          id: "03",
+          number: "03",
+          question: "How Much Does the GMAT Cost?",
+          answer:
+            "The official GMAT Focus Edition test fee is $275 USD (approx. ₹23,000 INR) at test centres in India and $300 USD for the online exam. Academic Yatra coaching packages are separate and provide comprehensive Data Insights training, Quant trap analysis, and official mock diagnostics.",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "How Do You Check Your GMAT Results?",
+          answer:
+            "Unofficial scores are displayed immediately on the screen after you complete the test. Your official Score Report is typically available in your mba.com account within 1 to 3 business days (up to 7 days for online testing), complete with an in-depth Official Score Report detailing section performance.",
+        },
+        {
+          id: "05",
+          number: "05",
+          question: "What is a GMAT Score?",
+          answer:
+            "The GMAT Focus Edition total score ranges from 205 to 805 in 10-point increments, ending in '5' to distinguish it from the classic scale. It equally weights all 3 sections: Quantitative Reasoning (60–90), Verbal Reasoning (60–90), and Data Insights (60–90). A score of 645–665 corresponds to the 90th percentile, and 705+ represents the elite 99th percentile.",
+        },
+        {
+          id: "06",
+          number: "06",
+          question: "Where Can You Take the GMAT?",
+          answer:
+            "The GMAT Focus Edition is delivered at certified Pearson VUE test centres in over 110 countries and across all major Indian cities. Alternatively, candidates can take the test remotely via the GMAT Online exam using a personal computer with a webcam and microphone.",
+        },
+        {
+          id: "07",
+          number: "07",
+          question: "How Do I Register for the GMAT?",
+          answer:
+            "Registration is completed online at the official Graduate Management Admission Council (GMAC) website (mba.com) or assisted by Academic Yatra. Select your preferred test location and time slot, upload your identification details, and pay the registration fee.",
+        },
+        {
+          id: "08",
+          number: "08",
+          question: "Documents Required for GMAT",
+          answer:
+            "A valid, unexpired Passport is the mandatory form of government-issued photo identification required for test-takers in India and internationally. The name, date of birth, and signature on your passport must match your mba.com profile exactly.",
+        },
+        {
+          id: "09",
+          number: "09",
+          question: "What Does the Test Contain?",
+          answer:
+            "The GMAT Focus Edition takes 2 hours and 15 minutes and consists of three 45-minute sections in any order of your choice: Quantitative Reasoning (21 questions, Problem Solving), Verbal Reasoning (23 questions, Critical Reasoning & Reading Comprehension), and Data Insights (20 questions: Data Sufficiency, Multi-Source Reasoning, Table Analysis, and Graphics Interpretation).",
         },
       ],
     },
@@ -1766,44 +2264,68 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
   "skill-catalyst-combo": {
     id: "skill-catalyst-combo",
     slug: "skill-catalyst-combo",
-    category: "Skill Catalyst",
-    titlePrefix: "Skill Catalyst",
-    titleHighlight: "Complete Suite",
-    eyebrow: "Career Essentials • Google Workspace • Modern AI & Business Tech",
+    category: "Skill Catalyst Programs",
+    titlePrefix: "Skill",
+    titleHighlight: "Catalyst",
+    eyebrow: "Career Skills • Professional Development • Guided Learning",
     heroDescription:
-      "The ultimate professional readiness suite: Resume & LinkedIn optimization, advanced Google Workspace mastery, and practical AI tools for career growth.",
+      "A comprehensive learning pathway combining workplace, digital, and professional skills for long-term career growth.",
     heroImage: "/images/path_skill_development.jpg",
     stats: [
-      { value: "3-in-1", label: "Complete Skills Bundle" },
-      { value: "100%", label: "Practical Workplace Ready" },
-      { value: "AI Tools", label: "ChatGPT, Claude & Automation" },
-      { value: "ATS", label: "90+ Resume Score Guarantee" },
+      { value: "100%", label: "Online Digital Dashboard" },
+      { value: "100%", label: "Live Performance Tracking" },
+      { value: "99%", label: "Result Accuracy" },
+      { value: "100%", label: "Attendance · Recorded Sessions" },
     ],
     audience: {
       badge: "Is This Course For You?",
-      headingPrefix: "Who Needs",
-      headingHighlight: "Skill Catalyst?",
+      headingPrefix: "Who Should Join the",
+      headingHighlight: "Skill Catalyst Program?",
       description:
-        "Designed for college graduates, career transitioners, and ambitious professionals looking to stand out in today's competitive digital workplace.",
+        "A comprehensive learning pathway combining workplace, digital, and professional skills for long-term career growth. Best suited for:",
       cards: [
-        { title: "Graduates preparing for corporate campus placements and job hunts" },
-        { title: "Professionals wanting to master AI tools (ChatGPT, Notion, Claude) for workplace efficiency" },
-        { title: "Job seekers needing an ATS-proof resume and optimized LinkedIn presence" },
-        { title: "Anyone wanting to master Google Workspace (Sheets, Docs, Slides, Forms)" },
+        { title: "Students preparing for internships and placements" },
+        { title: "Fresh graduates entering the job market" },
+        { title: "Job seekers looking to strengthen their professional profile" },
+        { title: "Professionals seeking workplace productivity and communication skills" },
+        { title: "Candidates preparing for interviews, assessments, and recruitment processes" },
+        { title: "Learners who want both technical and soft skills in a single program" },
+        { title: "Individuals aiming to improve digital, business, and professional competencies" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
-      headingHighlight: "Skill Catalyst Suite",
-      subtitle: "Curriculum modules, live workshops, and portfolio building.",
+      headingHighlight: "Skill Catalyst Program",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
-          question: "What skills will I graduate with?",
+          question: "What is the Skill Catalyst Program?",
           answer:
-            "You will graduate with an ATS-optimized resume, an all-star LinkedIn profile, advanced Google Sheets data skills, and the ability to leverage modern AI tools to automate workplace tasks.",
+            "The Skill Catalyst Program is an all-inclusive 6-week pathway integrating Career Essentials, Bizz Tech, and Google Suite Hub with hands-on capstone projects to deliver end-to-end employability and digital competence.",
+        },
+        {
+          id: "02",
+          number: "02",
+          question: "What Skills Are Taught in the Bizz Tech Course?",
+          answer:
+            "Instruction spans business communication, ATS resume creation, interview techniques, advanced Google Sheets and Workspace tools, data analytics, podcast creation, and digital business workflows.",
+        },
+        {
+          id: "03",
+          number: "03",
+          question: "How Does Skill Catalyst Improve Career Readiness?",
+          answer:
+            "By combining hard technical software proficiency with executive soft skills, practical cross-domain capstones, and intensive mentor feedback that equips learners to thrive in modern corporate environments.",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "What Are the Benefits of Skill Catalyst Certification?",
+          answer:
+            "Holders gain a distinguished Certificate of Achievement, an integrated multi-project portfolio, 95 days of full portal access, and prioritized career guidance for top placement opportunities.",
         },
       ],
     },
@@ -1817,28 +2339,29 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       cards: COMMON_ECOSYSTEM_CARDS,
     },
     pricing: {
-      badge: "Course Packages",
+      badge: "Skill Catalyst Programs",
       headingPrefix: "Choose Your",
-      headingHighlight: "Skill Catalyst Plan",
-      subtitle: "Future-proof your career.",
+      headingHighlight: "Skill Catalyst",
+      subtitle: "A comprehensive learning pathway for long-term career growth.",
       plans: [
         {
-          id: "skill-champ",
-          category: "Skill Catalyst",
-          name: "Champion Pack",
-          priceMonth: "₹2,999/m",
-          totalText: "Total: ₹17,999 (incl. 18% GST)",
-          badge: "Best Value",
+          id: "combo-pack",
+          category: "Skill Catalyst Programs",
+          name: "Combo Pack",
+          priceMonth: "₹39,000",
+          totalText: "₹39,000 + GST",
+          badge: "Most Popular",
           badgeColor: "gold",
           featured: true,
           features: [
-            { text: "6 Weeks Live Interactive Sessions" },
-            { text: "1-on-1 Resume & LinkedIn Overhaul" },
-            { text: "Advanced Google Sheets & Data Labs" },
-            { text: "AI Productivity & Prompt Engineering" },
-            { text: "Mock HR & Technical Interviews" },
+            { text: "95 Days Portal Access" },
+            { text: "6 Weeks Live Lectures" },
+            { text: "Online Portal Access" },
+            { text: "Integrated Capstone Projects" },
+            { text: "Comprehensive Skill Assessment" },
+            { text: "Certificate of Achievement" },
           ],
-          buttonText: "Get Started",
+          buttonText: "Enroll Now",
         },
       ],
     },
@@ -1847,7 +2370,8 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       headingHighlight: "Fits Your Goals.",
       description:
         "Attend a free career acceleration masterclass this week.",
-      disclaimer: "Course pricing is set by Academic Yatra.",
+      disclaimer:
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance — not the official IELTS examination.",
     },
   },
 
@@ -1855,43 +2379,68 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
   "career-essentials": {
     id: "career-essentials",
     slug: "career-essentials",
-    category: "Career Essentials",
+    category: "Skill Catalyst Programs",
     titlePrefix: "Career",
-    titleHighlight: "Essentials Mastery",
-    eyebrow: "ATS Resume • LinkedIn Optimization • Mock HR & Technical Interviews",
+    titleHighlight: "Essentials",
+    eyebrow: "Workplace Skills • Interview Prep • Career Guidance",
     heroDescription:
-      "Build workplace-ready skills for high-impact applications, behavioral interview readiness (STAR technique), professional confidence, and salary negotiation.",
-    heroImage: "/images/carousel_founder_guidance.png",
+      "Develop practical workplace competencies that improve employability, professional confidence, and readiness for career opportunities.",
+    heroImage: "/images/why_academic_students.jpg",
     stats: [
-      { value: "95%", label: "Interview Shortlist Rate" },
-      { value: "STAR", label: "Behavioral Method" },
-      { value: "1-on-1", label: "Mock HR Interviews" },
-      { value: "ATS", label: "Keyword Optimized" },
+      { value: "100%", label: "Online Digital Dashboard" },
+      { value: "100%", label: "Live Performance Tracking" },
+      { value: "99%", label: "Result Accuracy" },
+      { value: "100%", label: "Attendance · Recorded Sessions" },
     ],
     audience: {
       badge: "Is This Course For You?",
-      headingPrefix: "Who Needs",
-      headingHighlight: "Career Essentials?",
+      headingPrefix: "Who Should Join the",
+      headingHighlight: "Career Essentials Program?",
       description:
-        "For students and working professionals aiming for tier-1 job offers, high-paying corporate roles, and successful career transitions.",
+        "Career Essentials is suitable for students, fresh graduates, job seekers, and working professionals looking to improve employability and workplace performance. The program helps bridge the gap between academic learning and industry expectations. Career Essentials is best suited for:",
       cards: [
-        { title: "Job seekers struggling to pass automated ATS screening filters" },
-        { title: "Candidates facing technical and HR behavioral interview anxiety" },
-        { title: "Professionals seeking higher salary negotiation strategies" },
+        { title: "College students" },
+        { title: "Fresh graduates" },
+        { title: "Internship applicants" },
+        { title: "Job seekers preparing for interviews" },
+        { title: "Working professionals" },
+        { title: "Professionals looking to improve communication" },
+        { title: "Career switchers" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
-      headingHighlight: "Career Essentials",
-      subtitle: "Resume optimization, interview prep, and LinkedIn networking.",
+      headingHighlight: "Career Essentials Program",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
-          question: "How does the ATS resume optimization work?",
+          question: "What is the Career Essentials Program?",
           answer:
-            "We reconstruct your resume using modern ATS-compliant templates, quantifiable achievement bullets, and high-frequency industry keywords that get you shortlisted by recruiters.",
+            "Career Essentials is an intensive job-readiness program designed to bridge the gap between academic education and modern workplace demands, equipping candidates with workplace communication, professional etiquette, resume optimization, and interview handling.",
+        },
+        {
+          id: "02",
+          number: "02",
+          question: "What Skills Are Taught in Career Essentials?",
+          answer:
+            "Curriculum modules include high-impact workplace communication, executive email writing, ATS-compliant resume and cover letter drafting, LinkedIn networking, behavioral interview preparation (STAR technique), group discussions, and workplace negotiation.",
+        },
+        {
+          id: "03",
+          number: "03",
+          question: "How Does Career Essentials Improve Job Readiness?",
+          answer:
+            "Through personalized mock interviews with actionable scoring rubrics, hands-on capstone projects, portfolio building, and comprehensive skill assessments that simulate real corporate recruitment evaluation standards.",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "What Are the Benefits of Career Essentials Certification?",
+          answer:
+            "Graduates earn an industry-recognized Certificate of Achievement, verified practical capstone portfolio entries, enhanced recruiter profile visibility, and the professional confidence required to clear top company hiring rounds.",
         },
       ],
     },
@@ -1899,32 +2448,36 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       badge: "The Academic Yatra Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
-      subtitle: "Interview-ready in 4 weeks",
+      subtitle: "Interview-ready in 10 days",
       description:
-        "Real interview practice with industry HR leaders and executive recruiters.",
+        "Real interview practice with industry HR leaders and executive mentors.",
       cards: COMMON_ECOSYSTEM_CARDS,
     },
     pricing: {
-      badge: "Course Packages",
+      badge: "Skill Catalyst Programs",
       headingPrefix: "Choose Your",
-      headingHighlight: "Career Essentials Plan",
-      subtitle: "Land your dream job offer.",
+      headingHighlight: "Career Essentials Pack",
+      subtitle: "Develop practical workplace competencies and professional confidence.",
       plans: [
         {
-          id: "career-champ",
-          category: "Career Essentials",
-          name: "Career Pack",
-          priceMonth: "₹1,999/m",
-          totalText: "Total: ₹11,999 (incl. 18% GST)",
+          id: "career-pack",
+          category: "Skill Catalyst Programs",
+          name: "Career Essentials Pack",
+          priceMonth: "₹15,000",
+          totalText: "₹15,000 + GST",
           badge: "Popular",
           badgeColor: "green",
           features: [
-            { text: "4 Weeks Live Instruction" },
-            { text: "Personalized ATS Resume Builder" },
-            { text: "LinkedIn All-Star Profile Makeover" },
-            { text: "2 Mock Interviews with Detailed Feedback" },
+            { text: "95 Days Portal Access" },
+            { text: "20 Hours Live Lectures" },
+            { text: "10 Day Program" },
+            { text: "Online Portal Access" },
+            { text: "Hands-On Capstone Projects" },
+            { text: "Mock Interview Assessments" },
+            { text: "Comprehensive Skill Assessment" },
+            { text: "Certificate of Achievement" },
           ],
-          buttonText: "Get Started",
+          buttonText: "Enroll Now",
         },
       ],
     },
@@ -1933,51 +2486,78 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       headingHighlight: "Fits Your Goals.",
       description:
         "Get your current resume reviewed for free by our career experts.",
-      disclaimer: "Course pricing is set by Academic Yatra.",
+      disclaimer:
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance — not the official IELTS examination.",
     },
   },
 
-  // 19. GSUITE HUB
+  // 19. GOOGLE SUITE HUB
   "gsuite-hub": {
     id: "gsuite-hub",
-    slug: "gsuite-hub",
-    category: "Google Suite Hub",
+    slug: "google-suite-hub",
+    category: "Skill Catalyst Programs",
     titlePrefix: "Google Suite",
-    titleHighlight: "Productivity Hub",
-    eyebrow: "Advanced Sheets • Presentation Design • Cloud Collaboration",
+    titleHighlight: "Hub",
+    eyebrow: "Workspace Tools • Practical Skills • Projects",
     heroDescription:
-      "Master everyday Google tools for smoother, faster, and more organized workplace productivity with practical templates, formulas, and dashboards.",
+      "Master essential productivity tools used by organizations worldwide for communication, collaboration, and project management.",
     heroImage: "/images/path_learning_dashboard.jpg",
     stats: [
-      { value: "100%", label: "Hands-on Practice" },
-      { value: "Sheets", label: "VLOOKUP, XLOOKUP & Pivot Tables" },
-      { value: "Slides", label: "Executive Deck Design" },
-      { value: "50+", label: "Business Templates" },
+      { value: "100%", label: "Online Digital Dashboard" },
+      { value: "100%", label: "Live Performance Tracking" },
+      { value: "99%", label: "Result Accuracy" },
+      { value: "100%", label: "Attendance · Recorded Sessions" },
     ],
     audience: {
       badge: "Is This Course For You?",
-      headingPrefix: "Who Needs",
-      headingHighlight: "Google Suite Hub?",
+      headingPrefix: "Who Should Join the",
+      headingHighlight: "Google Suite Hub Program?",
       description:
-        "Ideal for corporate employees, analysts, teachers, and entrepreneurs who want to stop wasting time on manual work and automate their day.",
+        "Master essential productivity tools used by organizations worldwide for communication, collaboration, and project management. Best suited for:",
       cards: [
-        { title: "Professionals who want to master data analysis in Google Sheets" },
-        { title: "Teams looking to streamline cloud collaboration across Docs and Drive" },
-        { title: "Anyone preparing executive business presentations in Google Slides" },
+        { title: "College students" },
+        { title: "Fresh graduates" },
+        { title: "Working professionals" },
+        { title: "Team coordinators" },
+        { title: "Entrepreneurs" },
+        { title: "Professionals looking to improve communication" },
+        { title: "Professionals using Google Workspace daily" },
+        { title: "Administrative staff" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
-      headingHighlight: "Google Suite Mastery",
-      subtitle: "Sheets formulas, pivot tables, and cloud workflows.",
+      headingHighlight: "Google Suite Hub Program",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
-          question: "What will I master in Google Sheets?",
+          question: "What is the Google Suite Hub Program?",
           answer:
-            "You will master XLOOKUP, INDEX/MATCH, nested IF statements, Pivot Tables, conditional formatting, dynamic charts, and automated dashboard creation.",
+            "Google Suite Hub is a comprehensive practical program focused on mastering Google Workspace applications (Docs, Sheets, Slides, Forms, Drive, and Gmail) for high-efficiency organizational productivity.",
+        },
+        {
+          id: "02",
+          number: "02",
+          question: "What Skills Are Taught in Google Suite Hub?",
+          answer:
+            "Skills include advanced Google Sheets data analysis (formulas, pivot tables, dynamic dashboards), collaborative document workflows in Docs, executive presentations in Slides, automated surveys via Forms, and structured Drive management.",
+        },
+        {
+          id: "03",
+          number: "03",
+          question: "How Does Google Suite Hub Improve Workplace Productivity?",
+          answer:
+            "By teaching automated data processing, dynamic reporting dashboards, standardized business documentation templates, and collaborative cloud management techniques that save hours of operational work.",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "What Are the Benefits of Google Suite Hub Certification?",
+          answer:
+            "Graduates receive a Certificate of Achievement certifying expertise in modern cloud productivity tools, pre-built workplace dashboard templates, and an elevated professional profile.",
         },
       ],
     },
@@ -1991,26 +2571,31 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       cards: COMMON_ECOSYSTEM_CARDS,
     },
     pricing: {
-      badge: "Course Packages",
+      badge: "Skill Catalyst Programs",
       headingPrefix: "Choose Your",
-      headingHighlight: "Google Suite Plan",
-      subtitle: "Master everyday productivity.",
+      headingHighlight: "Google Suite Hub Pack",
+      subtitle: "Master everyday productivity tools used by organizations worldwide.",
       plans: [
         {
           id: "gsuite-pack",
-          category: "Google Suite Hub",
-          name: "Productivity Pack",
-          priceMonth: "₹1,499/m",
-          totalText: "Total: ₹8,999 (incl. 18% GST)",
-          badge: "Self-Paced",
-          badgeColor: "green",
+          category: "Skill Catalyst Programs",
+          name: "Google Suite Hub Pack",
+          priceMonth: "₹15,000",
+          totalText: "₹15,000 + GST",
+          badge: "Premium",
+          badgeColor: "gold",
+          featured: true,
           features: [
-            { text: "Lifetime Portal Access" },
-            { text: "Advanced Sheets Formula Lab" },
-            { text: "50+ Downloadable Corporate Templates" },
-            { text: "Google Certified Trainer Support" },
+            { text: "95 Days Portal Validity" },
+            { text: "14 Hours Live Lectures" },
+            { text: "7 Day Program" },
+            { text: "Online Portal Access" },
+            { text: "Dynamic Dashboard Projects" },
+            { text: "Quiz & Performance Tracking" },
+            { text: "Comprehensive Skill Assessment" },
+            { text: "Certificate of Achievement" },
           ],
-          buttonText: "Get Started",
+          buttonText: "Enroll Now",
         },
       ],
     },
@@ -2019,7 +2604,8 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       headingHighlight: "Fits Your Goals.",
       description:
         "Download our free Google Sheets shortcut guide today.",
-      disclaimer: "Google is a registered trademark of Google LLC.",
+      disclaimer:
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance — not the official IELTS examination.",
     },
   },
 
@@ -2027,43 +2613,67 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
   "bizz-tech": {
     id: "bizz-tech",
     slug: "bizz-tech",
-    category: "BizzTech",
-    titlePrefix: "Business Tech &",
-    titleHighlight: "AI Workflows",
-    eyebrow: "AI Workplace Tools • Project Management • Data Dashboards",
+    category: "Skill Catalyst Programs",
+    titlePrefix: "Bizz",
+    titleHighlight: "Tech",
+    eyebrow: "Technology Skills • Industry Projects • Practical Learning",
     heroDescription:
-      "Learn practical digital and AI productivity tools through hands-on corporate case studies, prompt engineering, and automation workflows.",
+      "Build business and technology skills relevant to modern workplaces through practical learning and real applications.",
     heroImage: "/images/hero_center_laptop.jpg",
     stats: [
-      { value: "AI Tools", label: "ChatGPT, Claude & Perplexity" },
-      { value: "Workflow", label: "Notion & Trello Systems" },
-      { value: "10x", label: "Productivity Boost" },
-      { value: "100%", label: "Practical Projects" },
+      { value: "100%", label: "Online Digital Dashboard" },
+      { value: "100%", label: "Live Performance Tracking" },
+      { value: "99%", label: "Result Accuracy" },
+      { value: "100%", label: "Attendance · Recorded Sessions" },
     ],
     audience: {
       badge: "Is This Course For You?",
-      headingPrefix: "Who Needs",
-      headingHighlight: "BizzTech & AI?",
+      headingPrefix: "Who Should Join the",
+      headingHighlight: "Bizz Tech Program?",
       description:
-        "For modern professionals, project managers, and startup founders who want to leverage generative AI and modern business tools to work smarter.",
+        "Build business and technology skills relevant to modern workplaces through practical learning and real applications. Best suited for:",
       cards: [
-        { title: "Professionals looking to integrate AI into their daily workflow" },
-        { title: "Project managers seeking structured Notion and Trello workflows" },
-        { title: "Entrepreneurs building automated digital systems" },
+        { title: "College students" },
+        { title: "Entrepreneurs" },
+        { title: "Professionals managing business operations" },
+        { title: "Small business owners" },
+        { title: "Marketing professionals" },
+        { title: "Digital creators and influencers" },
       ],
     },
     courseGuide: {
       badge: "Complete Course Guide",
       headingPrefix: "Everything about",
-      headingHighlight: "BizzTech & AI",
-      subtitle: "Prompt engineering, automation tools, and productivity frameworks.",
+      headingHighlight: "Bizz Tech Program",
+      subtitle: "Tap any card to expand — fees, band system, syllabus, dates & more, all in one place.",
       items: [
         {
           id: "01",
           number: "01",
-          question: "What AI tools are covered?",
+          question: "What is the Bizz Tech Course?",
           answer:
-            "We cover advanced prompt engineering with ChatGPT and Claude, AI research with Perplexity, automated task management in Notion, and workflow integrations.",
+            "The Bizz Tech Course is a hands-on training program designed to teach modern business and technology skills, digital workplace workflows, analytics, and tech applications needed in competitive commercial environments.",
+        },
+        {
+          id: "02",
+          number: "02",
+          question: "What Skills Are Taught in the Bizz Tech Course?",
+          answer:
+            "Curriculum modules include business analytics and insights, podcast and digital media production, digital workflow automation, modern workplace technology stacks, and data-driven decision making.",
+        },
+        {
+          id: "03",
+          number: "03",
+          question: "How Does the Bizz Tech Course Improve Business Skills?",
+          answer:
+            "Through hands-on student podcast projects, live analytics case studies, and real workplace problem solving that enable learners to immediately apply tech-driven solutions to operational challenges.",
+        },
+        {
+          id: "04",
+          number: "04",
+          question: "What Are the Benefits of Bizz Tech Course Certification?",
+          answer:
+            "Earners receive a verified Certificate of Achievement, tangible project portfolio evidence, and demonstrated competence in modern business technology valued by agile enterprises and startups.",
         },
       ],
     },
@@ -2071,33 +2681,37 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       badge: "The Academic Yatra Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
-      subtitle: "Future-proof your skills with cutting-edge tools",
+      subtitle: "Practical, real-world business technology",
       description:
-        "Practical, no-fluff hands-on projects you can immediately implement at your job.",
+        "Build student podcast projects and live analytics dashboards that showcase your real-world capability.",
       cards: COMMON_ECOSYSTEM_CARDS,
     },
     pricing: {
-      badge: "Course Packages",
+      badge: "Skill Catalyst Programs",
       headingPrefix: "Choose Your",
-      headingHighlight: "BizzTech Plan",
-      subtitle: "Multiply your daily output.",
+      headingHighlight: "Bizz Tech Course",
+      subtitle: "Build business and technology skills for modern workplaces.",
       plans: [
         {
           id: "bizz-pack",
-          category: "BizzTech",
-          name: "Innovation Pack",
-          priceMonth: "₹2,166/m",
-          totalText: "Total: ₹12,999 (incl. 18% GST)",
+          category: "Skill Catalyst Programs",
+          name: "Bizz Tech Course",
+          priceMonth: "₹39,000",
+          totalText: "₹39,000 + GST",
           badge: "Popular",
           badgeColor: "gold",
           featured: true,
           features: [
-            { text: "4 Weeks Live Accelerator" },
-            { text: "Prompt Engineering Playbook" },
-            { text: "Custom Notion Workplace Setup" },
-            { text: "Weekly Live Automation Clinics" },
+            { text: "95 Days Portal Access" },
+            { text: "14 Hours Live Lectures" },
+            { text: "7 Day Program" },
+            { text: "Online Portal Access" },
+            { text: "Student Podcast Projects" },
+            { text: "Analytics & Insights Mastery" },
+            { text: "Comprehensive Skill Assessment" },
+            { text: "Certificate of Achievement" },
           ],
-          buttonText: "Get Started",
+          buttonText: "Enroll Now",
         },
       ],
     },
@@ -2105,8 +2719,9 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       headingPrefix: "See How Academic Yatra",
       headingHighlight: "Fits Your Goals.",
       description:
-        "Join a free AI productivity workshop this weekend.",
-      disclaimer: "Course pricing is set by Academic Yatra.",
+        "Join a free practical tech workshop this weekend.",
+      disclaimer:
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance — not the official IELTS examination.",
     },
   },
 };
@@ -2157,12 +2772,17 @@ const ALIAS_MAP: Record<string, string> = {
   // Aliases for skill catalyst
   "skill-combo": "skill-catalyst-combo",
   "skill-catalyst-combo": "skill-catalyst-combo",
+  "skill-catalyst": "skill-catalyst-combo",
+  combo: "skill-catalyst-combo",
   "career-essentials": "career-essentials",
   "skill-catalyst-career-essentials": "career-essentials",
   "google-suite": "gsuite-hub",
+  "google-suite-hub": "gsuite-hub",
   "gsuite-hub": "gsuite-hub",
   "skill-catalyst-gsuite": "gsuite-hub",
+  "skill-catalyst-google-suite-hub": "gsuite-hub",
   "bizz-tech": "bizz-tech",
+  bizztech: "bizz-tech",
   "skill-catalyst-bizz-tech": "bizz-tech",
 };
 

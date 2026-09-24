@@ -1,110 +1,98 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
-import Image from "next/image";
+import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
 
-export interface PathwayCourse {
+export interface PathwayCard {
   id: string;
-  category: string;
-  duration: string;
   title: string;
-  tagline: string;
-  packType: string;
-  popular?: boolean;
-  image: string;
-  glowText: string;
-  shortGlowText: string;
-  examKey: string;
+  subtitle: string;
+  description: string;
+  href: string;
+  tinted?: boolean;
+  icon: React.ReactNode;
 }
 
-const TEST_PREP_PATHWAYS: PathwayCourse[] = [
+const TEST_PREP_CARDS: PathwayCard[] = [
   {
-    id: "sat-digital",
-    category: "Digital SAT",
-    duration: "8–10 Weeks",
-    title: "SAT Preparation",
-    tagline:
-      "Build stronger scores through focused concepts, timed practice, and detailed analysis.",
-    packType: "Champion Pack",
-    popular: true,
-    image: "/images/why_academic_students.jpg",
-    glowText: "Target 1500+ with Adaptive Bluebook Mocks",
-    shortGlowText: "Target 1500+ SAT Mocks",
-    examKey: "SAT",
+    id: "sat",
+    title: "Bachelor's Abroad",
+    subtitle: "SAT PREPARATION",
+    description: "For undergraduate admissions to leading universities worldwide.",
+    href: "/test-prep/sat-digital",
+    tinted: false,
+    icon: (
+      <svg
+        className="w-12 h-12 text-[#0C9253]"
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {/* Graduation cap */}
+        <path d="M24 6L6 16l18 10 18-10L24 6z" />
+        <path d="M13 20v9c0 3 5 5.5 11 5.5s11-2.5 11-5.5v-9" />
+        <path d="M42 16v13" />
+        {/* Stacked books underneath */}
+        <path d="M7 36c0 2.5 5 4.5 11 4.5s11-2 11-4.5" />
+        <path d="M7 42c0 2.5 5 4.5 11 4.5s11-2 11-4.5" />
+      </svg>
+    ),
   },
   {
-    id: "gre-general",
-    category: "GRE General",
-    duration: "8–10 Weeks",
-    title: "GRE Preparation",
-    tagline:
-      "Sharpen Quant and Verbal performance through targeted practice and analytical strategy.",
-    packType: "Champion Pack",
-    popular: true,
-    image: "/images/path_competitive_boy.jpg",
-    glowText: "Target 325+ for Top MS & STEM Universities",
-    shortGlowText: "Target 325+ GRE STEM",
-    examKey: "GRE",
+    id: "gre",
+    title: "Master's Abroad",
+    subtitle: "GRE PREPARATION",
+    description: "For postgraduate admissions across top global universities.",
+    href: "/test-prep/gre-general",
+    tinted: true,
+    icon: (
+      <svg
+        className="w-12 h-12 text-[#0C9253]"
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="24" cy="24" r="18" />
+        <ellipse cx="24" cy="24" rx="8" ry="18" />
+        <path d="M6 24h36" />
+        <path d="M9 15h30" />
+        <path d="M9 33h30" />
+      </svg>
+    ),
   },
   {
-    id: "gmat-focus",
-    category: "GMAT Focus Edition",
-    duration: "10–12 Weeks",
-    title: "GMAT Preparation",
-    tagline:
-      "Strengthen business-school readiness with focused Quant, Verbal, and Data practice skills.",
-    packType: "Champion Pack +",
-    popular: true,
-    image: "/images/hero_center_laptop.jpg",
-    glowText: "Top Business Schools & 99th Percentile Strategy",
-    shortGlowText: "705+ MBA Focus Prep",
-    examKey: "GMAT",
-  },
-  {
-    id: "gre-ielts-combo",
-    category: "GRE + IELTS Combo",
-    duration: "12–14 Weeks",
-    title: "Master's Complete Pathway",
-    tagline:
-      "Integrated preparation covering GRE General + IELTS Academic for seamless university admissions and visa approvals.",
-    packType: "Mastery Pack",
-    popular: false,
-    image: "/images/indian_student_laptop.jpg",
-    glowText: "All-in-One Global Master's Prep Bundle",
-    shortGlowText: "GRE + IELTS Combo",
-    examKey: "COMBO",
-  },
-  {
-    id: "sat-math-verbal-booster",
-    category: "SAT Score Booster",
-    duration: "4–6 Weeks",
-    title: "SAT 800 Math & Verbal Sprint",
-    tagline:
-      "Intensive sprint for test-takers aiming to jump 150+ points with Desmos calculator mastery and punctuation drills.",
-    packType: "Fast-Track Pack",
-    popular: false,
-    image: "/images/path_learning_dashboard.jpg",
-    glowText: "150+ Score Improvement Guarantee",
-    shortGlowText: "+150 Score Sprint",
-    examKey: "SAT",
-  },
-  {
-    id: "executive-mba-track",
-    category: "Executive MBA / EMBA",
-    duration: "6–8 Weeks",
-    title: "Executive MBA Track",
-    tagline:
-      "Weekend and evening batches designed for working professionals targeting premier global executive MBA programs.",
-    packType: "Executive Pack",
-    popular: false,
-    image: "/images/carousel_founder_guidance.png",
-    glowText: "Flexible Weekend Batches for Working Pros",
-    shortGlowText: "Executive MBA Batches",
-    examKey: "GMAT",
+    id: "gmat",
+    title: "MBA Abroad",
+    subtitle: "GMAT PREPARATION",
+    description: "For admissions leading to top business schools abroad.",
+    href: "/test-prep/gmat-focus",
+    tinted: false,
+    icon: (
+      <svg
+        className="w-12 h-12 text-[#0C9253]"
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {/* Notebook body */}
+        <rect x="13" y="7" width="27" height="35" rx="4" />
+        {/* Spiral binder loops on left */}
+        <path d="M9 12h8M9 18h8M9 24h8M9 30h8M9 36h8" />
+        {/* Checklist inside */}
+        <rect x="20" y="14" width="13" height="7" rx="1.5" />
+        <path d="M20 27h13M20 33h9" />
+      </svg>
+    ),
   },
 ];
 
@@ -113,219 +101,52 @@ interface ChooseYourPathProps {
 }
 
 export default function TestPrepChooseYourPath({ onSelectPath }: ChooseYourPathProps) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const updateScrollState = () => {
-    if (scrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      setCanScrollLeft(scrollLeft > 15);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 15);
-
-      const firstChild = scrollRef.current.firstElementChild as HTMLElement | null;
-      if (firstChild) {
-        const itemWidth = firstChild.offsetWidth + 24;
-        const current = Math.round(scrollLeft / itemWidth);
-        setActiveIndex(Math.min(Math.max(current, 0), TEST_PREP_PATHWAYS.length - 1));
-      }
-    }
-  };
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    updateScrollState();
-    el.addEventListener("scroll", updateScrollState, { passive: true });
-    window.addEventListener("resize", updateScrollState);
-    return () => {
-      el.removeEventListener("scroll", updateScrollState);
-      window.removeEventListener("resize", updateScrollState);
-    };
-  }, []);
-
-  const scroll = (direction: "left" | "right") => {
-    if (scrollRef.current) {
-      const { clientWidth } = scrollRef.current;
-      const scrollAmount = clientWidth * 0.75;
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const scrollToIndex = (index: number) => {
-    if (scrollRef.current) {
-      const firstChild = scrollRef.current.firstElementChild as HTMLElement | null;
-      if (firstChild) {
-        const itemWidth = firstChild.offsetWidth + 24;
-        scrollRef.current.scrollTo({
-          left: index * itemWidth,
-          behavior: "smooth",
-        });
-      }
-    }
-  };
-
-  const handleScrollToPrograms = (examKey: string) => {
-    if (onSelectPath) {
-      onSelectPath(examKey);
-    }
-    const section = document.getElementById("course-programs");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
   return (
-    <section className="py-8 sm:py-14 bg-white relative z-10 overflow-hidden">
-      {/* Seamless Top & Bottom Ambient Fade */}
-      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none" />
-
+    <section className="py-12 sm:py-16 bg-white relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header with Carousel Navigation Arrows */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
-          <div className="space-y-2 max-w-xl">
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
-              Choose the Path You&apos;re{" "}
-              <span className="text-brand-accent">Preparing For</span>
-            </h2>
-            <p className="font-body text-slate-500 text-sm sm:text-base leading-relaxed">
-              Different academic goals require different exams. Explore the
-              programs below to find the right path for your journey.
-            </p>
-          </div>
-
-          {/* Carousel Arrow Controls */}
-          <div className="flex items-center gap-3 self-end md:self-auto shrink-0">
-            <button
-              onClick={() => scroll("left")}
-              disabled={!canScrollLeft}
-              aria-label="Previous Course"
-              className="w-11 h-11 rounded-full border border-slate-200 bg-white hover:bg-emerald-50 hover:border-emerald-300 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center text-slate-700 hover:text-emerald-700 shadow-sm transition-all cursor-pointer"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            <button
-              onClick={() => scroll("right")}
-              disabled={!canScrollRight}
-              aria-label="Next Course"
-              className="w-11 h-11 rounded-full border border-slate-200 bg-white hover:bg-emerald-50 hover:border-emerald-300 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center text-slate-700 hover:text-emerald-700 shadow-sm transition-all cursor-pointer"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-
-        {/* Carousel Scroll Track */}
-        <div
-          ref={scrollRef}
-          className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pt-2 pb-10 sm:pb-12 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 no-scrollbar scrollbar-none items-stretch"
-          style={{
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-            WebkitOverflowScrolling: "touch",
-          }}
-        >
-          {TEST_PREP_PATHWAYS.map((course, idx) => {
-            const level =
-              idx % 3 === 0
-                ? "Intermediate"
-                : idx % 3 === 1
-                ? "Advanced"
-                : "Beginner";
-            const rating = idx % 3 === 0 ? "4.8" : idx % 3 === 1 ? "4.9" : "4.7";
-            const reviews =
-              idx % 3 === 0
-                ? "356 reviews"
-                : idx % 3 === 1
-                ? "576 reviews"
-                : "210 reviews";
-
-            return (
-              <motion.div
-                key={course.id}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: (idx % 3) * 0.06 }}
-                className="relative w-[85vw] xs:w-[320px] sm:w-[350px] lg:w-[380px] shrink-0 snap-start h-full flex flex-col group pb-4"
-              >
-                <div
-                  onClick={() => handleScrollToPrograms(course.examKey)}
-                  className="relative w-full h-full overflow-hidden rounded-[22px] bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer text-left"
-                >
-                  {/* Top Edge-to-Edge Image */}
-                  <div className="relative aspect-[16/10] sm:aspect-[16/10.5] w-full shrink-0 overflow-hidden bg-slate-100">
-                    <Image
-                      src={course.image}
-                      alt={course.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    {course.popular && (
-                      <div className="absolute top-3 right-3 bg-amber-500 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-md uppercase tracking-wider">
-                        ★ Popular
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Content Body */}
-                  <div className="p-5 sm:p-6 flex flex-col justify-between flex-1 text-left">
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug">
-                        {course.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal line-clamp-2 mt-2 font-body">
-                        {course.tagline}
-                      </p>
-                    </div>
-
-                    {/* Bottom Rating and Level Badge */}
-                    <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
-                        <span>{rating}</span>
-                        <span className="text-[#7C3AED] font-bold">★</span>
-                        <span className="text-slate-400 font-normal text-[11px]">
-                          ({reviews})
-                        </span>
-                      </div>
-
-                      <span
-                        className={cn(
-                          "text-[11px] font-bold px-2.5 py-0.5 rounded-md",
-                          level === "Beginner" && "bg-sky-100 text-sky-800",
-                          level === "Intermediate" && "bg-amber-100 text-amber-900",
-                          level === "Advanced" && "bg-emerald-100 text-emerald-800"
-                        )}
-                      >
-                        {level}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* Carousel Pagination Dots */}
-        <div className="mt-2 flex items-center justify-center gap-2 select-none">
-          {TEST_PREP_PATHWAYS.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => scrollToIndex(i)}
-              aria-label={`Go to slide ${i + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                activeIndex === i
-                  ? "w-8 bg-emerald-600"
-                  : "w-2 bg-slate-200 hover:bg-emerald-300"
+        {/* 3 Pathway Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+          {TEST_PREP_CARDS.map((card) => (
+            <div
+              key={card.id}
+              className={`rounded-[28px] border transition-all duration-300 p-7 sm:p-9 flex flex-col justify-between group shadow-xs hover:shadow-xl hover:-translate-y-1 ${
+                card.tinted
+                  ? "bg-gradient-to-b from-[#E8F8EE]/70 via-white to-white border-emerald-200/80"
+                  : "bg-white border-slate-200/85 hover:border-emerald-300"
               }`}
-            />
+            >
+              {/* Top Section: Icon, Title, Subtitle, Description */}
+              <div>
+                {/* Icon */}
+                <div className="mb-6 flex items-center">{card.icon}</div>
+
+                {/* Title */}
+                <h3 className="font-heading text-2xl sm:text-[26px] font-bold text-slate-900 tracking-tight leading-snug">
+                  {card.title}
+                </h3>
+
+                {/* Subtitle Badge */}
+                <p className="font-heading text-xs sm:text-[13px] font-extrabold tracking-wider text-[#0C9253] uppercase mt-1">
+                  {card.subtitle}
+                </p>
+
+                {/* Description */}
+                <p className="font-body text-slate-600 text-sm sm:text-[15px] leading-relaxed mt-4 font-normal">
+                  {card.description}
+                </p>
+              </div>
+
+              {/* Action Button */}
+              <div className="mt-8 pt-2">
+                <Link
+                  href={card.href}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#0C9253] hover:bg-[#0A7A45] text-white text-sm font-semibold transition-all shadow-sm hover:shadow-md cursor-pointer group-hover:scale-[1.02]"
+                >
+                  <span>Explore Programs</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
       </div>

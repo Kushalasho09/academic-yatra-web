@@ -215,7 +215,7 @@ export default function SkillCatalystCoursePrograms({
                   theme={theme}
                   features={plan.features}
                   description={plan.description}
-                  ctaText="Choose"
+                  ctaText="Buy Now"
                   ctaHref={ctaHref}
                   trialHref="/contacts"
                 />

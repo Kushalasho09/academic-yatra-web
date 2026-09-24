@@ -26,7 +26,6 @@ export const PRICING_GUIDE_DATA: PricingItem[] = [
     totalPrice: "₹25,999",
     validity: "6 months",
     inclusions: "1 batch timing, 100 hrs live lectures, 60 sectional tests, 15 mock tests, 20+ hrs video",
-    badge: "Popular",
   },
   {
     program: "IELTS Academic",

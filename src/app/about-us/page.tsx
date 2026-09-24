@@ -5,7 +5,6 @@ import AboutWhatWeDo from "@/components/about-us/AboutWhatWeDo";
 import AboutHowWeTeach from "@/components/about-us/AboutHowWeTeach";
 import AboutOurPurpose from "@/components/about-us/AboutOurPurpose";
 import AboutOurApproach from "@/components/about-us/AboutOurApproach";
-import AboutUsStatsStrip from "@/components/about-us/AboutUsStatsStrip";
 import AboutWhoWeAre from "@/components/about-us/AboutWhoWeAre";
 import AboutLanguagesTicker from "@/components/about-us/AboutLanguagesTicker";
 import AboutDigitalEcosystem from "@/components/about-us/AboutDigitalEcosystem";
@@ -43,9 +42,6 @@ export default function AboutUsPage() {
 
       {/* 05. Our Approach: Interlocking Chain Brand Personality */}
       <AboutOurApproach />
-
-      {/* Key Numbers & Metric Counter Strip */}
-      <AboutUsStatsStrip />
 
       {/* 06. Who We Are: Dark Navy Closing Section */}
       <AboutWhoWeAre />

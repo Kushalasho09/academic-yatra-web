@@ -55,8 +55,8 @@ const SKILL_TESTIMONIALS: FeedbackItem[] = [
     quote:
       "The performance reports and mentor evaluations helped me focus on my weak presentation areas. I saw real improvement in my communication within weeks.",
     name: "Rithvik Kumar",
-    role: "Skill Catalyst Combo Learner",
-    badge: "Full Combo Graduate",
+    role: "Skill Catalyst Learner",
+    badge: "Full Program Graduate",
     secondaryBadge: "Verified Participant",
     avatar: "/images/avatar_tutor_male.jpg",
     rating: 5,

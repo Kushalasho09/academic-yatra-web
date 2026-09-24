@@ -19,8 +19,7 @@ export default function TestPrepPlatformPreview() {
       number: "01",
       title: "Real-Time Score Benchmarking",
       pillLabel: "1 Week",
-      pillTheme: "green",
-      cardTheme: "mint",
+      theme: "emerald",
       icon: TrendingUp,
       description:
         "Track your preparation against target scores for SAT, GRE & GMAT.",
@@ -29,8 +28,7 @@ export default function TestPrepPlatformPreview() {
       number: "02",
       title: "Sectional Performance Insights",
       pillLabel: "2 Week",
-      pillTheme: "dark",
-      cardTheme: "white",
+      theme: "blue",
       icon: BarChart3,
       description:
         "See detailed performance across Quant, Verbal, Reading, Writing & Data Insights.",
@@ -39,8 +37,7 @@ export default function TestPrepPlatformPreview() {
       number: "03",
       title: "100% Recorded Learning Archive",
       pillLabel: "1-2 Days",
-      pillTheme: "dark",
-      cardTheme: "white",
+      theme: "navy",
       icon: CalendarCheck,
       description:
         "Revisit every recorded class anytime, strengthen concepts, and stay consistent with your preparation.",
@@ -49,8 +46,7 @@ export default function TestPrepPlatformPreview() {
       number: "04",
       title: "Mock-Test Performance Analytics",
       pillLabel: "1-2 Days",
-      pillTheme: "green",
-      cardTheme: "mint",
+      theme: "amber",
       icon: Award,
       description:
         "Analyse mock scores, identify weak areas, and track your improvement across every test.",

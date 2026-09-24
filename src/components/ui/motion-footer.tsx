@@ -399,15 +399,48 @@ export function CinematicFooter() {
                   Contacts
                 </MagneticButton>
               </div>
+
+              {/* Legal & Compliance Links */}
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-3 w-full mt-1">
+                <MagneticButton
+                  as={Link}
+                  href="/privacy-policy"
+                  className="footer-glass-pill px-3.5 py-1.5 rounded-full text-slate-400 font-medium text-[11px] sm:text-xs hover:text-emerald-300 hover:border-emerald-500/40"
+                >
+                  Privacy Policy
+                </MagneticButton>
+
+                <MagneticButton
+                  as={Link}
+                  href="/terms-and-conditions"
+                  className="footer-glass-pill px-3.5 py-1.5 rounded-full text-slate-400 font-medium text-[11px] sm:text-xs hover:text-emerald-300 hover:border-emerald-500/40"
+                >
+                  Terms & Conditions
+                </MagneticButton>
+
+                <MagneticButton
+                  as={Link}
+                  href="/refund-policy"
+                  className="footer-glass-pill px-3.5 py-1.5 rounded-full text-slate-400 font-medium text-[11px] sm:text-xs hover:text-emerald-300 hover:border-emerald-500/40"
+                >
+                  Refund Policy
+                </MagneticButton>
+              </div>
             </div>
           </div>
 
           {/* 3. Bottom Bar / Credits & Back to Top */}
           <div className="relative z-20 w-full pb-6 sm:pb-8 px-4 sm:px-8 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 border-t border-white/10 pt-5">
             
-            {/* Copyright */}
-            <div className="text-slate-400 text-[11px] sm:text-xs font-semibold tracking-wider order-2 md:order-1 text-center md:text-left">
-              © {new Date().getFullYear()} <span className="text-slate-200">Future Yatra Pvt. Ltd.</span> • Academic Yatra
+            {/* Copyright & Quick Legal Links */}
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-2.5 gap-y-1 text-slate-400 text-[11px] sm:text-xs font-semibold tracking-wider order-2 md:order-1 text-center md:text-left">
+              <span>© {new Date().getFullYear()} <span className="text-slate-200">Future Yatra Pvt. Ltd.</span></span>
+              <span>•</span>
+              <Link href="/privacy-policy" className="hover:text-emerald-300 transition-colors">Privacy</Link>
+              <span>•</span>
+              <Link href="/terms-and-conditions" className="hover:text-emerald-300 transition-colors">Terms</Link>
+              <span>•</span>
+              <Link href="/refund-policy" className="hover:text-emerald-300 transition-colors">Refunds</Link>
             </div>
 
             {/* "Made with Love" Badge */}

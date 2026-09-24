@@ -183,98 +183,76 @@ export default function AboutHowWeTeach() {
         {/* ========================================================================= */}
         {/* DESKTOP VIEW (md+): 100% Mathematically Centered Dotted Connectors & Nodes */}
         {/* ========================================================================= */}
-        <div className="hidden md:block max-w-7xl mx-auto">
-          
-          {/* Row 1: Circles & Direct Connecting Dotted Arrows (Aligned on Same Horizontal Y-Centerline) */}
-          <div className="flex items-center justify-between w-full">
-            {STEPS.map((step, idx) => {
-              const isLast = idx === STEPS.length - 1;
+        {/* ========================================================================= */}
+        {/* DESKTOP VIEW (md+): 100% Mathematically Centered Dotted Connectors & Nodes */}
+        {/* Unified 4-Column Grid locks Icon, Circle Dot, and Text to the exact same  */}
+        {/* vertical centerline, permanently eliminating any text-offset misalignment. */}
+        {/* ========================================================================= */}
+        <div className="hidden md:grid md:grid-cols-4 gap-2 lg:gap-4 max-w-7xl mx-auto">
+          {STEPS.map((step, idx) => {
+            const isLast = idx === STEPS.length - 1;
 
-              return (
-                <React.Fragment key={step.number}>
-                  {/* Node: Icon + Glow Circle + Center Dot */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.85 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.45, delay: idx * 0.1 }}
-                    className="flex flex-col items-center shrink-0 group"
-                  >
-                    {/* Icon above circle */}
-                    <div className="h-9 flex items-center justify-center mb-1 group-hover:-translate-y-1 transition-transform duration-300">
-                      <StepIcon type={step.iconType} />
-                    </div>
-
-                    {/* Radial Glow Circle with perfectly centered dot */}
-                    <div className="relative w-28 h-28 lg:w-36 lg:h-36 flex items-center justify-center">
-                      <div
-                        className="absolute inset-0 rounded-full transition-transform duration-500 group-hover:scale-105"
-                        style={{ background: step.accentGlow }}
-                      />
-
-                      {/* Center Dot with Dark Ring */}
-                      <div className="relative z-10 w-3.5 h-3.5 rounded-full bg-white border-2 border-slate-900 shadow-sm transition-transform duration-300 group-hover:scale-125" />
-                    </div>
-                  </motion.div>
-
-                  {/* Connecting Dotted Arrow between Nodes */}
-                  {!isLast && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.45, delay: idx * 0.12 }}
-                      className="flex-1 flex items-center justify-center px-1 lg:px-2 pt-10"
-                    >
-                      <div className="w-full relative flex items-center">
-                        {/* Dotted line spanning exactly between the circles */}
-                        <div className="w-full border-t-[1.8px] border-dotted border-slate-800" />
-                        
-                        {/* Arrowhead pointing directly at the next node */}
-                        <svg
-                          className="w-2.5 h-2.5 text-slate-800 shrink-0 absolute right-0 -top-[4px]"
-                          viewBox="0 0 10 10"
-                          fill="currentColor"
-                        >
-                          <path d="M0 1.5 L7 5 L0 8.5 z" />
-                        </svg>
-                      </div>
-                    </motion.div>
-                  )}
-                </React.Fragment>
-              );
-            })}
-          </div>
-
-          {/* Row 2: Text Descriptions Exactly Under Each Step Node */}
-          <div className="grid grid-cols-4 gap-4 mt-6 text-center">
-            {STEPS.map((step, idx) => (
+            return (
               <motion.div
                 key={step.number}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.12 }}
-                className="space-y-1 px-1 sm:px-2"
+                transition={{ duration: 0.45, delay: idx * 0.1 }}
+                className="flex flex-col items-center text-center group relative"
               >
-                <h4 className="font-heading text-lg font-bold text-slate-900 tracking-tight">
-                  {step.number}
-                </h4>
-
-                <div
-                  className="text-xs font-black tracking-wider uppercase font-heading"
-                  style={{ color: step.accentColor }}
-                >
-                  {step.label}
+                {/* 1. Icon above circle */}
+                <div className="h-9 flex items-center justify-center mb-1 group-hover:-translate-y-1 transition-transform duration-300">
+                  <StepIcon type={step.iconType} />
                 </div>
 
-                <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1 max-w-[210px] mx-auto">
-                  {step.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+                {/* 2. Radial Glow Circle with perfectly centered dot & Dotted Connector */}
+                <div className="relative w-full flex items-center justify-center">
+                  <div className="relative w-28 h-28 lg:w-36 lg:h-36 flex items-center justify-center z-10">
+                    <div
+                      className="absolute inset-0 rounded-full transition-transform duration-500 group-hover:scale-105"
+                      style={{ background: step.accentGlow }}
+                    />
 
+                    {/* Center Dot with Dark Ring */}
+                    <div className="relative z-10 w-3.5 h-3.5 rounded-full bg-white border-2 border-slate-900 shadow-sm transition-transform duration-300 group-hover:scale-125" />
+                  </div>
+
+                  {/* Connecting Dotted Arrow between adjacent step circles */}
+                  {!isLast && (
+                    <div className="absolute left-[calc(50%+48px)] lg:left-[calc(50%+60px)] right-[calc(-50%+48px)] lg:right-[calc(-50%+60px)] top-1/2 -translate-y-1/2 flex items-center z-0 pointer-events-none">
+                      <div className="w-full border-t-[1.8px] border-dotted border-slate-800" />
+                      <svg
+                        className="w-2.5 h-2.5 text-slate-800 shrink-0 -ml-1 -mt-[4px]"
+                        viewBox="0 0 10 10"
+                        fill="currentColor"
+                      >
+                        <path d="M0 1.5 L7 5 L0 8.5 z" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+
+                {/* 3. Text Descriptions Locked to Exact Same Center Vertical Axis */}
+                <div className="space-y-1 pt-5 text-center w-full px-1">
+                  <h4 className="font-heading text-lg font-bold text-slate-900 tracking-tight">
+                    {step.number}
+                  </h4>
+
+                  <div
+                    className="text-xs font-black tracking-wider uppercase font-heading"
+                    style={{ color: step.accentColor }}
+                  >
+                    {step.label}
+                  </div>
+
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1 max-w-[210px] mx-auto">
+                    {step.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* ========================================================================= */}

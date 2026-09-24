@@ -154,7 +154,7 @@ const TRACKS: TrackCard[] = [
       { name: "Career Essentials", badge: "Workplace Ready" },
       { name: "BizzTech", badge: "Digital & Tech Tools" },
       { name: "Google Suite Hub", badge: "Advanced Sheets & Docs" },
-      { name: "Skill Catalyst Combo", badge: "Triple Certification" },
+      { name: "Skill Catalyst", badge: "Triple Certification" },
     ],
     keyHighlights: [
       "ATS resume optimization & STAR technique behavioral mock interviews",

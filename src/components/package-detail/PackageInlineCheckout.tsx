@@ -49,84 +49,603 @@ export interface CoursePlanCard {
   level: "Beginner" | "Intermediate" | "Advanced";
 }
 
-const IELTS_CARDS: CoursePlanCard[] = [
-  {
-    id: "self-prep",
-    category: "IELTS Academic",
-    duration: "6 Months Access",
-    title: "Self-Prep Pack",
-    packType: "Self Preparation Pack",
-    popular: false,
-    theme: "mint",
-    tagline: "Best for self-paced independent learners",
-    description: "60 sectional tests, 15 mock tests, 20+ hrs video, 500+ grammar/vocab lessons.",
-    image: "/images/subscription_self_prep.jpg",
-    glowText: "Target Band 7.5+ with Cambridge AI Mocks",
-    priceFormatted: "₹13,899.00",
-    monthlyPrice: "₹2,316/m • 6 months (incl. 18% GST)",
-    rating: "4.7",
-    reviewsCount: "356 reviews",
-    features: [
-      { text: "60 sectional tests", included: true },
-      { text: "15 mock tests", included: true },
-      { text: "20+ hrs video lessons", included: true },
-      { text: "500+ grammar/vocab lessons", included: true },
-      { text: "Live interactive masterclasses", included: false },
-    ],
-    level: "Beginner",
-  },
-  {
-    id: "champ",
-    category: "IELTS Academic",
-    duration: "6 Months Access",
-    title: "Champion Pack",
-    packType: "Champion Pack",
-    popular: true,
-    badge: "Popular",
-    theme: "lime",
-    tagline: "100 hrs live lectures & single batch timing",
-    description: "1 batch timing, 100 hrs live lectures, 60 sectional tests, 15 mock tests, 20+ hrs video.",
-    image: "/images/subscription_champion_live.jpg",
-    glowText: "Target Band 7.5+ with Cambridge AI Mocks",
-    priceFormatted: "₹25,999.00",
-    monthlyPrice: "₹4,333/m • 6 months (incl. 18% GST)",
-    rating: "4.8",
-    reviewsCount: "236 reviews",
-    features: [
-      { text: "1 batch timing", included: true },
-      { text: "100 hrs live lectures", included: true },
-      { text: "60 sectional tests", included: true },
-      { text: "15 mock tests", included: true },
-      { text: "20+ hrs video lessons", included: true },
-    ],
-    level: "Intermediate",
-  },
-  {
-    id: "champ-plus",
-    category: "IELTS Academic",
-    duration: "6 Months Access",
-    title: "Champion Pack +",
-    packType: "Champion Pack +",
-    popular: false,
-    theme: "lavender",
-    tagline: "All 3 batch timings & complete flexibility",
-    description: "All 3 batch timings (morning/afternoon/evening), 100 hrs live lectures, 60 sectional tests, 15 mock tests.",
-    image: "/images/subscription_champion_plus.jpg",
-    glowText: "Target Band 7.5+ with Cambridge AI Mocks",
-    priceFormatted: "₹28,999.00",
-    monthlyPrice: "₹4,833/m • 6 months (incl. 18% GST)",
-    rating: "4.9",
-    reviewsCount: "576 reviews",
-    features: [
-      { text: "All 3 batch timings (M/A/E)", included: true },
-      { text: "100 hrs live lectures", included: true },
-      { text: "60 sectional tests", included: true },
-      { text: "15 mock tests", included: true },
-      { text: "20+ hrs video lessons", included: true },
-    ],
-    level: "Advanced",
-  },
-];
+/**
+ * Condition: Evaluates all cards in any course pack, determines which card
+ * has the highest amount (and more features), and assigns that card as POPULAR.
+ */
+export function evaluatePopularCard(cards: CoursePlanCard[]): CoursePlanCard[] {
+  if (!cards || cards.length === 0) return [];
+
+  const parseAmount = (val?: string): number => {
+    if (!val) return 0;
+    const match = val.replace(/,/g, "").match(/\d+(\.\d+)?/);
+    return match ? parseFloat(match[0]) : 0;
+  };
+
+  const countIncludedFeatures = (features?: Array<{ text: string; included?: boolean }>): number => {
+    if (!features) return 0;
+    return features.filter((f) => f.included !== false).length;
+  };
+
+  let maxScore = -1;
+  let topCardId = cards[0]?.id;
+
+  cards.forEach((card) => {
+    const amount = parseAmount(card.priceFormatted) || parseAmount(card.monthlyPrice);
+    const featureCount = countIncludedFeatures(card.features);
+    // User condition: "check which has the more features and which has the more amount that one will be popular"
+    const score = amount * 1000 + featureCount;
+    if (score > maxScore) {
+      maxScore = score;
+      topCardId = card.id;
+    }
+  });
+
+  return cards.map((card, idx) => {
+    const isPopular = card.id === topCardId;
+    return {
+      ...card,
+      popular: isPopular,
+      badge: isPopular ? "POPULAR" : undefined,
+      theme: isPopular ? "lime" : (idx === 0 ? "mint" : "lavender"),
+    };
+  });
+}
+
+const DEFAULT_COURSES_PLANS: Record<string, (category: string) => CoursePlanCard[]> = {
+  "ielts": (cat) => [
+    {
+      id: "ielts-self-prep",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Self-Prep Pack",
+      packType: "Self Preparation Pack",
+      popular: false,
+      theme: "mint",
+      tagline: "Best for self-paced independent learners",
+      description: "60 sectional tests, 15 mock tests, 20+ hrs video, 500+ grammar/vocab lessons.",
+      image: "/images/subscription_self_prep.jpg",
+      glowText: "Target Band 7.5+ with Cambridge AI Mocks",
+      priceFormatted: "₹13,899.00",
+      monthlyPrice: "₹2,316/m • 6 months (incl. 18% GST)",
+      rating: "4.7",
+      reviewsCount: "356 reviews",
+      features: [
+        { text: "60 sectional tests", included: true },
+        { text: "15 mock tests", included: true },
+        { text: "20+ hrs video lessons", included: true },
+        { text: "500+ grammar/vocab lessons", included: true },
+        { text: "Live interactive masterclasses", included: false },
+      ],
+      level: "Beginner",
+    },
+    {
+      id: "ielts-champ",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Champion Pack",
+      packType: "Champion Pack",
+      popular: false,
+      theme: "lavender",
+      tagline: "100 hrs live lectures & single batch timing",
+      description: "1 batch timing, 100 hrs live lectures, 60 sectional tests, 15 mock tests, 20+ hrs video.",
+      image: "/images/subscription_champion_live.jpg",
+      glowText: "Target Band 7.5+ with Cambridge AI Mocks",
+      priceFormatted: "₹25,999.00",
+      monthlyPrice: "₹4,333/m • 6 months (incl. 18% GST)",
+      rating: "4.8",
+      reviewsCount: "236 reviews",
+      features: [
+        { text: "1 batch timing", included: true },
+        { text: "100 hrs live lectures", included: true },
+        { text: "60 sectional tests", included: true },
+        { text: "15 mock tests", included: true },
+        { text: "20+ hrs video lessons", included: true },
+      ],
+      level: "Intermediate",
+    },
+    {
+      id: "ielts-champ-plus",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Champion Pack +",
+      packType: "Champion Pack +",
+      popular: false,
+      theme: "lime",
+      tagline: "All 3 batch timings & complete flexibility",
+      description: "All 3 batch timings (morning/afternoon/evening), 100 hrs live lectures, 60 sectional tests, 15 mock tests.",
+      image: "/images/subscription_champion_plus.jpg",
+      glowText: "Target Band 7.5+ with Cambridge AI Mocks",
+      priceFormatted: "₹28,999.00",
+      monthlyPrice: "₹4,833/m • 6 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "576 reviews",
+      features: [
+        { text: "All 3 batch timings (M/A/E)", included: true },
+        { text: "100 hrs live lectures", included: true },
+        { text: "60 sectional tests", included: true },
+        { text: "15 mock tests", included: true },
+        { text: "20+ hrs video lessons", included: true },
+      ],
+      level: "Advanced",
+    },
+  ],
+  "pte": (cat) => [
+    {
+      id: "pte-live",
+      category: cat,
+      duration: "3 Months Access",
+      title: "Live Class Pack",
+      packType: "Live Class",
+      popular: false,
+      theme: "mint",
+      tagline: "Focused live lectures for rapid exam readiness",
+      description: "Score-targeted live lectures, Pearson aligned sectional drills, and mock tests.",
+      image: "/images/subscription_self_prep.jpg",
+      glowText: "PTE 79+ Targeted Preparation",
+      priceFormatted: "₹9,499.00",
+      monthlyPrice: "₹3,166/m • 3 months (incl. 18% GST)",
+      rating: "4.6",
+      reviewsCount: "180 reviews",
+      features: [
+        { text: "Dashboard Access & Question Bank", included: true },
+        { text: "10 Mock Tests with AI Scoring", included: true },
+        { text: "Live Lecture Strategy Modules", included: true },
+        { text: "Performance Analytics & Diagnostics", included: true },
+        { text: "Unlimited Sectional Repeat Retakes", included: false },
+      ],
+      level: "Beginner",
+    },
+    {
+      id: "pte-self",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Self-Prep Pack",
+      packType: "Self Preparation Pack",
+      popular: false,
+      theme: "lavender",
+      tagline: "Comprehensive self-paced Pearson question banks",
+      description: "2000+ Pearson question bank drills, 15 full scored mock tests, and video analytics.",
+      image: "/images/subscription_champion_live.jpg",
+      glowText: "Pearson Official Practice Portal",
+      priceFormatted: "₹13,899.00",
+      monthlyPrice: "₹2,316/m • 6 months (incl. 18% GST)",
+      rating: "4.8",
+      reviewsCount: "290 reviews",
+      features: [
+        { text: "2000+ Practice Question Banks", included: true },
+        { text: "15 AI-Scored Mock Tests", included: true },
+        { text: "Detailed Speaking & Writing Feedback", included: true },
+        { text: "6 Months Platform Access", included: true },
+        { text: "Live Mentor Interactive Sessions", included: false },
+      ],
+      level: "Intermediate",
+    },
+    {
+      id: "pte-champ",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Champion Pack",
+      packType: "Champion Pack",
+      popular: false,
+      theme: "lime",
+      tagline: "Full live interactive coaching & 20 full AI mocks",
+      description: "6 weeks live lectures, 20 full AI scored mocks, 2000+ drills, and 1-on-1 strategy sessions.",
+      image: "/images/subscription_champion_plus.jpg",
+      glowText: "Guaranteed 79+ Band Strategy",
+      priceFormatted: "₹20,999.00",
+      monthlyPrice: "₹3,500/m • 6 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "440 reviews",
+      features: [
+        { text: "Full Live Interactive Coaching Cohort", included: true },
+        { text: "20 Full AI Scored Pearson Mocks", included: true },
+        { text: "2000+ Practice Question Bank", included: true },
+        { text: "1-on-1 Pronunciation & Template Review", included: true },
+        { text: "6 Months Unlimited Platform Access", included: true },
+      ],
+      level: "Advanced",
+    },
+  ],
+  "toefl": (cat) => [
+    {
+      id: "toefl-self",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Self-Prep Pack",
+      packType: "Self Preparation Pack",
+      popular: false,
+      theme: "mint",
+      tagline: "Best for independent self-paced TOEFL candidates",
+      description: "50+ sectional drills, 12 ETS-aligned mocks, 25+ hrs video lessons.",
+      image: "/images/subscription_self_prep.jpg",
+      glowText: "Target TOEFL 105+ Score",
+      priceFormatted: "₹13,899.00",
+      monthlyPrice: "₹2,316/m • 6 months (incl. 18% GST)",
+      rating: "4.7",
+      reviewsCount: "215 reviews",
+      features: [
+        { text: "50+ Sectional Practice Drills", included: true },
+        { text: "12 ETS-Aligned Full Mock Tests", included: true },
+        { text: "25+ Hours Video Lessons", included: true },
+        { text: "Academic Vocabulary & Grammar", included: true },
+        { text: "Live Interactive Masterclasses", included: false },
+      ],
+      level: "Beginner",
+    },
+    {
+      id: "toefl-champ",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Champion Pack",
+      packType: "Champion Pack",
+      popular: false,
+      theme: "lavender",
+      tagline: "Comprehensive live TOEFL coaching cohort",
+      description: "80 hrs live interactive coaching, single batch timing, and 15 scored mocks.",
+      image: "/images/subscription_champion_live.jpg",
+      glowText: "Target TOEFL 110+ Mastery",
+      priceFormatted: "₹25,999.00",
+      monthlyPrice: "₹4,333/m • 6 months (incl. 18% GST)",
+      rating: "4.8",
+      reviewsCount: "310 reviews",
+      features: [
+        { text: "Single Batch Fixed Schedule", included: true },
+        { text: "80 Hours of Live Lectures", included: true },
+        { text: "15 ETS-Format Full Mock Tests", included: true },
+        { text: "Speaking & Writing Mentor Evaluation", included: true },
+        { text: "6 Months Portal Access", included: true },
+      ],
+      level: "Intermediate",
+    },
+    {
+      id: "toefl-champ-plus",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Champion Pack +",
+      packType: "Champion Pack +",
+      popular: false,
+      theme: "lime",
+      tagline: "All 3 batch timings & 1-on-1 speaking evaluations",
+      description: "All batch schedules, 100 hrs live classes, unlimited speaking retakes, priority feedback.",
+      image: "/images/subscription_champion_plus.jpg",
+      glowText: "Top Ivy League TOEFL Benchmark",
+      priceFormatted: "₹28,999.00",
+      monthlyPrice: "₹4,833/m • 6 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "490 reviews",
+      features: [
+        { text: "All 3 Batch Timings (Morning/Afternoon/Evening)", included: true },
+        { text: "100 Hours Live Lectures + Recordings", included: true },
+        { text: "20 ETS-Format Mock Tests with AI Scoring", included: true },
+        { text: "Priority 24-hr Essay & Speech Corrections", included: true },
+        { text: "1-on-1 University Application Guidance", included: true },
+      ],
+      level: "Advanced",
+    },
+  ],
+  "gre": (cat) => [
+    {
+      id: "gre-quant",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Quant & Verbal Pack",
+      packType: "Self Preparation Pack",
+      popular: false,
+      theme: "mint",
+      tagline: "Essential foundations for GRE Quantitative & Verbal sections",
+      description: "1500+ GRE practice questions, 10 sectionals, and full video breakdowns.",
+      image: "/images/subscription_self_prep.jpg",
+      glowText: "Target 320+ GRE Score",
+      priceFormatted: "₹15,999.00",
+      monthlyPrice: "₹2,666/m • 6 months (incl. 18% GST)",
+      rating: "4.7",
+      reviewsCount: "280 reviews",
+      features: [
+        { text: "1500+ Official Format GRE Questions", included: true },
+        { text: "10 Sectional Practice Tests", included: true },
+        { text: "Vocabulary Flashcard App Access", included: true },
+        { text: "Detailed Math Solution Videos", included: true },
+        { text: "Live Cohort Interactive Sessions", included: false },
+      ],
+      level: "Intermediate",
+    },
+    {
+      id: "gre-champ",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Champion Pack",
+      packType: "Champion Pack",
+      popular: false,
+      theme: "lavender",
+      tagline: "Live interactive GRE cohort with 99th-percentile instructors",
+      description: "100 hrs live classes, shortcuts, advanced quant strategies, and 12 adaptive mocks.",
+      image: "/images/subscription_champion_live.jpg",
+      glowText: "Master Advanced GRE Quant & Verbal",
+      priceFormatted: "₹24,999.00",
+      monthlyPrice: "₹4,166/m • 6 months (incl. 18% GST)",
+      rating: "4.8",
+      reviewsCount: "350 reviews",
+      features: [
+        { text: "100 Hours Live Interactive Coaching", included: true },
+        { text: "12 Adaptive Computer Mocks", included: true },
+        { text: "Advanced Quant Problem-Solving Tactics", included: true },
+        { text: "Text Completion & Reading Drills", included: true },
+        { text: "1-on-1 B-School Counseling Session", included: false },
+      ],
+      level: "Intermediate",
+    },
+    {
+      id: "gre-champ-plus",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Champion Pack +",
+      packType: "Champion Pack +",
+      popular: false,
+      theme: "lime",
+      tagline: "Complete 330+ pathway with 1-on-1 counseling & admissions roadmap",
+      description: "Full live cohort, unlimited adaptive mock tests, personalized roadmap, and SOP review.",
+      image: "/images/subscription_champion_plus.jpg",
+      glowText: "Target 330+ Top STEM & MBA Score",
+      priceFormatted: "₹29,999.00",
+      monthlyPrice: "₹5,000/m • 6 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "520 reviews",
+      features: [
+        { text: "All 3 Batch Timings (Full Flexibility)", included: true },
+        { text: "120 Hours Live Masterclasses", included: true },
+        { text: "20 Adaptive Full-Length Mocks", included: true },
+        { text: "1-on-1 SOP & University Shortlisting Session", included: true },
+        { text: "Direct Doubt Clearing with 99th-Percentile Mentors", included: true },
+      ],
+      level: "Advanced",
+    },
+  ],
+  "gmat": (cat) => [
+    {
+      id: "gmat-data",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Data Insights & Quant",
+      packType: "Self Preparation Pack",
+      popular: false,
+      theme: "mint",
+      tagline: "Targeted focus on Data Insights & Quantitative reasoning",
+      description: "1200+ Focus Edition questions, sectional tests, and video explanations.",
+      image: "/images/subscription_self_prep.jpg",
+      glowText: "GMAT Focus Edition Benchmark",
+      priceFormatted: "₹16,999.00",
+      monthlyPrice: "₹2,833/m • 6 months (incl. 18% GST)",
+      rating: "4.7",
+      reviewsCount: "190 reviews",
+      features: [
+        { text: "1200+ Focus Edition Practice Questions", included: true },
+        { text: "Data Insights Multi-Source Drills", included: true },
+        { text: "Quant Shortcuts & Frameworks", included: true },
+        { text: "6 Focus Edition Adaptive Mocks", included: true },
+        { text: "Live Strategy Masterclasses", included: false },
+      ],
+      level: "Intermediate",
+    },
+    {
+      id: "gmat-champ",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Champion Pack",
+      packType: "Champion Pack",
+      popular: false,
+      theme: "lavender",
+      tagline: "Live strategy cohort for 685+ GMAT Focus scores",
+      description: "100 hrs live classes, verbal critical reasoning mastery, and 12 mocks.",
+      image: "/images/subscription_champion_live.jpg",
+      glowText: "Premier Business School Pathway",
+      priceFormatted: "₹26,999.00",
+      monthlyPrice: "₹4,500/m • 6 months (incl. 18% GST)",
+      rating: "4.8",
+      reviewsCount: "280 reviews",
+      features: [
+        { text: "100 Hours Live Intensive Coaching", included: true },
+        { text: "12 Full Focus Adaptive Simulations", included: true },
+        { text: "Critical Reasoning & Data Analysis Masterclasses", included: true },
+        { text: "Sectional Review with Expert Faculty", included: true },
+        { text: "B-School Interview Prep Session", included: false },
+      ],
+      level: "Intermediate",
+    },
+    {
+      id: "gmat-champ-plus",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Champion Pack +",
+      packType: "Champion Pack +",
+      popular: false,
+      theme: "lime",
+      tagline: "Elite 705+ pathway with 1-on-1 B-School admissions mentoring",
+      description: "Comprehensive live coaching, personalized score roadmap, resume review, and interview prep.",
+      image: "/images/subscription_champion_plus.jpg",
+      glowText: "705+ Top 1% Global B-School Score",
+      priceFormatted: "₹32,999.00",
+      monthlyPrice: "₹5,500/m • 6 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "430 reviews",
+      features: [
+        { text: "All 3 Batch Timings (Complete Schedule Flexibility)", included: true },
+        { text: "120 Hours Live Masterclasses + Case Studies", included: true },
+        { text: "18 Full-Length Computer Adaptive Mocks", included: true },
+        { text: "1-on-1 B-School Resume & Interview Prep", included: true },
+        { text: "Direct 24/7 Access to 99th-Percentile Mentors", included: true },
+      ],
+      level: "Advanced",
+    },
+  ],
+  "career": (cat) => [
+    {
+      id: "career-found",
+      category: cat,
+      duration: "3 Months Access",
+      title: "Foundation Readiness",
+      packType: "Self Preparation Pack",
+      popular: false,
+      theme: "mint",
+      tagline: "Essential workplace communication and resume basics",
+      description: "Resume crafting templates, LinkedIn profile blueprint, and email etiquette modules.",
+      image: "/images/subscription_self_prep.jpg",
+      glowText: "Start Your Career Journey",
+      priceFormatted: "₹4,999.00",
+      monthlyPrice: "₹1,666/m • 3 months (incl. 18% GST)",
+      rating: "4.6",
+      reviewsCount: "140 reviews",
+      features: [
+        { text: "ATS Resume & Cover Letter Templates", included: true },
+        { text: "LinkedIn Optimization Blueprint", included: true },
+        { text: "Business Email & Communication Drills", included: true },
+        { text: "Recorded Workplace Skills Modules", included: true },
+        { text: "Live 1-on-1 Mock Interviews", included: false },
+      ],
+      level: "Beginner",
+    },
+    {
+      id: "career-pro",
+      category: cat,
+      duration: "6 Months Access",
+      title: "Pro Employability Pack",
+      packType: "Champion Pack",
+      popular: false,
+      theme: "lavender",
+      tagline: "Interactive interview prep and managerial competencies",
+      description: "Live behavioral interview clinics, case interviews, and personal brand workshop.",
+      image: "/images/subscription_champion_live.jpg",
+      glowText: "Accelerate Career Promotions",
+      priceFormatted: "₹8,999.00",
+      monthlyPrice: "₹1,500/m • 6 months (incl. 18% GST)",
+      rating: "4.8",
+      reviewsCount: "260 reviews",
+      features: [
+        { text: "Live Behavioral & Technical Interview Clinics", included: true },
+        { text: "Executive Presentation & Speaking Drills", included: true },
+        { text: "Salary Negotiation Masterclass", included: true },
+        { text: "2 Live 1-on-1 Mock Interview Evaluations", included: true },
+        { text: "Lifetime Placement Community Access", included: false },
+      ],
+      level: "Intermediate",
+    },
+    {
+      id: "career-catalyst",
+      category: cat,
+      duration: "12 Months Access",
+      title: "All-Access Career Catalyst",
+      packType: "Champion Pack +",
+      popular: false,
+      theme: "lime",
+      tagline: "Complete career transformation with 1-on-1 executive mentorship",
+      description: "Full access to all career, interview, and leadership modules with dedicated industry mentor.",
+      image: "/images/subscription_champion_plus.jpg",
+      glowText: "Guaranteed Placement & Leadership Edge",
+      priceFormatted: "₹14,999.00",
+      monthlyPrice: "₹2,500/m • 6 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "410 reviews",
+      features: [
+        { text: "Unlimited 1-on-1 Mock Interviews with HR Leaders", included: true },
+        { text: "Complete Leadership & Executive Communication", included: true },
+        { text: "Dedicated Career Coach & Weekly Check-ins", included: true },
+        { text: "Global Industry Referral & Network Access", included: true },
+        { text: "Verified Career Catalyst Certificate", included: true },
+      ],
+      level: "Advanced",
+    },
+  ],
+};
+
+function getCardsForCategory(category: string): CoursePlanCard[] {
+  const norm = category.toLowerCase().trim();
+  for (const [key, fn] of Object.entries(DEFAULT_COURSES_PLANS)) {
+    if (norm.includes(key)) {
+      return evaluatePopularCard(fn(category));
+    }
+  }
+
+  // Universal dynamic 3-pack fallback for any course:
+  const baseCards: CoursePlanCard[] = [
+    {
+      id: `${category.toLowerCase().replace(/[^a-z0-9]/g, "-")}-self`,
+      category: category,
+      duration: "6 Months Access",
+      title: "Self-Prep Pack",
+      packType: "Self Preparation Pack",
+      popular: false,
+      theme: "mint",
+      tagline: `Best for self-paced independent ${category} learners`,
+      description: "60 sectional tests, 15 mock tests, 20+ hrs video, 500+ grammar/vocab lessons.",
+      image: "/images/subscription_self_prep.jpg",
+      glowText: `Target Top Band in ${category}`,
+      priceFormatted: "₹13,899.00",
+      monthlyPrice: "₹2,316/m • 6 months (incl. 18% GST)",
+      rating: "4.7",
+      reviewsCount: "356 reviews",
+      features: [
+        { text: "Full Question Banks & Sectional Drills", included: true },
+        { text: "15 Mock Tests with Analytics", included: true },
+        { text: "20+ Hours Video Lessons", included: true },
+        { text: "Comprehensive Study Resources", included: true },
+        { text: "Live Interactive Masterclasses", included: false },
+      ],
+      level: "Beginner",
+    },
+    {
+      id: `${category.toLowerCase().replace(/[^a-z0-9]/g, "-")}-champ`,
+      category: category,
+      duration: "6 Months Access",
+      title: "Champion Pack",
+      packType: "Champion Pack",
+      popular: false,
+      theme: "lavender",
+      tagline: `100 hrs live lectures & single batch timing for ${category}`,
+      description: "1 batch timing, 100 hrs live lectures, 60 sectional tests, 15 mock tests, 20+ hrs video.",
+      image: "/images/subscription_champion_live.jpg",
+      glowText: `Master ${category} with Top Faculty`,
+      priceFormatted: "₹25,999.00",
+      monthlyPrice: "₹4,333/m • 6 months (incl. 18% GST)",
+      rating: "4.8",
+      reviewsCount: "236 reviews",
+      features: [
+        { text: "1 Batch Timing Fixed Schedule", included: true },
+        { text: "100 Hours of Live Lectures", included: true },
+        { text: "60 Sectional Practice Tests", included: true },
+        { text: "15 Mock Tests with Feedback", included: true },
+        { text: "20+ Hours Video Lessons", included: true },
+      ],
+      level: "Intermediate",
+    },
+    {
+      id: `${category.toLowerCase().replace(/[^a-z0-9]/g, "-")}-champ-plus`,
+      category: category,
+      duration: "6 Months Access",
+      title: "Champion Pack +",
+      packType: "Champion Pack +",
+      popular: false,
+      theme: "lime",
+      tagline: `All 3 batch timings & complete flexibility for ${category}`,
+      description: "All 3 batch timings (morning/afternoon/evening), 100 hrs live lectures, 60 sectional tests, 15 mock tests.",
+      image: "/images/subscription_champion_plus.jpg",
+      glowText: `Maximum Score & Flexibility Guaranteed`,
+      priceFormatted: "₹28,999.00",
+      monthlyPrice: "₹4,833/m • 6 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "576 reviews",
+      features: [
+        { text: "All 3 Batch Timings (M / A / E)", included: true },
+        { text: "100 Hours Live Lectures + Recordings", included: true },
+        { text: "60 Sectional Practice Tests", included: true },
+        { text: "15 Mock Tests with 1-on-1 Feedback", included: true },
+        { text: "20+ Hours Video Lessons & Extra Mocks", included: true },
+      ],
+      level: "Advanced",
+    },
+  ];
+
+  return evaluatePopularCard(baseCards);
+}
 
 interface PackageInlineCheckoutProps {
   onOpenDemo: () => void;
@@ -139,25 +658,20 @@ export default function PackageInlineCheckout({
 }: PackageInlineCheckoutProps) {
   const currentCategory = categoryName || "IELTS Academic";
   const activeCards = React.useMemo(() => {
-    return IELTS_CARDS.map((card) => ({
-      ...card,
-      category: currentCategory,
-    }));
+    return getCardsForCategory(currentCategory);
   }, [currentCategory]);
 
-  // Selected course plan
-  const [selectedPlan, setSelectedPlan] = useState<CoursePlanCard>(() => ({
-    ...IELTS_CARDS[1],
-    category: currentCategory,
-  }));
+  // Selected course plan - defaults to the dynamically evaluated popular plan!
+  const [selectedPlan, setSelectedPlan] = useState<CoursePlanCard>(() => {
+    const popularCard = activeCards.find((c) => c.popular);
+    return popularCard || activeCards[0];
+  });
 
   // Update selected plan if category changes
   useEffect(() => {
-    setSelectedPlan((prev) => ({
-      ...prev,
-      category: currentCategory,
-    }));
-  }, [currentCategory]);
+    const popularCard = activeCards.find((c) => c.popular);
+    setSelectedPlan(popularCard || activeCards[0]);
+  }, [activeCards]);
 
   // Authentication State
   const [isLoggedIn, setIsLoggedIn] = useState(false);

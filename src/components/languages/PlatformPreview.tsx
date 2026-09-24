@@ -19,8 +19,7 @@ export default function PlatformPreview() {
       number: "01",
       title: "Personalised Learning Progress",
       pillLabel: "1 Week",
-      pillTheme: "green",
-      cardTheme: "mint",
+      theme: "emerald",
       icon: TrendingUp,
       description:
         "Track your progress across Speaking, Listening, Reading & Writing as you build real-world language proficiency.",
@@ -29,8 +28,7 @@ export default function PlatformPreview() {
       number: "02",
       title: "Skill-Wise Performance Insights",
       pillLabel: "2 Week",
-      pillTheme: "dark",
-      cardTheme: "white",
+      theme: "blue",
       icon: BarChart3,
       description:
         "Identify your strengths and improvement areas with detailed performance tracking across every language skill.",
@@ -39,8 +37,7 @@ export default function PlatformPreview() {
       number: "03",
       title: "100% Recorded Learning Archive",
       pillLabel: "1-2 Days",
-      pillTheme: "dark",
-      cardTheme: "white",
+      theme: "navy",
       icon: CalendarCheck,
       description:
         "Access recorded lessons anytime, revise concepts, and learn at your own pace whenever it suits you.",
@@ -49,8 +46,7 @@ export default function PlatformPreview() {
       number: "04",
       title: "Practice & Progress Analytics",
       pillLabel: "1-2 Days",
-      pillTheme: "green",
-      cardTheme: "mint",
+      theme: "amber",
       icon: Award,
       description:
         "Review practice performance, monitor your improvement, and stay on track with your language-learning goals.",

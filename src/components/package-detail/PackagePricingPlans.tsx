@@ -42,12 +42,32 @@ export default function PackagePricingPlans({
           </p>
         </div>
 
-        {/* Dynamic Pricing Cards Grid matching Reference UI */}
+        {/* Dynamic Pricing Cards Grid with amount & feature condition */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch max-w-6xl mx-auto">
-          {pricing.plans.map((plan, idx) => {
-            const isFeatured = plan.featured || idx === 1;
-            const theme = idx === 0 ? "mint" : idx === 1 ? "lime" : "lavender";
-            const badge = isFeatured ? (plan.badge || "Popular") : undefined;
+          {(() => {
+            const parseAmount = (val?: string): number => {
+              if (!val) return 0;
+              const match = val.replace(/,/g, "").match(/\d+(\.\d+)?/);
+              return match ? parseFloat(match[0]) : 0;
+            };
+
+            let maxScore = -1;
+            let topPlanId = pricing.plans[0]?.id;
+
+            pricing.plans.forEach((p) => {
+              const amount = parseAmount(p.totalText) || parseAmount(p.priceMonth);
+              const featCount = p.features?.length || 0;
+              const score = amount * 1000 + featCount;
+              if (score > maxScore) {
+                maxScore = score;
+                topPlanId = p.id;
+              }
+            });
+
+            return pricing.plans.map((plan, idx) => {
+              const isFeatured = plan.id === topPlanId;
+              const theme = isFeatured ? "lime" : idx === 0 ? "mint" : "lavender";
+              const badge = isFeatured ? (plan.badge || "Popular") : undefined;
 
             return (
               <motion.div
@@ -71,12 +91,13 @@ export default function PackagePricingPlans({
                   theme={theme}
                   features={plan.features}
                   description="All the essentials to build and master your scores and career proficiency"
-                  ctaText={isFeatured ? `Choose ${plan.name}` : `Choose ${plan.name}`}
+                  ctaText="Buy Now"
                   onSelect={() => onSelectPlan(plan.name, plan.priceMonth)}
                 />
               </motion.div>
             );
-          })}
+          });
+        })()}
         </div>
 
       </div>

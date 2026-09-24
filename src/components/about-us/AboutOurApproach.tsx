@@ -20,7 +20,7 @@ const APPROACH_ITEMS: ApproachItem[] = [
   {
     id: "01",
     number: "01",
-    badgeTitle: "Know Your Why",
+    badgeTitle: "Step 01",
     pillTitle: "KNOW YOUR WHY",
     description: "Every lesson should have a purpose, not just a syllabus slot.",
     variant: "left",
@@ -32,7 +32,7 @@ const APPROACH_ITEMS: ApproachItem[] = [
   {
     id: "02",
     number: "02",
-    badgeTitle: "Know Your Next",
+    badgeTitle: "Step 02",
     pillTitle: "KNOW YOUR NEXT",
     description: "A clear learning path makes it easier to see what comes next.",
     variant: "right",
@@ -44,7 +44,7 @@ const APPROACH_ITEMS: ApproachItem[] = [
   {
     id: "03",
     number: "03",
-    badgeTitle: "Learn Your Way",
+    badgeTitle: "Step 03",
     pillTitle: "LEARN YOUR WAY",
     description: "Join live, revisit recordings, practise when it works for you.",
     variant: "left",
@@ -56,7 +56,7 @@ const APPROACH_ITEMS: ApproachItem[] = [
   {
     id: "04",
     number: "04",
-    badgeTitle: "Learn From Feedback",
+    badgeTitle: "Step 04",
     pillTitle: "LEARN FROM FEEDBACK",
     description: "Know what’s working, where you’re slipping, and what to work on next.",
     variant: "right",
