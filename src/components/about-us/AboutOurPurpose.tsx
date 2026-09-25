@@ -78,7 +78,7 @@ export default function AboutOurPurpose() {
       {/* Ambient soft glow backdrop */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
@@ -104,9 +104,10 @@ export default function AboutOurPurpose() {
         </div>
 
         {/* ========================================================================= */}
-        {/* CENTER-LOCKED SPINE LAYOUT (Matching PackageTargetAudience Spine Design)  */}
-        {/* 3-Column CSS Grid locks the central spine mathematically to exact center. */}
-        {/* Alternating left and right cards for 01, 02, 03, 04.                      */}
+        {/* CENTER-LOCKED SPINE LAYOUT (Both Web View & Mobile View)                  */}
+        {/* Symmetrical Left Wing + Center Rigid Spine + Symmetrical Right Wing       */}
+        {/* Symmetrical flex-1 wings lock the spine mathematically to exact 50% center*/}
+        {/* Zero subpixel shift or zigzag between odd and even rows.                  */}
         {/* ========================================================================= */}
         <div className="w-full max-w-xl sm:max-w-4xl lg:max-w-5xl mx-auto flex flex-col items-center relative select-none">
           {PILLARS.map((pillar, idx) => {
@@ -122,13 +123,13 @@ export default function AboutOurPurpose() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.45, delay: idx * 0.06, ease: easeCurve }}
-                className="w-full grid grid-cols-[1fr_44px_1fr] sm:grid-cols-[1fr_64px_1fr] items-center -my-[1px] relative z-10 group"
+                className="w-full flex items-center justify-center -my-[1px] relative z-10 group"
               >
-                {/* LEFT COLUMN: Exactly 1fr */}
-                <div className="w-full flex items-center justify-end pr-0">
+                {/* LEFT WING: Exactly (100% - center) / 2 */}
+                <div className="flex-1 min-w-0 flex items-center justify-end">
                   {!isEven ? (
                     // ODD ROW: Icon capsule on the left side
-                    <div className="w-12 sm:w-20 lg:w-24 h-[68px] sm:h-[80px] lg:h-[88px] rounded-l-full bg-white border-y border-l border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-md transition-all duration-300 flex items-center justify-center shrink-0 pr-1 pl-1.5 sm:pl-2">
+                    <div className="w-11 sm:w-20 lg:w-24 h-[68px] sm:h-[80px] lg:h-[88px] rounded-l-full bg-white border-y border-l border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-md transition-all duration-300 flex items-center justify-center shrink-0 pr-1 pl-1.5 sm:pl-2">
                       <Icon
                         className={cn(
                           "w-4 h-4 sm:w-6 sm:h-6 lg:w-7 lg:h-7 transition-transform duration-300 group-hover:scale-110",
@@ -139,7 +140,7 @@ export default function AboutOurPurpose() {
                     </div>
                   ) : (
                     // EVEN ROW: Wide Text capsule on the left side (Right-aligned text)
-                    <div className="w-full max-w-[280px] sm:max-w-[420px] lg:max-w-[500px] h-[68px] sm:h-[80px] lg:h-[88px] rounded-l-full bg-white border-y border-l border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center justify-end pl-3 sm:pl-6 lg:pl-7 pr-2.5 sm:pr-4 lg:pr-5 gap-1.5 sm:gap-3 text-right">
+                    <div className="w-full max-w-[280px] sm:max-w-[420px] lg:max-w-[500px] h-[68px] sm:h-[80px] lg:h-[88px] rounded-l-full bg-white border-y border-l border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center justify-end pl-2.5 sm:pl-6 lg:pl-7 pr-2 sm:pr-4 lg:pr-5 gap-1 sm:gap-3 text-right">
                       <div className="min-w-0 flex-1 space-y-0.5 sm:space-y-1">
                         <h4
                           className="font-heading text-[11px] sm:text-sm lg:text-base font-black tracking-tight group-hover:text-emerald-700 transition-colors truncate"
@@ -147,7 +148,7 @@ export default function AboutOurPurpose() {
                         >
                           {pillar.title}
                         </h4>
-                        <p className="font-body text-[10px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-snug line-clamp-2">
+                        <p className="font-body text-[9.5px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-tight sm:leading-snug line-clamp-2">
                           {pillar.description}
                         </p>
                       </div>
@@ -162,25 +163,23 @@ export default function AboutOurPurpose() {
                   )}
                 </div>
 
-                {/* CENTER COLUMN: Locked rigidly at 44px (mobile) / 64px (desktop) */}
-                <div className="w-full flex items-center justify-center z-20">
-                  <div
-                    className={cn(
-                      "w-11 sm:w-16 h-[76px] sm:h-[88px] lg:h-[96px] flex items-center justify-center text-white font-black font-heading text-sm sm:text-lg lg:text-xl tracking-wider select-none shadow-md shrink-0 transition-transform duration-300 group-hover:scale-[1.03]",
-                      pillar.bgClass,
-                      isFirst && "rounded-t-full",
-                      isLast && "rounded-b-full"
-                    )}
-                  >
-                    {pillar.numeral}
-                  </div>
+                {/* CENTER SPINE: Rigidly locked at exact 50% horizontal center */}
+                <div
+                  className={cn(
+                    "w-11 sm:w-16 h-[76px] sm:h-[88px] lg:h-[96px] flex items-center justify-center text-white font-black font-heading text-sm sm:text-lg lg:text-xl tracking-wider select-none shadow-md shrink-0 z-20 transition-transform duration-300 group-hover:scale-[1.03]",
+                    pillar.bgClass,
+                    isFirst && "rounded-t-full",
+                    isLast && "rounded-b-full"
+                  )}
+                >
+                  {pillar.numeral}
                 </div>
 
-                {/* RIGHT COLUMN: Exactly 1fr */}
-                <div className="w-full flex items-center justify-start pl-0">
+                {/* RIGHT WING: Exactly (100% - center) / 2 */}
+                <div className="flex-1 min-w-0 flex items-center justify-start">
                   {!isEven ? (
                     // ODD ROW: Wide Text capsule on the right side (Left-aligned text)
-                    <div className="w-full max-w-[280px] sm:max-w-[420px] lg:max-w-[500px] h-[68px] sm:h-[80px] lg:h-[88px] rounded-r-full bg-white border-y border-r border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center justify-start pr-3 sm:pr-6 lg:pr-7 pl-2.5 sm:pl-4 lg:pl-5 gap-1.5 sm:gap-3 text-left">
+                    <div className="w-full max-w-[280px] sm:max-w-[420px] lg:max-w-[500px] h-[68px] sm:h-[80px] lg:h-[88px] rounded-r-full bg-white border-y border-r border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center justify-start pr-2.5 sm:pr-6 lg:pr-7 pl-2 sm:pl-4 lg:pl-5 gap-1 sm:gap-3 text-left">
                       <ChevronRight
                         className={cn(
                           "w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1",
@@ -195,14 +194,14 @@ export default function AboutOurPurpose() {
                         >
                           {pillar.title}
                         </h4>
-                        <p className="font-body text-[10px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-snug line-clamp-2">
+                        <p className="font-body text-[9.5px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-tight sm:leading-snug line-clamp-2">
                           {pillar.description}
                         </p>
                       </div>
                     </div>
                   ) : (
                     // EVEN ROW: Icon capsule on the right side
-                    <div className="w-12 sm:w-20 lg:w-24 h-[68px] sm:h-[80px] lg:h-[88px] rounded-r-full bg-white border-y border-r border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-md transition-all duration-300 flex items-center justify-center shrink-0 pl-1 pr-1.5 sm:pr-2">
+                    <div className="w-11 sm:w-20 lg:w-24 h-[68px] sm:h-[80px] lg:h-[88px] rounded-r-full bg-white border-y border-r border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-md transition-all duration-300 flex items-center justify-center shrink-0 pl-1 pr-1.5 sm:pr-2">
                       <Icon
                         className={cn(
                           "w-4 h-4 sm:w-6 sm:h-6 lg:w-7 lg:h-7 transition-transform duration-300 group-hover:scale-110",
