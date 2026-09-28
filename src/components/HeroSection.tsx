@@ -69,12 +69,9 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-extrabold text-white leading-[1.14] sm:leading-[1.08] tracking-tight max-w-5xl"
         >
-          <span>Learn Without Limits</span>
-          <span className="block mt-1 sm:mt-2">
-            Grow Your{" "}
-            <span className="font-accent italic font-normal text-emerald-400 drop-shadow-[0_2px_12px_rgba(52,211,153,0.4)]">
-              Knowledge
-            </span>
+          <span>Big exam, new language, next career move?</span>
+          <span className="block mt-1 sm:mt-2 text-emerald-400 drop-shadow-[0_2px_12px_rgba(52,211,153,0.4)]">
+            Start here.
           </span>
         </motion.h1>
 
@@ -83,9 +80,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="font-body text-slate-200 text-sm sm:text-lg max-w-2xl mt-5 sm:mt-7 leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] px-2"
+          className="font-body text-slate-200 text-sm sm:text-lg max-w-3xl mt-5 sm:mt-7 leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] px-2"
         >
-          Become more efficient and gain your knowledge to the next level. Industry-standard courses are for you. Let&apos;s unlock your potential.
+          Build skills for the goals ahead, from language and test preparation to practical learning for work. Find your focus, learn with purpose, and see your progress.
         </motion.p>
 
         {/* Highlights */}
@@ -95,7 +92,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="text-emerald-300/90 text-xs sm:text-sm font-semibold tracking-wider uppercase mt-4"
         >
-          IELTS • PTE • SAT • GRE • GMAT • Duolingo • French • German
+          IELTS • PTE • SAT • GRE • GMAT • FRENCH • GERMAN • Career Essentials
         </motion.p>
 
         {/* Action Buttons: In a Row on Mobile as well as Web */}
@@ -109,12 +106,22 @@ export default function HeroSection() {
             href="/contacts"
             className="group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full px-4 sm:px-10 py-3 sm:py-4 text-xs sm:text-base text-white font-bold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(16,185,129,0.35)] border border-emerald-400/40 backdrop-blur-xl bg-emerald-600 hover:bg-emerald-500 whitespace-nowrap"
           >
-            <span>Get Free Consultation</span>
+            <span>Book a Free Demo</span>
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
 
+          {/* Existing Route (Commented):
           <Link
             href="/counselling-platform"
+            className="group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full px-4 sm:px-9 py-3 sm:py-4 text-xs sm:text-base text-white font-bold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/30 backdrop-blur-xl bg-white/10 hover:bg-white/20 whitespace-nowrap"
+          >
+            <span>Explore Programs</span>
+          </Link>
+          */}
+
+          {/* Proper Programs Route */}
+          <Link
+            href="/languages"
             className="group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full px-4 sm:px-9 py-3 sm:py-4 text-xs sm:text-base text-white font-bold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/30 backdrop-blur-xl bg-white/10 hover:bg-white/20 whitespace-nowrap"
           >
             <span>Explore Programs</span>

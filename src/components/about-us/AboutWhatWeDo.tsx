@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -38,7 +38,7 @@ interface TrackCard {
   image: string;
   imageAlt: string;
   imageBadge: string;
-  programsList: { name: string; badge: string }[];
+  tags: string[];
   keyHighlights: string[];
 }
 
@@ -49,10 +49,9 @@ const TRACKS: TrackCard[] = [
     pillNum: "TRACK 01",
     title: "01 — Language Training",
     shortTitle: "01 Language Training",
-    description:
-      "IELTS, PTE, CELPIP, TOEFL, French & German for academic, professional and real-world communication.",
+    description: "From your target band to your first fluent conversation.",
     tagline:
-      "Structured, immersive language coaching with daily speaking practice, Cambridge & Pearson aligned mocks, and native mentor feedback.",
+      "From IELTS and PTE to everyday conversation, build the language skills you need for study, work, and life abroad.",
     href: "/languages",
     theme: {
       accentColor: "#0C9253",
@@ -69,15 +68,15 @@ const TRACKS: TrackCard[] = [
     image: "/images/path_language_prep.jpg",
     imageAlt: "Language Training at Academic Yatra",
     imageBadge: "Band 7.5+ & CLB 10 Targets",
-    programsList: [
-      { name: "IELTS Academic & General", badge: "Band 7.5+" },
-      { name: "PTE Academic & Core", badge: "Score 79+" },
-      { name: "CELPIP General", badge: "Canadian PR" },
-      { name: "TOEFL iBT", badge: "Score 100+" },
-      { name: "Duolingo DET", badge: "Score 125+" },
-      { name: "French Preparation", badge: "DELF / TEF" },
-      { name: "German Preparation", badge: "Goethe A1-B2" },
-      { name: "Spoken English", badge: "Fluency & Accent" },
+    tags: [
+      "IELTS",
+      "PTE",
+      "CELPIP",
+      "TOEFL",
+      "Duolingo English Test",
+      "French",
+      "German",
+      "Spoken English",
     ],
     keyHighlights: [
       "Structured live masterclasses & daily speaking club drills",
@@ -92,9 +91,9 @@ const TRACKS: TrackCard[] = [
     pillNum: "TRACK 02",
     title: "02 — Test Preparation",
     shortTitle: "02 Test Preparation",
-    description: "SAT/DSAT, GRE & GMAT.",
+    description: "Put your SAT, GRE, or GMAT goals into a clear plan.",
     tagline:
-      "Target top global universities and scholarships with rigorous Quant problem-solving, verbal reasoning, and computer-adaptive diagnostic analytics.",
+      "Work through exam concepts, practise under timed conditions, and use performance insights to identify what needs more attention.",
     href: "/test-prep",
     theme: {
       accentColor: "#0067E3",
@@ -111,13 +110,7 @@ const TRACKS: TrackCard[] = [
     image: "/images/path_competitive_boy.jpg",
     imageAlt: "Competitive Test Preparation at Academic Yatra",
     imageBadge: "99th Percentile Mentorship",
-    programsList: [
-      { name: "Digital SAT / DSAT", badge: "Target 1500+" },
-      { name: "GRE General", badge: "Target 325+" },
-      { name: "GMAT Focus Edition", badge: "Target 705+" },
-      { name: "Master's Combo", badge: "GRE + IELTS" },
-      { name: "Executive MBA Track", badge: "Weekend Batches" },
-    ],
+    tags: ["SAT", "GRE", "GMAT"],
     keyHighlights: [
       "Official Bluebook-style adaptive mock tests & Desmos calculator speed hacks",
       "Advanced Quant shortcuts & 1000+ high-frequency GRE vocabulary roots",
@@ -131,9 +124,9 @@ const TRACKS: TrackCard[] = [
     pillNum: "TRACK 03",
     title: "03 — Skill Development",
     shortTitle: "03 Skill Development",
-    description: "Practical communication, workplace and digital skills.",
+    description: "Build skills you can bring into your next role.",
     tagline:
-      "Transform into a workplace-ready professional with hands-on corporate communication, ATS resume crafting, advanced spreadsheets, and modern business tech.",
+      "Develop workplace communication, business know-how, and interview preparation. Focus on skills you can use beyond the classroom.",
     href: "/skill-catalyst",
     theme: {
       accentColor: "#D97706",
@@ -150,12 +143,7 @@ const TRACKS: TrackCard[] = [
     image: "/images/path_skill_development.jpg",
     imageAlt: "Skill Catalyst Development at Academic Yatra",
     imageBadge: "Job-Ready Credentials",
-    programsList: [
-      { name: "Career Essentials", badge: "Workplace Ready" },
-      { name: "BizzTech", badge: "Digital & Tech Tools" },
-      { name: "Google Suite Hub", badge: "Advanced Sheets & Docs" },
-      { name: "Skill Catalyst", badge: "Triple Certification" },
-    ],
+    tags: ["Career Essentials", "BizzTech", "Google Suite Hub"],
     keyHighlights: [
       "ATS resume optimization & STAR technique behavioral mock interviews",
       "Corporate business email writing & high-impact executive presentation skills",
@@ -189,7 +177,7 @@ export default function AboutWhatWeDo() {
   return (
     <section
       id="what-we-do"
-      className="relative pt-10 sm:pt-14 pb-2 sm:pb-4 bg-[#FBFDFB] overflow-hidden"
+      className="relative pt-8 sm:pt-14 pb-4 sm:pb-6 bg-[#FBFDFB] overflow-hidden"
     >
       {/* Ambient background glows */}
       <div className="absolute top-1/4 -left-48 w-96 h-96 bg-emerald-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -198,13 +186,13 @@ export default function AboutWhatWeDo() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-4 sm:mb-8">
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-black text-slate-900 tracking-tight leading-[1.18]"
+            className="font-heading text-2xl sm:text-4xl md:text-5xl lg:text-[46px] font-black text-slate-900 tracking-tight leading-[1.18]"
           >
             Three Tracks. Different Goals. <br className="hidden sm:inline" />
             <span className="text-[#0C9253]">One Learning System.</span>
@@ -215,7 +203,7 @@ export default function AboutWhatWeDo() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-3 text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed font-normal"
+            className="mt-2 text-slate-600 text-xs sm:text-base lg:text-lg leading-relaxed font-normal"
           >
             Explore our three comprehensive educational tracks engineered to help learners achieve standardized exam excellence, language fluency, and career acceleration.
           </motion.p>
@@ -225,7 +213,7 @@ export default function AboutWhatWeDo() {
         <div className="relative max-w-7xl mx-auto">
           
           {/* Top Track Navigation Switcher Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-5 sm:mb-6">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-3 mb-3.5 sm:mb-6">
             {TRACKS.map((t, idx) => {
               const isActive = idx === currentIndex;
               return (
@@ -233,7 +221,7 @@ export default function AboutWhatWeDo() {
                   key={t.id}
                   onClick={() => goToSlide(idx)}
                   className={cn(
-                    "px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center gap-2 cursor-pointer",
+                    "px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 cursor-pointer",
                     isActive
                       ? "bg-slate-900 text-white shadow-md scale-[1.02]"
                       : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 hover:text-slate-900"
@@ -241,7 +229,7 @@ export default function AboutWhatWeDo() {
                 >
                   <span
                     className={cn(
-                      "w-2 h-2 rounded-full",
+                      "w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full",
                       isActive ? "bg-emerald-400 animate-pulse" : "bg-slate-300"
                     )}
                   />
@@ -256,36 +244,65 @@ export default function AboutWhatWeDo() {
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={activeTrack.id}
-                initial={{ opacity: 0, x: direction > 0 ? 50 : -50 }}
+                initial={{ opacity: 0, x: direction > 0 ? 40 : -40 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction > 0 ? -50 : 50 }}
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                exit={{ opacity: 0, x: direction > 0 ? -40 : 40 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 className={cn(
-                  "relative overflow-hidden rounded-[28px] sm:rounded-[36px] bg-white/98 backdrop-blur-2xl border p-6 sm:p-8 lg:p-10 transition-all duration-300",
+                  "relative overflow-hidden rounded-[20px] sm:rounded-[36px] bg-white/98 backdrop-blur-2xl border p-4 sm:p-8 lg:p-10 transition-all duration-300 shadow-sm",
                   activeTrack.theme.cardBorder,
                   activeTrack.theme.glowShadow
                 )}
               >
-                {/* Subtle Big Watermark Numeral Matching Image 1 */}
+                {/* Subtle Big Watermark Numeral */}
                 <div
                   className={cn(
-                    "absolute top-2 right-6 sm:right-10 text-[100px] sm:text-[140px] font-black font-heading select-none pointer-events-none leading-none opacity-40 sm:opacity-50",
+                    "absolute top-2 right-4 sm:right-10 text-[70px] sm:text-[140px] font-black font-heading select-none pointer-events-none leading-none opacity-20 sm:opacity-40",
                     activeTrack.theme.watermarkColor
                   )}
                 >
                   {activeTrack.numeral}
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center relative z-10">
+                {/* Mobile Integrated Media Banner (compact header inside card, preventing split sections on mobile) */}
+                <div className="block lg:hidden relative w-full h-32 sm:h-44 rounded-xl sm:rounded-2xl overflow-hidden mb-3.5 shadow-sm border border-slate-200/70 group">
+                  <Image
+                    src={activeTrack.image}
+                    alt={activeTrack.imageAlt}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute bottom-2 left-2 right-2 bg-white/95 backdrop-blur-md rounded-lg p-2 border border-white/80 shadow-sm flex items-center justify-between">
+                    <div className="flex items-center space-x-1.5">
+                      <Sparkles
+                        className="w-3.5 h-3.5 shrink-0"
+                        style={{ color: activeTrack.theme.accentColor }}
+                      />
+                      <span className="text-[11px] font-bold text-slate-900 truncate">
+                        {activeTrack.imageBadge}
+                      </span>
+                    </div>
+                    <Link
+                      href={activeTrack.href}
+                      className="text-[11px] font-extrabold flex items-center gap-0.5 hover:underline shrink-0"
+                      style={{ color: activeTrack.theme.accentColor }}
+                    >
+                      <span>View Track</span>
+                      <ChevronRightSmall className="w-3 h-3" />
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-10 items-center relative z-10">
                   
-                  {/* Left Details Column (7 cols) */}
-                  <div className="lg:col-span-7 space-y-4 sm:space-y-5 text-left">
+                  {/* Left Details Column (7 cols on desktop, full width on mobile) */}
+                  <div className="lg:col-span-7 space-y-2.5 sm:space-y-4 text-left">
                     
-                    {/* Track Pill matching Image 1 */}
-                    <div className="flex items-center gap-2.5">
+                    {/* Track Pill */}
+                    <div className="flex items-center gap-2">
                       <span
                         className={cn(
-                          "px-3 py-0.5 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider border",
+                          "px-2.5 sm:px-3 py-0.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider border",
                           activeTrack.theme.badgeBg,
                           activeTrack.theme.badgeText,
                           activeTrack.theme.badgeBorder
@@ -294,48 +311,45 @@ export default function AboutWhatWeDo() {
                         {activeTrack.pillNum}
                       </span>
 
-                      <span className="text-xs text-slate-400 font-medium">
+                      <span className="text-[11px] sm:text-xs text-slate-400 font-medium">
                         Academic Yatra Learning Ecosystem
                       </span>
                     </div>
 
                     {/* Track Title */}
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-slate-900 tracking-tight leading-snug">
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold font-heading text-slate-900 tracking-tight leading-snug">
                       {activeTrack.title}
                     </h3>
 
-                    {/* Main User-Provided Description */}
-                    <p className="text-base sm:text-lg text-slate-900 font-semibold leading-relaxed">
+                    {/* Main User-Provided Headline */}
+                    <p className="text-sm sm:text-base lg:text-lg text-slate-900 font-bold leading-snug">
                       {activeTrack.description}
                     </p>
 
                     {/* Sub-tagline for context */}
-                    <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                       {activeTrack.tagline}
                     </p>
 
                     {/* Covered Programs Badges */}
                     <div className="pt-1">
-                      <div className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-2">
+                      <div className="text-[10px] sm:text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-1.5 sm:mb-2">
                         FEATURED EXAMS & MODULES
                       </div>
                       <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                        {activeTrack.programsList.map((item, pIdx) => (
+                        {activeTrack.tags.map((item, pIdx) => (
                           <div
                             key={pIdx}
-                            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs font-semibold text-slate-800"
+                            className="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-50 border border-slate-200/80 text-[11px] sm:text-xs font-semibold text-slate-800"
                           >
-                            <span>{item.name}</span>
-                            <span className="text-[10px] px-1.5 py-0.2 rounded font-extrabold bg-white border border-slate-200 text-slate-600">
-                              {item.badge}
-                            </span>
+                            <span>{item}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    {/* Key Highlights Checklist with custom colored checks */}
-                    <div className="pt-2 space-y-2 border-t border-slate-100">
+                    {/* Key Highlights Checklist (Desktop only to keep mobile strictly single-screen height) */}
+                    <div className="hidden lg:block pt-2 space-y-2 border-t border-slate-100">
                       {activeTrack.keyHighlights.map((highlight, hIdx) => (
                         <div
                           key={hIdx}
@@ -355,7 +369,7 @@ export default function AboutWhatWeDo() {
                       <Link
                         href={activeTrack.href}
                         className={cn(
-                          "inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3.5 rounded-full text-white font-heading font-extrabold text-xs sm:text-sm shadow-md transition-all duration-300 hover:scale-105 group cursor-pointer",
+                          "w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-2.5 sm:py-3.5 rounded-full text-white font-heading font-extrabold text-xs sm:text-sm shadow-md transition-all duration-300 hover:scale-105 group cursor-pointer",
                           activeTrack.theme.buttonBg,
                           activeTrack.theme.buttonHover
                         )}
@@ -367,8 +381,8 @@ export default function AboutWhatWeDo() {
 
                   </div>
 
-                  {/* Right Media Column (5 cols) matching Image 1 */}
-                  <div className="lg:col-span-5 relative">
+                  {/* Right Media Column (5 cols) - Desktop only (Mobile uses integrated top banner) */}
+                  <div className="hidden lg:block lg:col-span-5 relative">
                     <div className="relative aspect-[4/3] sm:aspect-[16/11] rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-slate-200/70 group">
                       <Image
                         src={activeTrack.image}
@@ -377,7 +391,7 @@ export default function AboutWhatWeDo() {
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                       
-                      {/* Floating Bottom Pill matching Image 1 */}
+                      {/* Floating Bottom Pill */}
                       <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-3 border border-white/80 shadow-md flex items-center justify-between">
                         <div className="flex items-center space-x-2">
                           <Sparkles
@@ -407,29 +421,29 @@ export default function AboutWhatWeDo() {
           </div>
 
           {/* Carousel Navigation Bottom Controls */}
-          <div className="flex items-center justify-between mt-4 sm:mt-5 px-2">
+          <div className="flex items-center justify-between mt-3 sm:mt-5 px-2">
             
             {/* Prev Button */}
             <button
               onClick={prevSlide}
               aria-label="Previous Track"
-              className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 shadow-sm flex items-center justify-center text-slate-700 transition-all cursor-pointer hover:scale-105"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 shadow-sm flex items-center justify-center text-slate-700 transition-all cursor-pointer hover:scale-105"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Slide Dots Indicator */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               {TRACKS.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => goToSlide(idx)}
                   aria-label={`Go to slide ${idx + 1}`}
                   className={cn(
-                    "h-2 rounded-full transition-all duration-300 cursor-pointer",
+                    "h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer",
                     idx === currentIndex
-                      ? "w-8 bg-slate-900"
-                      : "w-2 bg-slate-300 hover:bg-slate-400"
+                      ? "w-6 sm:w-8 bg-slate-900"
+                      : "w-1.5 sm:w-2 bg-slate-300 hover:bg-slate-400"
                   )}
                 />
               ))}
@@ -439,9 +453,9 @@ export default function AboutWhatWeDo() {
             <button
               onClick={nextSlide}
               aria-label="Next Track"
-              className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 shadow-sm flex items-center justify-center text-slate-700 transition-all cursor-pointer hover:scale-105"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 shadow-sm flex items-center justify-center text-slate-700 transition-all cursor-pointer hover:scale-105"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
           </div>
