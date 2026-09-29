@@ -9,7 +9,7 @@ export default function AboutWhoWeAre() {
   return (
     <section
       id="who-we-are"
-      className="relative py-20 sm:py-28 bg-[#060D24] text-white overflow-hidden"
+      className="relative py-10 sm:py-16 bg-[#060D24] text-white overflow-hidden"
     >
       {/* Ambient Dark Navy Atmospheric Glows */}
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-emerald-500/15 rounded-full blur-[120px] pointer-events-none" />
@@ -29,13 +29,13 @@ export default function AboutWhoWeAre() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.08 }}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black tracking-tight leading-[1.18]"
+            className="font-heading text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black tracking-tight leading-[1.18]"
           >
             Part of Future Yatra. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400">

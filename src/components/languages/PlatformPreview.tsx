@@ -65,13 +65,13 @@ export default function PlatformPreview() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 sm:gap-6">
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight max-w-2xl">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 gap-3 sm:gap-6">
+          <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight max-w-2xl">
             A Complete Learning Portal{" "}
             <span className="text-brand-accent">for Language Fluency</span>
           </h2>
 
-          <p className="font-body text-slate-500 text-sm sm:text-base max-w-md leading-relaxed md:pb-1.5">
+          <p className="font-body text-slate-500 text-xs sm:text-base max-w-md leading-relaxed md:pb-1.5">
             Monitor band scores, take adaptive mocks, review detailed feedback,
             and practice speaking and listening anytime.
           </p>

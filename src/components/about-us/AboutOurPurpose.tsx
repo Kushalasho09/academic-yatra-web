@@ -73,7 +73,7 @@ export default function AboutOurPurpose() {
   return (
     <section
       id="our-purpose"
-      className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-[#F9FBFA] via-white to-[#F9FBFA] relative z-10 overflow-hidden"
+      className="py-10 sm:py-16 bg-gradient-to-b from-[#F9FBFA] via-white to-[#F9FBFA] relative z-10 overflow-hidden"
     >
       {/* Ambient soft glow backdrop */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -81,13 +81,13 @@ export default function AboutOurPurpose() {
       <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-10 space-y-3 sm:space-y-4">
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.18]"
+            className="font-heading text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.18]"
           >
             Make <span className="text-[#0C9253]">Learning Count.</span>
           </motion.h2>

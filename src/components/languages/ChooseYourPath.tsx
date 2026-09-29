@@ -251,13 +251,13 @@ export default function ChooseYourPath({ onSelectPath }: ChooseYourPathProps) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Carousel Navigation Arrows */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 gap-3 sm:gap-4">
           <div className="space-y-2 max-w-xl">
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
+            <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
               Choose the Path You&apos;re{" "}
               <span className="text-emerald-600">Preparing For</span>
             </h2>
-            <p className="font-body text-slate-500 text-sm sm:text-base leading-relaxed">
+            <p className="font-body text-slate-500 text-xs sm:text-base leading-relaxed">
               Explore curated preparation pathways with Cambridge-certified mentors, AI diagnostics, and high-scoring templates.
             </p>
           </div>

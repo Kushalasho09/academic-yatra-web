@@ -42,17 +42,17 @@ export default function ContactHeroAndForm() {
   };
 
   return (
-    <section className="pt-28 sm:pt-36 pb-12 sm:pb-16 bg-[#FBFDFB] relative overflow-hidden">
+    <section className="pt-28 sm:pt-36 pb-8 sm:pb-14 bg-[#FBFDFB] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Header Section (Matching Screenshot) */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-6">
           <div>
             <div className="flex items-center gap-2 text-[#0C9253] text-sm sm:text-base font-bold mb-2">
               <span className="w-2 h-2 rounded-full bg-[#0C9253]" />
               <span>Our Contacts</span>
             </div>
-            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12]">
+            <h1 className="font-heading text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12]">
               Speak with <br />
               <span className="text-[#08307A]">Our Team</span>
             </h1>

@@ -58,12 +58,10 @@ const SKILL_CATALYST_CARDS: SkillPathwayCard[] = [
         strokeLinejoin="round"
       >
         {/* Graduation cap */}
-        <path d="M24 6L6 16l18 10 18-10L24 6z" />
-        <path d="M13 20v9c0 3 5 5.5 11 5.5s11-2.5 11-5.5v-9" />
-        <path d="M42 16v13" />
-        {/* Stacked books underneath */}
-        <path d="M7 36c0 2.5 5 4.5 11 4.5s11-2 11-4.5" />
-        <path d="M7 42c0 2.5 5 4.5 11 4.5s11-2 11-4.5" />
+        <path d="M24 8L6 18l18 10 18-10L24 8z" />
+        <path d="M12 21.5v9c0 3.5 5.373 6.5 12 6.5s12-3 12-6.5v-9" />
+        <path d="M42 18v16" />
+        <circle cx="42" cy="36" r="1.5" fill="currentColor" />
       </svg>
     ),
   },
@@ -85,12 +83,11 @@ const SKILL_CATALYST_CARDS: SkillPathwayCard[] = [
         strokeLinejoin="round"
       >
         {/* Notebook body */}
-        <rect x="13" y="7" width="27" height="35" rx="4" />
+        <rect x="10" y="6" width="28" height="36" rx="4" />
         {/* Spiral binder loops on left */}
-        <path d="M9 12h8M9 18h8M9 24h8M9 30h8M9 36h8" />
-        {/* Checklist inside */}
-        <rect x="20" y="14" width="13" height="7" rx="1.5" />
-        <path d="M20 27h13M20 33h9" />
+        <path d="M6 13h8M6 21h8M6 29h8M6 37h8" />
+        {/* Checklist lines */}
+        <path d="M19 15h11M19 23h11M19 31h8" />
       </svg>
     ),
   },
@@ -112,13 +109,13 @@ const SKILL_CATALYST_CARDS: SkillPathwayCard[] = [
         strokeLinejoin="round"
       >
         {/* Base line */}
-        <path d="M8 38h32" />
+        <path d="M7 40h34" />
         {/* Bar 1 */}
-        <rect x="11" y="22" width="6" height="16" rx="1.5" />
+        <rect x="10" y="24" width="7" height="16" rx="1.5" />
         {/* Bar 2 */}
-        <rect x="21" y="12" width="6" height="26" rx="1.5" />
+        <rect x="20.5" y="14" width="7" height="26" rx="1.5" />
         {/* Bar 3 */}
-        <rect x="31" y="20" width="6" height="18" rx="1.5" />
+        <rect x="31" y="7" width="7" height="33" rx="1.5" />
       </svg>
     ),
   },
@@ -132,7 +129,7 @@ export default function SkillCatalystChooseYourPath({
   onSelectPath,
 }: SkillCatalystChooseYourPathProps) {
   return (
-    <section className="py-12 sm:py-16 bg-white relative z-10">
+    <section className="py-8 sm:py-14 bg-white relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 4 Pathway Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">

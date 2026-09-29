@@ -152,18 +152,18 @@ export default function AboutHowWeTeach() {
   return (
     <section
       id="how-we-teach"
-      className="pt-4 sm:pt-6 pb-16 sm:pb-20 bg-white relative overflow-hidden"
+      className="pt-4 sm:pt-6 pb-10 sm:pb-14 bg-white relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Header Section (Badge Pill Removed as requested in Image 3) */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-black text-slate-900 tracking-tight leading-[1.18]"
+            className="font-heading text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-black text-slate-900 tracking-tight leading-[1.18]"
           >
             Not Just More Classes. <br className="hidden sm:inline" />
             <span className="text-[#0C9253]">A Better Learning Loop.</span>

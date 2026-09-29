@@ -29,7 +29,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col justify-between items-center overflow-hidden bg-[#031643] text-white">
+    <section className="relative min-h-[90vh] sm:min-h-screen w-full flex flex-col justify-between items-center overflow-hidden bg-[#031643] text-white">
       {/* Skiper8: Dennis Snellenberg Words Preloader */}
       <Skiper8
         words={[
@@ -59,7 +59,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#031643]/80 via-[#031643]/60 to-[#031643]/95 z-0 pointer-events-none" />
 
       {/* Hero Section Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-8 sm:pt-36 sm:pb-12 flex flex-col items-center justify-center flex-1 text-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-4 sm:pt-36 sm:pb-10 flex flex-col items-center justify-center flex-1 text-center">
         
 
         {/* Main Headline */}
@@ -67,7 +67,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-extrabold text-white leading-[1.14] sm:leading-[1.08] tracking-tight max-w-5xl"
+          className="font-heading text-[30px] xs:text-[34px] sm:text-5xl md:text-6xl lg:text-[72px] font-extrabold text-white leading-[1.16] sm:leading-[1.08] tracking-tight max-w-5xl"
         >
           <span>Big exam, new language, next career move?</span>
           <span className="block mt-1 sm:mt-2 text-emerald-400 drop-shadow-[0_2px_12px_rgba(52,211,153,0.4)]">
@@ -80,7 +80,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="font-body text-slate-200 text-sm sm:text-lg max-w-3xl mt-5 sm:mt-7 leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] px-2"
+          className="font-body text-slate-200 text-[13.5px] xs:text-sm sm:text-base lg:text-lg max-w-xl mx-auto mt-3 sm:mt-6 leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] px-2"
         >
           Build skills for the goals ahead, from language and test preparation to practical learning for work. Find your focus, learn with purpose, and see your progress.
         </motion.p>
@@ -90,7 +90,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="text-emerald-300/90 text-xs sm:text-sm font-semibold tracking-wider uppercase mt-4"
+          className="text-emerald-300/90 text-[10px] xs:text-xs font-semibold tracking-wider uppercase mt-2.5 sm:mt-3"
         >
           IELTS • PTE • SAT • GRE • GMAT • FRENCH • GERMAN • Career Essentials
         </motion.p>
@@ -100,29 +100,20 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="w-full max-w-md sm:max-w-none flex flex-row items-center justify-center gap-3 sm:gap-5 mt-7 sm:mt-9 px-1"
+          className="w-full max-w-md sm:max-w-none flex flex-row items-center justify-center gap-2.5 sm:gap-4 mt-4 sm:mt-7 px-1"
         >
           <Link
             href="/contacts"
-            className="group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full px-4 sm:px-10 py-3 sm:py-4 text-xs sm:text-base text-white font-bold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(16,185,129,0.35)] border border-emerald-400/40 backdrop-blur-xl bg-emerald-600 hover:bg-emerald-500 whitespace-nowrap"
+            className="group flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-full px-4 sm:px-9 py-2.5 sm:py-3.5 text-xs sm:text-sm text-white font-bold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(16,185,129,0.35)] border border-emerald-400/40 backdrop-blur-xl bg-emerald-600 hover:bg-emerald-500 whitespace-nowrap"
           >
             <span>Book a Free Demo</span>
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
 
-          {/* Existing Route (Commented):
-          <Link
-            href="/counselling-platform"
-            className="group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full px-4 sm:px-9 py-3 sm:py-4 text-xs sm:text-base text-white font-bold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/30 backdrop-blur-xl bg-white/10 hover:bg-white/20 whitespace-nowrap"
-          >
-            <span>Explore Programs</span>
-          </Link>
-          */}
-
           {/* Proper Programs Route */}
           <Link
             href="/languages"
-            className="group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full px-4 sm:px-9 py-3 sm:py-4 text-xs sm:text-base text-white font-bold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/30 backdrop-blur-xl bg-white/10 hover:bg-white/20 whitespace-nowrap"
+            className="group flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-full px-4 sm:px-8 py-2.5 sm:py-3.5 text-xs sm:text-sm text-white font-bold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/30 backdrop-blur-xl bg-white/10 hover:bg-white/20 whitespace-nowrap"
           >
             <span>Explore Programs</span>
           </Link>
@@ -133,9 +124,9 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-7 sm:mt-9 text-xs text-slate-300"
+          className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-3.5 sm:mt-6 text-[10.5px] xs:text-xs text-slate-300"
         >
-          <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15">
+          <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15">
             <div className="flex text-amber-400">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400 text-amber-400" />
@@ -145,7 +136,7 @@ export default function HeroSection() {
             <span className="text-slate-400 hidden xs:inline">• 2,400+ Students</span>
           </div>
 
-          <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15">
+          <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15">
             <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 shrink-0" />
             <span className="font-bold text-white">98.6% Admits</span>
             <span className="text-slate-400 hidden xs:inline">• Top Universities</span>

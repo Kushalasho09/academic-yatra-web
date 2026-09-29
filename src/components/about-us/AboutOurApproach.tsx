@@ -73,7 +73,7 @@ export default function AboutOurApproach() {
   return (
     <section
       id="our-approach"
-      className="relative py-16 sm:py-24 overflow-hidden text-white"
+      className="relative py-10 sm:py-16 overflow-hidden text-white"
       style={{ backgroundColor: SECTION_BG }}
     >
       {/* Ambient background soft glow */}
@@ -84,13 +84,13 @@ export default function AboutOurApproach() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-[1.18]"
+            className="font-heading text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-[1.18]"
           >
             Because Learning Isn't{" "}
             <span className="text-[#6EE7B7] drop-shadow-sm">One-Size-Fits-All.</span>

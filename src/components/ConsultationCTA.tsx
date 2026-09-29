@@ -11,14 +11,14 @@ export default function ConsultationCTA() {
     "http://wa.me/919286844550?text=Hi,%20I%20would%20like%20to%20speak%20with%20an%20academic%20counselor%20regarding%20test%20preparation%20and%20study%20abroad%20programs.";
 
   return (
-    <section className="py-12 sm:py-16 bg-[#0A1120] text-white relative overflow-hidden">
+    <section className="py-8 sm:py-12 bg-[#0A1120] text-white relative overflow-hidden">
       {/* Seamless Top Ambient Fade */}
-      <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
 
       {/* Background Soft Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-primary/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4 sm:space-y-5">
         
         {/* Main Heading: Bold Green */}
         <motion.h2
@@ -26,7 +26,7 @@ export default function ConsultationCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: easeCurve }}
-          className="font-heading text-4xl sm:text-5xl lg:text-[64px] font-black text-brand-primary tracking-tight leading-tight"
+          className="font-heading text-3xl xs:text-4xl sm:text-5xl lg:text-[64px] font-black text-brand-primary tracking-tight leading-tight"
         >
           Start Your Journey Today
         </motion.h2>
@@ -39,7 +39,7 @@ export default function ConsultationCTA() {
           transition={{ duration: 0.6, delay: 0.1, ease: easeCurve }}
           className="inline-block"
         >
-          <div className="font-heading text-lg sm:text-2xl lg:text-[26px] font-black text-white tracking-tight pb-1">
+          <div className="font-heading text-base sm:text-2xl lg:text-[26px] font-black text-white tracking-tight pb-1">
             Don&apos;t wait for opportunities — prepare for them.
           </div>
           <div className="h-[2.5px] bg-brand-accent w-full rounded-full mt-0.5" />
@@ -51,7 +51,7 @@ export default function ConsultationCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2, ease: easeCurve }}
-          className="flex flex-row items-center justify-center gap-2.5 sm:gap-4 pt-6 w-full max-w-lg mx-auto"
+          className="flex flex-row items-center justify-center gap-2.5 sm:gap-4 pt-3 sm:pt-4 w-full max-w-lg mx-auto"
         >
           {/* Button 1: Book 5 Day Demo */}
           <Link

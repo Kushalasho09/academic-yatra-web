@@ -239,17 +239,17 @@ export default function TestPrepCoursePrograms({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 space-y-2">
+          <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
             Preparation Programs &amp; <span className="text-brand-primary">Course Plans</span>
           </h2>
-          <p className="font-body text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="font-body text-slate-600 text-xs sm:text-base leading-relaxed">
             Select your target exam to view available course batches, mock test packages, and comprehensive admission pathways.
           </p>
         </div>
 
         {/* Interactive Exam Selector Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 sm:mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
           {Object.entries(TEST_PREP_EXAM_PROGRAMS).map(([key, data]) => {
             const isSelected = selectedExam === key;
             return (

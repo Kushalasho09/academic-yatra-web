@@ -42,10 +42,10 @@ export default function AchievementBanner() {
   const easeCurve = [0.16, 1, 0.3, 1];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#0A192F] via-[#122447] to-[#0A192F] text-white relative overflow-hidden">
+    <section className="py-8 sm:py-12 lg:py-14 bg-gradient-to-br from-[#0A192F] via-[#122447] to-[#0A192F] text-white relative overflow-hidden">
       {/* Seamless Top & Bottom Ambient Fade */}
-      <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white/15 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white/15 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white/15 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white/15 to-transparent pointer-events-none" />
 
       {/* Dynamic Ambient Background Flares */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-brand-primary/15 rounded-full blur-3xl pointer-events-none" />
@@ -67,10 +67,10 @@ export default function AchievementBanner() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: easeCurve }}
-          className="text-center max-w-3xl mx-auto space-y-4 mb-10 sm:mb-12"
+          className="text-center max-w-3xl mx-auto space-y-3 mb-6 sm:mb-8"
         >
           {/* Main Headline */}
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-snug sm:leading-[1.26] lg:leading-[1.28]">
+          <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-snug sm:leading-[1.26] lg:leading-[1.28]">
             The Skills You’ll{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-400 font-accent italic font-normal">
               Actually Use.

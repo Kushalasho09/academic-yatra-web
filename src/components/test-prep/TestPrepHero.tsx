@@ -7,7 +7,7 @@ import { Skiper8 } from "@/components/ui/skiper8";
 
 export default function TestPrepHero() {
   return (
-    <section className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden bg-[#031643] text-white">
+    <section className="relative min-h-[72vh] sm:min-h-screen w-full flex flex-col justify-between items-center overflow-hidden bg-[#031643] text-white">
       {/* Skiper8: Dennis Snellenberg Words Preloader */}
       <Skiper8
         words={[
@@ -36,15 +36,15 @@ export default function TestPrepHero() {
       {/* Dark overlay gradient for contrast */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#031643]/75 via-[#031643]/50 to-[#031643]/90 z-0 pointer-events-none" />
 
-      {/* Hero Section Container: flex-col justify-between so buttons sit at the bottom */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-8 sm:pt-36 sm:pb-20 flex flex-col items-center justify-between min-h-screen text-center">
-        {/* Upper / Center Text Content */}
-        <div className="flex flex-col items-center my-auto pt-6 sm:pt-0">
+      {/* Hero Section Container */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-5 sm:pt-40 sm:pb-12 flex flex-col items-center justify-between min-h-[72vh] sm:min-h-screen text-center">
+        {/* Upper Text Content */}
+        <div className="flex flex-col items-center pt-1 sm:pt-0">
 
           {/* Cinematic H1 Typography */}
           <h1
             style={{ fontFamily: "'Instrument Serif', serif" }}
-            className="text-4xl sm:text-7xl md:text-8xl leading-[1.16] sm:leading-[1.08] md:leading-[1.06] tracking-[-1.5px] sm:tracking-[-2px] max-w-6xl font-normal text-white animate-fade-rise"
+            className="text-[32px] xs:text-[38px] sm:text-7xl md:text-8xl leading-[1.15] sm:leading-[1.08] md:leading-[1.06] tracking-[-1px] sm:tracking-[-2px] max-w-6xl font-normal text-white animate-fade-rise"
           >
             Prepare for Global{" "}
             <em className="not-italic text-emerald-400">
@@ -53,17 +53,17 @@ export default function TestPrepHero() {
           </h1>
 
           {/* Subtext */}
-          <p className="text-slate-200 text-sm sm:text-lg max-w-2xl mt-5 sm:mt-8 leading-relaxed font-body animate-fade-rise-delay drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] px-2">
+          <p className="text-slate-200 text-[13.5px] xs:text-sm sm:text-lg max-w-2xl mt-3 sm:mt-6 leading-relaxed font-body animate-fade-rise-delay drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] px-2">
             Structured preparation programs for students planning bachelor’s, master’s,
             and MBA admissions abroad through live classes, mock tests, and expert guidance.
           </p>
         </div>
 
-        {/* Translucent Frosted Glass CTA Action Buttons: In a Row at the Bottom */}
-        <div className="w-full max-w-md sm:max-w-none flex flex-row items-center justify-center gap-2.5 sm:gap-6 mt-6 sm:mt-12 mb-4 sm:mb-2 px-1 sm:px-0 animate-fade-rise-delay-2">
+        {/* Translucent Frosted Glass CTA Action Buttons: At the End of Hero Section (Left and Right) */}
+        <div className="w-full max-w-md sm:max-w-none flex flex-row items-center justify-between gap-3 sm:gap-6 mt-auto pt-6 px-1 sm:px-0 animate-fade-rise-delay-2">
           <Link
             href="/contacts"
-            className="liquid-glass group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full px-3.5 sm:px-12 py-3 sm:py-4.5 text-xs sm:text-base text-white font-semibold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/35 backdrop-blur-2xl bg-[#031643]/85 hover:bg-[#0C9253]/95 whitespace-nowrap"
+            className="liquid-glass group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full px-3.5 sm:px-12 py-3 sm:py-4 text-xs sm:text-base text-white font-semibold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/35 backdrop-blur-2xl bg-[#031643]/85 hover:bg-[#0C9253]/95 whitespace-nowrap"
           >
             <span className="text-white font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] tracking-tight sm:tracking-wide">
               Book 5 Day Demo
@@ -77,7 +77,7 @@ export default function TestPrepHero() {
             href="https://web.whatsapp.com/send?phone=+919403892981&text=Hi,%20I%20would%20like%20to%20book%20a%20free%20SAT/GRE/GMAT%20test%20prep%20consultation."
             target="_blank"
             rel="noopener noreferrer"
-            className="liquid-glass group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full px-3.5 sm:px-10 py-3 sm:py-4.5 text-xs sm:text-base text-white font-semibold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/35 backdrop-blur-2xl bg-[#031643]/85 hover:bg-[#031643]/95 whitespace-nowrap"
+            className="liquid-glass group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full px-3.5 sm:px-10 py-3 sm:py-4 text-xs sm:text-base text-white font-semibold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/35 backdrop-blur-2xl bg-[#031643]/85 hover:bg-[#031643]/95 whitespace-nowrap"
           >
             <span className="text-white font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] tracking-tight sm:tracking-wide">
               Free Consultation

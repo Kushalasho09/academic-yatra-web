@@ -43,7 +43,7 @@ export default function SkillCatalystTrialBanner() {
   ];
 
   return (
-    <section className="relative py-12 sm:py-16 bg-gradient-to-r from-[#051124] via-[#091D3C] to-[#0A264F] text-white overflow-hidden z-10">
+    <section className="relative py-8 sm:py-14 bg-gradient-to-r from-[#051124] via-[#091D3C] to-[#0A264F] text-white overflow-hidden z-10">
       {/* Ambient background glows */}
       <div className="absolute top-0 right-1/4 w-[450px] h-[450px] bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -58,7 +58,7 @@ export default function SkillCatalystTrialBanner() {
               <span>FAST-TRACK YOUR PREP</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-black tracking-tight leading-[1.15] font-heading">
+            <h2 className="text-2xl xs:text-3xl sm:text-5xl lg:text-[46px] font-black tracking-tight leading-[1.15] font-heading">
               <span>See How Academic Yatra </span>
               <br />
               <span className="text-emerald-400">Fits Your Goals.</span>

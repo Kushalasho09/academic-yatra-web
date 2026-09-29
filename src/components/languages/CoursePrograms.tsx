@@ -584,19 +584,19 @@ export default function CoursePrograms({
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 gap-4 sm:gap-6">
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight max-w-2xl">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 sm:mb-7 gap-3 sm:gap-6">
+          <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight max-w-2xl">
             <span className="block mb-1.5 sm:mb-2.5">Choose Your</span>
             <span className="text-brand-primary block">Program</span>
           </h2>
 
-          <p className="font-body text-slate-500 text-sm sm:text-base max-w-md leading-relaxed md:pb-1.5">
+          <p className="font-body text-slate-500 text-xs sm:text-base max-w-md leading-relaxed md:pb-1.5">
             Select the plan that fits your preparation style and timeline.
           </p>
         </div>
 
         {/* Exam Navigation Filter Pills */}
-        <div className="bg-white p-1.5 sm:p-2 rounded-2xl sm:rounded-full border border-slate-200/90 shadow-xs max-w-5xl mx-auto mb-8 sm:mb-10 overflow-x-auto scrollbar-none flex items-center justify-start sm:justify-center gap-1.5">
+        <div className="bg-white p-1.5 sm:p-2 rounded-2xl sm:rounded-full border border-slate-200/90 shadow-xs max-w-5xl mx-auto mb-6 sm:mb-8 overflow-x-auto scrollbar-none flex items-center justify-start sm:justify-center gap-1.5">
           {EXAM_OPTIONS.map((item) => {
             const isSelected = currentExam === item.id;
             return (

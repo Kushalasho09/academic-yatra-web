@@ -175,10 +175,10 @@ export default function FeaturesPillars() {
   };
 
   return (
-    <section className="py-10 sm:py-14 lg:py-16 bg-white relative overflow-hidden">
+    <section className="py-8 sm:py-12 bg-white relative overflow-hidden">
       {/* Seamless Top & Bottom Ambient Fade */}
-      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none" />
 
       {/* Background Subtle Gradient Lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[750px] h-[350px] bg-brand-tint/30 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -186,8 +186,8 @@ export default function FeaturesPillars() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-3 mb-8 sm:mb-10">
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-brand-navy tracking-tight leading-snug sm:leading-[1.26] lg:leading-[1.28]">
+        <div className="text-center max-w-2xl mx-auto space-y-2 mb-5 sm:mb-7">
+          <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-brand-navy tracking-tight leading-snug sm:leading-[1.26] lg:leading-[1.28]">
             Built Around Real Student Goals
           </h2>
 
@@ -197,7 +197,7 @@ export default function FeaturesPillars() {
         </div>
 
         {/* Responsive Carousel Header */}
-        <div className="flex flex-col items-center justify-center mb-8 sm:mb-10 space-y-3">
+        <div className="flex flex-col items-center justify-center mb-5 sm:mb-7 space-y-2">
           {/* Desktop Full Segmented Tabs */}
           <div className="hidden sm:inline-flex p-1.5 rounded-2xl bg-white border border-slate-200 shadow-md gap-1 sm:gap-2">
             {PILLARS_DATA.map((pillar) => {
@@ -315,10 +315,10 @@ export default function FeaturesPillars() {
 
               {/* Bottom Info on Image: Clean normal text without overlay badges */}
               <div className="relative z-10 p-5 sm:p-7 lg:p-8 space-y-2">
-                <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                <h3 className="font-heading text-xl sm:text-3xl font-extrabold text-white leading-tight">
                   {activePillar.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-200 max-w-lg leading-relaxed font-normal">
+                <p className="text-xs xs:text-sm sm:text-sm text-slate-200 max-w-lg leading-relaxed font-normal">
                   {activePillar.description}
                 </p>
               </div>

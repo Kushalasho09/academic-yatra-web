@@ -40,19 +40,19 @@ export default function WindingRoadmap({
   const easeCurve = [0.16, 1, 0.3, 1];
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-[#FAFBFB] to-white relative z-10 overflow-hidden">
+    <section className="py-8 sm:py-14 lg:py-16 bg-gradient-to-b from-white via-[#FAFBFB] to-white relative z-10 overflow-hidden">
       {/* Background Soft Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 lg:mb-20 gap-4 sm:gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 lg:mb-14 gap-3 sm:gap-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: easeCurve }}
-            className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight max-w-2xl"
+            className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight max-w-2xl"
           >
             <span className="block mb-1.5 sm:mb-2.5">{headingLine1}</span>
             <span className="text-brand-primary block">{headingLine2}</span>
@@ -63,7 +63,7 @@ export default function WindingRoadmap({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: easeCurve }}
-            className="font-body text-slate-600 text-sm sm:text-base max-w-md leading-relaxed md:pb-1.5"
+            className="font-body text-slate-600 text-xs sm:text-base max-w-md leading-relaxed md:pb-1.5"
           >
             {subtitle}
           </motion.p>

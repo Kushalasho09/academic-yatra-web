@@ -56,7 +56,7 @@ export default function LanguagesFAQ() {
           {/* Left Column: Heading & Contact Box */}
           <div className="lg:col-span-5 space-y-5">
             <div className="space-y-2">
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
+              <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-snug sm:leading-[1.28] lg:leading-[1.3] tracking-tight">
                 <span className="block mb-1.5 sm:mb-2.5">Frequently Asked</span>
                 <span className="text-brand-primary block">Questions</span>
               </h2>

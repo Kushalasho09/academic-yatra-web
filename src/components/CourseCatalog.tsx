@@ -407,26 +407,26 @@ export default function CourseCatalog() {
   };
 
   return (
-    <section id="courses" className="py-12 sm:py-16 lg:py-20 bg-[#F8FAF8] relative overflow-hidden">
+    <section id="courses" className="py-8 sm:py-12 lg:py-14 bg-[#F8FAF8] relative overflow-hidden">
       {/* Seamless Top & Bottom Ambient Fade */}
-      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-white to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-white to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-snug sm:leading-[1.25]">
+        <div className="text-center max-w-3xl mx-auto space-y-2 mb-6 sm:mb-8">
+          <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-snug sm:leading-[1.25]">
             Learn Fast, Speak Fluently. Explore Our Courses
           </h2>
 
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed">
             Explore curated Champion Packs, Live Classes, and Self-Preparation suites engineered for maximum score achievement.
           </p>
         </div>
 
         {/* Filter Tabs & Search Bar */}
-        <div className="space-y-6 mb-8">
+        <div className="space-y-4 mb-6">
           {/* Category Tabs */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             {COURSE_CATEGORIES.map((cat) => {

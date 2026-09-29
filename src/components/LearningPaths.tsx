@@ -148,10 +148,10 @@ export default function LearningPaths() {
   };
 
   return (
-    <section className="py-10 sm:py-16 bg-white relative overflow-hidden">
+    <section className="py-8 sm:py-12 bg-white relative overflow-hidden">
       {/* Seamless Top & Bottom Ambient Fade */}
-      <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none" />
 
       {/* Background Decorative Soft Tints */}
       <div className="absolute top-1/4 -left-20 w-[550px] h-[550px] bg-gradient-to-br from-brand-tint/50 via-blue-50/30 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
@@ -160,7 +160,7 @@ export default function LearningPaths() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header with Carousel Controls */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 sm:mb-8 gap-3">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -169,7 +169,7 @@ export default function LearningPaths() {
             className="space-y-3 text-left max-w-2xl"
           >
             {/* Headline with Playfair Display Accent */}
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-brand-navy tracking-tight leading-snug sm:leading-[1.26] lg:leading-[1.28]">
+            <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-brand-navy tracking-tight leading-snug sm:leading-[1.26] lg:leading-[1.28]">
               Three Tracks.{" "}
               <span className="text-brand-primary font-accent italic font-normal">
                 Pick Your Focus.

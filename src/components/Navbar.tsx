@@ -202,7 +202,7 @@ export default function Navbar() {
               );
             })}
 
-            <div className="pt-2 space-y-2 border-t border-slate-100">
+            <div className="pt-4 border-t border-slate-100 flex flex-col gap-4">
               <a
                 href="tel:+919286844550"
                 className="flex items-center justify-center space-x-2 w-full py-2.5 rounded-full border border-slate-300 text-brand-navy font-semibold text-xs hover:bg-slate-50 transition-colors"
@@ -211,7 +211,7 @@ export default function Navbar() {
                 <span>+91-92868-44550</span>
               </a>
 
-              <Link href="/contacts" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/contacts" className="block w-full" onClick={() => setMobileMenuOpen(false)}>
                 <HoverBorderGradient
                   as="div"
                   containerClassName="rounded-full w-full"

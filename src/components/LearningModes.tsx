@@ -8,7 +8,7 @@ export default function LearningModes() {
   const easeCurve = [0.16, 1, 0.3, 1];
 
   return (
-    <section className="py-6 sm:py-10 lg:py-12 bg-white relative overflow-hidden">
+    <section className="py-6 sm:py-8 lg:py-10 bg-white relative overflow-hidden">
       {/* Seamless Top & Bottom Ambient Fade */}
       <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-slate-50/50 to-transparent pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-slate-50/50 to-transparent pointer-events-none" />
@@ -27,12 +27,12 @@ export default function LearningModes() {
             className="rounded-2xl sm:rounded-[32px] lg:rounded-[36px] p-3.5 sm:p-6 lg:p-10 border border-slate-200/90 shadow-md sm:shadow-xl overflow-hidden relative flex flex-col justify-center bg-white min-h-[170px] sm:min-h-[260px] lg:min-h-[320px] group"
           >
             {/* Left Content */}
-            <div className="space-y-1 sm:space-y-1.5 z-10 max-w-[100px] xs:max-w-[130px] sm:max-w-[200px] lg:max-w-[240px]">
+            <div className="space-y-1 sm:space-y-1.5 z-10 max-w-[115px] xs:max-w-[145px] sm:max-w-[200px] lg:max-w-[240px]">
               <h3 className="font-heading text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-[42px] font-extrabold text-brand-navy tracking-tight leading-tight sm:leading-snug lg:leading-[1.24]">
                 <span className="block">Individual</span>
                 <span className="block">Learning</span>
               </h3>
-              <p className="text-[10px] xs:text-xs sm:text-sm text-slate-500 font-medium pt-0.5 sm:pt-1 leading-snug">
+              <p className="text-xs sm:text-sm text-slate-500 font-medium pt-0.5 sm:pt-1 leading-snug">
                 Self-paced + recorded content
               </p>
             </div>
@@ -64,12 +64,12 @@ export default function LearningModes() {
             className="rounded-2xl sm:rounded-[32px] lg:rounded-[36px] p-3.5 sm:p-6 lg:p-10 border border-emerald-200/70 shadow-md sm:shadow-xl overflow-hidden relative flex flex-col justify-center bg-gradient-to-br from-[#E4F6EB] via-[#ECFAF1] to-[#DDF3E6] min-h-[170px] sm:min-h-[260px] lg:min-h-[320px] group"
           >
             {/* Left Content */}
-            <div className="space-y-1 sm:space-y-1.5 z-10 max-w-[100px] xs:max-w-[130px] sm:max-w-[200px] lg:max-w-[240px]">
+            <div className="space-y-1 sm:space-y-1.5 z-10 max-w-[115px] xs:max-w-[145px] sm:max-w-[200px] lg:max-w-[240px]">
               <h3 className="font-heading text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-[42px] font-extrabold text-brand-navy tracking-tight leading-tight sm:leading-snug lg:leading-[1.24]">
                 <span className="block">Live</span>
                 <span className="block">Classes</span>
               </h3>
-              <p className="text-[10px] xs:text-xs sm:text-sm text-slate-600 font-medium pt-0.5 sm:pt-1 leading-snug">
+              <p className="text-xs sm:text-sm text-slate-600 font-medium pt-0.5 sm:pt-1 leading-snug">
                 Trainer-led structured programs
               </p>
             </div>

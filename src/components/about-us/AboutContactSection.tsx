@@ -32,7 +32,7 @@ export default function AboutContactSection() {
   };
 
   return (
-    <section id="contact-section" className="py-10 sm:py-14 bg-white relative overflow-hidden">
+    <section id="contact-section" className="py-8 sm:py-14 bg-white relative overflow-hidden">
       {/* Seamless Top Ambient Fade */}
       <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
 
@@ -43,7 +43,7 @@ export default function AboutContactSection() {
           {/* Left Column: Direct Connect & Company Details */}
           <div className="lg:col-span-5 space-y-6">
             <div>
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-dark tracking-tight leading-tight">
+              <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-dark tracking-tight leading-tight">
                 Connect with <span className="text-brand-primary">Our Academic Team</span>
               </h2>
 

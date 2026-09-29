@@ -58,13 +58,13 @@ export default function TrialLessonBanner() {
               <span>FAST-TRACK YOUR PREP</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-black tracking-tight leading-[1.15] font-heading">
+            <h2 className="text-2xl xs:text-3xl sm:text-5xl lg:text-[46px] font-black tracking-tight leading-[1.15] font-heading">
               <span>See How Academic Yatra </span>
               <br />
               <span className="text-emerald-400">Fits Your Goals.</span>
             </h2>
 
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-body max-w-lg">
+            <p className="text-slate-300 text-xs sm:text-base leading-relaxed font-body max-w-lg">
               Start with a complimentary live session and get a feel for the way we teach, practise, and track progress before you commit.
             </p>
 

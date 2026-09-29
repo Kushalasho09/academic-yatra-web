@@ -101,16 +101,16 @@ export default function StudentFeedback() {
   const visibleItems = getVisibleItems();
 
   return (
-    <section className="py-10 sm:py-16 bg-gradient-to-b from-slate-50/50 via-white to-slate-50/50 relative z-10 overflow-hidden">
+    <section className="py-8 sm:py-14 bg-gradient-to-b from-slate-50/50 via-white to-slate-50/50 relative z-10 overflow-hidden">
       {/* Seamless Top & Bottom Ambient Fade */}
       <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-10 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 sm:mb-8 gap-3 sm:gap-4">
           <div>
-            <h2 className="font-heading text-2xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-tight sm:leading-[1.28] tracking-tight">
+            <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-tight sm:leading-[1.28] tracking-tight">
               <span>What Students Like </span>
               <span className="text-brand-primary block sm:inline">About Academic Yatra</span>
             </h2>

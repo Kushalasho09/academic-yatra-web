@@ -98,7 +98,7 @@ export default function TokyoSkylineHero({
   const brandRef = useRef<HTMLDivElement>(null)
   const skylineRef = useRef<HTMLImageElement>(null)
   const progressBarRef = useRef<HTMLDivElement>(null)
-  const [ready, setReady] = useState(false)
+  const [ready, setReady] = useState(true)
 
   useEffect(() => {
     const video = videoRef.current
@@ -109,7 +109,7 @@ export default function TokyoSkylineHero({
       typeof window !== "undefined" &&
       window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
 
-    let duration = 0
+    let duration = video.duration || 0
     let rafId = 0
     let targetProgress = 0
     let currentProgress = 0
@@ -123,11 +123,18 @@ export default function TokyoSkylineHero({
     const onLoadedData = () => {
       duration = video.duration || 0
       setReady(true)
+      video.play().catch(() => {})
       if (reduceMotion) {
         video.currentTime = duration
       }
     }
     video.addEventListener("loadeddata", onLoadedData)
+    video.addEventListener("canplay", onLoadedData)
+    if (video.readyState >= 2) {
+      onLoadedData()
+    } else {
+      video.play().catch(() => {})
+    }
 
     const onSeeked = () => {
       isSeeking = false
@@ -340,6 +347,8 @@ export default function TokyoSkylineHero({
       <video
         ref={videoRef}
         src={videoSrc}
+        autoPlay
+        loop
         muted
         playsInline
         preload="auto"
@@ -349,8 +358,7 @@ export default function TokyoSkylineHero({
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          opacity: ready ? 1 : 0,
-          transition: "opacity 0.6s ease",
+          opacity: 1,
           transform: "translate3d(0, 0, 0)",
           WebkitTransform: "translate3d(0, 0, 0)",
           backfaceVisibility: "hidden",
@@ -480,7 +488,7 @@ export default function TokyoSkylineHero({
             style={{
               fontFamily: SANS,
               fontWeight: 800,
-              fontSize: "clamp(30px, 5.5vw, 68px)",
+              fontSize: "clamp(26px, 5.5vw, 68px)",
               lineHeight: 1.15,
               color: "#ffffff",
               textShadow: "0 8px 40px rgba(0,0,0,0.6)",
@@ -493,7 +501,7 @@ export default function TokyoSkylineHero({
             <p
               style={{
                 fontFamily: SANS,
-                fontSize: "clamp(14px, 1.8vw, 18px)",
+                fontSize: "clamp(13px, 1.8vw, 18px)",
                 lineHeight: 1.6,
                 color: "rgba(226,232,240,0.92)",
                 maxWidth: "680px",

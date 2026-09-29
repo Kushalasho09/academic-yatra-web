@@ -192,7 +192,7 @@ export default function AboutWhatWeDo() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-heading text-2xl sm:text-4xl md:text-5xl lg:text-[46px] font-black text-slate-900 tracking-tight leading-[1.18]"
+            className="font-heading text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-black text-slate-900 tracking-tight leading-[1.18]"
           >
             Three Tracks. Different Goals. <br className="hidden sm:inline" />
             <span className="text-[#0C9253]">One Learning System.</span>

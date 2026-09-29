@@ -1,46 +1,81 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import {
-  Layers,
+  AppWindow,
   TrendingUp,
   Target,
   Video,
-  Sparkles,
-  ShieldCheck,
-  CheckCircle2,
-  ArrowRight,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 
-interface StatItemProps {
+interface MetricItem {
   target: number;
   label: string;
-  subtext: string;
+  glowColor: string;
+  accentColor: string;
+  iconBg: string;
+  borderColor: string;
+  gradientBg: string;
   icon: React.ElementType;
-  index: number;
-  suffix?: string;
 }
 
-function StatCounterCard({
-  target,
-  label,
-  subtext,
-  icon: Icon,
-  index,
-  suffix = "%",
-}: StatItemProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-50px" });
-  const [count, setCount] = useState<number>(0);
+const METRICS: MetricItem[] = [
+  {
+    target: 100,
+    label: "Learning. No Tab Chaos.",
+    glowColor: "rgba(59, 130, 246, 0.95)",
+    accentColor: "#2563eb",
+    iconBg: "rgba(239, 246, 255, 0.95)",
+    borderColor: "rgba(191, 219, 254, 0.9)",
+    gradientBg:
+      "radial-gradient(circle, rgba(37,99,235,0.85) 0%, rgba(59,130,246,0.55) 28%, rgba(147,197,253,0.32) 58%, rgba(219,234,254,0.15) 85%, transparent 100%)",
+    icon: AppWindow,
+  },
+  {
+    target: 100,
+    label: "Progress, Minus the Guesswork.",
+    glowColor: "rgba(139, 92, 246, 0.95)",
+    accentColor: "#7c3aed",
+    iconBg: "rgba(245, 243, 255, 0.95)",
+    borderColor: "rgba(221, 214, 254, 0.9)",
+    gradientBg:
+      "radial-gradient(circle, rgba(124,58,237,0.85) 0%, rgba(139,92,246,0.55) 28%, rgba(196,181,253,0.32) 58%, rgba(237,233,254,0.15) 85%, transparent 100%)",
+    icon: TrendingUp,
+  },
+  {
+    target: 99,
+    label: "Spot the Gaps. Fix the Gaps.",
+    glowColor: "rgba(244, 63, 94, 0.95)",
+    accentColor: "#e11d48",
+    iconBg: "rgba(255, 241, 242, 0.95)",
+    borderColor: "rgba(254, 205, 211, 0.9)",
+    gradientBg:
+      "radial-gradient(circle, rgba(225,29,72,0.85) 0%, rgba(244,63,94,0.55) 28%, rgba(253,164,175,0.32) 58%, rgba(255,228,230,0.15) 85%, transparent 100%)",
+    icon: Target,
+  },
+  {
+    target: 100,
+    label: "Missed Class? We Kept It.",
+    glowColor: "rgba(249, 115, 22, 0.95)",
+    accentColor: "#ea580c",
+    iconBg: "rgba(255, 247, 237, 0.95)",
+    borderColor: "rgba(254, 215, 170, 0.9)",
+    gradientBg:
+      "radial-gradient(circle, rgba(234,88,12,0.85) 0%, rgba(249,115,22,0.55) 28%, rgba(254,215,170,0.32) 58%, rgba(255,237,213,0.15) 85%, transparent 100%)",
+    icon: Video,
+  },
+];
+
+function AnimatedCounter({ target }: { target: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-40px" });
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (!isInView) return;
-
     let startTime: number | null = null;
-    const duration = 1800;
+    const duration = 1500;
 
     const animateCount = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
@@ -61,166 +96,228 @@ function StatCounterCard({
     return () => cancelAnimationFrame(animFrame);
   }, [isInView, target]);
 
-  return (
-    <motion.div
-      ref={containerRef}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.6, delay: index * 0.12 }}
-      className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-white/10 hover:border-emerald-400/50 hover:bg-slate-900/80 transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] hover:-translate-y-1.5"
-    >
-      {/* Subtle card top glowing light */}
-      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-      {/* Top Row: Metric & Category Icon */}
-      <div className="flex items-start justify-between gap-3 mb-4">
-        {/* Hollow Gradient Outlined Number */}
-        <div
-          className="font-heading text-5xl sm:text-6xl lg:text-[68px] font-black tracking-tight select-none leading-none drop-shadow-sm transition-transform duration-300 group-hover:scale-[1.02]"
-          style={{
-            WebkitTextStroke: "2.2px #10B981",
-            WebkitTextFillColor: "transparent",
-            maskImage:
-              "linear-gradient(to bottom, rgba(0,0,0,1) 25%, rgba(0,0,0,0.2) 100%)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, rgba(0,0,0,1) 25%, rgba(0,0,0,0.2) 100%)",
-          }}
-        >
-          {count}
-          {suffix}
-        </div>
-
-        {/* Floating Icon Badge */}
-        <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-500/20 group-hover:border-emerald-400/40 group-hover:scale-110 transition-all duration-300 shadow-inner">
-          <Icon className="w-5 h-5" />
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="space-y-2 mt-auto">
-        <h3 className="font-heading font-extrabold text-base sm:text-lg lg:text-[19px] text-white tracking-tight leading-snug group-hover:text-emerald-300 transition-colors">
-          {label}
-        </h3>
-        <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal">
-          {subtext}
-        </p>
-      </div>
-
-      {/* Interactive Bottom Progress Accent */}
-      <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden mt-5">
-        <div className="h-full w-0 group-hover:w-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300 transition-all duration-700 rounded-full" />
-      </div>
-    </motion.div>
-  );
+  return <span ref={ref}>{count}%</span>;
 }
-
-const STATS_DATA = [
-  {
-    target: 100,
-    label: "Learning. No Tab Chaos.",
-    subtext:
-      "All live sessions, study materials, mock tests, and assignments unified into one clean, distraction-free environment.",
-    icon: Layers,
-  },
-  {
-    target: 100,
-    label: "Progress, Minus the Guesswork.",
-    subtext:
-      "Granular accuracy diagnostics and score trajectories give you complete transparency on test readiness.",
-    icon: TrendingUp,
-  },
-  {
-    target: 99,
-    label: "Spot the Gaps. Fix the Gaps.",
-    subtext:
-      "Adaptive computer diagnostics identify recurring question-level pitfalls before real exam day.",
-    icon: Target,
-  },
-  {
-    target: 100,
-    label: "Missed Class? We Kept It.",
-    subtext:
-      "Never miss a concept with instant HD session archives, downloadable lecture notes, and trainer doubt resolution.",
-    icon: Video,
-  },
-];
 
 export default function StatsSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#031643] text-white py-16 sm:py-24 z-20 border-b border-white/10">
-      {/* Background Cinematic Image Layer */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/home_stats_campus_bg.jpg"
-          alt="Academic Yatra Global Campus Architecture"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center scale-105 transform hover:scale-100 transition-transform duration-1000 ease-out"
-        />
-        {/* Layered cinematic dark gradient overlay for crystal clear contrast & legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#031643]/90 via-[#031643]/80 to-[#031643]/95" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(16,185,129,0.18),transparent_65%)]" />
-        {/* Subtle grid pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage:
-              "radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }}
-        />
-      </div>
+    <section className="relative w-full bg-white py-8 sm:py-12 overflow-hidden border-b border-slate-100">
+      {/* Subtle ambient background glow & grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:36px_36px] opacity-40 pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-8 bg-gradient-to-b from-slate-50/70 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-slate-50/70 to-transparent pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-bold tracking-wide backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.2)]">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-            <span>THE ACADEMIC YATRA STANDARD</span>
-          </div>
-
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Only heading */}
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-8">
+          <h2 className="font-heading text-2xl xs:text-[26px] sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
             Proof Over Promises.{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-500">
               Clear Outcomes Only.
             </span>
           </h2>
-
-          <p className="text-slate-300 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto font-normal leading-relaxed">
-            Every lecture, mock test, and mentorship milestone is engineered to
-            eliminate friction so your preparation stays focused and dependable.
-          </p>
         </div>
 
-        {/* 4 Unique Glassmorphism Stat Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-          {STATS_DATA.map((stat, idx) => (
-            <StatCounterCard
-              key={stat.label}
-              target={stat.target}
-              label={stat.label}
-              subtext={stat.subtext}
-              icon={stat.icon}
-              index={idx}
-            />
-          ))}
+        {/* DESKTOP & TABLET HORIZONTAL WORKFLOW (md and above) */}
+        <div className="hidden md:block relative max-w-6xl mx-auto">
+          <div className="grid grid-cols-4 items-start relative">
+            {METRICS.map((metric, idx) => {
+              const Icon = metric.icon;
+              const isLast = idx === METRICS.length - 1;
+
+              return (
+                <div
+                  key={metric.label}
+                  className="group relative flex flex-col items-center text-center px-2"
+                >
+                  {/* Top Accurate Category Logo/Icon */}
+                  <div className="mb-2 h-9 flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1">
+                    <div
+                      className="w-9 h-9 rounded-xl flex items-center justify-center shadow-xs border transition-colors"
+                      style={{
+                        backgroundColor: metric.iconBg,
+                        borderColor: metric.borderColor,
+                        color: metric.accentColor,
+                      }}
+                    >
+                      <Icon className="w-4 h-4 stroke-[2]" />
+                    </div>
+                  </div>
+
+                  {/* Concentric Glow Disc with Glowing Percentage Inside */}
+                  <div className="relative w-full flex items-center justify-center h-40 lg:h-44">
+                    {/* Concentric Radial Gradient Disc */}
+                    <div
+                      className="relative w-36 h-36 lg:w-40 lg:h-40 rounded-full flex items-center justify-center transition-transform duration-500 group-hover:scale-105 pointer-events-none"
+                      style={{
+                        background: metric.gradientBg,
+                      }}
+                    >
+                      {/* Subtle concentric rings for visual ripple depth */}
+                      <div className="absolute inset-3 rounded-full border border-white/25 pointer-events-none" />
+                      <div className="absolute inset-7 rounded-full border border-white/30 pointer-events-none" />
+                      <div className="absolute inset-11 rounded-full border border-white/40 pointer-events-none" />
+
+                      {/* Pure Percentage Figure with Color Glow & Soft Transparency */}
+                      <div
+                        className="relative z-10 flex items-center justify-center font-heading font-black text-3xl sm:text-4xl lg:text-[42px] tracking-tight select-none text-white/95"
+                        style={{
+                          textShadow: `0 0 14px ${metric.glowColor}, 0 0 28px ${metric.glowColor}, 0 0 45px ${metric.glowColor}`,
+                        }}
+                      >
+                        <AnimatedCounter target={metric.target} />
+                      </div>
+                    </div>
+
+                    {/* Dotted Connecting Arrow line between circles - Dead center alignment */}
+                    {!isLast && (
+                      <div
+                        className="absolute left-1/2 w-full flex items-center pointer-events-none z-0"
+                        style={{ top: "50%", transform: "translateY(-50%)" }}
+                      >
+                        <div className="w-full px-12 lg:px-14 flex items-center">
+                          <svg
+                            className="w-full h-4 block overflow-visible"
+                            preserveAspectRatio="none"
+                            viewBox="0 0 100 10"
+                          >
+                            <defs>
+                              <marker
+                                id={`arrowhead-stat-${idx}`}
+                                markerWidth="6"
+                                markerHeight="6"
+                                refX="5"
+                                refY="3"
+                                orient="auto"
+                              >
+                                <polygon
+                                  points="0 0.5, 5.5 3, 0 5.5"
+                                  fill="#475569"
+                                />
+                              </marker>
+                            </defs>
+                            <line
+                              x1="18"
+                              y1="5"
+                              x2="82"
+                              y2="5"
+                              stroke="#64748b"
+                              strokeWidth="1.5"
+                              strokeDasharray="3.5 3.5"
+                              markerEnd={`url(#arrowhead-stat-${idx})`}
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Below Circle: Current Lines Only */}
+                  <div className="mt-5 flex flex-col items-center justify-center text-center px-1">
+                    <div className="font-heading font-extrabold text-sm sm:text-base lg:text-[17px] text-slate-900 tracking-tight leading-snug max-w-[210px]">
+                      {metric.label}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Bottom Proof Strip */}
-        <div className="pt-4 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm text-slate-300 font-medium">
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-            <span>100% Verified Faculty & Mentors</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-            <span>Computer-Adaptive Mock Engine</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-            <span>24/7 LMS Recording Archives</span>
-          </div>
+        {/* MOBILE HORIZONTAL CONTINUOUS TRAIN-LIKE MOVEMENT (sm and down) */}
+        <div className="md:hidden relative w-full overflow-hidden py-4 select-none [mask-image:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)]">
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              duration: 22,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="flex items-start flex-nowrap w-max"
+          >
+            {/* Duplicated array for seamless infinite train loop */}
+            {[...METRICS, ...METRICS].map((metric, idx) => {
+              const Icon = metric.icon;
+
+              return (
+                <div
+                  key={`${metric.label}-${idx}`}
+                  className="flex items-start shrink-0"
+                >
+                  {/* Train Carriage Item */}
+                  <div className="flex flex-col items-center text-center w-[145px] sm:w-[170px]">
+                    {/* Category Logo/Icon */}
+                    <div
+                      className="w-8 h-8 rounded-xl flex items-center justify-center shadow-xs border mb-2"
+                      style={{
+                        backgroundColor: metric.iconBg,
+                        borderColor: metric.borderColor,
+                        color: metric.accentColor,
+                      }}
+                    >
+                      <Icon className="w-4 h-4 stroke-[2]" />
+                    </div>
+
+                    {/* Concentric Glow Disc with Glowing Percentage Inside */}
+                    <div
+                      className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full flex items-center justify-center shadow-xs"
+                      style={{ background: metric.gradientBg }}
+                    >
+                      <div className="absolute inset-2 rounded-full border border-white/25 pointer-events-none" />
+                      <div className="absolute inset-4 rounded-full border border-white/35 pointer-events-none" />
+                      <div
+                        className="relative z-10 flex items-center justify-center font-heading font-black text-xl sm:text-2xl text-white/95"
+                        style={{
+                          textShadow: `0 0 10px ${metric.glowColor}, 0 0 20px ${metric.glowColor}`,
+                        }}
+                      >
+                        <span>{metric.target}%</span>
+                      </div>
+                    </div>
+
+                    {/* Label Line Below */}
+                    <div className="font-heading font-extrabold text-xs sm:text-sm text-slate-800 leading-snug max-w-[135px] mt-2.5">
+                      {metric.label}
+                    </div>
+                  </div>
+
+                  {/* Connecting Coupler: Dotted Arrow Line between Carriages (Pixel-perfect centered to the disc) */}
+                  <div className="shrink-0 w-8 sm:w-10 h-24 mt-[40px] flex items-center justify-center pointer-events-none">
+                    <svg
+                      className="w-full h-3.5 block overflow-visible"
+                      viewBox="0 0 32 10"
+                    >
+                      <defs>
+                        <marker
+                          id={`arrowhead-mobile-${idx}`}
+                          markerWidth="6"
+                          markerHeight="6"
+                          refX="5"
+                          refY="3"
+                          orient="auto"
+                        >
+                          <polygon
+                            points="0 0.5, 5.5 3, 0 5.5"
+                            fill="#475569"
+                          />
+                        </marker>
+                      </defs>
+                      <line
+                        x1="2"
+                        y1="5"
+                        x2="27"
+                        y2="5"
+                        stroke="#64748b"
+                        strokeWidth="1.5"
+                        strokeDasharray="3 3"
+                        markerEnd={`url(#arrowhead-mobile-${idx})`}
+                      />
+                    </svg>
+                  </div>
+                </div>
+              );
+            })}
+          </motion.div>
         </div>
       </div>
     </section>
