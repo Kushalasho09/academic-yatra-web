@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import { getPackageBySlug } from "@/data/packageDetailsData";
 import PackageDetailHero from "@/components/package-detail/PackageDetailHero";
-import PackageStatsStrip from "@/components/package-detail/PackageStatsStrip";
 import PackageTargetAudience from "@/components/package-detail/PackageTargetAudience";
 import PackageCourseGuide from "@/components/package-detail/PackageCourseGuide";
 import PackageWhyChoose from "@/components/package-detail/PackageWhyChoose";
@@ -40,9 +39,6 @@ export default function PackageDetailPage() {
         data={data}
         onOpenBooking={handleOpenBooking}
       />
-
-      {/* 2. 4-Stat Metric Strip (Image 2) */}
-      <PackageStatsStrip stats={data.stats} />
 
       {/* 3. Who Needs This Course Audience Grid (Image 2) */}
       <PackageTargetAudience audience={data.audience} />

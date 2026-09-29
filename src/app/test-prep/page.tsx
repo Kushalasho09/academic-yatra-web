@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import TestPrepHero from "@/components/test-prep/TestPrepHero";
-import TestPrepStatsStrip from "@/components/test-prep/TestPrepStatsStrip";
 import TestPrepChooseYourPath from "@/components/test-prep/TestPrepChooseYourPath";
 import TestPrepPlatformPreview from "@/components/test-prep/TestPrepPlatformPreview";
 import TestPrepLearningExperience from "@/components/test-prep/TestPrepLearningExperience";
@@ -22,9 +21,6 @@ export default function TestPrepPage() {
     <div className="flex flex-col min-h-screen bg-white">
       {/* 1. Hero Section: Video background, Dennis Snellenberg preloader, liquid glass buttons */}
       <TestPrepHero />
-
-      {/* 2. 4-Stat Metric Strip (100% Online Dashboard, 100% Tracking, 99% Accuracy, 100% Attendance) */}
-      <TestPrepStatsStrip />
 
       {/* 3. Choose Your Path (SAT, GRE, GMAT, Combo Pathways) */}
       <TestPrepChooseYourPath onSelectPath={handleSelectPath} />

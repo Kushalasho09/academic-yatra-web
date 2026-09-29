@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import SkillCatalystHero from "@/components/skill-catalyst/SkillCatalystHero";
-import SkillCatalystStatsStrip from "@/components/skill-catalyst/SkillCatalystStatsStrip";
 import SkillCatalystChooseYourPath from "@/components/skill-catalyst/SkillCatalystChooseYourPath";
 import SkillCatalystPlatformPreview from "@/components/skill-catalyst/SkillCatalystPlatformPreview";
 import SkillCatalystLearningExperience from "@/components/skill-catalyst/SkillCatalystLearningExperience";
@@ -22,9 +21,6 @@ export default function SkillCatalystPage() {
     <div className="flex flex-col min-h-screen bg-white">
       {/* 1. Hero Section: Video background, words preloader, liquid glass buttons */}
       <SkillCatalystHero />
-
-      {/* 2. 4-Stat Metric Strip (100% Online Dashboard, 100% Tracking, 99% Accuracy, 100% Attendance) */}
-      <SkillCatalystStatsStrip />
 
       {/* 3. Choose Your Path (Career Essentials, BizzTech, Google Suite Hub, Combo) */}
       <SkillCatalystChooseYourPath onSelectPath={handleSelectPath} />

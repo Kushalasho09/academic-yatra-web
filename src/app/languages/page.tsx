@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import LanguagesHero from "@/components/languages/LanguagesHero";
-import LanguagesStatsStrip from "@/components/languages/LanguagesStatsStrip";
 import ChooseYourPath from "@/components/languages/ChooseYourPath";
 import PlatformPreview from "@/components/languages/PlatformPreview";
 import LearningExperience from "@/components/languages/LearningExperience";
@@ -22,9 +21,6 @@ export default function LanguagesProgramsPage() {
     <div className="flex flex-col min-h-screen bg-white">
       {/* 1. Hero Section */}
       <LanguagesHero />
-
-      {/* 2. 4-Stat Metric Strip */}
-      <LanguagesStatsStrip />
 
       {/* 3. Choose Your Path (10 Pathways) */}
       <ChooseYourPath onSelectPath={handleSelectPath} />
