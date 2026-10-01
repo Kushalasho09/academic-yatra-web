@@ -12,9 +12,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Refund Policy | Academic Yatra",
+  title: "Refund Policy | Academic Yatra™",
   description:
-    "Understand Academic Yatra's strict No Refund Policy, the 5-Day Free Trial evaluation period, and verified failure exceptions.",
+    "Understand Academic Yatra™'s strict No Refund Policy, the 5-Day Free Trial evaluation period, and verified failure exceptions.",
 };
 
 const TOC_ITEMS: LegalTocItem[] = [
@@ -48,7 +48,7 @@ export default function RefundPolicyPage() {
         </div>
 
         <p className="text-slate-700 text-sm leading-relaxed">
-          This policy governs all purchases, course enrollments, digital subscriptions, and consultation services executed through <a href="https://academicyatra.com" className="text-[#0C9253] font-semibold underline underline-offset-2">academicyatra.com</a>. By purchasing or accessing Academic Yatra (a vertical of <strong className="text-slate-900">Future Yatra Pvt. Ltd.</strong>), you acknowledge and explicitly agree to this strictly enforced financial framework.
+          This policy governs all purchases, course enrollments, digital subscriptions, and consultation services executed through <a href="https://academicyatra.com" className="text-[#0C9253] font-semibold underline underline-offset-2">academicyatra.com</a>. By purchasing or accessing Academic Yatra™ (a vertical of <strong className="text-slate-900">Future Yatra™ Pvt. Ltd.</strong>), you acknowledge and explicitly agree to this strictly enforced financial framework.
         </p>
       </section>
 
@@ -102,7 +102,7 @@ export default function RefundPolicyPage() {
             Due to the immediate digital delivery of our educational content, all purchases are considered legally absolute and final once payment is completed and access is granted.
           </p>
           <p className="text-rose-900">
-            Academic Yatra enforces a strict <strong>No Refund Policy</strong> across all offerings, including online courses, live classes, recorded sessions, and mentorship programs. Refunds will <strong>NOT</strong> be issued under any circumstances for:
+            Academic Yatra™ enforces a strict <strong>No Refund Policy</strong> across all offerings, including online courses, live classes, recorded sessions, and mentorship programs. Refunds will <strong>NOT</strong> be issued under any circumstances for:
           </p>
           <ul className="list-disc pl-5 space-y-1 text-rose-900 text-xs sm:text-sm">
             <li>Buyer’s remorse, change of mind, or shifts in academic/career plans.</li>
@@ -149,13 +149,13 @@ export default function RefundPolicyPage() {
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70 sm:col-span-2">
             <strong className="text-slate-900 block mb-1">Service / Trainer Non-Delivery</strong>
             <span className="text-slate-600 text-xs">
-              If, following a paid enrollment, Academic Yatra fails to deliver scheduled classes or the assigned trainer for <strong>7 (seven) consecutive days</strong> for reasons attributable solely to Academic Yatra, the User may request a pro-rata refund for the undelivered portion of the program.
+              If, following a paid enrollment, Academic Yatra™ fails to deliver scheduled classes or the assigned trainer for <strong>7 (seven) consecutive days</strong> for reasons attributable solely to Academic Yatra™, the User may request a pro-rata refund for the undelivered portion of the program.
             </span>
           </div>
         </div>
 
         <div className="p-3.5 rounded-xl bg-slate-100 text-slate-700 text-xs leading-relaxed">
-          <strong>Processing Window:</strong> Approval of any exception remains at the sole discretion of Academic Yatra. Approved refunds require <strong>7–14 business days</strong> for processing. Routine technical issues will be addressed via technical support or rescheduled classes, and do not automatically qualify for a refund.
+          <strong>Processing Window:</strong> Approval of any exception remains at the sole discretion of Academic Yatra™. Approved refunds require <strong>7–14 business days</strong> for processing. Routine technical issues will be addressed via technical support or rescheduled classes, and do not automatically qualify for a refund.
         </div>
       </section>
 
@@ -178,7 +178,7 @@ export default function RefundPolicyPage() {
             <span>Prohibition of Unjustified Disputes</span>
           </div>
           <p className="text-amber-900 text-xs sm:text-sm">
-            Users explicitly agree not to initiate unjustified bank chargebacks or payment disputes after receiving access to digital services. If an unjustified chargeback is initiated, Academic Yatra reserves the absolute right to:
+            Users explicitly agree not to initiate unjustified bank chargebacks or payment disputes after receiving access to digital services. If an unjustified chargeback is initiated, Academic Yatra™ reserves the absolute right to:
           </p>
           <ul className="list-disc pl-5 space-y-1 text-amber-900 text-xs sm:text-sm">
             <li>Immediately suspend the user account and terminate service access.</li>
@@ -202,7 +202,7 @@ export default function RefundPolicyPage() {
         </div>
 
         <p className="text-slate-600 text-sm leading-relaxed">
-          Academic Yatra integrates with third-party payment gateways and hosting providers. We bear no responsibility for independent third-party refund policies, localized payment processing delays, or technical failures that occur outside our direct systemic control.
+          Academic Yatra™ integrates with third-party payment gateways and hosting providers. We bear no responsibility for independent third-party refund policies, localized payment processing delays, or technical failures that occur outside our direct systemic control.
         </p>
       </section>
 
@@ -221,7 +221,7 @@ export default function RefundPolicyPage() {
 
         <div className="space-y-3 text-sm text-slate-600">
           <p>
-            Academic Yatra reserves the unilateral right to update or modify this policy at any time without prior notice. Continued use of the platform constitutes your legally binding acceptance of the revised terms.
+            Academic Yatra™ reserves the unilateral right to update or modify this policy at any time without prior notice. Continued use of the platform constitutes your legally binding acceptance of the revised terms.
           </p>
           <p>
             This policy is governed by the laws of India. Any legal disputes or formal claims arising from platform transactions shall be subject to the exclusive jurisdiction of the competent courts located in <strong className="text-slate-900">Delhi, India</strong>.

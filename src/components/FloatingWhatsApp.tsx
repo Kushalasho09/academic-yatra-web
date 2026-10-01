@@ -31,7 +31,7 @@ export default function FloatingWhatsApp() {
                 AY
               </div>
               <div>
-                <div className="text-xs font-bold text-slate-900">Academic Yatra Support</div>
+                <div className="text-xs font-bold text-slate-900">Academic Yatra™ Support</div>
                 <div className="text-[10px] text-emerald-600 font-semibold flex items-center space-x-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   <span>Online • Quick Response</span>

@@ -172,7 +172,7 @@ export default function DuolingoQuestMap() {
   // Copy WhatsApp Summary
   const handleCopySummary = () => {
     if (!selectedCountry) return;
-    const summaryText = `🎓 *FUTURE YATRA Study-Abroad Boarding Pass*
+    const summaryText = `🎓 *FUTURE YATRA™ Study-Abroad Boarding Pass*
 👤 *Student Level*: ${selectedQual.title}
 ⚡ *Stream*: ${selectedStream.name}
 🎯 *Target Track*: ${selectedCourse.name} (${selectedRoute === "accelerated" ? "⚡ Accelerated Pathway - Save up to ₹53L" : "Direct On-Campus"})
@@ -184,7 +184,7 @@ export default function DuolingoQuestMap() {
 🏛️ *Education Loan Facilitation*: 100% Pre-Visa Sanction with Nationalized & NBFC Banks
 ✨ *Trust Policy*: Free Visa Re-Filing Guarantee (1–2 attempts)
 
-_Created via Future Yatra Interactive Gamified Yatra Map_`;
+_Created via Future Yatra™ Interactive Gamified Yatra Map_`;
 
     navigator.clipboard.writeText(summaryText);
     setCopied(true);

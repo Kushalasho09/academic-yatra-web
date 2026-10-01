@@ -115,7 +115,7 @@ export default function SkillCatalystStudentFeedback() {
           <div>
             <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-tight sm:leading-[1.28] tracking-tight">
               <span>What Students Like </span>
-              <span className="text-brand-primary block sm:inline">About Academic Yatra</span>
+              <span className="text-brand-primary block sm:inline">About Academic Yatra™</span>
             </h2>
           </div>
 

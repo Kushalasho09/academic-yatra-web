@@ -112,7 +112,7 @@ export const POST_COUNSELLING_STEPS: OperationalStep[] = [
     stepNumber: 1,
     title: "Document Collection",
     shortDesc: "Gather academic marksheets, passport, ID proofs, and preliminary transcripts.",
-    details: "Your dedicated Future Yatra counsellor prepares a personalized checklist based on your destination country's embassy guidelines.",
+    details: "Your dedicated Future Yatra™ counsellor prepares a personalized checklist based on your destination country's embassy guidelines.",
     icon: "FolderOpen",
   },
   {
@@ -141,7 +141,7 @@ export const POST_COUNSELLING_STEPS: OperationalStep[] = [
     stepNumber: 5,
     title: "Application Submission & Service Agreement",
     shortDesc: "Official application submission through institutional portals & direct agent tie-ups.",
-    details: "Standard transparent Future Yatra Service Agreement signed (range ₹5,000–₹1,00,000 based on case complexity, non-refundable service charge).",
+    details: "Standard transparent Future Yatra™ Service Agreement signed (range ₹5,000–₹1,00,000 based on case complexity, non-refundable service charge).",
     icon: "Send",
     highlightBadge: "Official Filing",
   },
@@ -163,7 +163,7 @@ export const POST_COUNSELLING_STEPS: OperationalStep[] = [
     stepNumber: 8,
     title: "Education Loan Processing",
     shortDesc: "100% collateral and non-collateral education loan sanction support.",
-    details: "Future Yatra partners with leading public/private banks and NBFCs (SBI, HDFC Credila, Avanse, Prodigy) with preferential interest rates.",
+    details: "Future Yatra™ partners with leading public/private banks and NBFCs (SBI, HDFC Credila, Avanse, Prodigy) with preferential interest rates.",
     icon: "Landmark",
     highlightBadge: "FY-Assisted Loan",
   },
@@ -178,7 +178,7 @@ export const POST_COUNSELLING_STEPS: OperationalStep[] = [
     stepNumber: 10,
     title: "Visa Approval & Re-filing Guarantee",
     shortDesc: "Passport stamping and visa grant confirmation.",
-    details: "TRUST POLICY: In the rare event of refusal, Future Yatra provides 100% FREE re-filing (up to 1–2 attempts) or free country/product switch.",
+    details: "TRUST POLICY: In the rare event of refusal, Future Yatra™ provides 100% FREE re-filing (up to 1–2 attempts) or free country/product switch.",
     icon: "ShieldCheck",
     highlightBadge: "Free Re-filing Guarantee",
   },
@@ -434,7 +434,7 @@ export const MASTER_QUALIFICATIONS_DATA: QualificationCategory[] = [
             category: 'Medicine & Surgery',
             applicableRoutes: ['direct'],
             directDuration: '5.5–6 Years (with integrated internship)',
-            specialCaseNote: 'NEET qualification is MANDATORY. Future Yatra provides integrated FMGE/NExT coaching alongside studies or USMLE prep for USA residency.',
+            specialCaseNote: 'NEET qualification is MANDATORY. Future Yatra™ provides integrated FMGE/NExT coaching alongside studies or USMLE prep for USA residency.',
             countries: [
               {
                 id: 'pcb-mbbs-russia',
@@ -481,7 +481,7 @@ export const MASTER_QUALIFICATIONS_DATA: QualificationCategory[] = [
                 languagePrepAvailable: true,
                 entrySalaryInr: '₹12,00,000 – ₹20,00,000/yr (in India)',
                 entrySalaryLocal: '₹1–1.5 Lakhs/month',
-                licensingExamNote: 'NExT exam preparation facilitated in-house by Future Yatra',
+                licensingExamNote: 'NExT exam preparation facilitated in-house by Future Yatra™',
                 dataStatus: 'RESEARCHED',
               },
               {

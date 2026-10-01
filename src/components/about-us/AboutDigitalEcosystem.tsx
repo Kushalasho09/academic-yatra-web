@@ -451,7 +451,7 @@ export default function AboutDigitalEcosystem() {
                   </div>
 
                   <span className="text-xs text-emerald-400 font-medium">
-                    Academic Yatra Virtual Campus
+                    Academic Yatra™ Virtual Campus
                   </span>
                 </div>
               </div>

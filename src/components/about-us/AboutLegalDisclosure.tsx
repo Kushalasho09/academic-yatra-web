@@ -30,7 +30,7 @@ export default function AboutLegalDisclosure() {
     },
     {
       title: "A settlement advisory or immigration service",
-      detail: "Academic Yatra does not provide permanent-residency (PR), legal visa representation, or placement/recruitment consultancy through this platform.",
+      detail: "Academic Yatra™ does not provide permanent-residency (PR), legal visa representation, or placement/recruitment consultancy through this platform.",
     },
   ];
 
@@ -70,18 +70,18 @@ export default function AboutLegalDisclosure() {
           {/* Core Scope Statement */}
           <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
             <p className="text-slate-800 text-sm sm:text-base font-semibold leading-relaxed">
-              Academic Yatra provides educational training, language learning, and examination preparation services only.
+              Academic Yatra™ provides educational training, language learning, and examination preparation services only.
             </p>
             <p className="text-slate-500 text-xs sm:text-sm mt-1 leading-relaxed">
               All courses, study materials, and classroom drills are designed exclusively to help candidates build proficiency, master exam formats, and strengthen academic readiness.
             </p>
           </div>
 
-          {/* Academic Yatra is NOT list */}
+          {/* Academic Yatra™ is NOT list */}
           <div className="mt-8 space-y-4">
             <p className="text-xs font-black uppercase tracking-wider text-slate-500 flex items-center gap-2">
               <AlertCircle className="w-4 h-4 text-rose-500" />
-              <span>Explicit Scope Limitations — Academic Yatra is NOT:</span>
+              <span>Explicit Scope Limitations — Academic Yatra™ is NOT:</span>
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">

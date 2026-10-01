@@ -16,7 +16,7 @@ export default function LanguagesHero() {
           "Guten Tag",
           "IELTS",
           "PTE",
-          "Academic Yatra",
+          "Academic Yatra™",
         ]}
         durationPerWord={200}
         backgroundColor="#031643"

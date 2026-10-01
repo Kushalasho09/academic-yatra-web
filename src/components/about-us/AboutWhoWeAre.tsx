@@ -37,7 +37,7 @@ export default function AboutWhoWeAre() {
             transition={{ duration: 0.55, delay: 0.08 }}
             className="font-heading text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black tracking-tight leading-[1.18]"
           >
-            Part of Future Yatra. <br />
+            Part of Future Yatra™. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400">
               For the language your Dreams Speak.
             </span>
@@ -50,8 +50,8 @@ export default function AboutWhoWeAre() {
             transition={{ duration: 0.55, delay: 0.15 }}
             className="mt-5 text-slate-300 text-base sm:text-lg leading-relaxed font-normal max-w-2xl mx-auto"
           >
-            Academic Yatra is the Language Training & Test Preparation vertical of{" "}
-            <span className="text-white font-semibold">Future Yatra Private Limited</span>, established in 2025.
+            Academic Yatra™ is the Language Training & Test Preparation vertical of{" "}
+            <span className="text-white font-semibold">Future Yatra™ Private Limited</span>, established in 2025.
           </motion.p>
         </div>
 
@@ -111,7 +111,7 @@ export default function AboutWhoWeAre() {
               </div>
 
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
-                Academic Yatra's stated future direction includes expanded digital learning experiences, AI-driven learning support, new certification programs and globally relevant skill development.
+                Academic Yatra™'s stated future direction includes expanded digital learning experiences, AI-driven learning support, new certification programs and globally relevant skill development.
               </p>
             </motion.div>
 
@@ -140,7 +140,7 @@ export default function AboutWhoWeAre() {
               </h3>
 
               <p className="mt-3.5 text-slate-300 text-sm sm:text-base leading-relaxed">
-                Explore the programs and see where Academic Yatra fits into your plans.
+                Explore the programs and see where Academic Yatra™ fits into your plans.
               </p>
             </div>
 

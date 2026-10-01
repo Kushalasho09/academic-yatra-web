@@ -110,8 +110,8 @@ export default function SkillCatalystPlatformPreview() {
           {/* Browser Content: High-Resolution Dashboard Mockup Image */}
           <div className="relative w-full aspect-[16/9] bg-slate-100 overflow-hidden group">
             <Image
-              src="/images/test_prep_student_dashboard.jpg"
-              alt="Academic Yatra Student Dashboard — Skill Catalyst, Performance Tracking and Analytics"
+              src="/images/student_dashboard_widescreen.jpg"
+              alt="Academic Yatra™ Student Dashboard — Skill Catalyst, Performance Tracking and Analytics"
               fill
               priority
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 95vw, 1100px"

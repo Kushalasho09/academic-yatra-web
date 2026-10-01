@@ -1228,7 +1228,7 @@ export default function PackageInlineCheckout({
 
                       <a
                         href={`https://web.whatsapp.com/send?phone=+919403892981&text=${encodeURIComponent(
-                          `Hi Academic Yatra, I am completing enrollment for ${selectedPlan.category} - ${selectedPlan.packType} (${selectedPlan.priceFormatted}). Please confirm batch timings.`
+                          `Hi Academic Yatra™, I am completing enrollment for ${selectedPlan.category} - ${selectedPlan.packType} (${selectedPlan.priceFormatted}). Please confirm batch timings.`
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -1502,7 +1502,7 @@ export default function PackageInlineCheckout({
 
                       <a
                         href={`https://web.whatsapp.com/send?phone=+919403892981&text=${encodeURIComponent(
-                          `Hi Academic Yatra, I would like to enroll in ${selectedPlan.category} - ${selectedPlan.packType} (${selectedPlan.priceFormatted}). Please guide me on payment options.`
+                          `Hi Academic Yatra™, I would like to enroll in ${selectedPlan.category} - ${selectedPlan.packType} (${selectedPlan.priceFormatted}). Please guide me on payment options.`
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"

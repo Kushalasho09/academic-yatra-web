@@ -15,7 +15,7 @@ export default function SkillCatalystHero() {
           "BizzTech",
           "Google Suite Hub",
           "Workplace Skills",
-          "Academic Yatra",
+          "Academic Yatra™",
         ]}
         durationPerWord={200}
         backgroundColor="#031643"

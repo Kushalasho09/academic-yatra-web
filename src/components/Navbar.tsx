@@ -71,11 +71,11 @@ export default function Navbar() {
           <Link
             href="/"
             className="flex items-center shrink-0 pl-2 pr-1 hover:opacity-90 transition-all hover:scale-[1.02] cursor-pointer"
-            aria-label="Academic Yatra Home"
+            aria-label="Academic Yatra™ Home"
           >
             <Image
               src="/images/Academic_Ya-removebg-preview.png"
-              alt="Academic Yatra — Making Global Education Easy"
+              alt="Academic Yatra™ — Making Global Education Easy"
               width={200}
               height={48}
               className="h-9 lg:h-10 xl:h-11 w-auto object-contain"
@@ -114,11 +114,11 @@ export default function Navbar() {
         <Link
           href="/"
           className="lg:hidden flex items-center pl-2 shrink-0 hover:opacity-90 transition-opacity"
-          aria-label="Academic Yatra Home"
+          aria-label="Academic Yatra™ Home"
         >
           <Image
             src="/images/Academic_Ya-removebg-preview.png"
-            alt="Academic Yatra"
+            alt="Academic Yatra™"
             width={160}
             height={38}
             className="h-8 sm:h-9 w-auto object-contain"
@@ -168,7 +168,7 @@ export default function Navbar() {
             <div className="pb-3 mb-1 border-b border-slate-100 px-2 flex items-center justify-between">
               <Image
                 src="/images/Academic_Ya-removebg-preview.png"
-                alt="Academic Yatra"
+                alt="Academic Yatra™"
                 width={130}
                 height={32}
                 className="h-7 w-auto object-contain"

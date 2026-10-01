@@ -26,7 +26,7 @@ export default function AboutContactSection() {
     // Simulate submission or construct WhatsApp text
     setSubmitted(true);
     const text = encodeURIComponent(
-      `Hi Academic Yatra, My name is ${formData.name}. Phone: ${formData.phone}, Email: ${formData.email}. Inquiry: ${formData.message}`
+      `Hi Academic Yatra™, My name is ${formData.name}. Phone: ${formData.phone}, Email: ${formData.email}. Inquiry: ${formData.message}`
     );
     window.open(`https://web.whatsapp.com/send?phone=+919403892981&text=${text}`, "_blank");
   };
@@ -96,7 +96,7 @@ export default function AboutContactSection() {
                   <p className="text-xs font-bold uppercase tracking-wide text-slate-500">
                     Corporate Principal Office
                   </p>
-                  <p className="text-sm font-bold text-dark">Future Yatra Private Limited</p>
+                  <p className="text-sm font-bold text-dark">Future Yatra™ Private Limited</p>
                   <p className="text-xs text-slate-500">New Delhi, India (Est. 2025)</p>
                 </div>
               </div>
@@ -195,7 +195,7 @@ export default function AboutContactSection() {
                   </button>
 
                   <p className="text-center text-[11px] text-slate-500">
-                    By submitting, you agree to receive program guidance from Academic Yatra. We respect your privacy.
+                    By submitting, you agree to receive program guidance from Academic Yatra™. We respect your privacy.
                   </p>
                 </form>
               )}

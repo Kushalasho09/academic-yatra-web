@@ -5,7 +5,7 @@ import Link from "next/link"
 import { ArrowRight, MessageCircle, Sparkles, Trophy, Globe, GraduationCap } from "lucide-react"
 
 // ─────────────────────────────────────────────────────────────
-// ACADEMIC YATRA / SKYLINE HERO — locked scroll-scrub video hero
+// ACADEMIC YATRA™ / SKYLINE HERO — locked scroll-scrub video hero
 // Smoothly scrubs cinematic footage with scroll gestures.
 // Monumental brand typography composes in behind the iconic
 // world university skyline cutout, revealing brand badges,
@@ -72,9 +72,9 @@ export default function TokyoSkylineHero({
   skylineSrc = DEFAULT_SKYLINE,
   badge = "GLOBAL EDUCATION & LANGUAGE PATHWAYS",
   title = "For the language your dreams speak",
-  subtitle = "Academic Yatra is a comprehensive digital learning platform for language training, test preparation, and practical skill development.",
+  subtitle = "Academic Yatra™ is a comprehensive digital learning platform for language training, test preparation, and practical skill development.",
   scrollHint = "SCROLL TO EXPLORE",
-  brandMark = "ACADEMIC YATRA",
+  brandMark = "ACADEMIC YATRA™",
   brandSubmark = "YOUR GLOBAL LEARNING EXPEDITION",
   stats = DEFAULT_STATS,
   primaryCta = { label: "Explore Programs", href: "#what-we-do" },
@@ -84,7 +84,7 @@ export default function TokyoSkylineHero({
   },
   navItems = DEFAULT_NAV,
   signature = {
-    name: "Academic Yatra",
+    name: "Academic Yatra™",
     url: "https://academicyatra.com",
   },
   scrubDistance = 3000,
@@ -108,6 +108,11 @@ export default function TokyoSkylineHero({
     const reduceMotion =
       typeof window !== "undefined" &&
       window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+
+    const isMobile =
+      typeof window !== "undefined" &&
+      (window.innerWidth < 768 || ("ontouchstart" in window && window.innerWidth < 1024))
+    const effectiveScrubDistance = isMobile ? Math.min(480, scrubDistance * 0.18) : scrubDistance
 
     let duration = video.duration || 0
     let rafId = 0
@@ -182,26 +187,30 @@ export default function TokyoSkylineHero({
     function engageLock() {
       if (locked || typeof document === "undefined") return
       locked = true
-      lockedScrollY = window.scrollY
-      const b = document.body.style
-      b.position = "fixed"
-      b.top = `-${lockedScrollY}px`
-      b.left = "0"
-      b.right = "0"
-      b.width = "100%"
+      if (!isMobile) {
+        lockedScrollY = window.scrollY
+        const b = document.body.style
+        b.position = "fixed"
+        b.top = `-${lockedScrollY}px`
+        b.left = "0"
+        b.right = "0"
+        b.width = "100%"
+      }
     }
 
     function releaseLock() {
       if (!locked || typeof document === "undefined") return
       locked = false
-      const y = lockedScrollY
-      const b = document.body.style
-      b.position = ""
-      b.top = ""
-      b.left = ""
-      b.right = ""
-      b.width = ""
-      window.scrollTo(0, y)
+      if (!isMobile) {
+        const y = lockedScrollY
+        const b = document.body.style
+        b.position = ""
+        b.top = ""
+        b.left = ""
+        b.right = ""
+        b.width = ""
+        window.scrollTo(0, y)
+      }
     }
 
     // Lock only when active at top of window
@@ -210,12 +219,12 @@ export default function TokyoSkylineHero({
     }
 
     function addDelta(deltaY: number): boolean {
-      if (locked && targetProgress >= 0.995 && deltaY > 0) {
+      if (locked && targetProgress >= 0.98 && deltaY > 0) {
         releaseLock()
         return false
       }
 
-      const next = clamp(targetProgress + deltaY / scrubDistance, 0, 1)
+      const next = clamp(targetProgress + deltaY / effectiveScrubDistance, 0, 1)
       targetProgress = next
       if (targetProgress > 0.001) hasStartedScrolling = true
       return true
@@ -223,9 +232,9 @@ export default function TokyoSkylineHero({
 
     const onWheel = (e: WheelEvent) => {
       if (!locked) {
-        if (window.scrollY <= 5 && e.deltaY < 0) {
+        if (window.scrollY <= 5 && e.deltaY < 0 && targetProgress > 0) {
           engageLock()
-          targetProgress = 0.99
+          targetProgress = 0.98
           addDelta(e.deltaY)
           e.preventDefault()
         }
@@ -248,17 +257,17 @@ export default function TokyoSkylineHero({
       touchStartY = y
 
       if (!locked) {
-        if (window.scrollY <= 5 && deltaY < 0) {
+        if (window.scrollY <= 5 && deltaY < 0 && targetProgress > 0) {
           engageLock()
-          targetProgress = 0.99
+          targetProgress = 0.98
           addDelta(deltaY)
-          e.preventDefault()
+          if (e.cancelable) e.preventDefault()
         }
         return
       }
 
       const handled = addDelta(deltaY)
-      if (handled) {
+      if (handled && e.cancelable) {
         e.preventDefault()
       }
     }
@@ -269,13 +278,17 @@ export default function TokyoSkylineHero({
 
     function frame() {
       const prevProgress = currentProgress
-      currentProgress += (targetProgress - currentProgress) * 0.18
+      currentProgress += (targetProgress - currentProgress) * (isMobile ? 0.25 : 0.18)
 
-      // 1. Scrub video forward only when progress is actively moving or seek is pending
-      const progressDelta = Math.abs(currentProgress - prevProgress)
-      if (duration > 0 && (progressDelta > 0.0003 || pendingTime !== null)) {
-        const videoT = clamp(currentProgress / 0.78, 0, 1)
-        seekTo(videoT * duration)
+      // 1. Scrub video forward only on desktop
+      // On mobile devices, hardware decoders drop frames/flicker black during seekTo.
+      // Continuous background playback on mobile ensures flawless 60fps cinematic visuals.
+      if (!isMobile) {
+        const progressDelta = Math.abs(currentProgress - prevProgress)
+        if (duration > 0 && (progressDelta > 0.0003 || pendingTime !== null)) {
+          const videoT = clamp(currentProgress / 0.78, 0, 1)
+          seekTo(videoT * duration)
+        }
       }
 
       // 2. Initial title fade-out and lift
@@ -283,7 +296,11 @@ export default function TokyoSkylineHero({
         const t = 1 - clamp(currentProgress / 0.35, 0, 1)
         titleRef.current.style.opacity = String(t)
         titleRef.current.style.transform = `translateY(${(1 - t) * -36}px) scale(${0.96 + t * 0.04})`
-        titleRef.current.style.filter = `blur(${(1 - t) * 12}px)`
+        if (!isMobile) {
+          titleRef.current.style.filter = `blur(${(1 - t) * 12}px)`
+        } else {
+          titleRef.current.style.filter = "none"
+        }
         titleRef.current.style.pointerEvents = t > 0.2 ? "auto" : "none"
       }
 
@@ -292,7 +309,7 @@ export default function TokyoSkylineHero({
         hintRef.current.style.opacity = hasStartedScrolling ? "0" : "1"
       }
 
-      // 4. Monumental Academic Yatra brand mark reveals
+      // 4. Monumental Academic Yatra™ brand mark reveals
       if (brandRef.current) {
         const t = clamp((currentProgress - 0.55) / 0.35, 0, 1)
         brandRef.current.style.opacity = String(t)

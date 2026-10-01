@@ -22,7 +22,7 @@ export default function PackageDetailHero({ data, onOpenBooking }: PackageDetail
           "Band 7.5+",
           "Cambridge Mocks",
           "Study Abroad",
-          "Academic Yatra",
+          "Academic Yatra™",
         ]}
         durationPerWord={200}
         backgroundColor="#031643"

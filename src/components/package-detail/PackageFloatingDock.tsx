@@ -47,7 +47,7 @@ export default function PackageFloatingDock({ onOpenContact }: PackageFloatingDo
             href="https://web.whatsapp.com/send?phone=+919403892981&text=Hi%20Academic%20Yatra,%20I%20am%20interested%20in%20the%20IELTS%20Academic%20Program."
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="WhatsApp Academic Yatra"
+            aria-label="WhatsApp Academic Yatra™"
             className="w-10 h-10 rounded-l-lg bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center shadow-lg transition-all hover:w-11 cursor-pointer"
           >
             <MessageCircle className="w-5 h-5 fill-white" />

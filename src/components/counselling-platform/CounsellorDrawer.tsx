@@ -48,7 +48,7 @@ export default function CounsellorDrawer({
   if (!countryData || !courseData) return null;
 
   const handleCopySummary = () => {
-    const summaryText = `🎓 *FUTURE YATRA Study-Abroad Counselling Roadmap*
+    const summaryText = `🎓 *FUTURE YATRA™ Study-Abroad Counselling Roadmap*
 👤 *Student Profile*: ${qualificationTitle} (${selectedStreamName})
 🎯 *Target Track*: ${courseData.name}
 📍 *Destination*: ${countryData.flag} ${countryData.countryName}
@@ -56,10 +56,10 @@ export default function CounsellorDrawer({
 🛂 *PR & Visa Pathway*: ${countryData.prPathwaySummary} (Post-Study Visa: ${countryData.postStudyWorkVisa})
 💼 *Avg. Starting Salary*: ${countryData.entrySalaryInr} (${countryData.entrySalaryLocal})
 📚 *Language Requirement*: ${countryData.languageRequirements.join(", ")} (FY In-House Prep Available)
-🏛️ *Education Loan Assistance*: 100% Collateral/Non-Collateral Facilitated by Future Yatra
+🏛️ *Education Loan Assistance*: 100% Collateral/Non-Collateral Facilitated by Future Yatra™
 ✨ *Trust Policy*: Free Visa Re-filing guarantee for up to 1-2 attempts.
 
-_Generated via Future Yatra Interactive Counselling Platform_`;
+_Generated via Future Yatra™ Interactive Counselling Platform_`;
 
     navigator.clipboard.writeText(summaryText);
     setCopied(true);
@@ -267,7 +267,7 @@ _Generated via Future Yatra Interactive Counselling Platform_`;
                       {countryData.languagePrepAvailable && (
                         <div className="flex items-center space-x-2 text-xs text-brand-primary bg-emerald-50/60 p-2.5 rounded-xl font-bold">
                           <Sparkles className="w-3.5 h-3.5" />
-                          <span>Future Yatra In-House Masterclass & Test Prep Available</span>
+                          <span>Future Yatra™ In-House Masterclass & Test Prep Available</span>
                         </div>
                       )}
                     </div>
@@ -279,7 +279,7 @@ _Generated via Future Yatra Interactive Counselling Platform_`;
                 {activeTab === "roadmap" && (
                   <div className="space-y-4">
                     <p className="text-xs text-slate-500 font-medium">
-                      Future Yatra provides end-to-end facilitation through this 12-step structured operational process:
+                      Future Yatra™ provides end-to-end facilitation through this 12-step structured operational process:
                     </p>
                     <div className="space-y-3">
                       {POST_COUNSELLING_STEPS.map((step) => (
@@ -318,7 +318,7 @@ _Generated via Future Yatra Interactive Counselling Platform_`;
                         <span>100% Education Loan Facilitation</span>
                       </div>
                       <p className="text-xs text-slate-700 leading-relaxed">
-                        Future Yatra works with leading nationalized and NBFC partners (SBI, HDFC Credila, Avanse, MPower, Prodigy) providing pre-visa sanction letters, non-collateral options up to ₹1 Crore, and preferential interest rates.
+                        Future Yatra™ works with leading nationalized and NBFC partners (SBI, HDFC Credila, Avanse, MPower, Prodigy) providing pre-visa sanction letters, non-collateral options up to ₹1 Crore, and preferential interest rates.
                       </p>
                       <ul className="text-xs space-y-1.5 text-slate-600 font-medium pt-1">
                         <li className="flex items-center gap-1.5">
@@ -340,10 +340,10 @@ _Generated via Future Yatra Interactive Counselling Platform_`;
                     <div className="bg-slate-900 text-white rounded-2xl p-5 space-y-3 shadow-lg">
                       <div className="flex items-center space-x-2 text-emerald-400 font-bold text-sm">
                         <ShieldCheck className="w-4 h-4" />
-                        <span>Future Yatra Free Visa Re-Filing Guarantee</span>
+                        <span>Future Yatra™ Free Visa Re-Filing Guarantee</span>
                       </div>
                       <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                        If a student’s visa is rejected on the initial attempt, Future Yatra re-files the visa application at <strong>ZERO additional counselling cost</strong> (up to 1–2 attempts).
+                        If a student’s visa is rejected on the initial attempt, Future Yatra™ re-files the visa application at <strong>ZERO additional counselling cost</strong> (up to 1–2 attempts).
                       </p>
                       <p className="text-xs text-slate-300 leading-relaxed font-normal">
                         Students also have the complete flexibility to switch destination countries or product streams (e.g. from Direct Model to Accelerated Pathway) with no extra service fees.

@@ -36,7 +36,7 @@ export default function ContactHeroAndForm() {
     e.preventDefault();
     setSubmitted(true);
     const text = encodeURIComponent(
-      `Hi Academic Yatra Team,\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.number}\nProgram: ${formData.program}\nMessage: ${formData.message}`
+      `Hi Academic Yatra™ Team,\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.number}\nProgram: ${formData.program}\nMessage: ${formData.message}`
     );
     window.open(`https://web.whatsapp.com/send?phone=+919403892981&text=${text}`, "_blank");
   };
@@ -59,7 +59,7 @@ export default function ContactHeroAndForm() {
           </div>
 
           <p className="max-w-md text-slate-500 text-sm sm:text-base leading-relaxed">
-            Connect with Academic Yatra for guidance on study abroad, test preparation, language learning, and global opportunities.
+            Connect with Academic Yatra™ for guidance on study abroad, test preparation, language learning, and global opportunities.
           </p>
         </div>
 
@@ -246,7 +246,7 @@ export default function ContactHeroAndForm() {
                   href="https://www.facebook.com/academicyatra"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Academic Yatra Facebook"
+                  aria-label="Academic Yatra™ Facebook"
                   className="w-10 h-10 rounded-full bg-[#0C9253] hover:bg-[#0A7A45] text-white flex items-center justify-center font-bold text-sm shadow-sm transition-transform hover:scale-105 cursor-pointer"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -259,7 +259,7 @@ export default function ContactHeroAndForm() {
                   href="https://www.instagram.com/academicyatra/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Academic Yatra Instagram"
+                  aria-label="Academic Yatra™ Instagram"
                   className="w-10 h-10 rounded-full bg-[#0C9253] hover:bg-[#0A7A45] text-white flex items-center justify-center font-bold text-sm shadow-sm transition-transform hover:scale-105 cursor-pointer"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">

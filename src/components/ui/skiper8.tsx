@@ -18,7 +18,7 @@ const DEFAULT_WORDS = [
   "Ciao",
   "Olà",
   "Namaste",
-  "Academic Yatra",
+  "Academic Yatra™",
 ];
 
 export function Skiper8({

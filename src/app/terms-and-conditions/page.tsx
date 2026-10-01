@@ -13,9 +13,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Academic Yatra",
+  title: "Terms & Conditions | Academic Yatra™",
   description:
-    "Review the Terms and Conditions governing access to Academic Yatra's digital preparatory ecosystem, courses, trials, and services.",
+    "Review the Terms and Conditions governing access to Academic Yatra™'s digital preparatory ecosystem, courses, trials, and services.",
 };
 
 const TOC_ITEMS: LegalTocItem[] = [
@@ -35,7 +35,7 @@ export default function TermsAndConditionsPage() {
   return (
     <LegalPageShell
       title="Terms and Conditions"
-      subtitle="Legally binding contract between users and Future Yatra Pvt. Ltd. governing access to Academic Yatra's educational services."
+      subtitle="Legally binding contract between users and Future Yatra™ Pvt. Ltd. governing access to Academic Yatra™'s educational services."
       effectiveDate="June 19, 2026"
       badgeText="Binding User Contract"
       tocItems={TOC_ITEMS}
@@ -53,10 +53,10 @@ export default function TermsAndConditionsPage() {
 
         <div className="space-y-3 text-sm">
           <p>
-            <strong className="text-slate-900">1.1 Binding Agreement.</strong> These Terms and Conditions constitute a legally binding contract between you (“User”, “Student”) and <strong className="text-slate-900">Future Yatra Pvt. Ltd.</strong> operating through its educational vertical, <strong className="text-slate-900">Academic Yatra</strong>. This Agreement governs your access to and use of <a href="https://academicyatra.com" className="text-[#0C9253] font-semibold underline underline-offset-2">academicyatra.com</a> and all associated digital resources, live classes, mock tests, and consultations (collectively, the “Platform” or “Services”).
+            <strong className="text-slate-900">1.1 Binding Agreement.</strong> These Terms and Conditions constitute a legally binding contract between you (“User”, “Student”) and <strong className="text-slate-900">Future Yatra™ Pvt. Ltd.</strong> operating through its educational vertical, <strong className="text-slate-900">Academic Yatra™</strong>. This Agreement governs your access to and use of <a href="https://academicyatra.com" className="text-[#0C9253] font-semibold underline underline-offset-2">academicyatra.com</a> and all associated digital resources, live classes, mock tests, and consultations (collectively, the “Platform” or “Services”).
           </p>
           <p>
-            <strong className="text-slate-900">1.2 Acceptance.</strong> By accessing the Platform, registering an account, enrolling in any program, or utilizing our Services, you signify your unconditional acceptance of these Terms. If you do not agree to be legally bound by this Agreement in its entirety, you must immediately cease all use of the Platform. Academic Yatra is committed to a structured learning environment, and these Terms are designed to ensure operational security and legal clarity for all parties.
+            <strong className="text-slate-900">1.2 Acceptance.</strong> By accessing the Platform, registering an account, enrolling in any program, or utilizing our Services, you signify your unconditional acceptance of these Terms. If you do not agree to be legally bound by this Agreement in its entirety, you must immediately cease all use of the Platform. Academic Yatra™ is committed to a structured learning environment, and these Terms are designed to ensure operational security and legal clarity for all parties.
           </p>
         </div>
       </section>
@@ -76,7 +76,7 @@ export default function TermsAndConditionsPage() {
 
         <div className="space-y-4 text-sm">
           <p>
-            <strong className="text-slate-900">2.1 Overview of Services.</strong> Academic Yatra provides a digital preparatory ecosystem focusing on test preparation programs, language learning, skill development training, live and recorded learning sessions, and structured mock tests. The Platform acts as a preparatory conduit to support students aiming for study abroad, global education, and international career opportunities.
+            <strong className="text-slate-900">2.1 Overview of Services.</strong> Academic Yatra™ provides a digital preparatory ecosystem focusing on test preparation programs, language learning, skill development training, live and recorded learning sessions, and structured mock tests. The Platform acts as a preparatory conduit to support students aiming for study abroad, global education, and international career opportunities.
           </p>
 
           {/* 5-Day Free Trial Policy Callout */}
@@ -86,7 +86,7 @@ export default function TermsAndConditionsPage() {
               <span>2.2 5-Day Free Trial Policy (Evaluation License)</span>
             </div>
             <p className="text-slate-700">
-              To ensure complete transparency, Academic Yatra may grant eligible Users a limited, revocable 5-day free trial for selected programs.
+              To ensure complete transparency, Academic Yatra™ may grant eligible Users a limited, revocable 5-day free trial for selected programs.
             </p>
             <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700 pl-4 list-disc">
               <li>
@@ -127,7 +127,7 @@ export default function TermsAndConditionsPage() {
           <div>
             <strong className="text-slate-900 block mb-1">3.2 Account Security & Responsibility</strong>
             <p className="text-slate-600">
-              Users are solely and entirely responsible for maintaining the strict confidentiality of their account credentials. You are legally liable for all activities conducted through your account. Any unauthorized access or suspicious activity must be reported to Academic Yatra immediately.
+              Users are solely and entirely responsible for maintaining the strict confidentiality of their account credentials. You are legally liable for all activities conducted through your account. Any unauthorized access or suspicious activity must be reported to Academic Yatra™ immediately.
             </p>
           </div>
 
@@ -138,7 +138,7 @@ export default function TermsAndConditionsPage() {
               3.3 Strict Anti-Account Sharing Policy
             </h3>
             <p className="text-amber-900 text-xs sm:text-sm leading-relaxed mb-2">
-              Course access is licensed exclusively for individual, personal use. Account sharing is strictly prohibited. If Academic Yatra’s security systems detect the unauthorized sharing of login credentials, course materials, recordings, or platform access, we reserve the absolute right to:
+              Course access is licensed exclusively for individual, personal use. Account sharing is strictly prohibited. If Academic Yatra™’s security systems detect the unauthorized sharing of login credentials, course materials, recordings, or platform access, we reserve the absolute right to:
             </p>
             <ul className="text-xs sm:text-sm text-amber-900 space-y-1 list-disc pl-5">
               <li>Immediately suspend or terminate access without prior notice.</li>
@@ -166,7 +166,7 @@ export default function TermsAndConditionsPage() {
           <div>
             <strong className="text-slate-900 block mb-1">4.1 Intellectual Property Rights</strong>
             <p className="text-slate-600">
-              All content hosted on Academic Yatra—including but not limited to live video feeds, recorded sessions, study materials, mock tests, proprietary resources, and platform infrastructure—is the exclusive intellectual property of Future Yatra Pvt. Ltd., protected under applicable copyright and trademark laws. Access to this content is personal and non-transferable.
+              All content hosted on Academic Yatra™—including but not limited to live video feeds, recorded sessions, study materials, mock tests, proprietary resources, and platform infrastructure—is the exclusive intellectual property of Future Yatra™ Pvt. Ltd., protected under applicable copyright and trademark laws. Access to this content is personal and non-transferable.
             </p>
           </div>
 
@@ -213,7 +213,7 @@ export default function TermsAndConditionsPage() {
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
             <strong className="text-slate-900 block mb-1">5.2 Strict No-Refund Policy</strong>
             <p className="text-slate-600 leading-relaxed mb-2">
-              Academic Yatra operates under a strict No Refund Policy for all digital educational services. Once a payment is successfully processed and access to the digital course or service is deployed, the transaction is considered absolute, final, and non-refundable. Specifically, refunds will NOT be entertained for:
+              Academic Yatra™ operates under a strict No Refund Policy for all digital educational services. Once a payment is successfully processed and access to the digital course or service is deployed, the transaction is considered absolute, final, and non-refundable. Specifically, refunds will NOT be entertained for:
             </p>
             <ul className="list-disc pl-5 space-y-1 text-slate-600 text-xs sm:text-sm">
               <li>Change of mind or personal scheduling issues.</li>
@@ -232,11 +232,11 @@ export default function TermsAndConditionsPage() {
               <li>Payment successfully deducted, but core service access is not activated by our systems.</li>
               <li>A verified, unresolved internal technical failure rendering the platform completely inaccessible.</li>
               <li>
-                <strong>Service/Trainer Non-Delivery:</strong> If, following a paid enrollment, Academic Yatra fails to deliver scheduled classes or the assigned trainer for 7 (seven) consecutive days for reasons attributable solely to Academic Yatra, the User may request a pro-rata refund for the undelivered portion of the program.
+                <strong>Service/Trainer Non-Delivery:</strong> If, following a paid enrollment, Academic Yatra™ fails to deliver scheduled classes or the assigned trainer for 7 (seven) consecutive days for reasons attributable solely to Academic Yatra™, the User may request a pro-rata refund for the undelivered portion of the program.
               </li>
             </ul>
             <p className="text-xs text-slate-500 italic mt-2">
-              All exceptions remain at the absolute, sole discretion of Academic Yatra. Submission of a request does not constitute a guarantee of a refund.
+              All exceptions remain at the absolute, sole discretion of Academic Yatra™. Submission of a request does not constitute a guarantee of a refund.
             </p>
           </div>
         </div>
@@ -259,14 +259,14 @@ export default function TermsAndConditionsPage() {
           <div>
             <strong className="text-slate-900 block mb-1">6.1 Platform Access & Technical Limitations</strong>
             <p className="text-slate-600">
-              While Academic Yatra strives to maintain stable and uninterrupted learning services, 100% continuous availability cannot be guaranteed. In the event of internal technical downtime, we may, at our discretion, provide recorded substitute sessions or reschedule affected classes. Academic Yatra explicitly disclaims responsibility for internet disruptions, device incompatibilities, or external ISP failures beyond its direct control.
+              While Academic Yatra™ strives to maintain stable and uninterrupted learning services, 100% continuous availability cannot be guaranteed. In the event of internal technical downtime, we may, at our discretion, provide recorded substitute sessions or reschedule affected classes. Academic Yatra™ explicitly disclaims responsibility for internet disruptions, device incompatibilities, or external ISP failures beyond its direct control.
             </p>
           </div>
 
           <div>
             <strong className="text-slate-900 block mb-1">6.2 Scheduling Authority</strong>
             <p className="text-slate-600">
-              Academic Yatra reserves the absolute right to modify learning schedules, reschedule classes, update program structures, alter session timings, or replace designated trainers where operationally necessary. Reasonable efforts will be made to notify enrolled students in advance.
+              Academic Yatra™ reserves the absolute right to modify learning schedules, reschedule classes, update program structures, alter session timings, or replace designated trainers where operationally necessary. Reasonable efforts will be made to notify enrolled students in advance.
             </p>
           </div>
         </div>
@@ -288,10 +288,10 @@ export default function TermsAndConditionsPage() {
         <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70 space-y-2 text-sm">
           <strong className="text-slate-900 block">7.1 “As Is” Basis & No Guarantee of Outcomes</strong>
           <p className="text-slate-600">
-            The Platform and all educational services are provided on an “AS IS” and “AS AVAILABLE” basis. Academic Yatra acts solely as a preparatory facilitator. We expressly disclaim any and all guarantees regarding specific outcomes.
+            The Platform and all educational services are provided on an “AS IS” and “AS AVAILABLE” basis. Academic Yatra™ acts solely as a preparatory facilitator. We expressly disclaim any and all guarantees regarding specific outcomes.
           </p>
           <p className="text-slate-700 font-medium">
-            User acknowledges that Academic Yatra does not and cannot guarantee:
+            User acknowledges that Academic Yatra™ does not and cannot guarantee:
           </p>
           <ul className="list-disc pl-5 space-y-1 text-slate-600 text-xs sm:text-sm">
             <li>Achievement of specific exam scores or percentiles.</li>
@@ -319,10 +319,10 @@ export default function TermsAndConditionsPage() {
 
         <div className="space-y-3 text-sm text-slate-600">
           <p>
-            To the maximum extent permitted by applicable law, Academic Yatra and Future Yatra Pvt. Ltd. shall not be liable for any indirect, incidental, special, or consequential losses arising from the use of the Platform. This includes, but is not limited to, admission rejections, loss of opportunity, revenue, or data, and third-party platform failures.
+            To the maximum extent permitted by applicable law, Academic Yatra™ and Future Yatra™ Pvt. Ltd. shall not be liable for any indirect, incidental, special, or consequential losses arising from the use of the Platform. This includes, but is not limited to, admission rejections, loss of opportunity, revenue, or data, and third-party platform failures.
           </p>
           <p className="p-3.5 rounded-lg bg-slate-100 font-semibold text-slate-800 text-xs sm:text-sm">
-            In all events, the total cumulative liability of Academic Yatra for any verified claim shall be strictly limited to and capped at the exact financial amount paid directly by the User for the applicable disputed service.
+            In all events, the total cumulative liability of Academic Yatra™ for any verified claim shall be strictly limited to and capped at the exact financial amount paid directly by the User for the applicable disputed service.
           </p>
         </div>
       </section>
@@ -351,7 +351,7 @@ export default function TermsAndConditionsPage() {
           <div>
             <strong className="text-slate-900 block mb-1">9.2 Communication Consent</strong>
             <p className="leading-relaxed">
-              By registering on the Platform or utilizing our Services, you consent to receive service-related communications from Academic Yatra via <strong>Phone Calls, WhatsApp, SMS, and Email</strong> — including academic updates, service notifications, secure dashboard credentials, and student support — as these are essential to delivering the Services you have requested. Promotional and marketing communications are sent only where you have separately opted in, and you may withdraw consent for such promotional communications at any time using the opt-out mechanisms provided within the messages or by contacting our Grievance Officer. Where applicable telecom regulations (including the TRAI commercial-communication framework and Do Not Disturb / DND preferences) apply, we will honour your registered DND and promotional-communication preferences.
+              By registering on the Platform or utilizing our Services, you consent to receive service-related communications from Academic Yatra™ via <strong>Phone Calls, WhatsApp, SMS, and Email</strong> — including academic updates, service notifications, secure dashboard credentials, and student support — as these are essential to delivering the Services you have requested. Promotional and marketing communications are sent only where you have separately opted in, and you may withdraw consent for such promotional communications at any time using the opt-out mechanisms provided within the messages or by contacting our Grievance Officer. Where applicable telecom regulations (including the TRAI commercial-communication framework and Do Not Disturb / DND preferences) apply, we will honour your registered DND and promotional-communication preferences.
             </p>
           </div>
         </div>
@@ -374,14 +374,14 @@ export default function TermsAndConditionsPage() {
           <div>
             <strong className="text-slate-900 block mb-1">10.1 Privacy & Data Usage</strong>
             <p>
-              The collection, storage, and processing of User data—including for operational, educational, and communication purposes—are strictly governed by the Academic Yatra Privacy Policy, which is incorporated herein by reference.
+              The collection, storage, and processing of User data—including for operational, educational, and communication purposes—are strictly governed by the Academic Yatra™ Privacy Policy, which is incorporated herein by reference.
             </p>
           </div>
 
           <div>
             <strong className="text-slate-900 block mb-1">10.2 Modifications to Terms</strong>
             <p>
-              Academic Yatra reserves the right, at its sole discretion, to update, modify, or replace these Terms & Conditions at any time without prior individual notice. Continued use of the Platform following the publication of any updates shall constitute your legally binding acceptance of the revised Terms.
+              Academic Yatra™ reserves the right, at its sole discretion, to update, modify, or replace these Terms & Conditions at any time without prior individual notice. Continued use of the Platform following the publication of any updates shall constitute your legally binding acceptance of the revised Terms.
             </p>
           </div>
 

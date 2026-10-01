@@ -18,7 +18,7 @@ export default function AboutCorporateEcosystem() {
     {
       id: "academic-yatra",
       badge: "Flagship Learning Vertical",
-      name: "Academic Yatra",
+      name: "Academic Yatra™",
       headline: "Language Training & Test Preparation",
       description:
         "Comprehensive, structured preparation for international English exams (IELTS, PTE, DET, TOEFL, CELPIP), competitive entrance tests (SAT, GRE, GMAT), and modern foreign languages (German, French, English).",
@@ -34,7 +34,7 @@ export default function AboutCorporateEcosystem() {
     {
       id: "university-yatra",
       badge: "Higher Education Vertical",
-      name: "University Yatra",
+      name: "University Yatra™",
       headline: "Higher Education Admissions & Academic Guidance",
       description:
         "Guiding ambitious students to top-ranked global universities through profile building, university shortlisting, documentation guidance, and comprehensive application roadmaps for Bachelor's and Master's.",
@@ -83,11 +83,11 @@ export default function AboutCorporateEcosystem() {
         {/* Section Header */}
         <div className="max-w-3xl mb-8 sm:mb-10">
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-dark tracking-tight leading-[1.18]">
-            About <span className="text-brand-primary">Future Yatra Private Limited</span>
+            About <span className="text-brand-primary">Future Yatra™ Private Limited</span>
           </h2>
 
           <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
-            Future Yatra Private Limited is a Delhi-based company established in 2025, operating as an integrated education, language training, and academic development solutions provider. The company is committed to helping students, professionals, and families achieve their academic and career goals through structured, technology-driven learning platforms.
+            Future Yatra™ Private Limited is a Delhi-based company established in 2025, operating as an integrated education, language training, and academic development solutions provider. The company is committed to helping students, professionals, and families achieve their academic and career goals through structured, technology-driven learning platforms.
           </p>
         </div>
 
@@ -178,8 +178,8 @@ export default function AboutCorporateEcosystem() {
               </div>
 
               <h3 className="font-heading text-2xl sm:text-3xl font-black tracking-tight text-white">
-                Academic Yatra is the learning and preparation vertical of{" "}
-                <span className="text-emerald-400">Future Yatra Pvt. Ltd.</span>
+                Academic Yatra™ is the learning and preparation vertical of{" "}
+                <span className="text-emerald-400">Future Yatra™ Pvt. Ltd.</span>
               </h3>
 
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">

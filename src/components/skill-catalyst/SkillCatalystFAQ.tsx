@@ -24,7 +24,7 @@ const SKILL_FAQ_DATA: FAQItem[] = [
   {
     question: "Will I receive a recognized certificate of achievement?",
     answer:
-      "Yes! Upon successful completion of the program, projects, and final skill assessment, you will receive an official, verifiable Certificate of Achievement from Academic Yatra to showcase on LinkedIn and your resume.",
+      "Yes! Upon successful completion of the program, projects, and final skill assessment, you will receive an official, verifiable Certificate of Achievement from Academic Yatra™ to showcase on LinkedIn and your resume.",
   },
   {
     question: "How long do I get access to the recorded lessons and materials?",

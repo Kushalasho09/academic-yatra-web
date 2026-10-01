@@ -14,7 +14,7 @@ if (typeof window !== "undefined") {
 }
 
 // -------------------------------------------------------------------------
-// 1. THEME-ADAPTIVE INLINE STYLES (Academic Yatra Colors)
+// 1. THEME-ADAPTIVE INLINE STYLES (Academic Yatra™ Colors)
 // -------------------------------------------------------------------------
 const STYLES = `
 .cinematic-footer-wrapper {
@@ -303,7 +303,7 @@ export function CinematicFooter() {
             ref={giantTextRef}
             className="footer-giant-bg-text absolute -bottom-[4vh] left-1/2 -translate-x-1/2 whitespace-nowrap z-0 pointer-events-none select-none text-center"
           >
-            ACADEMIC YATRA
+            ACADEMIC YATRA™
           </div>
 
           {/* 1. Diagonal Sleek Marquee (Top of footer) */}
@@ -434,7 +434,7 @@ export function CinematicFooter() {
             
             {/* Copyright & Quick Legal Links */}
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-2.5 gap-y-1 text-slate-400 text-[11px] sm:text-xs font-semibold tracking-wider order-2 md:order-1 text-center md:text-left">
-              <span>© {new Date().getFullYear()} <span className="text-slate-200">Future Yatra Pvt. Ltd.</span></span>
+              <span>© {new Date().getFullYear()} <span className="text-slate-200">Future Yatra™ Pvt. Ltd.</span></span>
               <span>•</span>
               <Link href="/privacy-policy" className="hover:text-emerald-300 transition-colors">Privacy</Link>
               <span>•</span>
@@ -447,7 +447,7 @@ export function CinematicFooter() {
             <div className="footer-glass-pill px-5 py-2 rounded-full flex items-center gap-2 order-1 md:order-2 cursor-default border-white/10">
               <span className="text-slate-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest">Empowering Global Students</span>
               <span className="animate-footer-heartbeat text-sm text-emerald-400">❤</span>
-              <span className="text-slate-200 font-bold text-xs sm:text-sm ml-1">Academic Yatra</span>
+              <span className="text-slate-200 font-bold text-xs sm:text-sm ml-1">Academic Yatra™</span>
             </div>
 
             {/* Back to top Button */}

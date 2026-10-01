@@ -36,7 +36,7 @@ export default function PackageBookingModal({
   };
 
   const whatsappDirectUrl = `https://web.whatsapp.com/send?phone=+919403892981&text=${encodeURIComponent(
-    `Hi Academic Yatra, My name is ${name || "Student"}. I am inquiring about ${defaultPlan || "IELTS Academic Program"}. ${message}`
+    `Hi Academic Yatra™, My name is ${name || "Student"}. I am inquiring about ${defaultPlan || "IELTS Academic Program"}. ${message}`
   )}`;
 
   return (
@@ -84,7 +84,7 @@ export default function PackageBookingModal({
               <div>
                 <div className="text-left mb-6">
                   <span className="text-xs font-bold text-[#00B074] uppercase tracking-wider">
-                    Academic Yatra Admissions
+                    Academic Yatra™ Admissions
                   </span>
                   <h3 className="text-2xl font-bold font-heading text-slate-900 mt-1">
                     {defaultTitle}

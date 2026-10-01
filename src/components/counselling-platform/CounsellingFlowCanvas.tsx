@@ -132,7 +132,7 @@ export default function CounsellingFlowCanvas() {
           <div>
             <div className="flex items-center space-x-2">
               <span className="font-heading font-extrabold text-base text-dark">
-                Future Yatra <span className="text-brand-primary">Decision Tree</span>
+                Future Yatra™ <span className="text-brand-primary">Decision Tree</span>
               </span>
               <span className="bg-brand-greenTint text-brand-primary border border-brand-primary/20 text-[10px] font-extrabold px-2 py-0.5 rounded-full">
                 Live Interactive Mode

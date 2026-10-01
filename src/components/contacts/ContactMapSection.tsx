@@ -50,7 +50,7 @@ export default function ContactMapSection() {
       {/* Google Maps Full Width Interactive Iframe */}
       <div className="relative w-full h-[400px] sm:h-[480px] lg:h-[540px]">
         <iframe
-          title="Academic Yatra Office Location Map"
+          title="Academic Yatra™ Office Location Map"
           src={mapEmbedUrl}
           width="100%"
           height="100%"

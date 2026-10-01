@@ -46,7 +46,7 @@ export default function PackageDetailPage() {
       {/* 4. Complete Course Guide Accordion (Image 3) */}
       <PackageCourseGuide guide={data.courseGuide} />
 
-      {/* 5. Why Students Choose Academic Yatra (Image 4) */}
+      {/* 5. Why Students Choose Academic Yatra™ (Image 4) */}
       <PackageWhyChoose whyChoose={data.whyChoose} />
 
       {/* 6. Course Cards & Inline Checkout Directly Below (Images 2 & 3) */}

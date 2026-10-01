@@ -16,7 +16,7 @@ export default function TestPrepHero() {
           "GMAT",
           "Global Admissions",
           "Target 1500+",
-          "Academic Yatra",
+          "Academic Yatra™",
         ]}
         durationPerWord={200}
         backgroundColor="#031643"

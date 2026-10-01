@@ -38,7 +38,7 @@ export default function HeroSection() {
           "Guten Tag",
           "Namaste",
           "Learn Without Limits",
-          "Academic Yatra",
+          "Academic Yatra™",
         ]}
         durationPerWord={200}
         backgroundColor="#031643"

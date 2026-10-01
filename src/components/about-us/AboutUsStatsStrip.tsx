@@ -92,7 +92,7 @@ export default function AboutUsStatsStrip() {
     {
       target: 2025,
       label: "Established Year",
-      sublabel: "Future Yatra Pvt. Ltd., New Delhi",
+      sublabel: "Future Yatra™ Pvt. Ltd., New Delhi",
     },
     {
       target: 3,

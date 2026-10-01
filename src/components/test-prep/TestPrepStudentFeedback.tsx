@@ -14,7 +14,7 @@ const TEST_PREP_TESTIMONIALS: TestPrepFeedbackItem[] = [
   {
     id: "tp-1",
     quote:
-      "The Digital SAT prep with Academic Yatra was a game changer. The Desmos calculator shortcuts and adaptive module drills helped me score 1540 on my first attempt!",
+      "The Digital SAT prep with Academic Yatra™ was a game changer. The Desmos calculator shortcuts and adaptive module drills helped me score 1540 on my first attempt!",
     name: "Aarav Kapoor",
     role: "Digital SAT Student",
     badge: "Score: 1540 / 1600",
@@ -27,7 +27,7 @@ const TEST_PREP_TESTIMONIALS: TestPrepFeedbackItem[] = [
   {
     id: "tp-2",
     quote:
-      "GRE verbal used to seem insurmountable. Academic Yatra's mnemonic flashcards and ETS question traps broke it down into simple logic. Scored 329 with 169 in Quant!",
+      "GRE verbal used to seem insurmountable. Academic Yatra™'s mnemonic flashcards and ETS question traps broke it down into simple logic. Scored 329 with 169 in Quant!",
     name: "Sneha Mukherjee",
     role: "GRE General Student",
     badge: "Score: 329 (Q169)",
@@ -101,7 +101,7 @@ export default function TestPrepStudentFeedback() {
           <div>
             <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-tight sm:leading-[1.28] tracking-tight">
               <span>What Students Like </span>
-              <span className="text-brand-primary block sm:inline">About Academic Yatra</span>
+              <span className="text-brand-primary block sm:inline">About Academic Yatra™</span>
             </h2>
           </div>
 

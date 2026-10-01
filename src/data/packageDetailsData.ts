@@ -1,5 +1,7 @@
 export interface AudienceCard {
   title: string;
+  category?: string;
+  heading?: string;
 }
 
 export interface GuideItem {
@@ -194,7 +196,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "03",
           question: "How Much Does IELTS Academic Cost?",
           answer:
-            "The official IELTS Academic test fee is set by IDP IELTS and currently stands at approximately ₹17,000 INR in India (approx. $215–$260 USD internationally). Academic Yatra coaching packages are priced independently and cover comprehensive live masterclasses, personalized evaluations, and portal access.",
+            "The official IELTS Academic test fee is set by IDP IELTS and currently stands at approximately ₹17,000 INR in India (approx. $215–$260 USD internationally). Academic Yatra™ coaching packages are priced independently and cover comprehensive live masterclasses, personalized evaluations, and portal access.",
         },
         {
           id: "04",
@@ -222,7 +224,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "07",
           question: "How Do I Register for IELTS Academic?",
           answer:
-            "Registration can be done online through the official IDP IELTS portal or facilitated directly by Academic Yatra's testing support team. You will choose your test format (Computer or Paper), select test city and date, upload your valid passport details, and make the payment online.",
+            "Registration can be done online through the official IDP IELTS portal or facilitated directly by Academic Yatra™'s testing support team. You will choose your test format (Computer or Paper), select test city and date, upload your valid passport details, and make the payment online.",
         },
         {
           id: "08",
@@ -241,7 +243,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Built around your routine, designed for score breakthroughs",
@@ -311,12 +313,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Start with a complimentary live session and get a feel for the way we teach, practise, and track progress before you commit.",
       disclaimer:
-        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance — not the official IELTS examination.",
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra™. Academic Yatra™ provides coaching, preparation and guidance — not the official IELTS examination.",
     },
   },
 
@@ -396,7 +398,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Built around your routine, designed for score breakthroughs",
@@ -433,12 +435,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Start with a complimentary live session and get a feel for the way we teach, practise, and track progress before you commit.",
       disclaimer:
-        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance — not the official IELTS examination.",
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra™. Academic Yatra™ provides coaching, preparation and guidance — not the official IELTS examination.",
     },
   },
 
@@ -499,7 +501,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "03",
           question: "How Much Does PTE Academic Cost?",
           answer:
-            "The official Pearson PTE Academic test fee is approximately ₹17,000 INR in India (approx. $200–$250 USD internationally depending on the test location). Academic Yatra coaching packages are priced independently and include comprehensive live training, mock tests, and AI portal access.",
+            "The official Pearson PTE Academic test fee is approximately ₹17,000 INR in India (approx. $200–$250 USD internationally depending on the test location). Academic Yatra™ coaching packages are priced independently and include comprehensive live training, mock tests, and AI portal access.",
         },
         {
           id: "04",
@@ -527,7 +529,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "07",
           question: "How Do I Register for PTE Academic?",
           answer:
-            "You can register online 24/7 on the official Pearson website (pearsonpte.com) or book through Academic Yatra's assistance desk. Simply create a Pearson account, select your preferred date and test centre, enter your passport information, and pay the fee online.",
+            "You can register online 24/7 on the official Pearson website (pearsonpte.com) or book through Academic Yatra™'s assistance desk. Simply create a Pearson account, select your preferred date and test centre, enter your passport information, and pay the fee online.",
         },
         {
           id: "08",
@@ -546,7 +548,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "AI score calibration with master trainer guidance",
@@ -582,12 +584,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Start with a complimentary live session and get a feel for our Pearson AI simulator before you commit.",
       disclaimer:
-        "Exam fees and policies follow Pearson PLC updates. Academic Yatra provides coaching and preparation services.",
+        "Exam fees and policies follow Pearson PLC updates. Academic Yatra™ provides coaching and preparation services.",
     },
   },
 
@@ -641,7 +643,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "02",
           question: "How Much Does PTE Core Cost?",
           answer:
-            "The official Pearson PTE Core test fee is approximately ₹17,000 INR in India (approx. $340 CAD in Canada or $200–$250 USD globally). Academic Yatra coaching packages are priced independently and include targeted mock tests, CLB score tracking, and expert-led live classes.",
+            "The official Pearson PTE Core test fee is approximately ₹17,000 INR in India (approx. $340 CAD in Canada or $200–$250 USD globally). Academic Yatra™ coaching packages are priced independently and include targeted mock tests, CLB score tracking, and expert-led live classes.",
         },
         {
           id: "03",
@@ -676,7 +678,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "07",
           question: "How Do I Register for PTE Core?",
           answer:
-            "Registration is completed online 24/7 at pearsonpte.com/pte-core or assisted by Academic Yatra's admissions desk. You simply create an account, choose your test centre and date, enter your passport information, and pay the registration fee.",
+            "Registration is completed online 24/7 at pearsonpte.com/pte-core or assisted by Academic Yatra™'s admissions desk. You simply create an account, choose your test centre and date, enter your passport information, and pay the registration fee.",
         },
         {
           id: "08",
@@ -695,7 +697,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Canada PR focused training and template mastery",
@@ -728,7 +730,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Start with a complimentary live session and test your CLB benchmark today.",
@@ -794,7 +796,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "03",
           question: "TOEFL iBT Fees (India 2026)",
           answer:
-            "The official TOEFL iBT registration fee in India is approximately $205 USD (approx. ₹17,000 INR). Rescheduling or late registration fees may apply. Academic Yatra preparation packages are priced separately and cover personalized coaching, diagnostic feedback, and full mock simulations.",
+            "The official TOEFL iBT registration fee in India is approximately $205 USD (approx. ₹17,000 INR). Rescheduling or late registration fees may apply. Academic Yatra™ preparation packages are priced separately and cover personalized coaching, diagnostic feedback, and full mock simulations.",
         },
         {
           id: "04",
@@ -822,7 +824,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "07",
           question: "TOEFL Registration",
           answer:
-            "Registration can be completed online via the official ETS portal (ets.org/toefl) or with assistance from Academic Yatra's counselling team. You must create an ETS account, choose your preferred testing location and date, enter your passport information, and pay the fee online.",
+            "Registration can be completed online via the official ETS portal (ets.org/toefl) or with assistance from Academic Yatra™'s counselling team. You must create an ETS account, choose your preferred testing location and date, enter your passport information, and pay the fee online.",
         },
         {
           id: "08",
@@ -841,7 +843,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Master ETS integrated tasks and speech clarity",
@@ -876,12 +878,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Start with a complimentary live session and test your TOEFL diagnostic level.",
       disclaimer:
-        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance.",
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra™. Academic Yatra™ provides coaching, preparation and guidance.",
     },
   },
 
@@ -942,7 +944,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "03",
           question: "How Much Does the DET Cost?",
           answer:
-            "The official Duolingo English Test fee is $65 USD (approx. ₹5,400 INR) for a single test, or $110 USD for a 2-test bundle. This makes it substantially more affordable than traditional in-person language exams. Academic Yatra's coaching packages are priced independently and include adaptive question bank access, live masterclasses, and production subscore workshops.",
+            "The official Duolingo English Test fee is $65 USD (approx. ₹5,400 INR) for a single test, or $110 USD for a 2-test bundle. This makes it substantially more affordable than traditional in-person language exams. Academic Yatra™'s coaching packages are priced independently and include adaptive question bank access, live masterclasses, and production subscore workshops.",
         },
         {
           id: "04",
@@ -970,7 +972,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "07",
           question: "How Do I Register for the DET?",
           answer:
-            "Registration is straightforward: create an account on englishtest.duolingo.com or sign up through Academic Yatra's team. Purchase your test credit, download the secure Duolingo testing application, verify your government ID with your webcam, and begin testing within 21 days of purchase.",
+            "Registration is straightforward: create an account on englishtest.duolingo.com or sign up through Academic Yatra™'s team. Purchase your test credit, download the secure Duolingo testing application, verify your government ID with your webcam, and begin testing within 21 days of purchase.",
         },
         {
           id: "08",
@@ -989,7 +991,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Adaptive drills and production subscore mastery",
@@ -1022,7 +1024,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Start with a complimentary live demo and get your DET readiness evaluated.",
@@ -1088,7 +1090,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "03",
           question: "How Much Does CELPIP Cost?",
           answer:
-            "The CELPIP - General test fee is approximately ₹14,000 to ₹17,000 INR in India (approx. $280 CAD + tax in Canada). Academic Yatra coaching packages are priced separately and provide targeted Canadian accent listening practice, writing survey templates, and full simulation mock evaluations.",
+            "The CELPIP - General test fee is approximately ₹14,000 to ₹17,000 INR in India (approx. $280 CAD + tax in Canada). Academic Yatra™ coaching packages are priced separately and provide targeted Canadian accent listening practice, writing survey templates, and full simulation mock evaluations.",
         },
         {
           id: "04",
@@ -1116,7 +1118,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "07",
           question: "How Do I Register for CELPIP?",
           answer:
-            "You can register online at the official CELPIP website (celpip.ca) or through Academic Yatra's counselling team. Select your preferred test location, date, and sitting time, submit your passport identification details, and pay the registration fee online.",
+            "You can register online at the official CELPIP website (celpip.ca) or through Academic Yatra™'s counselling team. Select your preferred test location, date, and sitting time, submit your passport identification details, and pay the registration fee online.",
         },
         {
           id: "08",
@@ -1135,7 +1137,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Comprehensive Canadian PR coaching",
@@ -1169,12 +1171,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Book a free live trial class and get your CELPIP baseline score.",
       disclaimer:
-        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance — not the official IELTS examination.",
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra™. Academic Yatra™ provides coaching, preparation and guidance — not the official IELTS examination.",
     },
   },
 
@@ -1248,7 +1250,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "05",
           question: "Time Required to Reach B2 Level French",
           answer:
-            "Reaching a B2 level typically requires between 500 to 650 guided study hours starting from zero. With Academic Yatra's intensive cohort program (combining live masterclasses, daily conversation clubs, and homework drills), dedicated students typically progress from beginner (A1) to a confident B2 proficiency within 6 to 9 months.",
+            "Reaching a B2 level typically requires between 500 to 650 guided study hours starting from zero. With Academic Yatra™'s intensive cohort program (combining live masterclasses, daily conversation clubs, and homework drills), dedicated students typically progress from beginner (A1) to a confident B2 proficiency within 6 to 9 months.",
         },
         {
           id: "06",
@@ -1267,7 +1269,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Immersion methodology with certified bilingual trainers",
@@ -1302,7 +1304,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Start with a complimentary French live masterclass and assess your current level.",
@@ -1381,7 +1383,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "05",
           question: "Time Required to Reach B2 Level German",
           answer:
-            "Reaching B2 level German typically requires 600 to 750 hours of structured instruction and practice. In Academic Yatra's intensive cohort program, students committing 2 to 3 hours daily typically progress through each level (A1 to B2) in approximately 6 to 9 months with guided grammar clinics and interactive speaking clubs.",
+            "Reaching B2 level German typically requires 600 to 750 hours of structured instruction and practice. In Academic Yatra™'s intensive cohort program, students committing 2 to 3 hours daily typically progress through each level (A1 to B2) in approximately 6 to 9 months with guided grammar clinics and interactive speaking clubs.",
         },
         {
           id: "06",
@@ -1400,7 +1402,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Grammar simplified, real conversational German",
@@ -1434,7 +1436,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Join a free live German masterclass and start your European study journey.",
@@ -1511,7 +1513,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Speak from Day 1 without textbook pressure",
@@ -1544,11 +1546,11 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Join a free demo speaking club today and feel the difference.",
-      disclaimer: "Course pricing is set by Academic Yatra.",
+      disclaimer: "Course pricing is set by Academic Yatra™.",
     },
   },
 
@@ -1609,7 +1611,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "03",
           question: "How Much Does the Digital SAT Cost?",
           answer:
-            "The official registration fee for the Digital SAT is $68 USD plus a regional international fee (approx. $43 USD), bringing the total to approximately $111 USD (approx. ₹9,200 INR) in India. Academic Yatra coaching packages are priced independently and cover live classes, Desmos calculator shortcuts, and adaptive mock simulations.",
+            "The official registration fee for the Digital SAT is $68 USD plus a regional international fee (approx. $43 USD), bringing the total to approximately $111 USD (approx. ₹9,200 INR) in India. Academic Yatra™ coaching packages are priced independently and cover live classes, Desmos calculator shortcuts, and adaptive mock simulations.",
         },
         {
           id: "04",
@@ -1656,7 +1658,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Precision score improvement for top colleges",
@@ -1691,7 +1693,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Start with a complimentary live session and test your SAT diagnostic score.",
@@ -1723,15 +1725,15 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "The GRE is the standard admissions test for graduate Master's and PhD programs globally. It is designed for:",
       cards: [
-        { title: "Students applying for Master's programs abroad" },
-        { title: "PhD and research applicants" },
-        { title: "Engineering and Technology graduates pursuing MS degrees" },
-        { title: "Computer Science, AI, Data Science, and IT applicants" },
-        { title: "Economics, Psychology, and Social Science students" },
-        { title: "Candidates applying for STEM programs" },
-        { title: "Working professionals planning higher education abroad" },
-        { title: "Students targeting universities in the USA, Canada, Europe, and other GRE-accepting destinations" },
-        { title: "Applicants seeking merit-based scholarships" },
+        { category: "Master's Aspirants", title: "Students applying for Master's programs abroad" },
+        { category: "PhD & Research", title: "PhD and research applicants" },
+        { category: "STEM & Engineering", title: "Engineering and Technology graduates pursuing MS degrees" },
+        { category: "Tech & Data Science", title: "Computer Science, AI, Data Science, and IT applicants" },
+        { category: "Social Sciences", title: "Economics, Psychology, and Social Science students" },
+        { category: "STEM Pathways", title: "Candidates applying for STEM programs" },
+        { category: "Career Advancement", title: "Working professionals planning higher education abroad" },
+        { category: "Global Universities", title: "Students targeting universities in the USA, Canada, Europe, and other GRE-accepting destinations" },
+        { category: "Merit & Fellowships", title: "Applicants seeking merit-based scholarships" },
       ],
     },
     courseGuide: {
@@ -1759,7 +1761,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "03",
           question: "GRE Fees (India 2026)",
           answer:
-            "The official GRE General Test registration fee in India is $228 USD (approx. ₹19,000 INR). Academic Yatra coaching packages are priced independently and cover comprehensive Quant shortcut masterclasses, vocabulary root training, and adaptive sectional mocks.",
+            "The official GRE General Test registration fee in India is $228 USD (approx. ₹19,000 INR). Academic Yatra™ coaching packages are priced independently and cover comprehensive Quant shortcut masterclasses, vocabulary root training, and adaptive sectional mocks.",
         },
         {
           id: "04",
@@ -1787,7 +1789,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "07",
           question: "GRE Registration",
           answer:
-            "You can register online 24/7 on the official ETS website (ets.org/gre) or through Academic Yatra's guidance team. Create an ETS account, choose your preferred test centre or home edition, select your test date, and complete payment online.",
+            "You can register online 24/7 on the official ETS website (ets.org/gre) or through Academic Yatra™'s guidance team. Create an ETS account, choose your preferred test centre or home edition, select your test date, and complete payment online.",
         },
         {
           id: "08",
@@ -1806,7 +1808,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "325+ engineered score frameworks",
@@ -1841,7 +1843,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Start with a complimentary live demo and get your GRE diagnostic report.",
@@ -1873,15 +1875,15 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "The GMAT Focus Edition is the gold standard for global business school admissions. It is tailored for:",
       cards: [
-        { title: "Students applying for MBA programs abroad" },
-        { title: "Candidates pursuing Master in Management (MiM) degrees" },
-        { title: "Applicants targeting business and management schools" },
-        { title: "Working professionals seeking career advancement through higher education" },
-        { title: "Candidates applying to Executive MBA programs" },
-        { title: "Professionals transitioning into leadership and management roles" },
-        { title: "Applicants targeting top-ranked global business schools" },
-        { title: "Students pursuing Finance, Consulting, Marketing, or Business Analytics programs" },
-        { title: "Candidates seeking merit-based scholarships at business schools" },
+        { category: "MBA Programs", title: "Students applying for MBA programs abroad" },
+        { category: "MiM Candidates", title: "Candidates pursuing Master in Management (MiM) degrees" },
+        { category: "Business Schools", title: "Applicants targeting business and management schools" },
+        { category: "Career Advancement", title: "Working professionals seeking career advancement through higher education" },
+        { category: "Executive MBA", title: "Candidates applying to Executive MBA programs" },
+        { category: "Leadership & Management", title: "Professionals transitioning into leadership and management roles" },
+        { category: "Top Global B-Schools", title: "Applicants targeting top-ranked global business schools" },
+        { category: "Specialized Masters", title: "Students pursuing Finance, Consulting, Marketing, or Business Analytics programs" },
+        { category: "Merit Scholarships", title: "Candidates seeking merit-based scholarships at business schools" },
       ],
     },
     courseGuide: {
@@ -1909,7 +1911,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "03",
           question: "How Much Does the GMAT Cost?",
           answer:
-            "The official GMAT Focus Edition test fee is $275 USD (approx. ₹23,000 INR) at test centres in India and $300 USD for the online exam. Academic Yatra coaching packages are separate and provide comprehensive Data Insights training, Quant trap analysis, and official mock diagnostics.",
+            "The official GMAT Focus Edition test fee is $275 USD (approx. ₹23,000 INR) at test centres in India and $300 USD for the online exam. Academic Yatra™ coaching packages are separate and provide comprehensive Data Insights training, Quant trap analysis, and official mock diagnostics.",
         },
         {
           id: "04",
@@ -1937,7 +1939,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "07",
           question: "How Do I Register for the GMAT?",
           answer:
-            "Registration is completed online at the official Graduate Management Admission Council (GMAC) website (mba.com) or assisted by Academic Yatra. Select your preferred test location and time slot, upload your identification details, and pay the registration fee.",
+            "Registration is completed online at the official Graduate Management Admission Council (GMAC) website (mba.com) or assisted by Academic Yatra™. Select your preferred test location and time slot, upload your identification details, and pay the registration fee.",
         },
         {
           id: "08",
@@ -1956,7 +1958,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Learn directly from 99th-percentile MBA mentors",
@@ -1991,7 +1993,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Connect with a GMAT 99th-percentile mentor for a complimentary strategy session.",
@@ -2044,7 +2046,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "One cohesive roadmap from first mock to visa approval",
@@ -2079,11 +2081,11 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Schedule a free dual-assessment consultation with our admissions director.",
-      disclaimer: "Academic Yatra provides coaching and admissions advisory.",
+      disclaimer: "Academic Yatra™ provides coaching and admissions advisory.",
     },
   },
 
@@ -2132,7 +2134,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Laser-focused score breakthrough",
@@ -2165,7 +2167,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Take a free SAT diagnostic sprint test today.",
@@ -2218,7 +2220,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Tailored for high-performing working professionals",
@@ -2252,11 +2254,11 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Book a confidential profile evaluation with an EMBA advisor.",
-      disclaimer: "Course pricing is set by Academic Yatra.",
+      disclaimer: "Course pricing is set by Academic Yatra™.",
     },
   },
 
@@ -2330,7 +2332,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Hands-on projects and career acceleration",
@@ -2366,12 +2368,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Attend a free career acceleration masterclass this week.",
       disclaimer:
-        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance — not the official IELTS examination.",
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra™. Academic Yatra™ provides coaching, preparation and guidance — not the official IELTS examination.",
     },
   },
 
@@ -2445,7 +2447,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Interview-ready in 10 days",
@@ -2482,12 +2484,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Get your current resume reviewed for free by our career experts.",
       disclaimer:
-        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance — not the official IELTS examination.",
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra™. Academic Yatra™ provides coaching, preparation and guidance — not the official IELTS examination.",
     },
   },
 
@@ -2562,7 +2564,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Practical workplace workflows",
@@ -2600,12 +2602,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Download our free Google Sheets shortcut guide today.",
       disclaimer:
-        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance — not the official IELTS examination.",
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra™. Academic Yatra™ provides coaching, preparation and guidance — not the official IELTS examination.",
     },
   },
 
@@ -2678,7 +2680,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     whyChoose: {
-      badge: "The Academic Yatra Difference",
+      badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
       subtitle: "Practical, real-world business technology",
@@ -2716,12 +2718,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       ],
     },
     ctaBanner: {
-      headingPrefix: "See How Academic Yatra",
+      headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
         "Join a free practical tech workshop this weekend.",
       disclaimer:
-        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra. Academic Yatra provides coaching, preparation and guidance — not the official IELTS examination.",
+        "Exam fees, dates and policies are indicative and follow the official conducting body’s latest updates. Course pricing is set by Academic Yatra™. Academic Yatra™ provides coaching, preparation and guidance — not the official IELTS examination.",
     },
   },
 };

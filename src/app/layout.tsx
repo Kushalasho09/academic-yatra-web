@@ -37,9 +37,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Academic Yatra | IELTS, PTE, CELPIP, Duolingo, GMAT & Language Programs",
+  title: "Academic Yatra™ | IELTS, PTE, CELPIP, Duolingo, GMAT & Language Programs",
   description:
-    "Prepare for IELTS, PTE, CELPIP, GMAT, German & French with Academic Yatra. Join expert online live classes, study abroad guidance, mock simulations & score guarantee pathways.",
+    "Prepare for IELTS, PTE, CELPIP, GMAT, German & French with Academic Yatra™. Join expert online live classes, study abroad guidance, mock simulations & score guarantee pathways.",
   icons: {
     icon: "/images/academic_yatra_logo.png",
   },

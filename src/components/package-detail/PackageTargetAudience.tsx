@@ -9,6 +9,12 @@ import {
   Stethoscope,
   Globe,
   Award,
+  Building2,
+  TrendingUp,
+  Sparkles,
+  Briefcase,
+  Target,
+  ShieldCheck,
   ChevronRight,
   ChevronLeft,
 } from "lucide-react";
@@ -77,6 +83,54 @@ const AUDIENCE_CONFIGS: AudienceConfig[] = [
     icon: Award,
     defaultTitle: "Proficiency Proof",
   },
+  {
+    numeral: "07",
+    color: "#0284C7", // Sky Blue
+    bgClass: "bg-[#0284C7]",
+    textClass: "text-[#0284C7]",
+    icon: Building2,
+    defaultTitle: "Top-Tier Institutions",
+  },
+  {
+    numeral: "08",
+    color: "#BE123C", // Rose
+    bgClass: "bg-[#BE123C]",
+    textClass: "text-[#BE123C]",
+    icon: TrendingUp,
+    defaultTitle: "Career Acceleration",
+  },
+  {
+    numeral: "09",
+    color: "#059669", // Emerald
+    bgClass: "bg-[#059669]",
+    textClass: "text-[#059669]",
+    icon: Sparkles,
+    defaultTitle: "Scholarship Aspirants",
+  },
+  {
+    numeral: "10",
+    color: "#9333EA", // Violet
+    bgClass: "bg-[#9333EA]",
+    textClass: "text-[#9333EA]",
+    icon: Briefcase,
+    defaultTitle: "Executive Leadership",
+  },
+  {
+    numeral: "11",
+    color: "#EA580C", // Orange
+    bgClass: "bg-[#EA580C]",
+    textClass: "text-[#EA580C]",
+    icon: Target,
+    defaultTitle: "Competitive Benchmark",
+  },
+  {
+    numeral: "12",
+    color: "#0F766E", // Deep Teal
+    bgClass: "bg-[#0F766E]",
+    textClass: "text-[#0F766E]",
+    icon: ShieldCheck,
+    defaultTitle: "Global Qualifications",
+  },
 ];
 
 export default function PackageTargetAudience({ audience }: PackageTargetAudienceProps) {
@@ -110,6 +164,8 @@ export default function PackageTargetAudience({ audience }: PackageTargetAudienc
           {audience.cards.map((card, idx) => {
             const config = AUDIENCE_CONFIGS[idx % AUDIENCE_CONFIGS.length];
             const Icon = config.icon;
+            const itemNumber = String(idx + 1).padStart(2, "0");
+            const displayTitle = (card as any).category || (card as any).heading || config.defaultTitle;
             const isFirst = idx === 0;
             const isLast = idx === audience.cards.length - 1;
             const isEven = idx % 2 === 1; // Even rows: 02, 04, 06 (Text on Left, Icon on Right)
@@ -144,7 +200,7 @@ export default function PackageTargetAudience({ audience }: PackageTargetAudienc
                           className="font-heading text-[11px] sm:text-sm lg:text-base font-black tracking-tight group-hover:text-emerald-700 transition-colors truncate"
                           style={{ color: config.color }}
                         >
-                          {config.defaultTitle}
+                          {displayTitle}
                         </h4>
                         <p className="font-body text-[9.5px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-tight sm:leading-snug line-clamp-2">
                           {card.title}
@@ -170,7 +226,7 @@ export default function PackageTargetAudience({ audience }: PackageTargetAudienc
                     isLast && "rounded-b-full"
                   )}
                 >
-                  {config.numeral}
+                  {itemNumber}
                 </div>
 
                 {/* RIGHT WING: Exactly (100% - center) / 2 */}
@@ -190,7 +246,7 @@ export default function PackageTargetAudience({ audience }: PackageTargetAudienc
                           className="font-heading text-[11px] sm:text-sm lg:text-base font-black tracking-tight group-hover:text-emerald-700 transition-colors truncate"
                           style={{ color: config.color }}
                         >
-                          {config.defaultTitle}
+                          {displayTitle}
                         </h4>
                         <p className="font-body text-[9.5px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-tight sm:leading-snug line-clamp-2">
                           {card.title}

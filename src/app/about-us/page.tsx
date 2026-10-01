@@ -12,11 +12,11 @@ import AboutLegalDisclosure from "@/components/about-us/AboutLegalDisclosure";
 import AboutContactSection from "@/components/about-us/AboutContactSection";
 
 export const metadata: Metadata = {
-  title: "About Us | Academic Yatra — For the language your dreams speak",
+  title: "About Us | Academic Yatra™ — For the language your dreams speak",
   description:
-    "Academic Yatra is a digital learning platform for language training, test preparation, and practical skill development, built for students and professionals.",
+    "Academic Yatra™ is a digital learning platform for language training, test preparation, and practical skill development, built for students and professionals.",
   openGraph: {
-    title: "About Academic Yatra — For the language your dreams speak",
+    title: "About Academic Yatra™ — For the language your dreams speak",
     description:
       "Digital learning platform for language training, test preparation, and practical skill development.",
   },

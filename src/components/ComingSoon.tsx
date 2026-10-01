@@ -50,7 +50,7 @@ export default function ComingSoon({ pageTitle = "Coming Soon" }: ComingSoonProp
             </h1>
 
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-md mx-auto">
-              This section is currently being updated with latest syllabus updates and registration details. You can explore the full interactive Academic Yatra homepage below!
+              This section is currently being updated with latest syllabus updates and registration details. You can explore the full interactive Academic Yatra™ homepage below!
             </p>
           </div>
 

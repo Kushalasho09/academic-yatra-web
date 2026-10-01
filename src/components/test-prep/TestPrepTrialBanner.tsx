@@ -24,7 +24,7 @@ export default function TestPrepTrialBanner() {
   };
 
   const whatsappDirectUrl = `https://wa.me/919403892981?text=${encodeURIComponent(
-    `Hi Academic Yatra, My name is ${formData.name || "Student"}. I would like to book a 5-day demo / consultation.`
+    `Hi Academic Yatra™, My name is ${formData.name || "Student"}. I would like to book a 5-day demo / consultation.`
   )}`;
 
   const checkpoints = [
@@ -59,7 +59,7 @@ export default function TestPrepTrialBanner() {
             </div>
 
             <h2 className="text-2xl xs:text-3xl sm:text-5xl lg:text-[46px] font-black tracking-tight leading-[1.15] font-heading">
-              <span>See How Academic Yatra </span>
+              <span>See How Academic Yatra™ </span>
               <br />
               <span className="text-emerald-400">Fits Your Goals.</span>
             </h2>
@@ -140,7 +140,7 @@ export default function TestPrepTrialBanner() {
                       Reserve Your Free Demo Seat
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                      Experience the Academic Yatra learning system firsthand.
+                      Experience the Academic Yatra™ learning system firsthand.
                     </p>
                   </div>
 

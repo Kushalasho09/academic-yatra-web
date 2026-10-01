@@ -121,7 +121,7 @@ export default function LegalPageShell({
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-slate-300 border border-white/10">
                   <Building2 className="w-3.5 h-3.5 text-slate-400" />
-                  <span>Future Yatra Pvt. Ltd.</span>
+                  <span>Future Yatra™ Pvt. Ltd.</span>
                 </span>
               </div>
 
@@ -298,7 +298,7 @@ export default function LegalPageShell({
                     Grievance & Privacy Officer
                   </h3>
                   <p className="text-slate-300 text-xs sm:text-sm mb-6 leading-relaxed">
-                    Under the Information Technology Act, 2000, and the Digital Personal Data Protection (DPDP) Act, 2023, Academic Yatra acknowledges grievances within 24 hours and resolves them transparently within 15 days.
+                    Under the Information Technology Act, 2000, and the Digital Personal Data Protection (DPDP) Act, 2023, Academic Yatra™ acknowledges grievances within 24 hours and resolves them transparently within 15 days.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
@@ -349,7 +349,7 @@ export default function LegalPageShell({
                       <div>
                         <p className="text-slate-400 text-[10.5px] uppercase tracking-wider font-semibold">Corporate Office</p>
                         <p className="font-bold text-white mt-0.5 text-xs sm:text-[13px] leading-snug">
-                          Future Yatra Pvt. Ltd., Okhla Phase II, New Delhi, India
+                          Future Yatra™ Pvt. Ltd., Okhla Phase II, New Delhi, India
                         </p>
                       </div>
                     </div>
@@ -357,7 +357,7 @@ export default function LegalPageShell({
 
                   <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
                     <p className="text-slate-400 text-xs">
-                      Registered Vertical of Future Yatra Pvt. Ltd.
+                      Registered Vertical of Future Yatra™ Pvt. Ltd.
                     </p>
                     <a
                       href="https://web.whatsapp.com/send?phone=+919403892981"

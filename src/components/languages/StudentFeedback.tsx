@@ -27,7 +27,7 @@ const TESTIMONIALS: LanguageFeedbackItem[] = [
   {
     id: "lang-2",
     quote:
-      "Learning German with Academic Yatra gave me conversational fluency faster than I anticipated. The native-level vocabulary drills made visa interviews effortless.",
+      "Learning German with Academic Yatra™ gave me conversational fluency faster than I anticipated. The native-level vocabulary drills made visa interviews effortless.",
     name: "Neha Gupta",
     role: "German B2 Aspirant",
     badge: "Goethe-Zertifikat B2",
@@ -112,7 +112,7 @@ export default function StudentFeedback() {
           <div>
             <h2 className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-brand-navy leading-tight sm:leading-[1.28] tracking-tight">
               <span>What Students Like </span>
-              <span className="text-brand-primary block sm:inline">About Academic Yatra</span>
+              <span className="text-brand-primary block sm:inline">About Academic Yatra™</span>
             </h2>
           </div>
 

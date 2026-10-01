@@ -13,9 +13,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Academic Yatra",
+  title: "Privacy Policy | Academic Yatra™",
   description:
-    "Learn how Academic Yatra collects, uses, protects, and handles your personal data in compliance with the IT Act 2000 and DPDP Act 2023.",
+    "Learn how Academic Yatra™ collects, uses, protects, and handles your personal data in compliance with the IT Act 2000 and DPDP Act 2023.",
 };
 
 const TOC_ITEMS: LegalTocItem[] = [
@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
   return (
     <LegalPageShell
       title="Privacy Policy"
-      subtitle="How Academic Yatra collects, utilizes, stores, and protects personal data in full compliance with Indian privacy laws and the DPDP Act, 2023."
+      subtitle="How Academic Yatra™ collects, utilizes, stores, and protects personal data in full compliance with Indian privacy laws and the DPDP Act, 2023."
       effectiveDate="June 19, 2026"
       badgeText="DPDP Act 2023 Compliant"
       tocItems={TOC_ITEMS}
@@ -50,11 +50,11 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <p className="text-slate-700">
-          Welcome to <strong className="text-slate-900">Academic Yatra</strong>, the dedicated online learning and professional test preparation vertical of <strong className="text-slate-900">Future Yatra Pvt. Ltd.</strong> This Privacy Policy explains how we collect, use, store, and protect your personal information when you access <a href="https://academicyatra.com" className="text-[#0C9253] font-semibold underline underline-offset-2">academicyatra.com</a> and our related educational services.
+          Welcome to <strong className="text-slate-900">Academic Yatra™</strong>, the dedicated online learning and professional test preparation vertical of <strong className="text-slate-900">Future Yatra™ Pvt. Ltd.</strong> This Privacy Policy explains how we collect, use, store, and protect your personal information when you access <a href="https://academicyatra.com" className="text-[#0C9253] font-semibold underline underline-offset-2">academicyatra.com</a> and our related educational services.
         </p>
 
         <p className="text-slate-700">
-          Academic Yatra values transparency, responsible data handling, and user privacy. We are committed to protecting personal information in full compliance with applicable Indian privacy laws, including the <em>Information Technology Act, 2000</em>, the <em>IT (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011</em>, and the <em>Digital Personal Data Protection (DPDP) Act, 2023</em>, together with the <em>DPDP Rules, 2025</em>.
+          Academic Yatra™ values transparency, responsible data handling, and user privacy. We are committed to protecting personal information in full compliance with applicable Indian privacy laws, including the <em>Information Technology Act, 2000</em>, the <em>IT (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011</em>, and the <em>Digital Personal Data Protection (DPDP) Act, 2023</em>, together with the <em>DPDP Rules, 2025</em>.
         </p>
 
         {/* Consent Box */}
@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
             <span>Your Consent:</span>
           </div>
           <p className="text-slate-800 text-sm leading-relaxed">
-            By using our website, enrolling in our programs, or accessing our digital learning platform, you explicitly agree to the practices described in this policy. Furthermore, by submitting your contact details, you provide explicit, affirmative consent for Academic Yatra to contact you via <strong>Phone Calls, WhatsApp, SMS, and Email</strong> for course updates, student support, administrative notifications, and promotional communication (which you retain the right to opt out of at any time).
+            By using our website, enrolling in our programs, or accessing our digital learning platform, you explicitly agree to the practices described in this policy. Furthermore, by submitting your contact details, you provide explicit, affirmative consent for Academic Yatra™ to contact you via <strong>Phone Calls, WhatsApp, SMS, and Email</strong> for course updates, student support, administrative notifications, and promotional communication (which you retain the right to opt out of at any time).
           </p>
         </div>
       </section>
@@ -180,7 +180,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <p className="text-slate-700">
-          Academic Yatra <strong className="text-slate-900">does not sell, rent, or trade personal information to third parties</strong>. We share necessary information strictly on a need-to-know basis with trusted, legally compliant third-party processors, including:
+          Academic Yatra™ <strong className="text-slate-900">does not sell, rent, or trade personal information to third parties</strong>. We share necessary information strictly on a need-to-know basis with trusted, legally compliant third-party processors, including:
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2 text-sm text-slate-700">
@@ -203,7 +203,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <p className="text-xs text-slate-500 italic mt-3 bg-slate-50 p-3 rounded-lg border border-slate-200/60">
-          <strong>Note:</strong> All third-party service providers are contractually bound to maintain appropriate confidentiality, data isolation, and robust security standards equivalent to those upheld by Future Yatra Pvt. Ltd.
+          <strong>Note:</strong> All third-party service providers are contractually bound to maintain appropriate confidentiality, data isolation, and robust security standards equivalent to those upheld by Future Yatra™ Pvt. Ltd.
         </p>
       </section>
 
@@ -248,7 +248,7 @@ export default function PrivacyPolicyPage() {
           <div>
             <h3 className="font-bold text-slate-900 mb-1">International Transfers</h3>
             <p className="text-slate-600">
-              While Future Yatra Pvt. Ltd. is headquartered in Delhi, India, user data may be securely transferred, managed, or stored on cloud servers outside India where our technical partners operate, strictly complying with cross-border provisions permitted under Indian law.
+              While Future Yatra™ Pvt. Ltd. is headquartered in Delhi, India, user data may be securely transferred, managed, or stored on cloud servers outside India where our technical partners operate, strictly complying with cross-border provisions permitted under Indian law.
             </p>
           </div>
         </div>
@@ -322,7 +322,7 @@ export default function PrivacyPolicyPage() {
             <span>Section 9 of the DPDP Act, 2023 Compliance</span>
           </div>
           <p>
-            In strict compliance with Section 9 of the DPDP Act, 2023, Academic Yatra defines a <strong>“child”</strong> as any individual under the age of 18. Our Services are intended for users aged 18 years and above.
+            In strict compliance with Section 9 of the DPDP Act, 2023, Academic Yatra™ defines a <strong>“child”</strong> as any individual under the age of 18. Our Services are intended for users aged 18 years and above.
           </p>
           <p>
             We do not knowingly collect or process the personal data of any individual under the age of 18 who registers independently. A person under 18 may access our Services only when enrolled by a parent or lawful guardian, who must provide verifiable consent and accept the applicable terms on the child’s behalf and remains responsible for the account.
@@ -353,7 +353,7 @@ export default function PrivacyPolicyPage() {
           <div>
             <h3 className="font-bold text-slate-900 mb-1">Policy Updates</h3>
             <p className="text-slate-600">
-              Academic Yatra reserves the right to amend this Privacy Policy at any time without prior individual notice to reflect evolving legal regulations. Updated versions will be published on this page, and the “Effective Date” will be revised.
+              Academic Yatra™ reserves the right to amend this Privacy Policy at any time without prior individual notice to reflect evolving legal regulations. Updated versions will be published on this page, and the “Effective Date” will be revised.
             </p>
           </div>
 

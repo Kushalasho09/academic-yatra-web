@@ -7,10 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   CheckCircle2,
-  Sparkles,
   ChevronLeft,
   ChevronRight,
-  ChevronRight as ChevronRightSmall,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -66,7 +64,7 @@ const TRACKS: TrackCard[] = [
       checkColor: "#0C9253",
     },
     image: "/images/path_language_prep.jpg",
-    imageAlt: "Language Training at Academic Yatra",
+    imageAlt: "Language Training at Academic Yatra™",
     imageBadge: "Band 7.5+ & CLB 10 Targets",
     tags: [
       "IELTS",
@@ -108,7 +106,7 @@ const TRACKS: TrackCard[] = [
       checkColor: "#0067E3",
     },
     image: "/images/path_competitive_boy.jpg",
-    imageAlt: "Competitive Test Preparation at Academic Yatra",
+    imageAlt: "Competitive Test Preparation at Academic Yatra™",
     imageBadge: "99th Percentile Mentorship",
     tags: ["SAT", "GRE", "GMAT"],
     keyHighlights: [
@@ -141,7 +139,7 @@ const TRACKS: TrackCard[] = [
       checkColor: "#D97706",
     },
     image: "/images/path_skill_development.jpg",
-    imageAlt: "Skill Catalyst Development at Academic Yatra",
+    imageAlt: "Skill Catalyst Development at Academic Yatra™",
     imageBadge: "Job-Ready Credentials",
     tags: ["Career Essentials", "BizzTech", "Google Suite Hub"],
     keyHighlights: [
@@ -197,16 +195,6 @@ export default function AboutWhatWeDo() {
             Three Tracks. Different Goals. <br className="hidden sm:inline" />
             <span className="text-[#0C9253]">One Learning System.</span>
           </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-2 text-slate-600 text-xs sm:text-base lg:text-lg leading-relaxed font-normal"
-          >
-            Explore our three comprehensive educational tracks engineered to help learners achieve standardized exam excellence, language fluency, and career acceleration.
-          </motion.p>
         </div>
 
         {/* Carousel Container */}
@@ -272,25 +260,6 @@ export default function AboutWhatWeDo() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute bottom-2 left-2 right-2 bg-white/95 backdrop-blur-md rounded-lg p-2 border border-white/80 shadow-sm flex items-center justify-between">
-                    <div className="flex items-center space-x-1.5">
-                      <Sparkles
-                        className="w-3.5 h-3.5 shrink-0"
-                        style={{ color: activeTrack.theme.accentColor }}
-                      />
-                      <span className="text-[11px] font-bold text-slate-900 truncate">
-                        {activeTrack.imageBadge}
-                      </span>
-                    </div>
-                    <Link
-                      href={activeTrack.href}
-                      className="text-[11px] font-extrabold flex items-center gap-0.5 hover:underline shrink-0"
-                      style={{ color: activeTrack.theme.accentColor }}
-                    >
-                      <span>View Track</span>
-                      <ChevronRightSmall className="w-3 h-3" />
-                    </Link>
-                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-10 items-center relative z-10">
@@ -312,7 +281,7 @@ export default function AboutWhatWeDo() {
                       </span>
 
                       <span className="text-[11px] sm:text-xs text-slate-400 font-medium">
-                        Academic Yatra Learning Ecosystem
+                        Academic Yatra™ Learning Ecosystem
                       </span>
                     </div>
 
@@ -390,28 +359,6 @@ export default function AboutWhatWeDo() {
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                       />
-                      
-                      {/* Floating Bottom Pill */}
-                      <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-3 border border-white/80 shadow-md flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                          <Sparkles
-                            className="w-4 h-4 shrink-0"
-                            style={{ color: activeTrack.theme.accentColor }}
-                          />
-                          <span className="text-xs font-bold text-slate-900">
-                            {activeTrack.imageBadge}
-                          </span>
-                        </div>
-                        
-                        <Link
-                          href={activeTrack.href}
-                          className="text-xs font-extrabold flex items-center gap-1 hover:underline"
-                          style={{ color: activeTrack.theme.accentColor }}
-                        >
-                          <span>View Track</span>
-                          <ChevronRightSmall className="w-3.5 h-3.5" />
-                        </Link>
-                      </div>
                     </div>
                   </div>
 

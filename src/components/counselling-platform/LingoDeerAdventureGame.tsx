@@ -133,7 +133,7 @@ export default function LingoDeerAdventureGame() {
 
   // Mascot Speech message
   const mascotDialogue = useMemo(() => {
-    if (currentUnit === 1) return `Hi there! I am your Future Yatra guide. Where did you start your journey in India?`;
+    if (currentUnit === 1) return `Hi there! I am your Future Yatra™ guide. Where did you start your journey in India?`;
     if (currentUnit === 2) return `Great! Now choose your superpower stream in ${selectedQual.title.split("(")[0]}!`;
     if (currentUnit === 3) return `Awesome! Which global degree castle do you want to conquer in ${selectedStream.code}?`;
     if (currentUnit === 4) return `Strategic choice! Do you want Direct On-Campus or the Accelerated Bridge (Save ₹53L)?`;
@@ -204,7 +204,7 @@ export default function LingoDeerAdventureGame() {
 🏛️ *Education Loan Facilitation*: 100% Pre-Visa Sanction with Nationalized & Private Banks
 ✨ *Trust Policy*: Free Visa Re-Filing Guarantee (1–2 attempts)
 
-_Created via Future Yatra LingoDeer Pathway Game_`;
+_Created via Future Yatra™ LingoDeer Pathway Game_`;
 
     navigator.clipboard.writeText(summaryText);
     setCopied(true);
@@ -658,7 +658,7 @@ _Created via Future Yatra LingoDeer Pathway Game_`;
                         </div>
                         <div>
                           <span className="text-[10px] font-black text-amber-300 uppercase tracking-widest">
-                            FUTURE YATRA PASSPORT
+                            FUTURE YATRA™ PASSPORT
                           </span>
                           <h4 className="font-heading font-black text-lg text-white">
                             Official Study Abroad Visa Grant
