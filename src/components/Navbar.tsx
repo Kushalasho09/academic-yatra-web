@@ -74,7 +74,7 @@ export default function Navbar() {
             aria-label="Academic Yatra™ Home"
           >
             <Image
-              src="/images/Academic_Ya-removebg-preview.png"
+              src="/images/academic_yatra_new_logo.png"
               alt="Academic Yatra™ — Making Global Education Easy"
               width={200}
               height={48}
@@ -117,7 +117,7 @@ export default function Navbar() {
           aria-label="Academic Yatra™ Home"
         >
           <Image
-            src="/images/Academic_Ya-removebg-preview.png"
+            src="/images/academic_yatra_new_logo.png"
             alt="Academic Yatra™"
             width={160}
             height={38}
@@ -167,7 +167,7 @@ export default function Navbar() {
             {/* Mobile Header in Drawer */}
             <div className="pb-3 mb-1 border-b border-slate-100 px-2 flex items-center justify-between">
               <Image
-                src="/images/Academic_Ya-removebg-preview.png"
+                src="/images/academic_yatra_new_logo.png"
                 alt="Academic Yatra™"
                 width={130}
                 height={32}

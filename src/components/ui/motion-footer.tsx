@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 import { Sparkles, Phone, MessageCircle, ArrowUp, Globe, BookOpen } from "lucide-react";
 
 // Register ScrollTrigger safely for React
@@ -315,7 +316,18 @@ export function CinematicFooter() {
           </div>
 
           {/* 2. Main Center Content */}
-          <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 sm:px-6 mt-24 sm:mt-28 w-full max-w-5xl mx-auto text-center">
+          <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 sm:px-6 mt-20 sm:mt-24 w-full max-w-5xl mx-auto text-center">
+            {/* Academic Yatra Brand Logo Card */}
+            <div className="mb-6 sm:mb-8 inline-flex items-center justify-center p-2.5 sm:p-3.5 px-6 sm:px-8 rounded-2xl bg-white/95 backdrop-blur-xl border border-white/60 shadow-[0_15px_40px_rgba(0,0,0,0.35)] hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/images/academic_yatra_new_logo.png"
+                alt="Academic Yatra™"
+                width={220}
+                height={52}
+                className="h-9 sm:h-12 w-auto object-contain"
+              />
+            </div>
+
             <h2
               ref={headingRef}
               className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold footer-text-glow tracking-tight mb-8 sm:mb-10 text-center"
@@ -443,11 +455,16 @@ export function CinematicFooter() {
               <Link href="/refund-policy" className="hover:text-emerald-300 transition-colors">Refunds</Link>
             </div>
 
-            {/* "Made with Love" Badge */}
-            <div className="footer-glass-pill px-5 py-2 rounded-full flex items-center gap-2 order-1 md:order-2 cursor-default border-white/10">
-              <span className="text-slate-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest">Empowering Global Students</span>
-              <span className="animate-footer-heartbeat text-sm text-emerald-400">❤</span>
-              <span className="text-slate-200 font-bold text-xs sm:text-sm ml-1">Academic Yatra™</span>
+            {/* Logo Badge in Footer Bottom */}
+            <div className="footer-glass-pill px-4 py-2 rounded-full flex items-center gap-2.5 order-1 md:order-2 cursor-default border-white/10 bg-white/5 backdrop-blur-md">
+              <Image
+                src="/images/academic_yatra_logo_dark_bg.png"
+                alt="Academic Yatra™ Logo"
+                width={120}
+                height={28}
+                className="h-5 sm:h-6 w-auto object-contain"
+              />
+              <span className="text-slate-200 font-bold text-xs sm:text-sm">Academic Yatra™</span>
             </div>
 
             {/* Back to top Button */}
