@@ -123,16 +123,16 @@ export default function AboutOurPurpose() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.45, delay: idx * 0.06, ease: easeCurve }}
-                className="w-full flex items-stretch justify-center -my-[1px] relative z-10 group"
+                className="w-full flex items-center justify-center -my-[1px] relative z-10 group"
               >
                 {/* LEFT WING: Exactly (100% - center) / 2 */}
-                <div className="flex-1 min-w-0 flex items-stretch justify-end">
+                <div className="flex-1 min-w-0 flex items-center justify-end">
                   {!isEven ? (
                     // ODD ROW: Icon capsule on the left side
-                    <div className="w-11 sm:w-20 lg:w-24 self-stretch min-h-[76px] sm:min-h-[82px] lg:min-h-[88px] rounded-l-full bg-white border-y border-l border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-md transition-all duration-300 flex items-center justify-center shrink-0 pr-1 pl-1.5 sm:pl-2">
+                    <div className="w-12 sm:w-20 lg:w-24 h-[84px] sm:h-[80px] lg:h-[88px] rounded-l-full bg-white border-y border-l border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-md transition-all duration-300 flex items-center justify-center shrink-0">
                       <Icon
                         className={cn(
-                          "w-4 h-4 sm:w-6 sm:h-6 lg:w-7 lg:h-7 transition-transform duration-300 group-hover:scale-110",
+                          "w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 transition-transform duration-300 group-hover:scale-110",
                           pillar.textClass
                         )}
                         strokeWidth={1.8}
@@ -140,15 +140,15 @@ export default function AboutOurPurpose() {
                     </div>
                   ) : (
                     // EVEN ROW: Wide Text capsule on the left side (Right-aligned text)
-                    <div className="w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[500px] self-stretch min-h-[76px] sm:min-h-[82px] lg:min-h-[88px] py-2.5 sm:py-3.5 rounded-l-full bg-white border-y border-l border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center justify-end pl-2.5 sm:pl-6 lg:pl-7 pr-2 sm:pr-4 lg:pr-5 gap-1.5 sm:gap-3 text-right">
-                      <div className="min-w-0 flex-1 space-y-0.5 sm:space-y-1">
+                    <div className="w-full max-w-[280px] sm:max-w-[420px] lg:max-w-[500px] h-[84px] sm:h-[80px] lg:h-[88px] rounded-l-full bg-white border-y border-l border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center justify-end pl-3.5 sm:pl-6 lg:pl-7 pr-2.5 sm:pr-4 lg:pr-5 gap-1.5 sm:gap-3 text-right">
+                      <div className="min-w-0 flex-1 space-y-0.5">
                         <h4
-                          className="font-heading text-[11px] sm:text-sm lg:text-base font-black tracking-tight leading-snug group-hover:text-emerald-700 transition-colors"
+                          className="font-heading text-[11px] sm:text-sm lg:text-base font-black tracking-tight group-hover:text-emerald-700 transition-colors line-clamp-1"
                           style={{ color: pillar.color }}
                         >
                           {pillar.title}
                         </h4>
-                        <p className="font-body text-[9.5px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-snug sm:leading-relaxed">
+                        <p className="font-body text-[9.5px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-snug sm:leading-relaxed line-clamp-3">
                           {pillar.description}
                         </p>
                       </div>
@@ -166,7 +166,7 @@ export default function AboutOurPurpose() {
                 {/* CENTER SPINE: Rigidly locked at exact 50% horizontal center */}
                 <div
                   className={cn(
-                    "w-11 sm:w-16 min-h-[76px] sm:min-h-[88px] lg:min-h-[96px] self-stretch flex items-center justify-center text-white font-black font-heading text-sm sm:text-lg lg:text-xl tracking-wider select-none shadow-md shrink-0 z-20 transition-transform duration-300 group-hover:scale-[1.03]",
+                    "w-11 sm:w-16 h-[92px] sm:h-[88px] lg:h-[96px] flex items-center justify-center text-white font-black font-heading text-sm sm:text-lg lg:text-xl tracking-wider select-none shadow-md shrink-0 z-20 transition-transform duration-300 group-hover:scale-[1.03]",
                     pillar.bgClass,
                     isFirst && "rounded-t-full",
                     isLast && "rounded-b-full"
@@ -176,10 +176,10 @@ export default function AboutOurPurpose() {
                 </div>
 
                 {/* RIGHT WING: Exactly (100% - center) / 2 */}
-                <div className="flex-1 min-w-0 flex items-stretch justify-start">
+                <div className="flex-1 min-w-0 flex items-center justify-start">
                   {!isEven ? (
                     // ODD ROW: Wide Text capsule on the right side (Left-aligned text)
-                    <div className="w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[500px] self-stretch min-h-[76px] sm:min-h-[82px] lg:min-h-[88px] py-2.5 sm:py-3.5 rounded-r-full bg-white border-y border-r border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center justify-start pr-2.5 sm:pr-6 lg:pr-7 pl-2 sm:pl-4 lg:pl-5 gap-1.5 sm:gap-3 text-left">
+                    <div className="w-full max-w-[280px] sm:max-w-[420px] lg:max-w-[500px] h-[84px] sm:h-[80px] lg:h-[88px] rounded-r-full bg-white border-y border-r border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center justify-start pr-3.5 sm:pr-6 lg:pr-7 pl-2.5 sm:pl-4 lg:pl-5 gap-1.5 sm:gap-3 text-left">
                       <ChevronRight
                         className={cn(
                           "w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1",
@@ -187,21 +187,21 @@ export default function AboutOurPurpose() {
                         )}
                         strokeWidth={2.5}
                       />
-                      <div className="min-w-0 flex-1 space-y-0.5 sm:space-y-1">
+                      <div className="min-w-0 flex-1 space-y-0.5">
                         <h4
-                          className="font-heading text-[11px] sm:text-sm lg:text-base font-black tracking-tight leading-snug group-hover:text-emerald-700 transition-colors"
+                          className="font-heading text-[11px] sm:text-sm lg:text-base font-black tracking-tight group-hover:text-emerald-700 transition-colors line-clamp-1"
                           style={{ color: pillar.color }}
                         >
                           {pillar.title}
                         </h4>
-                        <p className="font-body text-[9.5px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-snug sm:leading-relaxed">
+                        <p className="font-body text-[9.5px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-snug sm:leading-relaxed line-clamp-3">
                           {pillar.description}
                         </p>
                       </div>
                     </div>
                   ) : (
                     // EVEN ROW: Icon capsule on the right side
-                    <div className="w-11 sm:w-20 lg:w-24 self-stretch min-h-[76px] sm:min-h-[82px] lg:min-h-[88px] rounded-r-full bg-white border-y border-r border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-md transition-all duration-300 flex items-center justify-center shrink-0 pl-1 pr-1.5 sm:pr-2">
+                    <div className="w-12 sm:w-20 lg:w-24 h-[84px] sm:h-[80px] lg:h-[88px] rounded-r-full bg-white border-y border-r border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-md transition-all duration-300 flex items-center justify-center shrink-0">
                       <Icon
                         className={cn(
                           "w-4 h-4 sm:w-6 sm:h-6 lg:w-7 lg:h-7 transition-transform duration-300 group-hover:scale-110",
