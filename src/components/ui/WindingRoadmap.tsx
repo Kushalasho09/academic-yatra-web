@@ -31,6 +31,33 @@ export interface WindingRoadmapProps {
 
 const DEFAULT_ICONS = [GraduationCap, Sparkles, Compass, TrendingUp];
 
+const STEP_THEMES = [
+  {
+    bgGradient: "from-[#2563EB] via-[#1D4ED8] to-[#1E40AF]",
+    shadow: "shadow-[0_16px_35px_rgba(37,99,235,0.35)]",
+    mobileShadow: "shadow-[0_10px_22px_rgba(37,99,235,0.32)]",
+    ringBorder: "border-blue-500/30",
+  },
+  {
+    bgGradient: "from-[#10B981] via-[#0C9253] to-[#047857]",
+    shadow: "shadow-[0_16px_35px_rgba(12,146,83,0.35)]",
+    mobileShadow: "shadow-[0_10px_22px_rgba(12,146,83,0.32)]",
+    ringBorder: "border-emerald-500/30",
+  },
+  {
+    bgGradient: "from-[#F59E0B] via-[#EA580C] to-[#C2410C]",
+    shadow: "shadow-[0_16px_35px_rgba(234,88,12,0.35)]",
+    mobileShadow: "shadow-[0_10px_22px_rgba(234,88,12,0.32)]",
+    ringBorder: "border-orange-500/30",
+  },
+  {
+    bgGradient: "from-[#A855F7] via-[#8B5CF6] to-[#7C3AED]",
+    shadow: "shadow-[0_16px_35px_rgba(139,92,246,0.35)]",
+    mobileShadow: "shadow-[0_10px_22px_rgba(139,92,246,0.32)]",
+    ringBorder: "border-purple-500/30",
+  },
+];
+
 export default function WindingRoadmap({
   headingLine1,
   headingLine2,
@@ -126,160 +153,6 @@ export default function WindingRoadmap({
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-
-            {/* Dynamic Walking Student along the Serpentine Track (with realistic gait steps) */}
-            <g className="walking-student pointer-events-none">
-              {/* Moves along the exact continuous road track */}
-              <animateMotion
-                dur="18s"
-                repeatCount="indefinite"
-                fill="freeze"
-                calcMode="linear"
-              >
-                <mpath href="#desktopRoadmapPath" />
-              </animateMotion>
-
-              {/* Ground-contact shadow directly on the road under feet */}
-              <ellipse cx="0" cy="0" rx="9" ry="2.2" fill="#1E4D46" opacity="0.4">
-                <animate
-                  attributeName="rx"
-                  values="9; 7; 9; 7; 9"
-                  dur="0.6s"
-                  repeatCount="indefinite"
-                />
-              </ellipse>
-
-              {/* Character Rig (Facing orientation flips dynamically based on path direction) */}
-              <g>
-                <animateTransform
-                  attributeName="transform"
-                  type="scale"
-                  values="1 1; 1 1; -1 1; -1 1; 1 1; 1 1"
-                  keyTimes="0; 0.35; 0.38; 0.65; 0.68; 1"
-                  dur="18s"
-                  repeatCount="indefinite"
-                />
-
-                {/* Torso & Head vertical bounce gait */}
-                <g>
-                  <animateTransform
-                    attributeName="transform"
-                    type="translate"
-                    values="0 0; 0 -2.5; 0 0; 0 -2.5; 0 0"
-                    dur="0.6s"
-                    repeatCount="indefinite"
-                  />
-
-                  {/* BACK ARM (swings opposite to front leg) */}
-                  <g>
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      values="24 0 -22; -24 0 -22; 24 0 -22"
-                      dur="0.6s"
-                      repeatCount="indefinite"
-                    />
-                    <path
-                      d="M 0 -22 L 5 -14 L 8 -13"
-                      stroke="#475569"
-                      strokeWidth="2.4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                  </g>
-
-                  {/* BACK LEG (swings opposite to front leg) */}
-                  <g>
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      values="-26 0 -13; 26 0 -13; -26 0 -13"
-                      dur="0.6s"
-                      repeatCount="indefinite"
-                    />
-                    <path
-                      d="M 0 -13 L -3 -6 L -1.5 0 L 2.5 0"
-                      stroke="#334155"
-                      strokeWidth="3.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                  </g>
-
-                  {/* STUDENT BACKPACK & JACKET */}
-                  {/* Emerald Green Student Backpack */}
-                  <rect
-                    x="-7.5"
-                    y="-23"
-                    width="4.5"
-                    height="9"
-                    rx="2"
-                    fill="#0C9253"
-                  />
-                  {/* Body / Jacket */}
-                  <path
-                    d="M -3.5 -25 L 3.5 -25 L 2.5 -13 L -2.5 -13 Z"
-                    fill="#1E293B"
-                  />
-
-                  {/* HEAD & ACADEMIC CAP */}
-                  {/* Head */}
-                  <circle cx="0" cy="-29" r="4.2" fill="#1E293B" />
-                  {/* Cap Crown */}
-                  <path
-                    d="M -5 -33 L 0 -35 L 5 -33 L 0 -31 Z"
-                    fill="#0C9253"
-                  />
-                  {/* Tassel */}
-                  <path
-                    d="M 5 -33 L 5.5 -29.5"
-                    stroke="#F59E0B"
-                    strokeWidth="0.9"
-                    strokeLinecap="round"
-                  />
-
-                  {/* FRONT LEG (realistic stride forward/back) */}
-                  <g>
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      values="26 0 -13; -26 0 -13; 26 0 -13"
-                      dur="0.6s"
-                      repeatCount="indefinite"
-                    />
-                    <path
-                      d="M 0 -13 L 3 -6 L 1.5 0 L 5.5 0"
-                      stroke="#0F172A"
-                      strokeWidth="3.4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                  </g>
-
-                  {/* FRONT ARM (swings opposite to front leg) */}
-                  <g>
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      values="-24 0 -22; 24 0 -22; -24 0 -22"
-                      dur="0.6s"
-                      repeatCount="indefinite"
-                    />
-                    <path
-                      d="M 0 -22 L -4 -14 L -6 -13"
-                      stroke="#0F172A"
-                      strokeWidth="2.6"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                  </g>
-                </g>
-              </g>
-            </g>
           </svg>
 
           {/* 4 Alternating Steps Grid */}
@@ -287,6 +160,7 @@ export default function WindingRoadmap({
             {steps.map((step, idx) => {
               const Icon = step.icon || DEFAULT_ICONS[idx % DEFAULT_ICONS.length];
               const isEven = idx % 2 === 1; // Step 2 and 4 have circle on right
+              const theme = STEP_THEMES[idx % STEP_THEMES.length];
 
               return (
                 <motion.div
@@ -302,8 +176,14 @@ export default function WindingRoadmap({
                     // Step 1 & 3: Circle on Left (Cols 1-4)
                     <div className="col-span-4 flex justify-center pl-4 lg:pl-8">
                       <div className="relative group">
-                        {/* Red Circular Disk */}
-                        <div className="w-36 h-36 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br from-[#E04343] via-[#D33434] to-[#B92727] shadow-[0_16px_35px_rgba(211,52,52,0.32)] border-2 border-white flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-105">
+                        {/* Multi-color Circular Disk */}
+                        <div
+                          className={cn(
+                            "w-36 h-36 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br border-2 border-white flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-105",
+                            theme.bgGradient,
+                            theme.shadow
+                          )}
+                        >
                           {/* Inner subtle glow ring */}
                           <div className="absolute inset-2 rounded-full border border-white/25 pointer-events-none" />
                           <Icon className="w-12 h-12 lg:w-14 lg:h-14 text-white/95 drop-shadow-md stroke-[1.8]" />
@@ -361,8 +241,14 @@ export default function WindingRoadmap({
                     // Step 2 & 4: Circle on Right (Cols 9-12)
                     <div className="col-span-4 flex justify-center pr-4 lg:pr-8">
                       <div className="relative group">
-                        {/* Red Circular Disk */}
-                        <div className="w-36 h-36 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br from-[#E04343] via-[#D33434] to-[#B92727] shadow-[0_16px_35px_rgba(211,52,52,0.32)] border-2 border-white flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-105">
+                        {/* Multi-color Circular Disk */}
+                        <div
+                          className={cn(
+                            "w-36 h-36 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br border-2 border-white flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-105",
+                            theme.bgGradient,
+                            theme.shadow
+                          )}
+                        >
                           {/* Inner subtle glow ring */}
                           <div className="absolute inset-2 rounded-full border border-white/25 pointer-events-none" />
                           <Icon className="w-12 h-12 lg:w-14 lg:h-14 text-white/95 drop-shadow-md stroke-[1.8]" />
@@ -443,155 +329,6 @@ export default function WindingRoadmap({
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-
-            {/* Dynamic Walking Student along the Mobile Serpentine Track */}
-            <g className="walking-student-mobile pointer-events-none">
-              {/* Moves along the exact mobile road track */}
-              <animateMotion
-                dur="16s"
-                repeatCount="indefinite"
-                fill="freeze"
-                calcMode="linear"
-              >
-                <mpath href="#mobileRoadmapPath" />
-              </animateMotion>
-
-              {/* Ground-contact shadow */}
-              <ellipse cx="0" cy="0" rx="7" ry="1.8" fill="#1E4D46" opacity="0.38">
-                <animate
-                  attributeName="rx"
-                  values="7; 5.5; 7; 5.5; 7"
-                  dur="0.55s"
-                  repeatCount="indefinite"
-                />
-              </ellipse>
-
-              {/* Mobile Character Rig scaled to 0.78 for mobile proportion */}
-              <g transform="scale(0.78)">
-                <animateTransform
-                  attributeName="transform"
-                  type="scale"
-                  values="-0.78 0.78; -0.78 0.78; 0.78 0.78; 0.78 0.78; -0.78 0.78; -0.78 0.78"
-                  keyTimes="0; 0.32; 0.36; 0.65; 0.69; 1"
-                  dur="16s"
-                  repeatCount="indefinite"
-                />
-
-                {/* Torso & Head vertical bounce gait */}
-                <g>
-                  <animateTransform
-                    attributeName="transform"
-                    type="translate"
-                    values="0 0; 0 -2.2; 0 0; 0 -2.2; 0 0"
-                    dur="0.55s"
-                    repeatCount="indefinite"
-                  />
-
-                  {/* BACK ARM */}
-                  <g>
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      values="24 0 -22; -24 0 -22; 24 0 -22"
-                      dur="0.55s"
-                      repeatCount="indefinite"
-                    />
-                    <path
-                      d="M 0 -22 L 5 -14 L 8 -13"
-                      stroke="#475569"
-                      strokeWidth="2.4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                  </g>
-
-                  {/* BACK LEG */}
-                  <g>
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      values="-26 0 -13; 26 0 -13; -26 0 -13"
-                      dur="0.55s"
-                      repeatCount="indefinite"
-                    />
-                    <path
-                      d="M 0 -13 L -3 -6 L -1.5 0 L 2.5 0"
-                      stroke="#334155"
-                      strokeWidth="3.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                  </g>
-
-                  {/* BACKPACK & JACKET */}
-                  <rect
-                    x="-7.5"
-                    y="-23"
-                    width="4.5"
-                    height="9"
-                    rx="2"
-                    fill="#0C9253"
-                  />
-                  <path
-                    d="M -3.5 -25 L 3.5 -25 L 2.5 -13 L -2.5 -13 Z"
-                    fill="#1E293B"
-                  />
-
-                  {/* HEAD & CAP */}
-                  <circle cx="0" cy="-29" r="4.2" fill="#1E293B" />
-                  <path
-                    d="M -5 -33 L 0 -35 L 5 -33 L 0 -31 Z"
-                    fill="#0C9253"
-                  />
-                  <path
-                    d="M 5 -33 L 5.5 -29.5"
-                    stroke="#F59E0B"
-                    strokeWidth="0.9"
-                    strokeLinecap="round"
-                  />
-
-                  {/* FRONT LEG */}
-                  <g>
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      values="26 0 -13; -26 0 -13; 26 0 -13"
-                      dur="0.55s"
-                      repeatCount="indefinite"
-                    />
-                    <path
-                      d="M 0 -13 L 3 -6 L 1.5 0 L 5.5 0"
-                      stroke="#0F172A"
-                      strokeWidth="3.4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                  </g>
-
-                  {/* FRONT ARM */}
-                  <g>
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      values="-24 0 -22; 24 0 -22; -24 0 -22"
-                      dur="0.55s"
-                      repeatCount="indefinite"
-                    />
-                    <path
-                      d="M 0 -22 L -4 -14 L -6 -13"
-                      stroke="#0F172A"
-                      strokeWidth="2.6"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                  </g>
-                </g>
-              </g>
-            </g>
           </svg>
 
           {/* 4 Alternating Mobile Step Rows */}
@@ -601,6 +338,7 @@ export default function WindingRoadmap({
               const isCircleRight = idx % 2 === 0; // Steps 1 & 3: Circle on right, Steps 2 & 4: Circle on left
               const actionLabels = ["STUDY", "PRACTICE", "FLEXIBLE", "GROW"];
               const actionLabel = actionLabels[idx % actionLabels.length];
+              const theme = STEP_THEMES[idx % STEP_THEMES.length];
 
               return (
                 <motion.div
@@ -644,9 +382,20 @@ export default function WindingRoadmap({
                     )}
                   >
                     {/* Outer subtle concentric ring */}
-                    <div className="w-[72px] h-[72px] rounded-full p-1 border-2 border-[#2E7D72]/25 flex items-center justify-center bg-white/50 backdrop-blur-xs">
-                      {/* Red Circular Disk matching desktop */}
-                      <div className="w-full h-full rounded-full bg-gradient-to-br from-[#E04343] via-[#D33434] to-[#B92727] shadow-[0_10px_22px_rgba(211,52,52,0.3)] border-2 border-white flex flex-col items-center justify-center text-white">
+                    <div
+                      className={cn(
+                        "w-[72px] h-[72px] rounded-full p-1 border-2 flex items-center justify-center bg-white/50 backdrop-blur-xs",
+                        theme.ringBorder
+                      )}
+                    >
+                      {/* Multi-color Circular Disk */}
+                      <div
+                        className={cn(
+                          "w-full h-full rounded-full bg-gradient-to-br border-2 border-white flex flex-col items-center justify-center text-white",
+                          theme.bgGradient,
+                          theme.mobileShadow
+                        )}
+                      >
                         <Icon className="w-5 h-5 text-white drop-shadow stroke-[1.8]" />
                         <span className="text-[7px] font-black uppercase tracking-wider text-white/90 mt-0.5 select-none">
                           {actionLabel}

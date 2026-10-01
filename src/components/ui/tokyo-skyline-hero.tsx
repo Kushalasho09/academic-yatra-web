@@ -112,7 +112,7 @@ export default function TokyoSkylineHero({
     const isMobile =
       typeof window !== "undefined" &&
       (window.innerWidth < 768 || ("ontouchstart" in window && window.innerWidth < 1024))
-    const effectiveScrubDistance = isMobile ? Math.min(480, scrubDistance * 0.18) : scrubDistance
+    const effectiveScrubDistance = isMobile ? 75 : scrubDistance
 
     let duration = video.duration || 0
     let rafId = 0
@@ -219,14 +219,22 @@ export default function TokyoSkylineHero({
     }
 
     function addDelta(deltaY: number): boolean {
-      if (locked && targetProgress >= 0.98 && deltaY > 0) {
+      const unlockThreshold = isMobile ? 0.85 : 0.98
+      if (locked && targetProgress >= unlockThreshold && deltaY > 0) {
         releaseLock()
         return false
       }
 
-      const next = clamp(targetProgress + deltaY / effectiveScrubDistance, 0, 1)
+      const dist = isMobile ? 75 : effectiveScrubDistance
+      const next = clamp(targetProgress + deltaY / dist, 0, 1)
       targetProgress = next
       if (targetProgress > 0.001) hasStartedScrolling = true
+
+      if (isMobile && targetProgress >= unlockThreshold && deltaY > 0) {
+        releaseLock()
+        return false
+      }
+
       return true
     }
 
@@ -272,13 +280,25 @@ export default function TokyoSkylineHero({
       }
     }
 
+    const onTouchEnd = () => {
+      if (isMobile && locked) {
+        if (targetProgress > 0.3) {
+          targetProgress = 1
+          releaseLock()
+        } else {
+          targetProgress = 0
+        }
+      }
+    }
+
     window.addEventListener("wheel", onWheel, { passive: false })
     window.addEventListener("touchstart", onTouchStart, { passive: true })
     window.addEventListener("touchmove", onTouchMove, { passive: false })
+    window.addEventListener("touchend", onTouchEnd, { passive: true })
 
     function frame() {
       const prevProgress = currentProgress
-      currentProgress += (targetProgress - currentProgress) * (isMobile ? 0.25 : 0.18)
+      currentProgress += (targetProgress - currentProgress) * (isMobile ? 0.35 : 0.18)
 
       // 1. Scrub video forward only on desktop
       // On mobile devices, hardware decoders drop frames/flicker black during seekTo.
@@ -342,6 +362,7 @@ export default function TokyoSkylineHero({
       window.removeEventListener("wheel", onWheel)
       window.removeEventListener("touchstart", onTouchStart)
       window.removeEventListener("touchmove", onTouchMove)
+      window.removeEventListener("touchend", onTouchEnd)
       cancelAnimationFrame(rafId)
       releaseLock()
     }
