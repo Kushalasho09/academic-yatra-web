@@ -48,7 +48,7 @@ export default function CountryCardNode({ data }: NodeProps<any>) {
                 {country.countryName}
               </h3>
               <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
-                {country.countryCode} • {country.postStudyWorkVisa}
+                {country.countryCode} • {country.postStudyWorkRights}
               </p>
             </div>
           </div>

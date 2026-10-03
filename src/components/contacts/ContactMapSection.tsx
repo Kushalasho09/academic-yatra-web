@@ -1,39 +1,19 @@
 "use client";
 
 import React from "react";
-import { MapPin, ExternalLink, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 export default function ContactMapSection() {
-  const addressText = "E49/5, Pocket D, Okhla Phase II, New Delhi – 110020";
   const mapEmbedUrl =
-    "https://maps.google.com/maps?q=E49%2F5%2C+Pocket+D%2C+Okhla+Phase+II%2C+Okhla+Industrial+Estate%2C+New+Delhi%2C+Delhi+110020&t=&z=14&ie=UTF8&iwloc=&output=embed";
-  const googleMapsDirectionsUrl =
-    "https://maps.google.com/?q=E49/5,+Pocket+D,+Okhla+Phase+II,+New+Delhi+110020";
+    "https://maps.google.com/maps?q=Supernova+Astralis%2C+Sector+94%2C+Noida%2C+Uttar+Pradesh+201301&t=&z=15&ie=UTF8&iwloc=&output=embed";
 
   return (
     <section className="relative w-full overflow-hidden bg-slate-100 border-t border-slate-200">
-      
-      {/* Top Floating Address Pill / Title Bar (Matching User Screenshot) */}
-      <div className="absolute top-4 sm:top-6 left-4 sm:left-10 z-20 pointer-events-none">
-        <div className="pointer-events-auto inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 text-white backdrop-blur-md shadow-lg border border-slate-800 text-xs sm:text-sm font-semibold">
-          <MapPin className="w-4 h-4 text-[#0C9253] shrink-0" />
-          <span>{addressText}</span>
-          <a
-            href={googleMapsDirectionsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-2 hover:text-[#0C9253] transition-colors"
-            title="Open in Google Maps"
-          >
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
-        </div>
-      </div>
 
       {/* Floating Right Edge Quick Action Strip (Matching Screenshot) */}
       <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden sm:flex flex-col items-center bg-white border border-slate-200 rounded-l-2xl shadow-xl overflow-hidden">
         <a
-          href="http://wa.me/919403892981"
+          href="https://wa.me/919217368750"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

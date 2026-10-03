@@ -79,7 +79,7 @@ export default function LanguagesFAQ() {
               </div>
 
               <a
-                href="https://wa.me/919286844550?text=Hi,%20I%20have%20questions%20regarding%20Academic%20Yatra%20language%20programs."
+                href="https://wa.me/919217368750?text=Hi,%20I%20have%20questions%20regarding%20Academic%20Yatra%20language%20programs."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow-md transition-all hover:gap-3"

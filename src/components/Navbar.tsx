@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, Sparkles } from "lucide-react";
+import { Menu, X, Phone, Sparkles, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { cn } from "@/lib/utils";
@@ -204,11 +204,13 @@ export default function Navbar() {
 
             <div className="pt-4 border-t border-slate-100 flex flex-col gap-4">
               <a
-                href="tel:+919286844550"
-                className="flex items-center justify-center space-x-2 w-full py-2.5 rounded-full border border-slate-300 text-brand-navy font-semibold text-xs hover:bg-slate-50 transition-colors"
+                href="https://wa.me/919217368750"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center space-x-2 w-full py-2.5 rounded-full border border-emerald-300 text-emerald-800 font-semibold text-xs hover:bg-emerald-50 transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-brand-primary" />
-                <span>+91-92868-44550</span>
+                <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                <span>+91-9217368750</span>
               </a>
 
               <Link href="/contacts" className="block w-full" onClick={() => setMobileMenuOpen(false)}>

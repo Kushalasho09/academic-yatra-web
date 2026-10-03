@@ -93,7 +93,7 @@ export default function AboutProgramsGrid() {
         },
         {
           name: "German Language Training",
-          badge: "Academic Readiness & Work Visa Prep",
+          badge: "Academic Readiness & Global Career Prep",
         },
       ],
       coverageTitle: "4-Pillar Integrated Skill Development:",

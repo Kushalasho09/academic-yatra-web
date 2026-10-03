@@ -410,7 +410,7 @@ export const EXAM_PROGRAMS_DATA: Record<string, { examName: string; plans: Progr
         period: "/ month (INR)",
         totalText: "Total: ₹40,999 (incl. 18% GST)",
         validityText: "7 Months Validity",
-        description: "Essential qualification for undergraduate and job seeker visa pathways in Germany.",
+        description: "Essential qualification for undergraduate and international career pathways in Germany.",
         features: [
           { text: "18 Weeks Live Lectures", included: true },
           { text: "30 Practice Tests", included: true },
@@ -630,7 +630,7 @@ export default function CoursePrograms({
               const isFeatured = plan.styleType === "featured" || idx === 1;
               const theme = idx === 0 ? "mint" : idx === 1 ? "lime" : "lavender";
               const badge = isFeatured ? "Popular" : undefined;
-              const ctaHref = `https://wa.me/919286844550?text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
+              const ctaHref = `https://wa.me/919217368750?text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
                 activeData.examName
               )}%20-%20${encodeURIComponent(plan.name)}.`;
               const detailHref = `/languages/${currentExam === "IELTS GN" ? "ielts-general" : "ielts-academic"}`;

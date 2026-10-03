@@ -426,7 +426,7 @@ export default function CounsellingFlowCanvas() {
                   {supportsAccelerated && (
                     <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[10px] text-emerald-800 font-semibold bg-emerald-50/60 p-2 rounded-xl">
                       <span>✓ GRE/GMAT Waived</span>
-                      <span>✓ Same PSW Visa</span>
+                      <span>✓ Same PSW Rights</span>
                       <span>✓ ₹5 Lakh Year 1</span>
                     </div>
                   )}
@@ -465,7 +465,7 @@ export default function CounsellingFlowCanvas() {
                             {country.countryName}
                           </h5>
                           <p className="text-[10px] text-slate-400 font-bold uppercase">
-                            {country.countryCode} • {country.postStudyWorkVisa}
+                            {country.countryCode} • {country.postStudyWorkRights}
                           </p>
                         </div>
                       </div>
@@ -553,7 +553,7 @@ export default function CounsellingFlowCanvas() {
 
               <ul className="text-xs space-y-2.5 text-slate-600">
                 <li>• <strong>Separation of Qualification vs. Options</strong>: What the student completed in India is kept strictly separate from abroad next steps.</li>
-                <li>• <strong>Fact vs. Recommendation</strong>: Objective researched figures (costs, visas) are kept visually distinct from FY recommendations.</li>
+                <li>• <strong>Fact vs. Recommendation</strong>: Objective researched figures (costs, timelines) are kept visually distinct from FY recommendations.</li>
                 <li>• <strong>Extensible Lists, Fixed Flow</strong>: Adding new courses or countries automatically inherits the standardized downstream flow.</li>
                 <li>• <strong>Generic Field Names Abroad</strong>: International programs use global field terminology instead of assumed Indian degree titles.</li>
                 <li>• <strong>Work Experience Override</strong>: Relevant work experience can redirect student eligibility into top management/tech programs.</li>
@@ -595,7 +595,7 @@ export default function CounsellingFlowCanvas() {
                 <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 space-y-1.5">
                   <p className="font-bold text-brand-primary">How It Works:</p>
                   <p className="leading-relaxed">
-                    Students complete Year 1 online with premier Indian institutions (IIIT Bangalore, IMT Ghaziabad, IIM Udaipur, Golden Gate University) for approx. ₹5 Lakhs, then transfer credits directly onto foreign campuses for years 2–4 with up to 3 years Post-Study Work Visas.
+                    Students complete Year 1 online with premier Indian institutions (IIIT Bangalore, IMT Ghaziabad, IIM Udaipur, Golden Gate University) for approx. ₹5 Lakhs, then transfer credits directly onto foreign campuses for years 2–4 with up to 3 years Post-Study Work Permits.
                   </p>
                 </div>
 
@@ -616,8 +616,8 @@ export default function CounsellingFlowCanvas() {
                 <div className="space-y-1.5 text-[11px] text-slate-600">
                   <p>• <strong>Canada</strong>: Up to 3 yrs PGWP • Save up to ₹35L</p>
                   <p>• <strong>USA</strong>: Up to 3 yrs STEM OPT • Save up to ₹50L</p>
-                  <p>• <strong>Germany</strong>: 18-mo Job Seeker Visa • Save up to ₹20L</p>
-                  <p>• <strong>France</strong>: 5-year Post-Study Work Visa • Save up to ₹35L</p>
+                  <p>• <strong>Germany</strong>: 18-mo Job Seeker Permit • Save up to ₹20L</p>
+                  <p>• <strong>France</strong>: 5-year Post-Study Work Permit • Save up to ₹35L</p>
                   <p>• <strong>UK (Master&apos;s only)</strong>: 2 yrs Graduate Route • Save up to ₹5L</p>
                 </div>
               </div>

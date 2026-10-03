@@ -18,6 +18,7 @@ import {
   Share2,
   FileText,
   AlertCircle,
+  MessageCircle,
 } from "lucide-react";
 import {
   CountryProgramData,
@@ -43,7 +44,7 @@ export default function CounsellorDrawer({
   selectedStreamName,
 }: CounsellorDrawerProps) {
   const [copied, setCopied] = useState(false);
-  const [activeTab, setActiveTab] = useState<"overview" | "roadmap" | "loan-visa">("overview");
+  const [activeTab, setActiveTab] = useState<"overview" | "roadmap" | "loan-guarantee">("overview");
 
   if (!countryData || !courseData) return null;
 
@@ -53,11 +54,11 @@ export default function CounsellorDrawer({
 🎯 *Target Track*: ${courseData.name}
 📍 *Destination*: ${countryData.flag} ${countryData.countryName}
 💰 *Est. Tuition Cost*: ${countryData.tuitionPerYearInr} (${countryData.tuitionPerYearLocal})
-🛂 *PR & Visa Pathway*: ${countryData.prPathwaySummary} (Post-Study Visa: ${countryData.postStudyWorkVisa})
+🛂 *Career & PR Pathway*: ${countryData.prPathwaySummary} (Post-Study Rights: ${countryData.postStudyWorkRights})
 💼 *Avg. Starting Salary*: ${countryData.entrySalaryInr} (${countryData.entrySalaryLocal})
 📚 *Language Requirement*: ${countryData.languageRequirements.join(", ")} (FY In-House Prep Available)
 🏛️ *Education Loan Assistance*: 100% Collateral/Non-Collateral Facilitated by Future Yatra™
-✨ *Trust Policy*: Free Visa Re-filing guarantee for up to 1-2 attempts.
+✨ *Trust Policy*: Free Application Re-Submission assistance for up to 1-2 attempts.
 
 _Generated via Future Yatra™ Interactive Counselling Platform_`;
 
@@ -139,14 +140,14 @@ _Generated via Future Yatra™ Interactive Counselling Platform_`;
                   12-Step Journey
                 </button>
                 <button
-                  onClick={() => setActiveTab("loan-visa")}
+                  onClick={() => setActiveTab("loan-guarantee")}
                   className={`py-3 px-4 text-xs font-bold border-b-2 transition-all cursor-pointer ${
-                    activeTab === "loan-visa"
+                    activeTab === "loan-guarantee"
                       ? "border-brand-primary text-brand-primary"
                       : "border-transparent text-slate-500 hover:text-dark"
                   }`}
                 >
-                  Loan & Visa Guarantee
+                  Loan & Policy Guarantee
                 </button>
               </div>
 
@@ -227,7 +228,7 @@ _Generated via Future Yatra™ Interactive Counselling Platform_`;
                       </p>
                       <div className="pt-2 flex items-center gap-2 text-xs text-slate-600 bg-slate-50 p-2.5 rounded-xl">
                         <Clock className="w-3.5 h-3.5 text-brand-accent" />
-                        <span><strong>Post-Study Work Visa:</strong> {countryData.postStudyWorkVisa}</span>
+                        <span><strong>Post-Study Work Rights:</strong> {countryData.postStudyWorkRights}</span>
                       </div>
                     </div>
 
@@ -308,8 +309,8 @@ _Generated via Future Yatra™ Interactive Counselling Platform_`;
                   </div>
                 )}
 
-                {/* TAB 3: LOAN & VISA POLICY */}
-                {activeTab === "loan-visa" && (
+                {/* TAB 3: LOAN & GUARANTEE POLICY */}
+                {activeTab === "loan-guarantee" && (
                   <div className="space-y-5">
                     {/* Education Loan Box */}
                     <div className="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-5 space-y-3">
@@ -318,12 +319,12 @@ _Generated via Future Yatra™ Interactive Counselling Platform_`;
                         <span>100% Education Loan Facilitation</span>
                       </div>
                       <p className="text-xs text-slate-700 leading-relaxed">
-                        Future Yatra™ works with leading nationalized and NBFC partners (SBI, HDFC Credila, Avanse, MPower, Prodigy) providing pre-visa sanction letters, non-collateral options up to ₹1 Crore, and preferential interest rates.
+                        Future Yatra™ works with leading nationalized and NBFC partners (SBI, HDFC Credila, Avanse, MPower, Prodigy) providing pre-departure sanction letters, non-collateral options up to ₹1 Crore, and preferential interest rates.
                       </p>
                       <ul className="text-xs space-y-1.5 text-slate-600 font-medium pt-1">
                         <li className="flex items-center gap-1.5">
                           <CheckCircle2 className="w-3.5 h-3.5 text-brand-primary shrink-0" />
-                          <span>Pre-visa sanction letter for embassy financial proof</span>
+                          <span>Pre-departure sanction letter for financial proof</span>
                         </li>
                         <li className="flex items-center gap-1.5">
                           <CheckCircle2 className="w-3.5 h-3.5 text-brand-primary shrink-0" />
@@ -336,14 +337,14 @@ _Generated via Future Yatra™ Interactive Counselling Platform_`;
                       </ul>
                     </div>
 
-                    {/* Visa Re-Filing Policy */}
+                    {/* Application Re-Submission Policy */}
                     <div className="bg-slate-900 text-white rounded-2xl p-5 space-y-3 shadow-lg">
                       <div className="flex items-center space-x-2 text-emerald-400 font-bold text-sm">
                         <ShieldCheck className="w-4 h-4" />
-                        <span>Future Yatra™ Free Visa Re-Filing Guarantee</span>
+                        <span>Future Yatra™ Free Application Re-Submission Guarantee</span>
                       </div>
                       <p className="text-xs text-slate-300 leading-relaxed font-normal">
-                        If a student’s visa is rejected on the initial attempt, Future Yatra™ re-files the visa application at <strong>ZERO additional counselling cost</strong> (up to 1–2 attempts).
+                        If an application requires re-submission, Future Yatra™ assists with re-filing at <strong>ZERO additional counselling cost</strong> (up to 1–2 attempts).
                       </p>
                       <p className="text-xs text-slate-300 leading-relaxed font-normal">
                         Students also have the complete flexibility to switch destination countries or product streams (e.g. from Direct Model to Accelerated Pathway) with no extra service fees.
@@ -376,11 +377,13 @@ _Generated via Future Yatra™ Interactive Counselling Platform_`;
                 </button>
 
                 <a
-                  href="tel:+919286844550"
+                  href="https://wa.me/919217368750?text=Hi%20Academic%20Yatra,%20I%20would%20like%20to%20connect%20with%20an%20expert%20counsellor."
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-brand-primary hover:bg-brand-primaryHover text-white text-xs font-bold shadow-md shadow-brand-primary/25 transition-all cursor-pointer"
                 >
-                  <PhoneCall className="w-4 h-4" />
-                  <span>Connect With Student</span>
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Connect via WhatsApp</span>
                 </a>
               </div>
 

@@ -44,7 +44,7 @@ export default function PackageFloatingDock({ onOpenContact }: PackageFloatingDo
 
           {/* Green WhatsApp Tab */}
           <a
-            href="https://web.whatsapp.com/send?phone=+919403892981&text=Hi%20Academic%20Yatra,%20I%20am%20interested%20in%20the%20IELTS%20Academic%20Program."
+            href="https://wa.me/919217368750?text=Hi%20Academic%20Yatra,%20I%20am%20interested%20in%20the%20IELTS%20Academic%20Program."
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp Academic Yatra™"

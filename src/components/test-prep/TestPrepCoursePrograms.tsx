@@ -284,7 +284,7 @@ export default function TestPrepCoursePrograms({
             const isFeatured = plan.styleType === "featured" || idx === 1;
             const theme = idx === 0 ? "mint" : idx === 1 ? "lime" : "lavender";
             const badge = isFeatured ? "Popular" : undefined;
-            const ctaHref = `https://web.whatsapp.com/send?phone=+919403892981&text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
+            const ctaHref = `https://wa.me/919217368750?text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
               currentExamData.examName
             )}%20-${encodeURIComponent(plan.name)}.`;
 

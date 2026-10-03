@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 export default function ConsultationCTA() {
   const easeCurve = [0.16, 1, 0.3, 1];
   const whatsappUrl =
-    "http://wa.me/919286844550?text=Hi,%20I%20would%20like%20to%20speak%20with%20an%20academic%20counselor%20regarding%20test%20preparation%20and%20study%20abroad%20programs.";
+    "https://wa.me/919217368750?text=Hi,%20I%20would%20like%20to%20speak%20with%20an%20academic%20counselor%20regarding%20test%20preparation%20and%20higher%20education%20programs.";
 
   return (
     <section className="py-8 sm:py-12 bg-[#0A1120] text-white relative overflow-hidden">

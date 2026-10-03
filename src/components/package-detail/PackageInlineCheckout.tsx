@@ -936,7 +936,7 @@ export default function PackageInlineCheckout({
                 {/* Post-Enrollment Action Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto pt-2">
                   <a
-                    href="https://web.whatsapp.com/send?phone=+919403892981&text=Hi%20Academic%20Yatra,%20I%20have%20completed%20my%20enrollment%20for%20IELTS%20Academic%20Champion%20Pack%20+.%20Please%20assign%20my%20batch."
+                    href="https://wa.me/919217368750?text=Hi%20Academic%20Yatra,%20I%20have%20completed%20my%20enrollment%20for%20IELTS%20Academic%20Champion%20Pack%20+.%20Please%20assign%20my%20batch."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-2"
@@ -1227,7 +1227,7 @@ export default function PackageInlineCheckout({
                       </div>
 
                       <a
-                        href={`https://web.whatsapp.com/send?phone=+919403892981&text=${encodeURIComponent(
+                        href={`https://wa.me/919217368750?text=${encodeURIComponent(
                           `Hi Academic Yatra™, I am completing enrollment for ${selectedPlan.category} - ${selectedPlan.packType} (${selectedPlan.priceFormatted}). Please confirm batch timings.`
                         )}`}
                         target="_blank"
@@ -1235,7 +1235,7 @@ export default function PackageInlineCheckout({
                         className="w-full py-3 px-4 rounded-xl border border-slate-200 hover:border-emerald-400 bg-white text-slate-700 font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-xs"
                       >
                         <MessageCircle className="w-4 h-4 text-[#25D366]" />
-                        <span>Pay or Query via WhatsApp (+91 94038 92981)</span>
+                        <span>Pay or Query via WhatsApp (+91 92173 68750)</span>
                       </a>
                     </div>
 
@@ -1501,7 +1501,7 @@ export default function PackageInlineCheckout({
                       </div>
 
                       <a
-                        href={`https://web.whatsapp.com/send?phone=+919403892981&text=${encodeURIComponent(
+                        href={`https://wa.me/919217368750?text=${encodeURIComponent(
                           `Hi Academic Yatra™, I would like to enroll in ${selectedPlan.category} - ${selectedPlan.packType} (${selectedPlan.priceFormatted}). Please guide me on payment options.`
                         )}`}
                         target="_blank"
@@ -1509,7 +1509,7 @@ export default function PackageInlineCheckout({
                         className="w-full py-3 px-4 rounded-xl border border-slate-200 hover:border-emerald-400 bg-white text-slate-700 font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-xs hover:shadow-sm"
                       >
                         <MessageCircle className="w-4 h-4 text-[#25D366]" />
-                        <span>Pay or Query via WhatsApp (+91 94038 92981)</span>
+                        <span>Pay or Query via WhatsApp (+91 92173 68750)</span>
                       </a>
                     </div>
 

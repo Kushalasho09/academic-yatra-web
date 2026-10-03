@@ -128,6 +128,22 @@ const STYLES = `
   background-clip: text;
   filter: drop-shadow(0px 0px 30px rgba(12, 146, 83, 0.35));
 }
+
+/* Metallic Silver Brand Text Gradient matching the heading */
+.footer-brand-title {
+  background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 45%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0px 2px 14px rgba(255, 255, 255, 0.25));
+}
+
+.footer-brand-tagline {
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(203, 213, 225, 0.85) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 `;
 
 // -------------------------------------------------------------------------
@@ -317,15 +333,42 @@ export function CinematicFooter() {
 
           {/* 2. Main Center Content */}
           <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 sm:px-6 mt-20 sm:mt-24 w-full max-w-5xl mx-auto text-center">
-            {/* Academic Yatra Brand Logo Card */}
-            <div className="mb-6 sm:mb-8 inline-flex items-center justify-center p-2.5 sm:p-3.5 px-6 sm:px-8 rounded-2xl bg-white/95 backdrop-blur-xl border border-white/60 shadow-[0_15px_40px_rgba(0,0,0,0.35)] hover:scale-105 transition-transform duration-300">
-              <Image
-                src="/images/academic_yatra_new_logo.png"
-                alt="Academic Yatra™"
-                width={220}
-                height={52}
-                className="h-9 sm:h-12 w-auto object-contain"
-              />
+            {/* Academic Yatra Sleek Silver Metallic Brand Lockup (Borderless / Clean) */}
+            <div className="mb-6 sm:mb-8 flex flex-col items-center group cursor-default select-none">
+              <div className="inline-flex items-center gap-3 sm:gap-4 transition-transform duration-300 group-hover:scale-105">
+                {/* Metallic Scholar Cap Emblem */}
+                <div className="relative w-9 h-9 sm:w-12 sm:h-12 md:w-13 md:h-13 shrink-0 drop-shadow-[0_4px_16px_rgba(255,255,255,0.2)]">
+                  <Image
+                    src="/images/academic_yatra_cap_metallic.png"
+                    alt="Academic Yatra Scholar Cap"
+                    width={100}
+                    height={70}
+                    className="w-full h-full object-contain"
+                    priority
+                  />
+                </div>
+
+                <div className="flex flex-col items-start text-left">
+                  {/* Brand Title in shiny metallic font matching the heading */}
+                  <div className="flex items-baseline">
+                    <span className="font-extrabold text-2xl sm:text-3xl md:text-4xl tracking-tight footer-brand-title">
+                      Academic<span className="font-extrabold">Yatra</span>
+                    </span>
+                    <span className="text-[10px] sm:text-xs md:text-sm font-bold footer-brand-title ml-1.5 align-super">
+                      ™
+                    </span>
+                  </div>
+
+                  {/* Brand Tagline in same font family with flanking lines */}
+                  <div className="flex items-center gap-1.5 sm:gap-2 mt-0.5">
+                    <span className="h-[1px] w-3 sm:w-5 bg-gradient-to-r from-sky-400/60 to-transparent" />
+                    <span className="text-[9px] sm:text-[10.5px] font-semibold tracking-[0.24em] uppercase footer-brand-tagline">
+                      Making Global Education Easy
+                    </span>
+                    <span className="h-[1px] w-3 sm:w-5 bg-gradient-to-l from-emerald-400/60 to-transparent" />
+                  </div>
+                </div>
+              </div>
             </div>
 
             <h2
@@ -350,22 +393,13 @@ export function CinematicFooter() {
 
                 <MagneticButton
                   as="a"
-                  href="tel:+919286844550"
-                  className="footer-glass-pill px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-white font-bold text-xs sm:text-sm md:text-base flex items-center gap-2.5 group"
-                >
-                  <Phone className="w-4 h-4 text-brand-primary group-hover:scale-110 transition-transform" />
-                  <span>+91-92868-44550</span>
-                </MagneticButton>
-
-                <MagneticButton
-                  as="a"
-                  href="https://wa.me/919403892981"
+                  href="https://wa.me/919217368750"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-glass-pill px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-white font-bold text-xs sm:text-sm md:text-base flex items-center gap-2.5 group"
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
-                  <span>WhatsApp Mentor</span>
+                  <span>WhatsApp: +91 92173 68750</span>
                 </MagneticButton>
               </div>
 
@@ -442,29 +476,11 @@ export function CinematicFooter() {
           </div>
 
           {/* 3. Bottom Bar / Credits & Back to Top */}
-          <div className="relative z-20 w-full pb-6 sm:pb-8 px-4 sm:px-8 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 border-t border-white/10 pt-5">
+          <div className="relative z-20 w-full pb-6 sm:pb-8 px-4 sm:px-8 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-5">
             
-            {/* Copyright & Quick Legal Links */}
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-2.5 gap-y-1 text-slate-400 text-[11px] sm:text-xs font-semibold tracking-wider order-2 md:order-1 text-center md:text-left">
-              <span>© {new Date().getFullYear()} <span className="text-slate-200">Future Yatra™ Pvt. Ltd.</span></span>
-              <span>•</span>
-              <Link href="/privacy-policy" className="hover:text-emerald-300 transition-colors">Privacy</Link>
-              <span>•</span>
-              <Link href="/terms-and-conditions" className="hover:text-emerald-300 transition-colors">Terms</Link>
-              <span>•</span>
-              <Link href="/refund-policy" className="hover:text-emerald-300 transition-colors">Refunds</Link>
-            </div>
-
-            {/* Logo Badge in Footer Bottom */}
-            <div className="footer-glass-pill px-4 py-2 rounded-full flex items-center gap-2.5 order-1 md:order-2 cursor-default border-white/10 bg-white/5 backdrop-blur-md">
-              <Image
-                src="/images/academic_yatra_logo_dark_bg.png"
-                alt="Academic Yatra™ Logo"
-                width={120}
-                height={28}
-                className="h-5 sm:h-6 w-auto object-contain"
-              />
-              <span className="text-slate-200 font-bold text-xs sm:text-sm">Academic Yatra™</span>
+            {/* Copyright */}
+            <div className="text-slate-400 text-[11px] sm:text-xs font-semibold tracking-wider text-center sm:text-left">
+              <span>© {new Date().getFullYear()} <span className="text-slate-200">Future Yatra™ Pvt. Ltd.</span> All rights reserved.</span>
             </div>
 
             {/* Back to top Button */}
@@ -472,7 +488,7 @@ export function CinematicFooter() {
               as="button"
               onClick={scrollToTop}
               aria-label="Back to top"
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full footer-glass-pill flex items-center justify-center text-slate-300 hover:text-white group order-3"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full footer-glass-pill flex items-center justify-center text-slate-300 hover:text-white group"
             >
               <ArrowUp className="w-4 h-4 transform group-hover:-translate-y-1 transition-transform duration-300 text-emerald-400" />
             </MagneticButton>

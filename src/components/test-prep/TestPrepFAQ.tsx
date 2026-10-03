@@ -76,7 +76,7 @@ export default function TestPrepFAQ() {
               </div>
 
               <a
-                href="https://web.whatsapp.com/send?phone=+919403892981&text=Hi,%20I%20have%20questions%20regarding%20SAT,%20GRE%20or%20GMAT%20preparation%20at%20Academic%20Yatra."
+                href="https://wa.me/919217368750?text=Hi,%20I%20have%20questions%20regarding%20SAT,%20GRE%20or%20GMAT%20preparation%20at%20Academic%20Yatra."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow-md transition-all hover:gap-3"

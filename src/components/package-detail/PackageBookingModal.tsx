@@ -35,7 +35,7 @@ export default function PackageBookingModal({
     }, 3000);
   };
 
-  const whatsappDirectUrl = `https://web.whatsapp.com/send?phone=+919403892981&text=${encodeURIComponent(
+  const whatsappDirectUrl = `https://wa.me/919217368750?text=${encodeURIComponent(
     `Hi Academic Yatra™, My name is ${name || "Student"}. I am inquiring about ${defaultPlan || "IELTS Academic Program"}. ${message}`
   )}`;
 

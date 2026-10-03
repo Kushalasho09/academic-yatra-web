@@ -69,7 +69,9 @@ export default function CounsellingPlatformPage() {
 
         <div className="flex items-center space-x-3">
           <a
-            href="tel:+919286844550"
+            href="https://wa.me/919217368750?text=Hi%20Academic%20Yatra,%20I%20would%20like%20to%20speak%20with%20a%20counsellor."
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 bg-brand-primary hover:bg-brand-primaryHover text-white text-xs font-bold px-4 py-2 rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer"
           >
             <PhoneCall className="w-3.5 h-3.5" />
@@ -91,7 +93,7 @@ export default function CounsellingPlatformPage() {
         <p className="text-muted text-sm sm:text-base max-w-xl mx-auto font-medium leading-relaxed">
           {viewMode === "duolingo"
             ? "Follow the winding S-curve quest map to unlock your study abroad boarding pass step by step!"
-            : "Explore modular castle fortresses, earn streak XP, and collect official country visa stamps with our friendly Deer mascot!"}
+            : "Explore modular castle fortresses, earn streak XP, and collect official country destination badges with our friendly Deer mascot!"}
         </p>
 
         {/* Mobile Mode Switcher */}
@@ -171,17 +173,17 @@ export default function CounsellingPlatformPage() {
             <div className="p-6 rounded-3xl bg-slate-900 text-white shadow-xl space-y-2.5">
               <div className="flex items-center space-x-2 text-emerald-400 font-bold text-base">
                 <ShieldCheck className="w-5 h-5" />
-                <span>100% Free Visa Re-Filing Policy</span>
+                <span>Application Re-Submission Policy</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed font-medium">
-                In the rare event of a refusal, Future Yatra™ re-files your visa application at <strong>ZERO additional counselling fee</strong> (up to 1–2 attempts) or free country/product switch.
+                In the rare event of an application refusal, Future Yatra™ assists with re-submitting your application at <strong>ZERO additional counselling fee</strong> (up to 1–2 attempts) or free country/product switch.
               </p>
             </div>
 
             <div className="p-6 rounded-3xl bg-brand-greenTint border border-brand-primary/30 text-dark shadow-sm space-y-2.5">
               <div className="flex items-center space-x-2 text-brand-primary font-bold text-base">
                 <Landmark className="w-5 h-5" />
-                <span>Pre-Visa Education Loan Sanction</span>
+                <span>Pre-Departure Education Loan Sanction</span>
               </div>
               <p className="text-xs text-slate-700 leading-relaxed font-medium">
                 100% collateral and non-collateral education loan facilitation with nationalized & private banking partners (SBI, HDFC Credila, Avanse, Prodigy).

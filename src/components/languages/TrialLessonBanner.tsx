@@ -23,7 +23,7 @@ export default function TrialLessonBanner() {
     }, 4000);
   };
 
-  const whatsappDirectUrl = `https://wa.me/919403892981?text=${encodeURIComponent(
+  const whatsappDirectUrl = `https://wa.me/919217368750?text=${encodeURIComponent(
     `Hi Academic Yatra™, My name is ${formData.name || "Student"}. I would like to book a 5-day demo / consultation.`
   )}`;
 

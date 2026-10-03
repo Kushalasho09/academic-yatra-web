@@ -80,7 +80,7 @@ export default function TokyoSkylineHero({
   primaryCta = { label: "Explore Programs", href: "#what-we-do" },
   secondaryCta = {
     label: "WhatsApp Guidance",
-    href: "https://web.whatsapp.com/send?phone=+919403892981&text=Hi%20Academic%20Yatra,%20I%20am%20interested%20in%20learning%20more%20about%20your%20programs.",
+    href: "https://wa.me/919217368750?text=Hi%20Academic%20Yatra,%20I%20am%20interested%20in%20learning%20more%20about%20your%20programs.",
   },
   navItems = DEFAULT_NAV,
   signature = {

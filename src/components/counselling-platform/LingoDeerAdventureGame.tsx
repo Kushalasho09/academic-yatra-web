@@ -31,6 +31,7 @@ import {
   BookOpen,
   X,
   Compass,
+  MessageCircle,
 } from "lucide-react";
 
 interface LingoDeerUnit {
@@ -99,7 +100,7 @@ const LINGODEER_UNITS: LingoDeerUnit[] = [
     id: 6,
     unitNumber: "UNIT 6",
     title: "Achievement Passport Hall",
-    subtitle: "Collect Your Visa Stamps & Boarding Pass",
+    subtitle: "Collect Your Admission Milestones & Boarding Pass",
     iconSrc: "/images/lingodeer/passport.jpg",
     themeColor: "text-amber-800",
     accentBg: "bg-gradient-to-r from-amber-400 to-emerald-500",
@@ -137,8 +138,8 @@ export default function LingoDeerAdventureGame() {
     if (currentUnit === 2) return `Great! Now choose your superpower stream in ${selectedQual.title.split("(")[0]}!`;
     if (currentUnit === 3) return `Awesome! Which global degree castle do you want to conquer in ${selectedStream.code}?`;
     if (currentUnit === 4) return `Strategic choice! Do you want Direct On-Campus or the Accelerated Bridge (Save ₹53L)?`;
-    if (currentUnit === 5) return `Pick your dream destination country to unlock your official Visa Stamp!`;
-    return `🎉 Congratulations! Your Official Study Abroad Boarding Pass & Visa Stamp are ready!`;
+    if (currentUnit === 5) return `Pick your dream destination country to unlock your official Admission Milestone!`;
+    return `🎉 Congratulations! Your Official Study Abroad Boarding Pass & Admission Grant are ready!`;
   }, [currentUnit, selectedQual, selectedStream, selectedCountry]);
 
   // Handle Select Qualification
@@ -198,11 +199,11 @@ export default function LingoDeerAdventureGame() {
 🎯 *Degree*: ${selectedCourse.name} (${selectedRoute === "accelerated" ? "⚡ Accelerated Bridge - Save ₹53 Lakhs" : "Direct On-Campus"})
 📍 *Destination Realm*: ${selectedCountry.flag} ${selectedCountry.countryName}
 💰 *Est. Tuition Cost*: ${selectedCountry.tuitionPerYearInr} (${selectedCountry.tuitionPerYearLocal})
-🛂 *PR Pathway*: ${selectedCountry.prPathwaySummary} (PSW Visa: ${selectedCountry.postStudyWorkVisa})
+🛂 *Career & PR Pathway*: ${selectedCountry.prPathwaySummary} (PSW: ${selectedCountry.postStudyWorkRights})
 💼 *Avg. Starting Salary*: ${selectedCountry.entrySalaryInr} (${selectedCountry.entrySalaryLocal})
 📚 *Language Test Requirement*: ${selectedCountry.languageRequirements.join(", ")} (FY In-House Prep Available)
-🏛️ *Education Loan Facilitation*: 100% Pre-Visa Sanction with Nationalized & Private Banks
-✨ *Trust Policy*: Free Visa Re-Filing Guarantee (1–2 attempts)
+🏛️ *Education Loan Facilitation*: 100% Pre-Departure Sanction with Nationalized & Private Banks
+✨ *Trust Policy*: Free Application Re-Submission Assistance (1–2 attempts)
 
 _Created via Future Yatra™ LingoDeer Pathway Game_`;
 
@@ -587,7 +588,7 @@ _Created via Future Yatra™ LingoDeer Pathway Game_`;
                     </div>
 
                     <div className="text-[10px] font-bold text-emerald-900 bg-white p-2.5 rounded-2xl border border-emerald-100 flex items-center justify-between">
-                      <span>⚡ ₹5L Year 1 + Same PSW Visa</span>
+                      <span>⚡ ₹5L Year 1 + Same Post-Study Rights</span>
                       <span className="bg-emerald-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow-2xs">
                         SAVE ₹53L
                       </span>
@@ -630,7 +631,7 @@ _Created via Future Yatra™ LingoDeer Pathway Game_`;
                             Tuition: <span className="text-brand-primary">{currencyMode === "INR" ? c.tuitionPerYearInr : c.tuitionPerYearLocal}</span>
                           </p>
                           <p className="text-slate-500 font-medium text-[11px]">
-                            PR: {c.prEase} • PSW Visa: {c.postStudyWorkVisa}
+                            PR: {c.prEase} • PSW: {c.postStudyWorkRights}
                           </p>
                         </div>
                       </button>
@@ -639,7 +640,7 @@ _Created via Future Yatra™ LingoDeer Pathway Game_`;
                 </div>
               )}
 
-              {/* UNIT 6: Achievement Passport & Visa Stamp Hall */}
+              {/* UNIT 6: Achievement Passport & Admission Grant Hall */}
               {activeModalUnit === 6 && selectedCountry && (
                 <div className="space-y-6">
                   
@@ -661,7 +662,7 @@ _Created via Future Yatra™ LingoDeer Pathway Game_`;
                             FUTURE YATRA™ PASSPORT
                           </span>
                           <h4 className="font-heading font-black text-lg text-white">
-                            Official Study Abroad Visa Grant
+                            Official Study Abroad Admission Grant
                           </h4>
                         </div>
                       </div>
@@ -673,7 +674,7 @@ _Created via Future Yatra™ LingoDeer Pathway Game_`;
                         transition={{ type: "spring", stiffness: 300, damping: 15 }}
                         className="bg-gradient-to-r from-amber-400 to-amber-500 text-amber-950 font-black text-[10px] px-3 py-1.5 rounded-xl shadow-lg border-2 border-white shrink-0 uppercase tracking-wider"
                       >
-                        ✓ VISA APPROVED 🛡️
+                        ✓ ADMISSION READY 🛡️
                       </motion.div>
                     </div>
 
@@ -716,10 +717,12 @@ _Created via Future Yatra™ LingoDeer Pathway Game_`;
                     </button>
 
                     <a
-                      href="tel:+919286844550"
+                      href="https://wa.me/919217368750?text=Hi%20Academic%20Yatra,%20I%20would%20like%20to%20book%20a%20free%201-on-1%20counselling%20session."
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="py-3.5 px-4 rounded-2xl bg-brand-primary hover:bg-brand-primaryHover text-white font-black text-xs flex items-center justify-center gap-2 shadow-md shadow-brand-primary/25 cursor-pointer"
                     >
-                      <PhoneCall className="w-4 h-4" />
+                      <MessageCircle className="w-4 h-4" />
                       <span>Book 1-on-1 Counsellor</span>
                     </a>
                   </div>

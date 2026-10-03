@@ -332,12 +332,14 @@ export default function LegalPageShell({
                         <Phone className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="text-slate-400 text-[10.5px] uppercase tracking-wider font-semibold">Phone Support</p>
+                        <p className="text-slate-400 text-[10.5px] uppercase tracking-wider font-semibold">WhatsApp & Tele-Desk</p>
                         <a
-                          href="tel:+919286844550"
+                          href="https://wa.me/919217368750"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="font-bold text-emerald-300 hover:underline mt-0.5 block"
                         >
-                          +91-92868-44550
+                          +91 92173 68750
                         </a>
                       </div>
                     </div>
@@ -349,7 +351,7 @@ export default function LegalPageShell({
                       <div>
                         <p className="text-slate-400 text-[10.5px] uppercase tracking-wider font-semibold">Corporate Office</p>
                         <p className="font-bold text-white mt-0.5 text-xs sm:text-[13px] leading-snug">
-                          Future Yatra™ Pvt. Ltd., Okhla Phase II, New Delhi, India
+                          Future Yatra™ Pvt. Ltd., Unit 917, 9th Floor, SuperNova Astralis Sec 94, Noida - 201301
                         </p>
                       </div>
                     </div>
@@ -360,7 +362,7 @@ export default function LegalPageShell({
                       Registered Vertical of Future Yatra™ Pvt. Ltd.
                     </p>
                     <a
-                      href="https://web.whatsapp.com/send?phone=+919403892981"
+                      href="https://wa.me/919217368750"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0C9253] hover:bg-[#0A7A45] text-white text-xs font-bold transition-all shadow-md hover:scale-[1.02] cursor-pointer"

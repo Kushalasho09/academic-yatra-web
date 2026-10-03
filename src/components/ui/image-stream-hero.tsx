@@ -90,7 +90,7 @@ export const STREAM_ITEMS: StreamItem[] = [
     badge: "Goethe & TEF Ready",
     rating: "4.92",
     href: "/languages",
-    description: "Master Goethe-Zertifikat A1-B2 & French TEF/TCF with certified native-fluency trainers for visa & jobs.",
+    description: "Master Goethe-Zertifikat A1-B2 & French TEF/TCF with certified native-fluency trainers for global studies & careers.",
     highlights: ["Goethe Exam Pattern Mocks", "Canada PR TEF Speaking Club", "Accent & Grammar Masterclasses"],
     themeColor: {
       badge: "bg-amber-50 text-amber-800 border-amber-200/80",
@@ -143,14 +143,14 @@ export const STREAM_ITEMS: StreamItem[] = [
   {
     id: "study-abroad",
     title: "Global Admissions",
-    subtitle: "University & Visa Pathways",
+    subtitle: "University & Career Pathways",
     category: "Top 100 Universities",
     image: "/images/hero_capsule_reading.jpg",
     icon: GraduationCap,
-    badge: "100% Visa Assistance",
+    badge: "100% Application Support",
     rating: "4.97",
     href: "/about-us",
-    description: "End-to-end profile evaluation, SOP/LOR drafting, scholarship matching, and visa filing support.",
+    description: "End-to-end profile evaluation, SOP/LOR drafting, scholarship matching, and university admission support.",
     highlights: ["USA • UK • Canada • Germany", "Scholarship Grants Assistance", "Direct Counselor Support"],
     themeColor: {
       badge: "bg-teal-50 text-teal-700 border-teal-200/80",

@@ -56,7 +56,7 @@ export default function LanguagesHero() {
           <p className="text-slate-200 text-[13.5px] xs:text-sm sm:text-lg max-w-2xl mt-3 sm:mt-6 leading-relaxed font-body animate-fade-rise-delay drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)] px-2">
             Develop language competency in speaking, writing, listening, and
             reading through expert-led preparation designed for international
-            admissions, immigration, and global career opportunities.
+            admissions, global university pathways, and international career opportunities.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export default function LanguagesHero() {
           </Link>
 
           <a
-            href="https://wa.me/919286844550?text=Hi,%20I%20would%20like%20to%20book%20a%20free%20language%20test%20prep%20consultation."
+            href="https://wa.me/919217368750?text=Hi,%20I%20would%20like%20to%20book%20a%20free%20language%20test%20prep%20consultation."
             target="_blank"
             rel="noopener noreferrer"
             className="liquid-glass group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full px-3.5 sm:px-10 py-3 sm:py-4 text-xs sm:text-base text-white font-semibold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/35 backdrop-blur-2xl bg-[#031643]/85 hover:bg-[#031643]/95 whitespace-nowrap"

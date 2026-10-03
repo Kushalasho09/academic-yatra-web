@@ -190,7 +190,7 @@ export default function SkillCatalystCoursePrograms({
             const isFeatured = plan.isFeatured || idx === 1;
             const theme = idx % 3 === 0 ? "mint" : idx % 3 === 1 ? "lime" : "lavender";
             const badge = isFeatured ? (plan.badge || "Popular") : undefined;
-            const ctaHref = `https://web.whatsapp.com/send?phone=+919403892981&text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
+            const ctaHref = `https://wa.me/919217368750?text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
               plan.name
             )}.`;
 

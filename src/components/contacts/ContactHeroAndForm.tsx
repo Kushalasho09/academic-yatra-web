@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Phone,
   Mail,
@@ -8,6 +9,8 @@ import {
   ArrowRight,
   CheckCircle2,
   ChevronDown,
+  Building2,
+  ExternalLink,
 } from "lucide-react";
 
 export default function ContactHeroAndForm() {
@@ -38,7 +41,7 @@ export default function ContactHeroAndForm() {
     const text = encodeURIComponent(
       `Hi Academic Yatra™ Team,\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.number}\nProgram: ${formData.program}\nMessage: ${formData.message}`
     );
-    window.open(`https://web.whatsapp.com/send?phone=+919403892981&text=${text}`, "_blank");
+    window.open(`https://wa.me/919217368750?text=${text}`, "_blank");
   };
 
   return (
@@ -180,22 +183,9 @@ export default function ContactHeroAndForm() {
               {/* Direct Info List */}
               <div className="space-y-6">
                 
-                {/* Phone */}
-                <a
-                  href="tel:+919286844550"
-                  className="flex items-center gap-4 group cursor-pointer"
-                >
-                  <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-[#0C9253] transition-colors shrink-0">
-                    <Phone className="w-4 h-4 text-slate-700 group-hover:text-[#0C9253] transition-colors" />
-                  </div>
-                  <span className="text-sm sm:text-base font-semibold text-slate-800 group-hover:text-[#0C9253] transition-colors">
-                    +91-92868-44550
-                  </span>
-                </a>
-
                 {/* WhatsApp */}
                 <a
-                  href="http://wa.me/919403892981"
+                  href="https://wa.me/919217368750"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 group cursor-pointer"
@@ -204,7 +194,7 @@ export default function ContactHeroAndForm() {
                     <span className="text-base text-slate-700 group-hover:text-[#0C9253]">💬</span>
                   </div>
                   <span className="text-sm sm:text-base font-semibold text-slate-800 group-hover:text-[#0C9253] transition-colors">
-                    +91-94038-92981
+                    +91 92173 68750 (WhatsApp)
                   </span>
                 </a>
 
@@ -221,14 +211,59 @@ export default function ContactHeroAndForm() {
                   </span>
                 </a>
 
-                {/* Address */}
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center shrink-0 mt-0.5">
-                    <MapPin className="w-4 h-4 text-slate-700" />
+                {/* Address with Building Image */}
+                <div className="space-y-4 pt-1">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center shrink-0 mt-0.5 bg-white shadow-xs">
+                      <MapPin className="w-4 h-4 text-[#0C9253]" />
+                    </div>
+                    <div>
+                      <span className="text-sm sm:text-base font-semibold text-slate-800 leading-relaxed block">
+                        Unit 917, 9th Floor, SuperNova Astralis Sec 94, Noida - 201301
+                      </span>
+                    </div>
                   </div>
-                  <span className="text-sm sm:text-base font-semibold text-slate-800 leading-relaxed">
-                    Address: E49/5, Pocket D, Okhla Phase II, New Delhi – 110020
-                  </span>
+
+                  {/* SuperNova Astralis Building Preview Card - Perfectly Aligned Full Width */}
+                  <div className="w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all group">
+                    <div className="relative h-36 sm:h-44 w-full overflow-hidden">
+                      <Image
+                        src="/images/supernova_astralis_building_card.jpg"
+                        alt="SuperNova Astralis, Sector 94 Noida"
+                        fill
+                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent" />
+                      
+                      <div className="absolute top-2.5 left-3">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-900/80 backdrop-blur-md text-[10px] font-bold text-emerald-400 border border-emerald-500/30">
+                          <Building2 className="w-3 h-3 text-emerald-400" />
+                          <span>SuperNova Astralis Tower</span>
+                        </span>
+                      </div>
+
+                      <div className="absolute bottom-2.5 left-3.5 right-3.5 flex items-end justify-between">
+                        <div>
+                          <p className="text-xs sm:text-sm font-bold text-white leading-tight">
+                            Sector 94, Noida Expressway
+                          </p>
+                          <p className="text-[10px] sm:text-xs text-slate-300">
+                            Unit 917 • 9th Floor
+                          </p>
+                        </div>
+
+                        <a
+                          href="https://maps.google.com/?q=Supernova+Astralis,+Sector+94,+Noida,+Uttar+Pradesh+201301"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-white/95 hover:bg-white text-slate-900 text-[11px] sm:text-xs font-bold shadow-sm transition-all cursor-pointer"
+                        >
+                          <span>Directions</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
               </div>

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
-  const whatsappUrl = "https://web.whatsapp.com/send?phone=+919403892981&text=Hi%20Academic%20Yatra,%20I%20want%20to%20know%20more%20about%20test%20prep%20courses%20and%20study%20abroad%20counseling.";
+  const whatsappUrl = "https://wa.me/919217368750?text=Hi%20Academic%20Yatra,%20I%20want%20to%20know%20more%20about%20test%20prep%20courses%20and%20counseling.";
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">

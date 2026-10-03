@@ -47,12 +47,12 @@ export function HoverFooter() {
     },
     {
       icon: <Phone size={18} className="text-[#3ca2fa]" />,
-      text: "+91 86373 73116",
-      href: "tel:+918637373116",
+      text: "+91 92173 68750",
+      href: "https://wa.me/919217368750",
     },
     {
       icon: <MapPin size={18} className="text-[#3ca2fa]" />,
-      text: "Sylhet, Bangladesh",
+      text: "Unit 917, 9th Floor, SuperNova Astralis Sec 94, Noida - 201301",
     },
   ];
 

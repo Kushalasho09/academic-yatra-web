@@ -43,7 +43,7 @@ export const COURSES_DATA: Course[] = [
     categorySlug: 'language-tests',
     packType: 'Champion Pack +',
     tagline: 'Build academic English with structured practice, feedback, and IELTS aligned mock tests.',
-    features: ['1-on-1 Speaking Mock Interviews', 'Personalized Band Score Roadmap', 'Priority Essay Corrections in 24h', 'Exclusive Visa & Admission Session'],
+    features: ['1-on-1 Speaking Mock Interviews', 'Personalized Band Score Roadmap', 'Priority Essay Corrections in 24h', 'Exclusive Academic & Admission Session'],
     duration: '8-10 Weeks',
     mode: 'Live Interactive',
     level: 'All Levels',
@@ -149,7 +149,7 @@ export const COURSES_DATA: Course[] = [
     features: ['Canadian Accent Listening Modules', 'Survey Response Writing Drills', 'Timed Mock Test Portal', '1-on-1 Speaking Evaluation'],
     duration: '5 Weeks',
     mode: 'Live + Portal',
-    level: 'Canada Immigration',
+    level: 'Canada Pathways',
     popular: true,
   },
   {

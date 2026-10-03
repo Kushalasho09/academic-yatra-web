@@ -45,7 +45,7 @@ export default function AboutCorporateEcosystem() {
       glowColor: "group-hover:border-blue-500/60",
       link: "/counselling-platform",
       isCurrent: false,
-      tags: ["Global Admissions", "Ivy League / Russell Group", "SOP & LOR Guidance", "Visa Roadmap"],
+      tags: ["Global Admissions", "Ivy League / Russell Group", "SOP & LOR Guidance", "Admissions Roadmap"],
     },
     {
       id: "medico-yatra",
@@ -87,7 +87,7 @@ export default function AboutCorporateEcosystem() {
           </h2>
 
           <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
-            Future Yatra™ Private Limited is a Delhi-based company established in 2025, operating as an integrated education, language training, and academic development solutions provider. The company is committed to helping students, professionals, and families achieve their academic and career goals through structured, technology-driven learning platforms.
+            Future Yatra™ Private Limited is an educational enterprise established in 2025, operating as an integrated education, language training, and academic development solutions provider. The company is committed to helping students, professionals, and families achieve their academic and career goals through structured, technology-driven learning platforms.
           </p>
         </div>
 
@@ -220,7 +220,7 @@ export default function AboutCorporateEcosystem() {
                   </div>
                   <div>
                     <p className="text-xs text-slate-400 uppercase font-semibold">Principal Office</p>
-                    <p className="text-sm font-bold text-white">New Delhi, India</p>
+                    <p className="text-sm font-bold text-white">SuperNova Astralis, Sector 94, Noida, India</p>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Mail,
   Phone,
@@ -10,6 +11,8 @@ import {
   Sparkles,
   CheckCircle2,
   Clock,
+  Building2,
+  ExternalLink,
 } from "lucide-react";
 
 export default function AboutContactSection() {
@@ -28,7 +31,7 @@ export default function AboutContactSection() {
     const text = encodeURIComponent(
       `Hi Academic Yatra™, My name is ${formData.name}. Phone: ${formData.phone}, Email: ${formData.email}. Inquiry: ${formData.message}`
     );
-    window.open(`https://web.whatsapp.com/send?phone=+919403892981&text=${text}`, "_blank");
+    window.open(`https://wa.me/919217368750?text=${text}`, "_blank");
   };
 
   return (
@@ -55,7 +58,7 @@ export default function AboutContactSection() {
             {/* Quick Contact Cards */}
             <div className="space-y-3.5 pt-2">
               <a
-                href="https://web.whatsapp.com/send?phone=+919403892981&text=Hi%20Academic%20Yatra,%20I%20have%20an%20inquiry%20regarding%20programs."
+                href="https://wa.me/919217368750?text=Hi%20Academic%20Yatra,%20I%20have%20an%20inquiry%20regarding%20programs."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-2xl bg-emerald-50/80 hover:bg-emerald-100/80 border border-emerald-200/80 transition-all group"
@@ -67,13 +70,15 @@ export default function AboutContactSection() {
                   <p className="text-xs font-bold uppercase tracking-wide text-emerald-800">
                     Official WhatsApp Support
                   </p>
-                  <p className="text-base font-black text-dark">+91 94038 92981</p>
+                  <p className="text-base font-black text-dark">+91 92173 68750</p>
                   <p className="text-xs text-emerald-700">Instant response during business hours</p>
                 </div>
               </a>
 
               <a
-                href="tel:+919286844550"
+                href="https://wa.me/919217368750"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-all group"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#031643] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
@@ -81,23 +86,51 @@ export default function AboutContactSection() {
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wide text-slate-500">
-                    Direct Tele-Counsel Line
+                    Direct Advisory Line
                   </p>
-                  <p className="text-base font-black text-dark">+91 92868 44550</p>
+                  <p className="text-base font-black text-dark">+91 92173 68750</p>
                   <p className="text-xs text-slate-500">Mon - Sat (9:30 AM to 6:30 PM IST)</p>
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
-                <div className="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-700 flex items-center justify-center shrink-0 shadow-sm">
-                  <MapPin className="w-5 h-5 text-amber-600" />
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-700 flex items-center justify-center shrink-0 shadow-sm">
+                    <MapPin className="w-5 h-5 text-amber-600" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wide text-slate-500">
+                      Corporate Principal Office
+                    </p>
+                    <p className="text-sm font-bold text-dark">Future Yatra™ Private Limited</p>
+                    <p className="text-xs text-slate-500">Unit 917, 9th Floor, SuperNova Astralis Sec 94, Noida - 201301</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wide text-slate-500">
-                    Corporate Principal Office
-                  </p>
-                  <p className="text-sm font-bold text-dark">Future Yatra™ Private Limited</p>
-                  <p className="text-xs text-slate-500">New Delhi, India (Est. 2025)</p>
+
+                {/* SuperNova Astralis Building Preview */}
+                <div className="relative h-28 w-full rounded-xl overflow-hidden border border-slate-200 group">
+                  <Image
+                    src="/images/supernova_astralis_building_card.jpg"
+                    alt="SuperNova Astralis, Sector 94 Noida"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
+                  <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-white">
+                    <span className="inline-flex items-center gap-1 text-[11px] font-bold">
+                      <Building2 className="w-3 h-3 text-emerald-400" />
+                      SuperNova Astralis Tower
+                    </span>
+                    <a
+                      href="https://maps.google.com/?q=Supernova+Astralis,+Sector+94,+Noida,+Uttar+Pradesh+201301"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[10px] bg-white/95 hover:bg-white text-slate-900 font-bold px-2 py-0.5 rounded shadow-sm transition-colors"
+                    >
+                      <span>Directions</span>
+                      <ExternalLink className="w-2.5 h-2.5" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

@@ -21,6 +21,7 @@ import {
   X,
   Building,
   Zap,
+  MessageCircle,
 } from "lucide-react";
 
 interface MilestoneConfig {
@@ -178,11 +179,11 @@ export default function DuolingoQuestMap() {
 🎯 *Target Track*: ${selectedCourse.name} (${selectedRoute === "accelerated" ? "⚡ Accelerated Pathway - Save up to ₹53L" : "Direct On-Campus"})
 📍 *Destination Country*: ${selectedCountry.flag} ${selectedCountry.countryName}
 💰 *Est. Tuition Cost*: ${selectedCountry.tuitionPerYearInr} (${selectedCountry.tuitionPerYearLocal})
-🛂 *PR Pathway*: ${selectedCountry.prPathwaySummary} (PSW Visa: ${selectedCountry.postStudyWorkVisa})
+🛂 *Career & PR Pathway*: ${selectedCountry.prPathwaySummary} (PSW: ${selectedCountry.postStudyWorkRights})
 💼 *Avg. Starting Salary*: ${selectedCountry.entrySalaryInr} (${selectedCountry.entrySalaryLocal})
 📚 *Language Requirement*: ${selectedCountry.languageRequirements.join(", ")} (FY In-House Prep Available)
-🏛️ *Education Loan Facilitation*: 100% Pre-Visa Sanction with Nationalized & NBFC Banks
-✨ *Trust Policy*: Free Visa Re-Filing Guarantee (1–2 attempts)
+🏛️ *Education Loan Facilitation*: 100% Pre-Departure Sanction with Nationalized & NBFC Banks
+✨ *Trust Policy*: Free Application Re-Submission Assistance (1–2 attempts)
 
 _Created via Future Yatra™ Interactive Gamified Yatra Map_`;
 
@@ -611,7 +612,7 @@ _Created via Future Yatra™ Interactive Gamified Yatra Map_`;
                     </div>
 
                     <div className="text-[10px] font-bold text-emerald-900 bg-white p-2.5 rounded-2xl border border-emerald-100 flex items-center justify-between">
-                      <span>⚡ ₹5L Year 1 + Same PSW Visa</span>
+                      <span>⚡ ₹5L Year 1 + Same Post-Study Rights</span>
                       <span className="bg-emerald-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow-2xs">
                         SAVE ₹53L
                       </span>
@@ -654,7 +655,7 @@ _Created via Future Yatra™ Interactive Gamified Yatra Map_`;
                             Tuition: <span className="text-brand-primary">{currencyMode === "INR" ? c.tuitionPerYearInr : c.tuitionPerYearLocal}</span>
                           </p>
                           <p className="text-slate-500 font-medium text-[11px]">
-                            PR: {c.prEase} • PSW Visa: {c.postStudyWorkVisa}
+                            PR: {c.prEase} • PSW: {c.postStudyWorkRights}
                           </p>
                         </div>
                       </button>
@@ -737,10 +738,12 @@ _Created via Future Yatra™ Interactive Gamified Yatra Map_`;
                     </button>
 
                     <a
-                      href="tel:+919286844550"
+                      href="https://wa.me/919217368750?text=Hi%20Academic%20Yatra,%20I%20would%20like%20to%20book%20a%20free%201-on-1%20counselling%20session."
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="py-3 px-4 rounded-2xl bg-brand-primary hover:bg-brand-primaryHover text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-md shadow-brand-primary/25 cursor-pointer"
                     >
-                      <PhoneCall className="w-4 h-4" />
+                      <MessageCircle className="w-4 h-4" />
                       <span>Book Free 1-on-1 Session</span>
                     </a>
                   </div>

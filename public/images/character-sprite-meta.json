@@ -46,8 +46,8 @@
       "icon": "file-text"
     },
     {
-      "id": "visa",
-      "label": "Prepare for Visa Review",
+      "id": "departure",
+      "label": "Prepare for Departure & Review",
       "side": "left-bot",
       "targetX": 0.1,
       "icon": "globe"

@@ -182,7 +182,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "01",
           question: "What is IELTS Academic?",
           answer:
-            "The International English Language Testing System (IELTS) Academic assesses whether your level of English language proficiency is suitable for an academic undergraduate, master's or doctoral programme. Accepted by over 12,000 organisations worldwide including universities, professional bodies, and immigration authorities.",
+            "The International English Language Testing System (IELTS) Academic assesses whether your level of English language proficiency is suitable for an academic undergraduate, master's or doctoral programme. Accepted by over 12,000 organisations worldwide including universities, professional bodies, and global institutions.",
         },
         {
           id: "02",
@@ -331,7 +331,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     titleHighlight: "General",
     eyebrow: "Live Classes • Mock Tests • Study Plans",
     heroDescription:
-      "Target CLB 9/10 with proven immigration strategies for Canada Express Entry, Australian PR & UK Skilled Worker Visas.",
+      "Target CLB 9/10 with proven strategies for Canada Express Entry, Australian PR & global career pathways.",
     heroImage: "/images/story_canada_settling.jpg",
     stats: [
       { value: "100%", label: "Learning. No Tab Chaos." },
@@ -348,10 +348,10 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       cards: [
         { title: "Canada Express Entry & PNP applicants seeking CLB 9 or 10" },
         { title: "Australia & New Zealand General Skilled Migration (GSM) aspirants" },
-        { title: "UK Skilled Worker Visa & Health and Care Worker Visa candidates" },
+        { title: "UK Skilled Worker & Health and Care Worker professional candidates" },
         { title: "Professionals seeking international career progression abroad" },
         { title: "Secondary school or non-degree vocational training applicants" },
-        { title: "Spouses and dependents accompanying primary visa holders" },
+        { title: "Spouses and dependents accompanying primary applicants" },
       ],
     },
     courseGuide: {
@@ -365,7 +365,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "01",
           question: "What is IELTS General Training?",
           answer:
-            "IELTS General Training measures English proficiency in a practical work and everyday context. Tasks reflect real workplace communications, social situations, and daily notices, making it the globally accepted benchmark for immigration to Canada, Australia, New Zealand, and the UK.",
+            "IELTS General Training measures English proficiency in a practical work and everyday context. Tasks reflect real workplace communications, social situations, and daily notices, making it the globally accepted benchmark for relocation to Canada, Australia, New Zealand, and the UK.",
         },
         {
           id: "02",
@@ -386,7 +386,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "04",
           question: "How long is my IELTS General score valid?",
           answer:
-            "IELTS General test scores are officially valid for 2 years from the test date for immigration and visa processing authorities including IRCC (Canada) and Department of Home Affairs (Australia).",
+            "IELTS General test scores are officially valid for 2 years from the test date for official processing authorities including IRCC (Canada) and Department of Home Affairs (Australia).",
         },
         {
           id: "05",
@@ -466,7 +466,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       headingPrefix: "Who Needs",
       headingHighlight: "PTE Academic?",
       description:
-        "Pearson Test of English (PTE Academic) is a fully computer-based English exam accepted by thousands of universities worldwide and immigration authorities in Australia, New Zealand, and the UK. It is ideal for:",
+        "Pearson Test of English (PTE Academic) is a fully computer-based English exam accepted by thousands of universities worldwide and global education authorities in Australia, New Zealand, and the UK. It is ideal for:",
       cards: [
         { title: "Bachelor's applicants" },
         { title: "Master's applicants" },
@@ -487,7 +487,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "01",
           question: "What is PTE Academic?",
           answer:
-            "The Pearson Test of English (PTE) Academic is a computer-based English language test designed to assess the readiness of non-native English speakers to participate in a university-level English-language instruction program. Accepted by 3,300+ institutions globally including Oxford, Harvard, and governments of Australia, New Zealand, and the UK for student visas.",
+            "The Pearson Test of English (PTE) Academic is a computer-based English language test designed to assess the readiness of non-native English speakers to participate in a university-level English-language instruction program. Accepted by 3,300+ institutions globally including Oxford, Harvard, and governments of Australia, New Zealand, and the UK for international students.",
         },
         {
           id: "02",
@@ -602,7 +602,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     titleHighlight: "Core",
     eyebrow: "Practice Tests • Expert Support • Feedback",
     heroDescription:
-      "Targeted preparation for individuals pursuing Canadian immigration pathways, employment opportunities, and permanent residency goals successfully.",
+      "Targeted preparation for individuals pursuing Canadian career pathways, employment opportunities, and permanent residency goals successfully.",
     heroImage: "/images/indian_student_laptop.jpg",
     stats: [
       { value: "CLB 9+", label: "Target Benchmark" },
@@ -615,12 +615,12 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       headingPrefix: "Who Needs",
       headingHighlight: "PTE Core?",
       description:
-        "PTE Core is the new English test officially approved by Immigration, Refugees and Citizenship Canada (IRCC) for economic immigration and Canadian citizenship. It is recommended for:",
+        "PTE Core is the new English test officially approved by IRCC for economic streams and Canadian citizenship. It is recommended for:",
       cards: [
-        { title: "Canadian immigration applicants" },
+        { title: "Canadian pathway applicants" },
         { title: "Permanent residency candidates" },
         { title: "Skilled worker applicants" },
-        { title: "Economic immigration program candidates" },
+        { title: "Economic stream program candidates" },
         { title: "Professionals relocating to Canada" },
         { title: "Individuals seeking language certification for work-related requirements" },
       ],
@@ -636,7 +636,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "01",
           question: "What is PTE Core?",
           answer:
-            "PTE Core is a 2-hour, computer-based English language proficiency test approved by Immigration, Refugees and Citizenship Canada (IRCC) for economic immigration streams (Express Entry, PNP) and Canadian citizenship. It evaluates everyday, practical English skills across Speaking, Writing, Reading, and Listening.",
+            "PTE Core is a 2-hour, computer-based English language proficiency test approved by IRCC for economic streams (Express Entry, PNP) and Canadian citizenship. It evaluates everyday, practical English skills across Speaking, Writing, Reading, and Listening.",
         },
         {
           id: "02",
@@ -671,7 +671,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "06",
           question: "Where Can You Take PTE Core?",
           answer:
-            "PTE Core can be taken at certified Pearson VUE test centres across more than 115 countries, including extensive networks in India and Canada. Please note that IRCC only accepts in-person test centre results; at-home online proctored tests are not accepted for Canadian immigration.",
+            "PTE Core can be taken at certified Pearson VUE test centres across more than 115 countries, including extensive networks in India and Canada. Please note that IRCC only accepts in-person test centre results; at-home online proctored tests are not accepted for official Canadian applications.",
         },
         {
           id: "07",
@@ -735,7 +735,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "Start with a complimentary live session and test your CLB benchmark today.",
       disclaimer:
-        "PTE Core is a registered trademark of Pearson PLC. IRCC policies govern immigration criteria.",
+        "PTE Core is a registered trademark of Pearson PLC. IRCC policies govern eligibility criteria.",
     },
   },
 
@@ -1042,7 +1042,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     titleHighlight: "",
     eyebrow: "Canada Pathways • Mock Tests • Score Improvement",
     heroDescription:
-      "Practical preparation for individuals pursuing immigration, licensing, and professional opportunities requiring English proficiency in Canada.",
+      "Practical preparation for individuals pursuing career pathways, licensing, and professional opportunities requiring English proficiency in Canada.",
     heroImage: "/images/dest_canada.png",
     stats: [
       { value: "CLB 9/10", label: "Target Benchmark" },
@@ -1055,11 +1055,11 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       headingPrefix: "Who Needs",
       headingHighlight: "CELPIP?",
       description:
-        "CELPIP is designed specifically for Canadian immigration and professional designation in Canada. It is recommended for:",
+        "CELPIP is designed specifically for Canadian residency and professional designation in Canada. It is recommended for:",
       cards: [
         { title: "Permanent residency applicants" },
         { title: "Canadian citizenship applicants" },
-        { title: "Skilled immigration candidates" },
+        { title: "Skilled professional candidates" },
         { title: "Provincial nominee program applicants" },
         { title: "Professionals seeking Canadian licensing requirements" },
         { title: "Individuals settling in Canada" },
@@ -1076,7 +1076,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "01",
           question: "What is CELPIP?",
           answer:
-            "The Canadian English Language Proficiency Index Program (CELPIP) is a 100% computer-delivered English language assessment officially designated by Immigration, Refugees and Citizenship Canada (IRCC) for permanent residency and citizenship. It uses practical, everyday Canadian English scenarios rather than abstract academic topics.",
+            "The Canadian English Language Proficiency Index Program (CELPIP) is a 100% computer-delivered English language assessment officially designated by IRCC for permanent residency and citizenship. It uses practical, everyday Canadian English scenarios rather than abstract academic topics.",
         },
         {
           id: "02",
@@ -1189,7 +1189,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     titleHighlight: "Language",
     eyebrow: "Speaking Practice • Grammar Support • Assessments",
     heroDescription:
-      "Build practical French communication skills for academic, professional, and immigration goals across French-speaking regions worldwide.",
+      "Build practical French communication skills for academic, professional, and international career goals across French-speaking regions worldwide.",
     heroImage: "/images/dest_europe.png",
     stats: [
       { value: "100%", label: "Online Digital Dashboard" },
@@ -1204,7 +1204,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "French opens doors to bilingual PR invitations, European master's degrees, and global careers. It is designed for:",
       cards: [
-        { title: "Canadian immigration applicants" },
+        { title: "Canadian pathway candidates" },
         { title: "Future international students" },
         { title: "Working professionals" },
         { title: "DELF, TEF, or TCF candidates" },
@@ -1222,7 +1222,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "01",
           question: "Why Learn French for Your Global Career?",
           answer:
-            "French is an official language in 29 countries and spoken by over 300 million people worldwide. For career and immigration, it provides unmatched advantages: earning up to 50+ bonus CRS points in Canada's Express Entry via TEF/TCF Canada, unlocking Francophone Mobility work permits, and opening high-paying opportunities in international diplomacy, multinational corporations, hospitality, and European institutions.",
+            "French is an official language in 29 countries and spoken by over 300 million people worldwide. For career and global mobility, it provides unmatched advantages: earning up to 50+ bonus CRS points in Canada's Express Entry via TEF/TCF Canada, unlocking Francophone Mobility pathways, and opening high-paying opportunities in international diplomacy, multinational corporations, hospitality, and European institutions.",
         },
         {
           id: "02",
@@ -1236,14 +1236,14 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "03",
           question: "What Are French Language Certifications?",
           answer:
-            "The primary international French certifications include DELF/DALF (diplomas awarded by the French Ministry of Education, valid for life and ideal for European study), and TEF / TCF (Test d'Évaluation de Français / Test de Connaissance du Français), which are standardized tests recognized by IRCC for Canadian immigration, Quebec PR, and citizenship.",
+            "The primary international French certifications include DELF/DALF (diplomas awarded by the French Ministry of Education, valid for life and ideal for European study), and TEF / TCF (Test d'Évaluation de Français / Test de Connaissance du Français), which are standardized tests recognized by IRCC for Canadian residency, Quebec PR, and citizenship.",
         },
         {
           id: "04",
           number: "04",
           question: "French Language Proficiency Levels (CEFR Framework)",
           answer:
-            "The Common European Framework of Reference for Languages (CEFR) divides French into six levels: A1 (Complete Beginner), A2 (Elementary), B1 (Intermediate), B2 (Upper Intermediate - the standard benchmark for Canadian immigration NCLC 7 and European university admissions), C1 (Advanced / Professional Fluency), and C2 (Mastery / Bilingual Proficiency).",
+            "The Common European Framework of Reference for Languages (CEFR) divides French into six levels: A1 (Complete Beginner), A2 (Elementary), B1 (Intermediate), B2 (Upper Intermediate - the standard benchmark for Canadian NCLC 7 pathways and European university admissions), C1 (Advanced / Professional Fluency), and C2 (Mastery / Bilingual Proficiency).",
         },
         {
           id: "05",
@@ -1264,7 +1264,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "07",
           question: "What Is the Validity of French Language Certifications?",
           answer:
-            "DELF and DALF diplomas have lifelong validity—once earned, they never expire. In contrast, TEF Canada and TCF Canada test results are valid for 2 years from the date of the exam for immigration and visa purposes with IRCC and Quebec authorities.",
+            "DELF and DALF diplomas have lifelong validity—once earned, they never expire. In contrast, TEF Canada and TCF Canada test results are valid for 2 years from the date of the exam for official documentation purposes with IRCC and Quebec authorities.",
         },
       ],
     },
@@ -1281,7 +1281,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       badge: "Course Packages",
       headingPrefix: "Choose Your",
       headingHighlight: "French Preparation Plan",
-      subtitle: "Build language fluency and unlock bilingual immigration pathways.",
+      subtitle: "Build language fluency and unlock bilingual global pathways.",
       plans: [
         {
           id: "french-champ",
@@ -1341,7 +1341,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
         { title: "Candidates preparing for Goethe-Zertifikat, TestDaF, or DSH examinations" },
         { title: "Individuals pursuing vocational training (Ausbildung) programs" },
         { title: "Professionals seeking employment in Germany, Austria, or Switzerland" },
-        { title: "Applicants targeting work visas, EU Blue Card pathways, or long-term settlement" },
+        { title: "Applicants targeting global careers, EU Blue Card pathways, or long-term settlement" },
       ],
     },
     courseGuide: {
@@ -1355,7 +1355,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "01",
           question: "Why Learn German for Your Global Career?",
           answer:
-            "German is the most widely spoken native language in the European Union and the official language of Germany, Austria, and Switzerland—three of Europe's strongest economies. Learning German opens access to tuition-free world-class education at prestigious German public universities, fast-tracks work visas and EU Blue Cards in engineering, IT, and healthcare, and unlocks structured vocational training (Ausbildung) pathways.",
+            "German is the most widely spoken native language in the European Union and the official language of Germany, Austria, and Switzerland—three of Europe's strongest economies. Learning German opens access to tuition-free world-class education at prestigious German public universities, fast-tracks career pathways and EU Blue Cards in engineering, IT, and healthcare, and unlocks structured vocational training (Ausbildung) pathways.",
         },
         {
           id: "02",
@@ -1369,7 +1369,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "03",
           question: "Official German Language Certifications",
           answer:
-            "The primary internationally recognized German certifications include: Goethe-Zertifikat (awarded by the Goethe-Institut for study, visas, and employment), TestDaF (advanced academic language exam for university entrance), telc Deutsch (standardized test used for healthcare licensing and visas), and DSH (university-administered entrance examination).",
+            "The primary internationally recognized German certifications include: Goethe-Zertifikat (awarded by the Goethe-Institut for study, careers, and employment), TestDaF (advanced academic language exam for university entrance), telc Deutsch (standardized test used for healthcare licensing and international credentials), and DSH (university-administered entrance examination).",
         },
         {
           id: "04",
@@ -2008,9 +2008,9 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     category: "GRE + IELTS Combo",
     titlePrefix: "Master's Complete",
     titleHighlight: "Pathway (GRE + IELTS)",
-    eyebrow: "Dual Mentorship • Integrated Prep • Visa & University Roadmap",
+    eyebrow: "Dual Mentorship • Integrated Prep • Global University Roadmap",
     heroDescription:
-      "The all-in-one preparation bundle covering both GRE General and IELTS Academic for seamless university admissions, scholarships, and study visa approvals.",
+      "The all-in-one preparation bundle covering both GRE General and IELTS Academic for seamless university admissions, scholarships, and academic success.",
     heroImage: "/images/indian_student_laptop.jpg",
     stats: [
       { value: "2 Exams", label: "Integrated Preparation" },
@@ -2027,7 +2027,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       cards: [
         { title: "Students planning MS/STEM applications for Fall or Spring intakes" },
         { title: "Applicants wanting balanced timelines without test prep overlap burnout" },
-        { title: "Candidates seeking unified mentorship for test prep, SOPs, and visas" },
+        { title: "Candidates seeking unified mentorship for test prep, SOPs, and admissions" },
       ],
     },
     courseGuide: {
@@ -2049,7 +2049,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       badge: "The Academic Yatra™ Difference",
       headingPrefix: "Why Students Choose",
       headingHighlight: "Our Preparation Ecosystem",
-      subtitle: "One cohesive roadmap from first mock to visa approval",
+      subtitle: "One cohesive roadmap from first mock to university admission",
       description:
         "Save time and money with synchronized schedules, dual diagnostics, and end-to-end guidance.",
       cards: COMMON_ECOSYSTEM_CARDS,

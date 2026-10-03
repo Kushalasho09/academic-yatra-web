@@ -29,8 +29,8 @@ export default function AboutLegalDisclosure() {
       detail: "We provide skill building and language training; we do not guarantee job appointments or overseas hiring.",
     },
     {
-      title: "A settlement advisory or immigration service",
-      detail: "Academic Yatra™ does not provide permanent-residency (PR), legal visa representation, or placement/recruitment consultancy through this platform.",
+      title: "A settlement advisory or formal legal service",
+      detail: "Academic Yatra™ does not provide permanent-residency (PR), legal court representation, or placement/recruitment consultancy through this platform.",
     },
   ];
 
@@ -107,7 +107,7 @@ export default function AboutLegalDisclosure() {
           {/* Final Legal Disclaimer Note */}
           <div className="mt-8 pt-6 border-t border-slate-100 text-center sm:text-left">
             <p className="text-slate-500 text-xs leading-relaxed italic">
-              Nothing on this website should be construed as an offer, guarantee, or provision of permanent residency, employment recruitment, immigration legal representation, or degree award in any national or international jurisdiction.
+              Nothing on this website should be construed as an offer, guarantee, or provision of permanent residency, employment recruitment, legal representation, or degree award in any national or international jurisdiction.
             </p>
           </div>
 

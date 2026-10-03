@@ -6,11 +6,11 @@ import ContactMapSection from "@/components/contacts/ContactMapSection";
 export const metadata: Metadata = {
   title: "Contact Us | Academic Yatra™ — Speak with Our Experts",
   description:
-    "Connect with Academic Yatra™ for expert guidance on study abroad, test preparation, language learning, and global opportunities. Visit our New Delhi office or connect via WhatsApp.",
+    "Connect with Academic Yatra™ for expert guidance on study abroad, test preparation, language learning, and global opportunities. Visit our Noida office or connect via WhatsApp.",
   openGraph: {
     title: "Contact Academic Yatra™ — Making Global Education Easy",
     description:
-      "Speak with our educational advisors: +91-92868-44550 / +91-94038-92981. E49/5, Pocket D, Okhla Phase II, New Delhi – 110020.",
+      "Speak with our educational advisors: +91-9217368750. Unit 917, 9th Floor, SuperNova Astralis Sec 94, Noida – 201301.",
   },
 };
 

@@ -20,6 +20,9 @@ import {
   Radio,
   ChevronLeft,
   ChevronRight,
+  Sun,
+  Sunrise,
+  Moon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -141,7 +144,7 @@ const PILLARS_DATA: PillarData[] = [
 export default function FeaturesPillars() {
   const [activeTab, setActiveTab] = useState<string>("flexible-learning");
   const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
-  const [selectedCohort, setSelectedCohort] = useState<string>("evening");
+  const [selectedCohort, setSelectedCohort] = useState<string>("morning");
   const [activeExamMode, setActiveExamMode] = useState<string>("IELTS");
   const [selectedSlot, setSelectedSlot] = useState<string>("sat");
 
@@ -298,8 +301,8 @@ export default function FeaturesPillars() {
             className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch"
           >
             
-            {/* HERO IMAGE CONTAINER (Left 7 Cols) */}
-            <div className="lg:col-span-7 relative rounded-[28px] overflow-hidden bg-slate-900 border border-slate-200/80 shadow-lg min-h-[380px] sm:min-h-[440px] flex flex-col justify-end group">
+            {/* HERO IMAGE CONTAINER (Left 7 Cols) - Compact on Mobile */}
+            <div className="lg:col-span-7 relative rounded-[28px] overflow-hidden bg-slate-900 border border-slate-200/80 shadow-lg h-[210px] xs:h-[240px] sm:h-[340px] lg:h-full lg:min-h-[420px] flex items-center justify-center group">
               
               {/* Image */}
               <div className="absolute inset-0 z-0 overflow-hidden">
@@ -310,18 +313,24 @@ export default function FeaturesPillars() {
                   priority
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
               </div>
 
-              {/* Bottom Info on Image: Clean normal text without overlay badges */}
-              <div className="relative z-10 p-5 sm:p-7 lg:p-8 space-y-2">
-                <h3 className="font-heading text-xl sm:text-3xl font-extrabold text-white leading-tight">
-                  {activePillar.title}
-                </h3>
-                <p className="text-xs xs:text-sm sm:text-sm text-slate-200 max-w-lg leading-relaxed font-normal">
-                  {activePillar.description}
-                </p>
-              </div>
+              {/* Navigation Arrows on Image */}
+              <button
+                onClick={handlePrev}
+                aria-label="Previous Slide"
+                className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-900/55 hover:bg-slate-900/80 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-md z-10 cursor-pointer"
+              >
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+              </button>
+
+              <button
+                onClick={handleNext}
+                aria-label="Next Slide"
+                className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-900/55 hover:bg-slate-900/80 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-md z-10 cursor-pointer"
+              >
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </button>
 
             </div>
 
@@ -329,62 +338,105 @@ export default function FeaturesPillars() {
             <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
               
               {/* Card 1: Micro Simulator */}
-              <div className="p-6 rounded-[24px] bg-white border border-slate-200/90 shadow-md space-y-4">
+              <div className="p-5 sm:p-6 rounded-[24px] bg-white border border-slate-200/90 shadow-md space-y-4">
                 
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-7 h-7 rounded-lg bg-brand-greenTint border border-brand-primary/20 flex items-center justify-center text-brand-primary">
-                      <activePillar.icon className="w-3.5 h-3.5" />
+                {activePillar.id === "flexible-learning" ? (
+                  <div className="flex items-start sm:items-center justify-between gap-3 pb-1">
+                    <div className="flex items-center space-x-3 sm:space-x-3.5">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-500 shrink-0 shadow-xs">
+                        <Video className="w-5 h-5 sm:w-6 sm:h-6 text-sky-500" />
+                      </div>
+                      <div>
+                        <h4 className="font-heading text-lg sm:text-xl font-bold text-slate-900 leading-tight">
+                          Flexible Learning
+                        </h4>
+                        <p className="text-xs text-slate-500 font-medium mt-0.5">
+                          Live classes at times that work for you.
+                        </p>
+                      </div>
                     </div>
-                    <span className="font-heading text-xs font-bold text-brand-navy">
-                      {activePillar.title}
+
+                    <span className="text-[10px] sm:text-xs font-semibold tracking-wider text-slate-400 uppercase shrink-0 pt-1 sm:pt-0">
+                      INDIA • GERMANY • CANADA
                     </span>
                   </div>
+                ) : (
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-7 h-7 rounded-lg bg-brand-greenTint border border-brand-primary/20 flex items-center justify-center text-brand-primary">
+                        <activePillar.icon className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="font-heading text-xs font-bold text-brand-navy">
+                        {activePillar.title}
+                      </span>
+                    </div>
 
-                  <span className={cn("text-[10px] font-bold px-2.5 py-0.5 rounded-full border", activePillar.themeColor.badgeBg)}>
-                    {activePillar.badge}
-                  </span>
-                </div>
+                    <span className={cn("text-[10px] font-bold px-2.5 py-0.5 rounded-full border", activePillar.themeColor.badgeBg)}>
+                      {activePillar.badge}
+                    </span>
+                  </div>
+                )}
 
                 {/* SIMULATOR: Flexible Learning */}
                 {activePillar.id === "flexible-learning" && (
-                  <div className="space-y-3">
-                    <div className="text-xs font-semibold text-slate-600">
+                  <div className="space-y-3.5">
+                    <div className="text-xs font-semibold text-slate-500">
                       Choose Your Batch:
                     </div>
-                    <div className="grid grid-cols-3 gap-2">
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                       {[
-                        { id: "evening", label: "Evening", time: "7:00 PM" },
-                        { id: "weekend", label: "Weekend", time: "11:00 AM" },
-                        { id: "self", label: "Self-Paced", time: "24/7 HD" },
-                      ].map((item) => (
-                        <button
-                          key={item.id}
-                          onClick={() => setSelectedCohort(item.id)}
-                          className={cn(
-                            "p-2.5 sm:p-3 rounded-xl border-2 text-center transition-all text-xs font-bold cursor-pointer select-none",
-                            selectedCohort === item.id
-                              ? "bg-brand-navy text-white border-emerald-400 shadow-md scale-[1.02] ring-2 ring-emerald-400/40"
-                              : "bg-emerald-50/30 hover:bg-emerald-50/80 border-emerald-400/70 hover:border-emerald-600 text-slate-800 shadow-xs"
-                          )}
-                        >
-                          <div className="font-heading font-extrabold text-xs sm:text-sm">{item.label}</div>
-                          <div className={cn("text-[10px] font-semibold mt-0.5", selectedCohort === item.id ? "text-emerald-300" : "text-emerald-700")}>
-                            {item.time}
-                          </div>
-                        </button>
-                      ))}
+                        { id: "morning", label: "Morning", sub: "Best for India", icon: Sun, iconColor: "text-amber-400" },
+                        { id: "afternoon", label: "Afternoon", sub: "Best for Germany", icon: Sunrise, iconColor: "text-orange-400" },
+                        { id: "evening", label: "Evening", sub: "Best for Canada", icon: Moon, iconColor: "text-indigo-400" },
+                      ].map((item) => {
+                        const isSelected = selectedCohort === item.id;
+                        const Icon = item.icon;
+                        return (
+                          <button
+                            key={item.id}
+                            onClick={() => setSelectedCohort(item.id)}
+                            className={cn(
+                              "flex items-center gap-3 p-3 rounded-2xl border transition-all text-left cursor-pointer select-none",
+                              isSelected
+                                ? "bg-[#13264B] text-white border-transparent shadow-md scale-[1.01]"
+                                : "bg-white text-slate-800 border-slate-200 hover:border-slate-300 hover:bg-slate-50/50 shadow-xs"
+                            )}
+                          >
+                            <div className={cn(
+                              "w-8 h-8 rounded-xl flex items-center justify-center shrink-0",
+                              isSelected ? "bg-white/10" : "bg-slate-100"
+                            )}>
+                              <Icon className={cn("w-4 h-4", item.iconColor)} />
+                            </div>
+                            <div className="min-w-0">
+                              <div className={cn("font-heading text-xs sm:text-sm font-bold", isSelected ? "text-white" : "text-slate-900")}>
+                                {item.label}
+                              </div>
+                              <div className={cn("text-[10px] sm:text-[11px] truncate", isSelected ? "text-slate-300" : "text-slate-500")}>
+                                {item.sub}
+                              </div>
+                            </div>
+                          </button>
+                        );
+                      })}
                     </div>
 
-                    <div className="p-3 rounded-xl bg-emerald-50/80 border-2 border-emerald-300/80 flex items-center justify-between text-xs text-emerald-950 font-bold shadow-xs">
-                      <div className="flex items-center space-x-2">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                        <span>Live cohorts with recorded backups</span>
+                    <div className="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 flex items-center justify-between text-xs sm:text-sm font-bold shadow-xs">
+                      <div className="flex items-center space-x-2.5">
+                        <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500 shrink-0" />
+                        <span className="font-semibold text-slate-800 text-xs sm:text-sm">
+                          Live classes with recorded backups
+                        </span>
                       </div>
-                      <span className="text-[10px] text-emerald-700 font-extrabold uppercase">
-                        Active
+                      <span className="text-[11px] text-emerald-600 font-extrabold uppercase tracking-wider">
+                        ACTIVE
                       </span>
                     </div>
+
+                    <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed font-normal pt-1">
+                      Attend live instructor-led classes at a time that suits your schedule, with recorded sessions available anytime.
+                    </p>
                   </div>
                 )}
 
@@ -473,10 +525,12 @@ export default function FeaturesPillars() {
                   </div>
                 )}
 
-                {/* Concise 1-line note */}
-                <p className="text-xs text-slate-600 pt-1 border-t border-slate-100">
-                  {activePillar.highlight}
-                </p>
+                {/* Concise 1-line note for other pillars */}
+                {activePillar.id !== "flexible-learning" && (
+                  <p className="text-xs text-slate-600 pt-1 border-t border-slate-100">
+                    {activePillar.highlight}
+                  </p>
+                )}
 
               </div>
 

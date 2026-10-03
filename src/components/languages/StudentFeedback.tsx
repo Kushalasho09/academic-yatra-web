@@ -27,7 +27,7 @@ const TESTIMONIALS: LanguageFeedbackItem[] = [
   {
     id: "lang-2",
     quote:
-      "Learning German with Academic Yatra™ gave me conversational fluency faster than I anticipated. The native-level vocabulary drills made visa interviews effortless.",
+      "Learning German with Academic Yatra™ gave me conversational fluency faster than I anticipated. The native-level vocabulary drills made university interviews effortless.",
     name: "Neha Gupta",
     role: "German B2 Aspirant",
     badge: "Goethe-Zertifikat B2",
