@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import SubscriptionCard from "@/components/ui/SubscriptionCard";
+import { useCourseCheckout } from "@/context/CourseCheckoutContext";
 
 export interface ProgramFeature {
   text: string;
@@ -563,6 +564,7 @@ export default function CoursePrograms({
   selectedExam: controlledExam,
   onSelectExam,
 }: CourseProgramsProps) {
+  const { openCheckout } = useCourseCheckout();
   const [internalExam, setInternalExam] = useState<string>("IELTS AC");
   const currentExam = controlledExam || internalExam;
 
@@ -658,7 +660,24 @@ export default function CoursePrograms({
                     features={plan.features}
                     description={plan.description || "All the essentials to build and master your target language score"}
                     ctaText="Buy Now"
-                    ctaHref={ctaHref}
+                    onSelect={() => {
+                      openCheckout({
+                        courseId: activeData.examId,
+                        courseName: activeData.examName,
+                        category: "Language Preparation",
+                        plans: plans.map((p) => ({
+                          id: p.id,
+                          name: p.name,
+                          price: p.price,
+                          period: p.period,
+                          validityText: p.validityText,
+                          badge: p.badge,
+                          isFeatured: p.styleType === "featured",
+                          features: p.features.map((f) => f.text),
+                        })),
+                        defaultPlanId: plan.id,
+                      });
+                    }}
                     trialHref={detailHref}
                   />
                 </motion.div>

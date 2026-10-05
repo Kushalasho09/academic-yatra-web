@@ -27,6 +27,7 @@ import {
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useCourseCheckout } from "@/context/CourseCheckoutContext";
 
 export interface CoursePlanCard {
   id: string;
@@ -690,13 +691,32 @@ export default function PackageInlineCheckout({
   const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
 
   const checkoutRef = useRef<HTMLDivElement>(null);
+  const { openCheckout } = useCourseCheckout();
+
+  const triggerCheckoutModal = (plan?: CoursePlanCard) => {
+    const chosenPlan = plan || selectedPlan;
+    openCheckout({
+      courseId: currentCategory.toLowerCase().replace(/[^a-z0-9]/g, "-"),
+      courseName: currentCategory,
+      category: "Structured Course Pathway",
+      plans: activeCards.map((c) => ({
+        id: c.id,
+        name: `${c.packType} Plan`,
+        price: c.priceFormatted,
+        duration: c.duration,
+        validityText: c.features.find((f) => f.text.toLowerCase().includes("validity"))?.text || `${c.duration} Portal Access`,
+        badge: c.badge,
+        isFeatured: c.popular,
+        features: c.features.map((f) => f.text),
+      })),
+      defaultPlanId: chosenPlan.id,
+    });
+  };
 
   const handleSelectPlan = (plan: CoursePlanCard) => {
     setSelectedPlan(plan);
     setIsPaymentSuccessful(false);
-    setTimeout(() => {
-      checkoutRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 100);
+    triggerCheckoutModal(plan);
   };
 
   // Step 1: Sign in or Register
@@ -1254,193 +1274,85 @@ export default function PackageInlineCheckout({
                   transition={{ duration: 0.35 }}
                   className="space-y-6"
                 >
-                  {/* Red Error / Alert Strip matching Image 2 */}
-                  <div className="w-full p-4 rounded-xl border border-red-200 bg-red-50/70 text-red-700 flex items-center gap-3 text-xs sm:text-sm font-medium shadow-xs">
-                    <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-red-600 shrink-0">
-                      <AlertCircle className="w-4 h-4" />
+                  {/* Seamless Gateway Strip */}
+                  <div className="w-full p-4 rounded-2xl border border-emerald-200 bg-emerald-50/80 text-emerald-800 flex items-center justify-between gap-3 text-xs sm:text-sm font-medium shadow-xs">
+                    <div className="flex items-center gap-3">
+                      <div className="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                        <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                      </div>
+                      <span>Direct Enrollment: Enter your details &amp; complete payment via Razorpay.</span>
                     </div>
-                    <span>Please login in to enroll in the course!</span>
+                    <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-emerald-800 font-bold text-xs border border-emerald-200 shadow-xs">
+                      <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+                      Official Batch Enrollment
+                    </span>
                   </div>
 
                   {/* Two-Column Layout: Sign In Form + Order Summary */}
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     
-                    {/* Left Column: Sign In / Account Form matching Image 2 */}
+                    {/* Left Column: Instant Razorpay Enrollment Action */}
                     <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-9 border border-slate-200/90 shadow-lg text-left space-y-6">
-                      <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                        <h3 className="text-2xl font-bold font-heading text-slate-900">
-                          {authMode === "signin" ? "Sign in" : "New Student"}
-                        </h3>
-                        <div className="flex items-center gap-2">
-                          <button
-                            type="button"
-                            onClick={() => setAuthMode("signin")}
-                            className={cn(
-                              "text-xs font-bold px-3 py-1.5 rounded-lg transition-colors cursor-pointer",
-                              authMode === "signin"
-                                ? "bg-slate-900 text-white"
-                                : "text-slate-500 hover:bg-slate-100"
-                            )}
-                          >
-                            Sign in
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => setAuthMode("signup")}
-                            className={cn(
-                              "text-xs font-bold px-3 py-1.5 rounded-lg transition-colors cursor-pointer",
-                              authMode === "signup"
-                                ? "bg-slate-900 text-white"
-                                : "text-slate-500 hover:bg-slate-100"
-                            )}
-                          >
-                            New Student
-                          </button>
+                      <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                        <div>
+                          <div className="inline-flex items-center gap-2 text-xs font-bold text-emerald-600 mb-1">
+                            <Zap className="w-3.5 h-3.5 fill-emerald-500 text-emerald-500" />
+                            <span>Instant Enrollment</span>
+                          </div>
+                          <h3 className="text-2xl font-bold font-heading text-slate-900">
+                            Fast &amp; Secure Checkout
+                          </h3>
+                        </div>
+                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                          Direct Razorpay Gateway
+                        </span>
+                      </div>
+
+                      <p className="text-sm text-slate-600 leading-relaxed">
+                        No prior account or password required. Click below to enter your student details and proceed directly to payment.
+                      </p>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
+                        <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/70">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                          <span>Instant Portal &amp; LMS Activation</span>
+                        </div>
+                        <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/70">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                          <span>Certified Master Trainer Assigned</span>
+                        </div>
+                        <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/70">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                          <span>Official Tax Invoice &amp; Receipt</span>
+                        </div>
+                        <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/70">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                          <span>100% Secure via Razorpay</span>
                         </div>
                       </div>
 
-                      <form onSubmit={handleAuthSubmit} className="space-y-4">
-                        {authMode === "signup" && (
-                          <div>
-                            <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                              Full Name *
-                            </label>
-                            <input
-                              type="text"
-                              required
-                              placeholder="Rahul Sharma"
-                              value={fullName}
-                              onChange={(e) => setFullName(e.target.value)}
-                              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
-                            />
-                          </div>
-                        )}
+                      {/* Primary Trigger Button */}
+                      <button
+                        type="button"
+                        onClick={() => triggerCheckoutModal(selectedPlan)}
+                        className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-700/20 hover:shadow-xl transition-all flex items-center justify-center gap-2.5 cursor-pointer active:scale-[0.99]"
+                      >
+                        <Lock className="w-4 h-4" />
+                        <span>Enroll Now in {selectedPlan.packType} ({selectedPlan.priceFormatted})</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
 
-                        {/* Username or Email */}
-                        <div>
-                          <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                            Username or email *
-                          </label>
-                          <input
-                            type="text"
-                            required
-                            placeholder="Email or username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
-                          />
-                        </div>
-
-                        {/* Password */}
-                        <div>
-                          <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                            Password *
-                          </label>
-                          <input
-                            type="password"
-                            required
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
-                          />
-                        </div>
-
-                        {/* Remember Me & Lost Password */}
-                        <div className="flex items-center justify-between text-xs text-slate-600 pt-1">
-                          <label className="flex items-center gap-2 cursor-pointer select-none">
-                            <input
-                              type="checkbox"
-                              checked={rememberMe}
-                              onChange={(e) => setRememberMe(e.target.checked)}
-                              className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 w-4 h-4"
-                            />
-                            <span>Remember me</span>
-                          </label>
-
-                          <a
-                            href="#lost-password"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              alert("Password reset instructions have been sent to your email.");
-                            }}
-                            className="text-slate-500 hover:text-emerald-700 transition-colors"
-                          >
-                            Lost password?
-                          </a>
-                        </div>
-
-                        {/* Prove Your Humanity Captcha matching Image 2 */}
-                        <div className="pt-2">
-                          <label className="block text-xs text-slate-500 font-medium mb-1.5">
-                            Prove your humanity
-                          </label>
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm font-bold text-slate-700">7 + 1 =</span>
-                            <input
-                              type="number"
-                              required
-                              placeholder="?"
-                              value={captchaAnswer}
-                              onChange={(e) => setCaptchaAnswer(e.target.value)}
-                              className="w-16 px-3 py-1.5 rounded-lg border border-slate-200 text-sm text-center font-bold focus:outline-none focus:border-emerald-500"
-                            />
-                            <span className="text-[11px] text-slate-400">(Answer: 8)</span>
-                          </div>
-                        </div>
-
-                        {/* Sign up toggle prompt */}
-                        <div className="pt-1 text-xs text-slate-600">
-                          {authMode === "signin" ? (
-                            <span>
-                              Don&apos;t have an account?{" "}
-                              <button
-                                type="button"
-                                onClick={() => setAuthMode("signup")}
-                                className="text-emerald-600 font-bold hover:underline cursor-pointer"
-                              >
-                                Sign up.
-                              </button>
-                            </span>
-                          ) : (
-                            <span>
-                              Already have an account?{" "}
-                              <button
-                                type="button"
-                                onClick={() => setAuthMode("signin")}
-                                className="text-emerald-600 font-bold hover:underline cursor-pointer"
-                              >
-                                Sign in.
-                              </button>
-                            </span>
-                          )}
-                        </div>
-
-                        {/* Note to Administrator matching Image 2 */}
-                        <div className="pt-3">
-                          <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                            Note to administrator
-                          </label>
-                          <textarea
-                            rows={3}
-                            placeholder="Add any specific requirements, preferred batch timing or queries..."
-                            value={adminNote}
-                            onChange={(e) => setAdminNote(e.target.value)}
-                            className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
-                          />
-                        </div>
-
-                        {/* Submit Button */}
-                        <div className="pt-2">
-                          <button
-                            type="submit"
-                            className="w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md shadow-emerald-600/20 hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
-                          >
-                            <Lock className="w-4 h-4" />
-                            <span>Continue to Checkout →</span>
-                          </button>
-                        </div>
-                      </form>
+                      <div className="flex items-center justify-center gap-3 text-[11px] text-slate-400 pt-1">
+                        <span>UPI</span>
+                        <span>•</span>
+                        <span>Google Pay</span>
+                        <span>•</span>
+                        <span>PhonePe</span>
+                        <span>•</span>
+                        <span>Cards</span>
+                        <span>•</span>
+                        <span>Net Banking</span>
+                      </div>
                     </div>
 
                     {/* Right Column: Your Order matching Image 2 */}

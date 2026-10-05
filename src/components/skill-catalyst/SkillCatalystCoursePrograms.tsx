@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import SubscriptionCard from "@/components/ui/SubscriptionCard";
+import { useCourseCheckout } from "@/context/CourseCheckoutContext";
 
 export interface CoursePlan {
   id: string;
@@ -124,6 +125,7 @@ export default function SkillCatalystCoursePrograms({
   selectedProgram = "ALL",
   onSelectProgram,
 }: SkillCatalystCourseProgramsProps) {
+  const { openCheckout } = useCourseCheckout();
   const [activeFilter, setActiveFilter] = useState<string>(selectedProgram || "ALL");
 
   const filterOptions = [
@@ -216,7 +218,24 @@ export default function SkillCatalystCoursePrograms({
                   features={plan.features}
                   description={plan.description}
                   ctaText="Buy Now"
-                  ctaHref={ctaHref}
+                  onSelect={() => {
+                    openCheckout({
+                      courseId: "skill-catalyst",
+                      courseName: "Skill Catalyst",
+                      category: "Career & Tech",
+                      plans: SKILL_CATALYST_PLANS.map((p) => ({
+                        id: p.id,
+                        name: p.name,
+                        price: p.price,
+                        duration: p.duration,
+                        validityText: p.validityText,
+                        badge: p.badge,
+                        isFeatured: p.isFeatured,
+                        features: p.features,
+                      })),
+                      defaultPlanId: plan.id,
+                    });
+                  }}
                   trialHref="/contacts"
                 />
               </motion.div>

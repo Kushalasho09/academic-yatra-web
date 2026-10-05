@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import SubscriptionCard from "@/components/ui/SubscriptionCard";
+import { useCourseCheckout } from "@/context/CourseCheckoutContext";
 
 export interface ProgramFeature {
   text: string;
@@ -228,6 +229,7 @@ export default function TestPrepCoursePrograms({
   selectedExam,
   onSelectExam,
 }: TestPrepCourseProgramsProps) {
+  const { openCheckout } = useCourseCheckout();
   const currentExamData =
     TEST_PREP_EXAM_PROGRAMS[selectedExam] || TEST_PREP_EXAM_PROGRAMS["SAT"];
 
@@ -310,7 +312,24 @@ export default function TestPrepCoursePrograms({
                   features={plan.features}
                   description={plan.description || "All the essentials to build and master your test-prep score"}
                   ctaText="Buy Now"
-                  ctaHref={ctaHref}
+                  onSelect={() => {
+                    openCheckout({
+                      courseId: currentExamData.examId,
+                      courseName: currentExamData.examName,
+                      category: "Test Preparation",
+                      plans: currentExamData.plans.map((p) => ({
+                        id: p.id,
+                        name: p.name,
+                        price: p.price,
+                        period: p.period,
+                        validityText: p.validityText,
+                        badge: p.badge,
+                        isFeatured: p.styleType === "featured",
+                        features: p.features.map((f) => f.text),
+                      })),
+                      defaultPlanId: plan.id,
+                    });
+                  }}
                   trialHref="/contacts"
                 />
               </motion.div>

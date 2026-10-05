@@ -45,6 +45,11 @@ export const metadata: Metadata = {
   },
 };
 
+import { CourseCheckoutProvider } from "@/context/CourseCheckoutContext";
+import CourseCheckoutModal from "@/components/checkout/CourseCheckoutModal";
+import PaymentSuccessModal from "@/components/checkout/PaymentSuccessModal";
+import PaymentFailedModal from "@/components/checkout/PaymentFailedModal";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -60,12 +65,17 @@ export default function RootLayout({
         suppressHydrationWarning
         className="font-sans text-slate-800 bg-white antialiased min-h-screen flex flex-col selection:bg-brand-primary selection:text-white"
       >
-        <HydrationFix />
-        <ScrollToTop />
-        <FloatingWhatsApp />
-        <Navbar />
-        <main className="flex-grow relative">{children}</main>
-        <Footer />
+        <CourseCheckoutProvider>
+          <HydrationFix />
+          <ScrollToTop />
+          <FloatingWhatsApp />
+          <Navbar />
+          <main className="flex-grow relative">{children}</main>
+          <Footer />
+          <CourseCheckoutModal />
+          <PaymentSuccessModal />
+          <PaymentFailedModal />
+        </CourseCheckoutProvider>
       </body>
     </html>
   );
