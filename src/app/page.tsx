@@ -6,6 +6,7 @@ import AchievementBanner from "@/components/AchievementBanner";
 import CourseCatalog from "@/components/CourseCatalog";
 import LearningModes from "@/components/LearningModes";
 import ConsultationCTA from "@/components/ConsultationCTA";
+import DestinationTimeZones from "@/components/DestinationTimeZones";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <CourseCatalog />
       <LearningModes />
       <ConsultationCTA />
+      <DestinationTimeZones />
     </div>
   );
 }
