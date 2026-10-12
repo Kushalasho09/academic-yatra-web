@@ -662,7 +662,7 @@ export default function CoursePrograms({
                     ctaText="Buy Now"
                     onSelect={() => {
                       openCheckout({
-                        courseId: activeData.examId,
+                        courseId: currentExam.toLowerCase().replace(/\s+/g, "-"),
                         courseName: activeData.examName,
                         category: "Language Preparation",
                         plans: plans.map((p) => ({

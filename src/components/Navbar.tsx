@@ -49,6 +49,7 @@ export default function Navbar() {
     { name: "Languages Programs", href: "/languages", aliases: ["/languages", "/languages-programs"] },
     { name: "Test Prep", href: "/test-prep", aliases: ["/test-prep", "/ielts", "/pte", "/celpip", "/gmat", "/gre"] },
     { name: "Skill Catalyst", href: "/skill-catalyst", aliases: ["/skill-catalyst"] },
+    { name: "Resources", href: "/resources", aliases: ["/resources", "/blogs"] },
     { name: "About Us", href: "/about-us", aliases: ["/about-us", "/about"] },
     { name: "Contacts", href: "/contacts", aliases: ["/contacts", "/contact"] },
   ];

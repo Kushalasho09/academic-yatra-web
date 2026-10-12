@@ -314,7 +314,7 @@ export default function TestPrepCoursePrograms({
                   ctaText="Buy Now"
                   onSelect={() => {
                     openCheckout({
-                      courseId: currentExamData.examId,
+                      courseId: selectedExam.toLowerCase().replace(/\s+/g, "-"),
                       courseName: currentExamData.examName,
                       category: "Test Preparation",
                       plans: currentExamData.plans.map((p) => ({
