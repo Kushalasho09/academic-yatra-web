@@ -1,7 +1,25 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, Check, Sparkles, MessageCircle } from "lucide-react";
+import { ArrowRight, ChevronDown, Check, Sparkles, MessageCircle } from "lucide-react";
+
+const COURSE_OPTIONS = [
+  "IELTS",
+  "PTE Academic",
+  "CELPIP",
+  "Duolingo (DET)",
+  "TOEFL",
+  "SAT",
+  "GRE",
+  "GMAT",
+  "German Language",
+  "French Language",
+  "Spoken English",
+  "Career Essentials",
+  "BizzTech",
+  "Google Suite Hub",
+  "Others",
+];
 
 export default function TrialLessonBanner() {
   const [formData, setFormData] = useState({
@@ -12,6 +30,8 @@ export default function TrialLessonBanner() {
     batchTime: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState("");
+  const [customCourse, setCustomCourse] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,6 +40,8 @@ export default function TrialLessonBanner() {
     setTimeout(() => {
       setSubmitted(false);
       setFormData({ name: "", email: "", phone: "", prepFor: "", batchTime: "" });
+      setSelectedCourse("");
+      setCustomCourse("");
     }, 4000);
   };
 
@@ -167,10 +189,16 @@ export default function TrialLessonBanner() {
                         </label>
                         <input
                           type="tel"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                          maxLength={15}
                           required
-                          placeholder="+91 98765 43210"
+                          placeholder="e.g. 9876543210"
                           value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          onChange={(e) => {
+                            const numericVal = e.target.value.replace(/\D/g, "");
+                            setFormData({ ...formData, phone: numericVal });
+                          }}
                           className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 bg-slate-50/50"
                         />
                       </div>
@@ -193,13 +221,51 @@ export default function TrialLessonBanner() {
                         <label className="block text-xs font-bold text-slate-700 mb-1">
                           What are you preparing for?
                         </label>
-                        <input
-                          type="text"
-                          placeholder="e.g. IELTS / SAT / GRE / GMAT"
-                          value={formData.prepFor}
-                          onChange={(e) => setFormData({ ...formData, prepFor: e.target.value })}
-                          className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 bg-slate-50/50"
-                        />
+                        <div className="relative">
+                          <select
+                            value={selectedCourse}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setSelectedCourse(val);
+                              if (val !== "Others") {
+                                setCustomCourse("");
+                                setFormData({ ...formData, prepFor: val });
+                              } else {
+                                setFormData({
+                                  ...formData,
+                                  prepFor: customCourse ? `Others (${customCourse})` : "Others",
+                                });
+                              }
+                            }}
+                            className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 bg-slate-50/50 cursor-pointer appearance-none pr-8 text-slate-800"
+                          >
+                            <option value="" disabled>
+                              Select course / program
+                            </option>
+                            {COURSE_OPTIONS.map((opt) => (
+                              <option key={opt} value={opt}>
+                                {opt}
+                              </option>
+                            ))}
+                          </select>
+                          <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3 top-3 pointer-events-none" />
+                        </div>
+                        {selectedCourse === "Others" && (
+                          <input
+                            type="text"
+                            placeholder="Please specify course / exam"
+                            value={customCourse}
+                            onChange={(e) => {
+                              setCustomCourse(e.target.value);
+                              setFormData({
+                                ...formData,
+                                prepFor: e.target.value ? `Others (${e.target.value})` : "Others",
+                              });
+                            }}
+                            className="w-full mt-2 px-4 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500 bg-white"
+                            autoFocus
+                          />
+                        )}
                       </div>
                       <div>
                         <label className="block text-xs font-bold text-slate-700 mb-1">

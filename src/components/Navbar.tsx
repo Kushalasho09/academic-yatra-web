@@ -68,10 +68,10 @@ export default function Navbar() {
       <div className="pointer-events-auto max-w-7xl mx-auto bg-white/90 backdrop-blur-2xl border border-white/80 shadow-[0_10px_30px_-10px_rgba(18,36,71,0.12)] hover:shadow-[0_15px_35px_-8px_rgba(12,146,83,0.18)] rounded-full px-3.5 sm:px-5 lg:px-6 h-16 sm:h-18 flex items-center justify-between transition-all duration-300 group/nav gap-3">
         
         {/* Desktop Brand Logo + Full Navigation Links Pill */}
-        <div className="hidden lg:flex items-center space-x-3.5 xl:space-x-6">
+        <div className="hidden lg:flex items-center space-x-2 xl:space-x-4 2xl:space-x-6 min-w-0">
           <Link
             href="/"
-            className="flex items-center shrink-0 pl-2 pr-1 hover:opacity-90 transition-all hover:scale-[1.02] cursor-pointer"
+            className="flex items-center shrink-0 pl-1.5 pr-1 hover:opacity-90 transition-all hover:scale-[1.02] cursor-pointer"
             aria-label="Academic Yatra™ Home"
           >
             <Image
@@ -79,12 +79,12 @@ export default function Navbar() {
               alt="Academic Yatra™ — Making Global Education Easy"
               width={200}
               height={48}
-              className="h-9 lg:h-10 xl:h-11 w-auto object-contain"
+              className="h-8 lg:h-8.5 xl:h-10 2xl:h-11 w-auto object-contain shrink-0"
               priority
             />
           </Link>
 
-          <nav className="flex items-center space-x-1 xl:space-x-1.5 bg-slate-100/70 p-1.5 rounded-full border border-slate-200/60">
+          <nav className="flex items-center space-x-0.5 xl:space-x-1 bg-slate-100/70 p-1 xl:p-1.5 rounded-full border border-slate-200/60 shrink-0">
             {navLinks.map((link, idx) => {
               const isActive =
                 link.href === "/"
@@ -98,7 +98,7 @@ export default function Navbar() {
                   key={idx}
                   href={link.href}
                   className={cn(
-                    "relative px-3.5 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 flex items-center space-x-1 whitespace-nowrap",
+                    "relative px-2 xl:px-3.5 2xl:px-4 py-1.5 xl:py-2 rounded-full text-[11px] xl:text-xs 2xl:text-sm font-semibold transition-all duration-200 flex items-center space-x-1 whitespace-nowrap shrink-0",
                     isActive
                       ? "text-brand-navy bg-white shadow-sm font-extrabold border border-slate-200/80"
                       : "text-muted hover:text-brand-navy hover:bg-white/80 hover:shadow-xs"
@@ -133,7 +133,7 @@ export default function Navbar() {
             <HoverBorderGradient
               as="div"
               containerClassName="rounded-full"
-              className="bg-white hover:bg-brand-greenTint/40 text-brand-navy hover:text-brand-primary font-extrabold text-xs xl:text-sm px-5 xl:px-6 py-2.5 rounded-full border border-brand-primary/20 shadow-sm whitespace-nowrap"
+              className="bg-white hover:bg-brand-greenTint/40 text-brand-navy hover:text-brand-primary font-extrabold text-[11px] xl:text-xs 2xl:text-sm px-3.5 xl:px-5 2xl:px-6 py-2 xl:py-2.5 rounded-full border border-brand-primary/20 shadow-sm whitespace-nowrap"
             >
               <span className="flex items-center space-x-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-brand-primary" />

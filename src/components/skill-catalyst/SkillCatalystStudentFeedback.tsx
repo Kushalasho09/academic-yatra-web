@@ -14,12 +14,12 @@ const SKILL_TESTIMONIALS: FeedbackItem[] = [
   {
     id: "sc-1",
     quote:
-      "The program introduced me to practical business and technology concepts that I could immediately apply during my internship.",
-    name: "Neha Gupta",
+      "The BizzTech program introduced me to practical analytics, podcasting, and productivity tools that I could immediately apply in real projects.",
+    name: "Tanvi Desai",
     role: "BizzTech Participant",
     badge: "BizzTech Certified",
     secondaryBadge: "Verified Participant",
-    avatar: "/images/avatar_indian_girl.jpg",
+    avatar: "/images/avatar_student_skill.jpg",
     rating: 5,
     colorTheme: "blue",
     tiltAngle: "left",
@@ -27,12 +27,12 @@ const SKILL_TESTIMONIALS: FeedbackItem[] = [
   {
     id: "sc-2",
     quote:
-      "Career Essentials helped me improve my communication and presentation skills. I feel much more confident during interviews and group discussions.",
-    name: "Farhan Querashi",
+      "Career Essentials helped me polish my communication, resume storytelling, and corporate presentation skills before campus placement season.",
+    name: "Kunal Mehta",
     role: "Career Essentials Learner",
     badge: "Workplace Ready",
     secondaryBadge: "Verified Participant",
-    avatar: "/images/avatar_indian_boy.jpg",
+    avatar: "/images/avatar_student_indiv.jpg",
     rating: 5,
     colorTheme: "green",
     tiltAngle: "right",
@@ -40,41 +40,15 @@ const SKILL_TESTIMONIALS: FeedbackItem[] = [
   {
     id: "sc-3",
     quote:
-      "The practical Google Sheets dashboards and automated workflow sessions gave me skills that saved me hours every week during my project presentations.",
-    name: "Ansh Sharma",
+      "The practical Google Sheets dashboards and automated workflow sessions gave me skills that saved me hours every week in academic reporting.",
+    name: "Pooja Sharma",
     role: "Google Suite Hub Participant",
     badge: "Google Suite Certified",
     secondaryBadge: "Verified Participant",
-    avatar: "/images/avatar_indian_boy.jpg",
+    avatar: "/images/avatar_student_vikram.jpg",
     rating: 5,
     colorTheme: "teal",
     tiltAngle: "slight-left",
-  },
-  {
-    id: "sc-4",
-    quote:
-      "The performance reports and mentor evaluations helped me focus on my weak presentation areas. I saw real improvement in my communication within weeks.",
-    name: "Rithvik Kumar",
-    role: "Skill Catalyst Learner",
-    badge: "Full Program Graduate",
-    secondaryBadge: "Verified Participant",
-    avatar: "/images/avatar_tutor_male.jpg",
-    rating: 5,
-    colorTheme: "indigo",
-    tiltAngle: "slight-right",
-  },
-  {
-    id: "sc-5",
-    quote:
-      "The mock interviews and capstone evaluations were well-structured and easy to follow. They helped me build true professional confidence.",
-    name: "Geeta Verma",
-    role: "Career Essentials Student",
-    badge: "Career Placement Track",
-    secondaryBadge: "Verified Participant",
-    avatar: "/images/avatar_student_female2.jpg",
-    rating: 5,
-    colorTheme: "blue",
-    tiltAngle: "right",
   },
 ];
 

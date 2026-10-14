@@ -598,7 +598,7 @@ export default function CoursePrograms({
         </div>
 
         {/* Exam Navigation Filter Pills */}
-        <div className="bg-white p-1.5 sm:p-2 rounded-2xl sm:rounded-full border border-slate-200/90 shadow-xs max-w-5xl mx-auto mb-6 sm:mb-8 overflow-x-auto scrollbar-none flex items-center justify-start sm:justify-center gap-1.5">
+        <div className="bg-white p-2 sm:p-2.5 rounded-2xl sm:rounded-full border border-slate-200/90 shadow-xs max-w-5xl mx-auto mb-6 sm:mb-8 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
           {EXAM_OPTIONS.map((item) => {
             const isSelected = currentExam === item.id;
             return (

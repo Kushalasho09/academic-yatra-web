@@ -203,7 +203,7 @@ export const TEST_PREP_EXAM_PROGRAMS: Record<
         badgeDotColor: "yellow",
         styleType: "featured",
         price: "34,999",
-        period: "total (incl. 18% GST)",
+        period: "(incl. 18% GST)",
         totalText: "Total: ₹34,999 (incl. 18% GST)",
         validityText: "60 Days Validity",
         description:

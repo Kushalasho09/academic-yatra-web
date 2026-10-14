@@ -822,14 +822,30 @@ export default function PackageInlineCheckout({
                       </div>
                     )}
 
-                    <div className="flex items-baseline gap-1">
-                      <span className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 tracking-tight leading-none">
-                        {course.priceFormatted.replace(".00", "")}
-                      </span>
-                      <span className="text-xs sm:text-sm text-slate-500 font-medium ml-1">
-                        {course.monthlyPrice}
-                      </span>
-                    </div>
+                    {(() => {
+                      const hasGst = course.monthlyPrice.includes("(incl.");
+                      const monthlyPart = hasGst
+                        ? course.monthlyPrice.split("(incl.")[0].replace(/•\s*$/, "").trim()
+                        : course.monthlyPrice;
+
+                      return (
+                        <div className="flex items-center gap-2 sm:gap-2.5">
+                          <span className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-none shrink-0">
+                            {course.priceFormatted.replace(".00", "")}
+                          </span>
+                          <div className="flex flex-col justify-center text-left leading-tight">
+                            <span className="text-[12px] sm:text-[13px] text-slate-500 font-medium whitespace-nowrap">
+                              {monthlyPart}
+                            </span>
+                            {hasGst && (
+                              <span className="text-[11px] sm:text-xs text-slate-400 font-medium whitespace-nowrap mt-0.5">
+                                (incl. 18% GST)
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })()}
                   </div>
 
                   {/* Tinted Features Box (Signature Reference UI Element) */}

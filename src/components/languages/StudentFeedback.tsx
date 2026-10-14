@@ -45,7 +45,7 @@ const TESTIMONIALS: LanguageFeedbackItem[] = [
     role: "PTE Academic Student",
     badge: "PTE Score 79+",
     secondaryBadge: "Verified Student",
-    avatar: "/images/avatar_indian_boy.jpg",
+    avatar: "/images/avatar_student_ansh.jpg",
     rating: 5,
     colorTheme: "teal",
     tiltAngle: "slight-left",

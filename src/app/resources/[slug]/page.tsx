@@ -118,55 +118,36 @@ export default function ArticleDetailPage() {
           </div>
         )}
 
-        {/* Formatted Content */}
-        <article className="prose prose-slate max-w-none text-sm sm:text-base leading-relaxed text-slate-700 space-y-6">
+        {/* Rich Article Content (Supports HTML, Tables, Headings, Links) */}
+        <article className="blog-rich-content max-w-none leading-relaxed overflow-x-auto">
           {blog.content ? (
-            blog.content.split("\n\n").map((block: string, idx: number) => {
-              if (block.startsWith("## ")) {
-                return (
-                  <h2
-                    key={idx}
-                    className="text-2xl sm:text-3xl font-extrabold text-[#122447] pt-4 border-b border-slate-200 pb-2"
-                  >
-                    {block.replace("## ", "")}
-                  </h2>
-                );
-              }
-              if (block.startsWith("### ")) {
-                return (
-                  <h3
-                    key={idx}
-                    className="text-xl sm:text-2xl font-bold text-[#122447] pt-2"
-                  >
-                    {block.replace("### ", "")}
-                  </h3>
-                );
-              }
-              if (block.startsWith("- ")) {
-                return (
-                  <ul key={idx} className="list-disc pl-6 space-y-1.5 text-slate-700">
-                    {block.split("\n").map((line: string, lIdx: number) => (
-                      <li key={lIdx}>{line.replace("- ", "")}</li>
-                    ))}
-                  </ul>
-                );
-              }
-              if (block.startsWith("> ")) {
-                return (
-                  <blockquote
-                    key={idx}
-                    className="border-l-4 border-emerald-500 pl-4 py-2 italic text-slate-600 bg-emerald-50/50 rounded-r-xl"
-                  >
-                    {block.replace("> ", "")}
-                  </blockquote>
-                );
-              }
-              return (
-                <p key={idx} className="text-slate-700 leading-relaxed whitespace-pre-line">
-                  {block}
-                </p>
-              );
-            })
+            /<[a-z][\s\S]*>/i.test(blog.content) ? (
+              <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+            ) : (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: blog.content
+                    .replace(/^### (.*$)/gim, "<h3>$1</h3>")
+                    .replace(/^## (.*$)/gim, "<h2>$1</h2>")
+                    .replace(/^# (.*$)/gim, "<h1>$1</h1>")
+                    .replace(/^\> (.*$)/gim, "<blockquote><p>$1</p></blockquote>")
+                    .replace(/\*\*(.*?)\*\*/gim, "<strong>$1</strong>")
+                    .replace(/\*(.*?)\*/gim, "<em>$1</em>")
+                    .replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+                    .split(/\n\s*\n/)
+                    .map((p: string) => {
+                      p = p.trim();
+                      if (!p) return "";
+                      if (p.startsWith("<h") || p.startsWith("<blockquote") || p.startsWith("<ul") || p.startsWith("<ol") || p.startsWith("<table")) {
+                        return p;
+                      }
+                      return `<p>${p.replace(/\n/g, "<br/>")}</p>`;
+                    })
+                    .filter(Boolean)
+                    .join(""),
+                }}
+              />
+            )
           ) : null}
         </article>
 

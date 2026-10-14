@@ -95,17 +95,36 @@ export default function SubscriptionCard({
             </div>
           )}
 
-          <div className="flex items-baseline gap-1">
-            <span className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-              {currency}
-            </span>
-            <span className="font-heading text-4xl sm:text-[46px] font-extrabold text-slate-900 tracking-tight leading-none">
-              {price}
-            </span>
-            <span className="text-xs sm:text-sm text-slate-500 font-medium ml-1">
-              {period}
-            </span>
-          </div>
+          {/* Price & GST / Period properly aligned in one line without wrapping */}
+          {/gst|incl/i.test(period || "") ? (
+            <div className="flex flex-col text-left">
+              <div className="flex items-baseline gap-1">
+                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  {currency}
+                </span>
+                <span className="font-heading text-4xl sm:text-[44px] font-extrabold text-slate-900 tracking-tight leading-none">
+                  {price}
+                </span>
+              </div>
+              <span className="text-xs sm:text-[13px] text-slate-500 font-medium mt-1.5 whitespace-nowrap block">
+                {(period || "").replace(/^total\s*/i, "").trim()}
+              </span>
+            </div>
+          ) : (
+            <div className="flex items-baseline gap-1">
+              <span className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                {currency}
+              </span>
+              <span className="font-heading text-4xl sm:text-[44px] font-extrabold text-slate-900 tracking-tight leading-none">
+                {price}
+              </span>
+              {period && (
+                <span className="text-xs sm:text-sm text-slate-500 font-medium ml-1 whitespace-nowrap">
+                  {(period || "").replace(/^total\s*/i, "").trim()}
+                </span>
+              )}
+            </div>
+          )}
 
           {totalText && (
             <p className="text-[11px] text-slate-400 font-medium mt-1.5">
