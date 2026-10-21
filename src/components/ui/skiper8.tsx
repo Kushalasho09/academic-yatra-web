@@ -134,7 +134,15 @@ export function Skiper8({
                 exit="exit"
                 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight select-none"
               >
-                {words[index]}
+                {words[index].includes("™") ? (
+                  <>
+                    {words[index].split("™")[0]}
+                    <span className="brand-tm ml-1">™</span>
+                    {words[index].split("™")[1]}
+                  </>
+                ) : (
+                  words[index]
+                )}
               </motion.p>
             </AnimatePresence>
           </div>

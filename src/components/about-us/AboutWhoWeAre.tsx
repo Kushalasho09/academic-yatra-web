@@ -37,7 +37,7 @@ export default function AboutWhoWeAre() {
             transition={{ duration: 0.55, delay: 0.08 }}
             className="font-heading text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black tracking-tight leading-[1.18]"
           >
-            Part of Future Yatra™. <br />
+            Part of Future Yatra<span className="brand-tm">™</span>. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400">
               For the language your Dreams Speak.
             </span>
@@ -158,7 +158,7 @@ export default function AboutWhoWeAre() {
                 href="/contacts"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-bold text-sm sm:text-base transition-all duration-300 hover:border-white/30"
               >
-                <span>Book a Free Demo</span>
+                <span>Book Your Free Demo</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>

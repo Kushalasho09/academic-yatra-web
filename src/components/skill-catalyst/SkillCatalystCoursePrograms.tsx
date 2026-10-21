@@ -187,7 +187,18 @@ export default function SkillCatalystCoursePrograms({
         </div>
 
         {/* Pricing Cards Grid matching Reference UI */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 items-stretch">
+        <div
+          className={cn(
+            "grid gap-6 lg:gap-8 items-stretch mx-auto",
+            filteredPlans.length === 1
+              ? "grid-cols-1 max-w-xl"
+              : filteredPlans.length === 2
+              ? "grid-cols-1 md:grid-cols-2 max-w-4xl"
+              : filteredPlans.length === 3
+              ? "grid-cols-1 md:grid-cols-3 max-w-6xl"
+              : "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+          )}
+        >
           {filteredPlans.map((plan, idx) => {
             const isFeatured = plan.isFeatured || idx === 1;
             const theme = idx % 3 === 0 ? "mint" : idx % 3 === 1 ? "lime" : "lavender";

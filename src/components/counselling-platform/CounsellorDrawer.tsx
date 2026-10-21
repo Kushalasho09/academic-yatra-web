@@ -268,7 +268,7 @@ _Generated via Future Yatra™ Interactive Counselling Platform_`;
                       {countryData.languagePrepAvailable && (
                         <div className="flex items-center space-x-2 text-xs text-brand-primary bg-emerald-50/60 p-2.5 rounded-xl font-bold">
                           <Sparkles className="w-3.5 h-3.5" />
-                          <span>Future Yatra™ In-House Masterclass & Test Prep Available</span>
+                          <span>Future Yatra<span className="brand-tm">™</span> In-House Masterclass & Test Prep Available</span>
                         </div>
                       )}
                     </div>
@@ -341,7 +341,7 @@ _Generated via Future Yatra™ Interactive Counselling Platform_`;
                     <div className="bg-slate-900 text-white rounded-2xl p-5 space-y-3 shadow-lg">
                       <div className="flex items-center space-x-2 text-emerald-400 font-bold text-sm">
                         <ShieldCheck className="w-4 h-4" />
-                        <span>Future Yatra™ Free Application Re-Submission Guarantee</span>
+                        <span>Future Yatra<span className="brand-tm">™</span> Free Application Re-Submission Guarantee</span>
                       </div>
                       <p className="text-xs text-slate-300 leading-relaxed font-normal">
                         If an application requires re-submission, Future Yatra™ assists with re-filing at <strong>ZERO additional counselling cost</strong> (up to 1–2 attempts).

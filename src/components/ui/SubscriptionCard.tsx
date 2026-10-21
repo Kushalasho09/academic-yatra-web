@@ -216,7 +216,7 @@ export default function SubscriptionCard({
             href={trialHref}
             className="block text-center text-xs text-slate-400 hover:text-slate-700 font-medium py-1 transition-colors"
           >
-            Book 5-Day Free Trial
+            Start Your 5-Day Free Trial
           </a>
         )}
       </div>

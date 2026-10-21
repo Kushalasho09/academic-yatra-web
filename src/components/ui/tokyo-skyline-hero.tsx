@@ -449,7 +449,15 @@ export default function TokyoSkylineHero({
             textTransform: "uppercase",
           }}
         >
-          {brandMark}
+          {brandMark.includes("™") ? (
+            <>
+              {brandMark.split("™")[0]}
+              <span style={{ fontSize: "0.35em", verticalAlign: "super", marginLeft: "6px", fontWeight: 400 }}>™</span>
+              {brandMark.split("™")[1]}
+            </>
+          ) : (
+            brandMark
+          )}
         </span>
         {brandSubmark && (
           <span

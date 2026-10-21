@@ -80,12 +80,12 @@ const TRACKS: TrackPath[] = [
     shortDesc: "Practical skills for presentations, communication, productivity, and the kind of work that goes beyond a certificate.",
     href: "/skill-catalyst",
     theme: {
-      accentColor: "bg-amber-500",
+      accentColor: "bg-[#ED7E23]",
       numeralColor: "text-slate-100",
-      numeralHover: "group-hover:text-amber-100/70",
-      borderHover: "hover:border-amber-400/50",
-      glow: "hover:shadow-amber-500/12",
-      buttonHover: "group-hover:bg-amber-600 group-hover:text-white",
+      numeralHover: "group-hover:text-orange-100/70",
+      borderHover: "hover:border-[#ED7E23]/60",
+      glow: "hover:shadow-[#ED7E23]/20",
+      buttonHover: "group-hover:bg-[#ED7E23] group-hover:text-white",
     },
   },
 ];
@@ -292,7 +292,7 @@ export default function LearningPaths() {
                       track.theme.buttonHover
                     )}
                   >
-                    <span>Explore Program</span>
+                    <span>Explore Programs</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>

@@ -53,16 +53,16 @@ export default function ConsultationCTA() {
           transition={{ duration: 0.6, delay: 0.2, ease: easeCurve }}
           className="flex flex-row items-center justify-center gap-2.5 sm:gap-4 pt-3 sm:pt-4 w-full max-w-lg mx-auto"
         >
-          {/* Button 1: Book 5 Day Demo */}
+          {/* Button 1: Book Your Free 5-Day Demo */}
           <Link
             href="/contacts"
-            className="flex-1 sm:flex-initial sm:w-[224px] h-12 sm:h-14 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 rounded-xl bg-[#1B273D] hover:bg-[#253552] text-white font-heading font-extrabold text-xs sm:text-sm border border-slate-700/80 transition-all shadow-md hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap cursor-pointer text-center"
+            className="flex-1 sm:flex-initial sm:w-[224px] h-12 sm:h-14 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 rounded-xl bg-[#ED7E23] hover:bg-[#D96D14] text-white font-heading font-extrabold text-xs sm:text-sm border border-[#ED7E23] transition-all shadow-lg shadow-[#ED7E23]/25 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap cursor-pointer text-center"
           >
-            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300 shrink-0" />
-            <span>Book 5 Day Demo</span>
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0" />
+            <span>Book Your Free 5-Day Demo</span>
           </Link>
 
-          {/* Button 2: Book Free Consultation */}
+          {/* Button 2: Start Your Free Trial */}
           <a
             href={whatsappUrl}
             target="_blank"
@@ -70,7 +70,7 @@ export default function ConsultationCTA() {
             className="flex-1 sm:flex-initial sm:w-[224px] h-12 sm:h-14 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-6 rounded-xl bg-[#1B273D] hover:bg-[#253552] text-white font-heading font-extrabold text-xs sm:text-sm border border-slate-700/80 transition-all shadow-md hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap cursor-pointer text-center"
           >
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300 shrink-0" />
-            <span>Book Free Consultation</span>
+            <span>Start Your Free Trial</span>
           </a>
         </motion.div>
 

@@ -473,7 +473,7 @@ export default function CourseCatalog() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     {course.popular && (
-                      <div className="absolute top-3 right-3 bg-amber-500 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-md uppercase tracking-wider">
+                      <div className="absolute top-3 right-3 bg-[#ED7E23] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-md shadow-[#ED7E23]/30 uppercase tracking-wider">
                         ★ Popular
                       </div>
                     )}

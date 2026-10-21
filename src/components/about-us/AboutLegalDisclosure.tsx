@@ -81,7 +81,7 @@ export default function AboutLegalDisclosure() {
           <div className="mt-8 space-y-4">
             <p className="text-xs font-black uppercase tracking-wider text-slate-500 flex items-center gap-2">
               <AlertCircle className="w-4 h-4 text-rose-500" />
-              <span>Explicit Scope Limitations — Academic Yatra™ is NOT:</span>
+              <span>Explicit Scope Limitations — Academic Yatra<span className="brand-tm">™</span> is NOT:</span>
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">

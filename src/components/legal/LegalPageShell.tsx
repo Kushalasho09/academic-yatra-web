@@ -121,7 +121,7 @@ export default function LegalPageShell({
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-slate-300 border border-white/10">
                   <Building2 className="w-3.5 h-3.5 text-slate-400" />
-                  <span>Future Yatra™ Pvt. Ltd.</span>
+                  <span>Future Yatra<span className="brand-tm">™</span> Pvt. Ltd.</span>
                 </span>
               </div>
 
@@ -359,7 +359,7 @@ export default function LegalPageShell({
 
                   <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
                     <p className="text-slate-400 text-xs">
-                      Registered Vertical of Future Yatra™ Pvt. Ltd.
+                      Registered Vertical of Future Yatra<span className="brand-tm">™</span> Pvt. Ltd.
                     </p>
                     <a
                       href="https://wa.me/919217368750"

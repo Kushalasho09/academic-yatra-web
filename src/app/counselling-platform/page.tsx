@@ -36,7 +36,7 @@ export default function CounsellingPlatformPage() {
           <div className="flex items-center space-x-2">
             <span className="w-2.5 h-2.5 rounded-full bg-brand-primary animate-pulse" />
             <span className="font-heading font-extrabold text-sm sm:text-base text-dark tracking-tight">
-              Future Yatra™ <span className="text-brand-primary">Adventure World</span>
+              Future Yatra<span className="brand-tm">™</span> <span className="text-brand-primary">Adventure World</span>
             </span>
           </div>
         </div>
@@ -131,7 +131,7 @@ export default function CounsellingPlatformPage() {
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-50 text-brand-accent text-xs font-black uppercase tracking-wider border border-blue-200">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Future Yatra™ Service Standard</span>
+              <span>Future Yatra<span className="brand-tm">™</span> Service Standard</span>
             </div>
             <h2 className="font-heading text-2xl sm:text-3xl font-black text-dark tracking-tight">
               The 12-Step Post-Counselling Journey

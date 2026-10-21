@@ -276,7 +276,7 @@ export default function TestPrepCoursePrograms({
           className={cn(
             "grid gap-6 lg:gap-8 items-stretch mx-auto",
             currentExamData.plans.length === 1
-              ? "grid-cols-1 max-w-md"
+              ? "grid-cols-1 max-w-xl"
               : currentExamData.plans.length === 2
               ? "grid-cols-1 md:grid-cols-2 max-w-4xl"
               : "grid-cols-1 md:grid-cols-3 max-w-6xl"

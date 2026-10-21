@@ -57,8 +57,8 @@ const METRICS: MetricItem[] = [
   {
     target: 100,
     label: "Missed Class? We Kept It.",
-    glowColor: "rgba(249, 115, 22, 0.95)",
-    accentColor: "#ea580c",
+    glowColor: "rgba(237, 126, 35, 0.95)",
+    accentColor: "#ED7E23",
     iconBg: "rgba(255, 247, 237, 0.95)",
     borderColor: "rgba(254, 215, 170, 0.9)",
     gradientBg:

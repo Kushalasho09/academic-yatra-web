@@ -84,7 +84,7 @@ export default function PackageBookingModal({
               <div>
                 <div className="text-left mb-6">
                   <span className="text-xs font-bold text-[#00B074] uppercase tracking-wider">
-                    Academic Yatra™ Admissions
+                    Academic Yatra<span className="brand-tm">™</span> Admissions
                   </span>
                   <h3 className="text-2xl font-bold font-heading text-slate-900 mt-1">
                     {defaultTitle}

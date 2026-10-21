@@ -350,3 +350,15 @@ body {
   margin: 2rem auto;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
 }
+
+/* Trademark Symbol Sizing */
+.brand-tm {
+  font-size: 0.38em;
+  font-weight: 400 !important;
+  vertical-align: super;
+  margin-left: 0.15em;
+  opacity: 0.82;
+  display: inline-block;
+  user-select: none;
+  line-height: 1;
+}

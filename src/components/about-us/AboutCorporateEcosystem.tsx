@@ -83,7 +83,7 @@ export default function AboutCorporateEcosystem() {
         {/* Section Header */}
         <div className="max-w-3xl mb-8 sm:mb-10">
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-dark tracking-tight leading-[1.18]">
-            About <span className="text-brand-primary">Future Yatra™ Private Limited</span>
+            About <span className="text-brand-primary">Future Yatra<span className="brand-tm">™</span> Private Limited</span>
           </h2>
 
           <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">

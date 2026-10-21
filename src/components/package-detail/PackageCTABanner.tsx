@@ -91,7 +91,7 @@ export default function PackageCTABanner({
             </div>
 
             <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-black tracking-tight leading-[1.15] font-heading">
-              <span>See How Academic Yatra™ </span>
+              <span>See How Academic Yatra<span className="brand-tm">™</span> </span>
               <br />
               <span className="text-emerald-400">Fits Your Goals.</span>
             </h2>
@@ -128,12 +128,12 @@ export default function PackageCTABanner({
                     inputEl.focus();
                     inputEl.scrollIntoView({ behavior: "smooth", block: "center" });
                   } else if (onOpenBooking) {
-                    onOpenBooking("Book 5 Day Demo");
+                    onOpenBooking("Book Your Free 5-Day Demo");
                   }
                 }}
                 className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-lg shadow-emerald-900/40 transition-all hover:scale-[1.02] active:scale-95 cursor-pointer"
               >
-                <span>Book 5 Day Demo</span>
+                <span>Book Your Free 5-Day Demo</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -297,7 +297,7 @@ export default function PackageCTABanner({
                       type="submit"
                       className="w-full py-3.5 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md shadow-emerald-600/25 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99] mt-1"
                     >
-                      <span>Book My Free 5-Day Demo</span>
+                      <span>Start Your 5-Day Free Trial</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
 

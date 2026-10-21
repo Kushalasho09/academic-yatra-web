@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
+  Receipt,
   ShieldCheck,
   CheckCircle2,
   Lock,
@@ -402,7 +403,7 @@ export default function CourseCheckoutModal() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 30 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="relative w-full max-w-xl lg:max-w-2xl bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl border border-slate-200/80 overflow-hidden z-10 text-slate-800 flex flex-col max-h-[92vh] sm:max-h-[88vh]"
+          className="relative w-full max-w-xl lg:max-w-5xl bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl border border-slate-200/80 overflow-hidden z-10 text-slate-800 flex flex-col max-h-[92vh] sm:max-h-[90vh]"
         >
           {/* Header Banner */}
           <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-950 px-4 sm:px-6 py-3.5 sm:py-4.5 text-white flex items-center justify-between gap-3 shrink-0">
@@ -435,7 +436,10 @@ export default function CourseCheckoutModal() {
             </button>
           </div>
 
-          <div className="p-4 sm:p-6 space-y-4 sm:space-y-5 overflow-y-auto flex-1">
+          <div className="p-4 sm:p-6 lg:p-7 overflow-y-auto flex-1">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              {/* Left Column: Plan Selection & Student Contact Info */}
+              <div className="lg:col-span-7 space-y-5">
             {/* Step 1: Course Plan Selector (Responsive: Mobile Rows vs Desktop Cards) */}
             <div>
               <div className="flex items-center justify-between mb-2 sm:mb-2.5">
@@ -481,7 +485,7 @@ export default function CourseCheckoutModal() {
                               {plan.name}
                             </h4>
                             {plan.badge && (
-                              <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded-full bg-lime-300 text-slate-900 shrink-0">
+                              <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded-full bg-[#ED7E23] text-white shadow-xs shrink-0">
                                 {plan.badge}
                               </span>
                             )}
@@ -521,7 +525,7 @@ export default function CourseCheckoutModal() {
                       }`}
                     >
                       {plan.badge && (
-                        <span className="absolute -top-2.5 right-3 text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-lime-300 text-slate-900 shadow-xs">
+                        <span className="absolute -top-2.5 right-3 text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#ED7E23] text-white shadow-xs shadow-xs">
                           {plan.badge}
                         </span>
                       )}
@@ -769,7 +773,21 @@ export default function CourseCheckoutModal() {
               </div>
             </div>
 
-            {/* Price Summary Breakdown */}
+                          </div>
+
+              {/* Right Column: Order Summary & Pay Action (Sticky on Desktop) */}
+              <div className="lg:col-span-5 space-y-4 lg:sticky lg:top-0 bg-slate-50/90 p-5 sm:p-6 rounded-3xl border border-slate-200/90 shadow-sm">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-200/80">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
+                    <Receipt className="w-3.5 h-3.5 text-emerald-600" />
+                    Order Summary
+                  </span>
+                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
+                    Verified
+                  </span>
+                </div>
+
+                {/* Price Summary Breakdown */}
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 space-y-2 text-xs">
               <div className="flex items-center justify-between text-slate-600">
                 <span>Selected Plan:</span>
@@ -831,8 +849,10 @@ export default function CourseCheckoutModal() {
                 <span>•</span>
                 <span>Instant Confirmation</span>
               </div>
+              </div>
             </div>
           </div>
+        </div>
         </motion.div>
       </div>
     </AnimatePresence>

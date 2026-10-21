@@ -320,7 +320,7 @@ export function CinematicFooter() {
             ref={giantTextRef}
             className="footer-giant-bg-text absolute -bottom-[4vh] left-1/2 -translate-x-1/2 whitespace-nowrap z-0 pointer-events-none select-none text-center"
           >
-            ACADEMIC YATRA™
+            ACADEMIC YATRA<span className="brand-tm ml-2">™</span>
           </div>
 
           {/* 1. Diagonal Sleek Marquee (Top of footer) */}
@@ -336,13 +336,13 @@ export function CinematicFooter() {
             {/* Academic Yatra Sleek Silver Metallic Brand Lockup (Borderless / Clean) */}
             <div className="mb-6 sm:mb-8 flex flex-col items-center group cursor-default select-none">
               <div className="inline-flex items-center gap-3 sm:gap-4 transition-transform duration-300 group-hover:scale-105">
-                {/* Metallic Scholar Cap Emblem */}
-                <div className="relative w-9 h-9 sm:w-12 sm:h-12 md:w-13 md:h-13 shrink-0 drop-shadow-[0_4px_16px_rgba(255,255,255,0.2)]">
+                {/* Metallic Emblem from New Logo */}
+                <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 shrink-0 drop-shadow-[0_4px_20px_rgba(255,255,255,0.25)]">
                   <Image
-                    src="/images/academic_yatra_cap_metallic.png"
-                    alt="Academic Yatra Scholar Cap"
+                    src="/images/academic_yatra_emblem_metallic.png"
+                    alt="Academic Yatra Emblem"
                     width={100}
-                    height={70}
+                    height={100}
                     className="w-full h-full object-contain"
                     priority
                   />
@@ -388,7 +388,7 @@ export function CinematicFooter() {
                   className="footer-glass-pill px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-white font-bold text-xs sm:text-sm md:text-base flex items-center gap-2.5 group bg-brand-primary/20 border-brand-primary/40 hover:bg-brand-primary"
                 >
                   <Sparkles className="w-4 h-4 text-emerald-300 group-hover:rotate-12 transition-transform" />
-                  <span>Book 5 Day Demo</span>
+                  <span>Book Your Free 5-Day Demo</span>
                 </MagneticButton>
 
                 <MagneticButton

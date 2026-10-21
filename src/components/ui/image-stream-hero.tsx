@@ -245,7 +245,7 @@ export function ImageStreamCard({ item }: { item: StreamItem }) {
           href={item.href}
           className="inline-flex items-center space-x-1 text-xs font-extrabold text-brand-accent group-hover:text-brand-accentDark group-hover:translate-x-1 transition-all"
         >
-          <span>Explore Track</span>
+          <span>Explore Programs</span>
           <ArrowRight className="w-3.5 h-3.5 ml-0.5" />
         </Link>
       </div>

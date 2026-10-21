@@ -774,7 +774,16 @@ export default function PackageInlineCheckout({
         </div>
 
         {/* 3 Course Cards Grid matching Image 1 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch pb-12">
+        <div
+          className={cn(
+            "grid gap-6 sm:gap-8 items-stretch pb-12 mx-auto",
+            activeCards.length === 1
+              ? "grid-cols-1 max-w-xl"
+              : activeCards.length === 2
+              ? "grid-cols-1 md:grid-cols-2 max-w-4xl"
+              : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          )}
+        >
           {activeCards.map((course) => {
             const isSelected = selectedPlan?.id === course.id;
             const isLime = course.theme === "lime";
@@ -823,26 +832,49 @@ export default function PackageInlineCheckout({
                     )}
 
                     {(() => {
-                      const hasGst = course.monthlyPrice.includes("(incl.");
-                      const monthlyPart = hasGst
-                        ? course.monthlyPrice.split("(incl.")[0].replace(/•\s*$/, "").trim()
-                        : course.monthlyPrice;
+                      // Extract monthly rate: e.g. "₹2,316" from "₹2,316/m • 6 months (incl. 18% GST)"
+                      const match = course.monthlyPrice.match(/(₹[\d,]+)\s*\/\s*m/i);
+                      const monthlyRate = match ? match[1] : null;
+
+                      // Extract duration: e.g. "6 months"
+                      const durationMatch = course.monthlyPrice.match(/•\s*([^(\n]+)/);
+                      const durationText = durationMatch ? durationMatch[1].trim() : course.duration || "";
+
+                      const totalPrice = course.priceFormatted.replace(".00", "");
+
+                      if (monthlyRate) {
+                        return (
+                          <div className="flex flex-col text-left">
+                            <div className="flex items-baseline gap-1.5">
+                              <span className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-none shrink-0">
+                                {monthlyRate}
+                              </span>
+                              <span className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider">
+                                / month
+                              </span>
+                            </div>
+                            <div className="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs text-slate-500 font-medium">
+                              <span className="font-semibold text-slate-700">Total: {totalPrice}</span>
+                              {durationText && (
+                                <>
+                                  <span className="text-slate-300">•</span>
+                                  <span>{durationText}</span>
+                                </>
+                              )}
+                              <span className="text-[11px] text-slate-400 font-normal">(incl. 18% GST)</span>
+                            </div>
+                          </div>
+                        );
+                      }
 
                       return (
-                        <div className="flex items-center gap-2 sm:gap-2.5">
+                        <div className="flex flex-col text-left">
                           <span className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-none shrink-0">
-                            {course.priceFormatted.replace(".00", "")}
+                            {totalPrice}
                           </span>
-                          <div className="flex flex-col justify-center text-left leading-tight">
-                            <span className="text-[12px] sm:text-[13px] text-slate-500 font-medium whitespace-nowrap">
-                              {monthlyPart}
-                            </span>
-                            {hasGst && (
-                              <span className="text-[11px] sm:text-xs text-slate-400 font-medium whitespace-nowrap mt-0.5">
-                                (incl. 18% GST)
-                              </span>
-                            )}
-                          </div>
+                          <span className="text-xs text-slate-500 font-medium mt-1">
+                            (incl. 18% GST)
+                          </span>
                         </div>
                       );
                     })()}

@@ -137,7 +137,7 @@ export default function Navbar() {
             >
               <span className="flex items-center space-x-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-brand-primary" />
-                <span>Book 5 Day Demo</span>
+                <span>Book Your Free 5-Day Demo</span>
               </span>
             </HoverBorderGradient>
           </Link>
@@ -222,7 +222,7 @@ export default function Navbar() {
                 >
                   <span className="flex items-center justify-center space-x-1.5">
                     <Sparkles className="w-4 h-4 text-brand-primary" />
-                    <span>Book 5 Day Demo</span>
+                    <span>Book Your Free 5-Day Demo</span>
                   </span>
                 </HoverBorderGradient>
               </Link>

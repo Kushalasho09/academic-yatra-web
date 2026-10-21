@@ -281,7 +281,7 @@ export default function AboutWhatWeDo() {
                       </span>
 
                       <span className="text-[11px] sm:text-xs text-slate-400 font-medium">
-                        Academic Yatra™ Learning Ecosystem
+                        Academic Yatra<span className="brand-tm">™</span> Learning Ecosystem
                       </span>
                     </div>
 

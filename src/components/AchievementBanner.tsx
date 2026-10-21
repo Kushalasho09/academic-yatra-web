@@ -28,7 +28,7 @@ const HIGHLIGHTS = [
     title: "Get Ready Before You Get There",
     subtitle: "Language and learning support for life abroad",
     icon: Plane,
-    accent: "from-amber-500/20 to-orange-500/10 text-amber-400 border-amber-500/30",
+    accent: "from-[#ED7E23]/25 to-[#ED7E23]/10 text-[#ED7E23] border-[#ED7E23]/40",
   },
   {
     title: "Skills That Hold Up Outside the Course",

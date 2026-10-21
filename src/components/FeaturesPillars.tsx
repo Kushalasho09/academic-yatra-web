@@ -134,7 +134,7 @@ const PILLARS_DATA: PillarData[] = [
     },
     hudBottom: {
       icon: MessageSquare,
-      value: "Sat • 5:00 PM Slot",
+      value: "Sat • Morning Slot",
       subtitle: "Daily 1-on-1 speaking clinics",
     },
     highlight: "Direct 1-on-1 strategy sessions with British Council certified faculty.",
@@ -491,9 +491,9 @@ export default function FeaturesPillars() {
                     </div>
                     <div className="grid grid-cols-3 gap-2">
                       {[
-                        { id: "sat", day: "Sat", time: "5:00 PM" },
-                        { id: "sun", day: "Sun", time: "11:00 AM" },
-                        { id: "mon", day: "Mon", time: "6:30 PM" },
+                        { id: "sat", day: "Sat", time: "Morning" },
+                        { id: "sun", day: "Sun", time: "Afternoon" },
+                        { id: "mon", day: "Mon", time: "Evening" },
                       ].map((slot) => (
                         <button
                           key={slot.id}
@@ -506,7 +506,7 @@ export default function FeaturesPillars() {
                           )}
                         >
                           <div className="font-heading font-extrabold text-xs sm:text-sm">{slot.day}</div>
-                          <div className={cn("text-[10px] font-semibold mt-0.5", selectedSlot === slot.id ? "text-amber-300" : "text-emerald-700")}>
+                          <div className={cn("text-[10px] font-semibold mt-0.5", selectedSlot === slot.id ? "text-[#ED7E23]" : "text-emerald-700")}>
                             {slot.time}
                           </div>
                         </button>
@@ -549,7 +549,7 @@ export default function FeaturesPillars() {
                   href="/contacts"
                   className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white font-heading font-extrabold text-xs shadow-sm hover:scale-105 transition-all whitespace-nowrap shrink-0"
                 >
-                  <span>Book Free Demo</span>
+                  <span>Book Your Free Demo</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
