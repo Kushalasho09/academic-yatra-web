@@ -1076,7 +1076,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "01",
           question: "What is CELPIP?",
           answer:
-            "The Canadian English Language Proficiency Index Program (CELPIP) is a 100% computer-delivered English language assessment officially designated by IRCC for permanent residency and citizenship. It uses practical, everyday Canadian English scenarios rather than abstract academic topics.",
+            "The Canadian English Language Proficiency Index Program (CELPIP) is a computer-delivered English language test recognized by IRCC for Canadian permanent residency and citizenship. It assesses practical English communication skills through real-life scenarios and is also accepted by certain professional licensing bodies and educational institutions.",
         },
         {
           id: "02",

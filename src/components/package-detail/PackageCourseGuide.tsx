@@ -209,7 +209,7 @@ export default function PackageCourseGuide({ guide }: PackageCourseGuideProps) {
   return (
     <section
       ref={sectionRef}
-      className="py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50/50 to-white relative z-10 overflow-hidden"
+      className="pt-12 sm:pt-16 pb-6 sm:pb-8 bg-white relative z-10 overflow-hidden"
     >
       {/* Ambient background soft glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[400px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none -z-10" />

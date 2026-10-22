@@ -178,7 +178,7 @@ export default function FeaturesPillars() {
   };
 
   return (
-    <section className="py-8 sm:py-12 bg-white relative overflow-hidden">
+    <section className="py-10 sm:py-14 bg-gradient-to-b from-[#F5F8F6] via-[#FAFBF9] to-[#F3F7F5] border-y border-slate-200/60 relative overflow-hidden">
       {/* Seamless Top & Bottom Ambient Fade */}
       <div className="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-slate-50/60 to-transparent pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-slate-50/60 to-transparent pointer-events-none" />

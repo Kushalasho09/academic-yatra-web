@@ -701,7 +701,7 @@ export default function PackageInlineCheckout({
       category: "Structured Course Pathway",
       plans: activeCards.map((c) => ({
         id: c.id,
-        name: `${c.packType} Plan`,
+        name: c.packType,
         price: c.priceFormatted,
         duration: c.duration,
         validityText: c.features.find((f) => f.text.toLowerCase().includes("validity"))?.text || `${c.duration} Portal Access`,

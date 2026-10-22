@@ -599,7 +599,7 @@ export default function PackageWhyChoose({ whyChoose }: PackageWhyChooseProps) {
   const easeCurve = [0.16, 1, 0.3, 1];
 
   return (
-    <section className="py-14 sm:py-20 bg-gradient-to-b from-white via-slate-50/40 to-white relative z-10 overflow-hidden">
+    <section className="pt-8 sm:pt-12 pb-14 sm:pb-20 bg-gradient-to-b from-[#F2F7F4] via-[#F8FAF9] to-[#F1F6F3] border-y border-slate-200/70 relative z-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

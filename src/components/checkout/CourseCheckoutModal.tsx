@@ -278,6 +278,34 @@ export default function CourseCheckoutModal() {
               }
             }
 
+            // Record purchase in Database, Admin Panel & HisabKitab ERP
+            try {
+              await fetch("/api/orders", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  studentName: studentFullName,
+                  studentEmail: email.trim(),
+                  studentPhone: cleanPhone,
+                  studentCountryCode: selectedCountry.dialCode,
+                  courseId: activeCourse.courseId,
+                  courseName: activeCourse.courseName,
+                  planId: currentPlan.id,
+                  planName: currentPlan.name,
+                  category: activeCourse.category,
+                  amount: numericPrice,
+                  currency: "INR",
+                  validityText: currentPlan.validityText || currentPlan.duration,
+                  razorpayPaymentId: response.razorpay_payment_id,
+                  razorpayOrderId: response.razorpay_order_id || razorpayOrderId,
+                  razorpaySignature: response.razorpay_signature,
+                  paymentStatus: "SUCCESS",
+                }),
+              });
+            } catch (orderErr) {
+              console.warn("Order persistence notice:", orderErr);
+            }
+
             closeCheckout();
             openSuccessModal({
               paymentId: response.razorpay_payment_id || `pay_${Date.now()}`,
@@ -300,6 +328,30 @@ export default function CourseCheckoutModal() {
             ondismiss: function () {
               setIsLoading(false);
               if (!paymentSucceeded) {
+                try {
+                  fetch("/api/orders", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      studentName: studentFullName,
+                      studentEmail: email.trim(),
+                      studentPhone: cleanPhone,
+                      studentCountryCode: selectedCountry.dialCode,
+                      courseId: activeCourse.courseId,
+                      courseName: activeCourse.courseName,
+                      planId: currentPlan.id,
+                      planName: currentPlan.name,
+                      category: activeCourse.category,
+                      amount: numericPrice,
+                      currency: "INR",
+                      validityText: currentPlan.validityText || currentPlan.duration,
+                      razorpayOrderId: razorpayOrderId,
+                      paymentStatus: "CANCELLED",
+                      failureReason: "Payment window was closed or cancelled before completion.",
+                    }),
+                  });
+                } catch (_) {}
+
                 closeCheckout();
                 openFailedModal({
                   courseName: activeCourse.courseName,
@@ -327,6 +379,32 @@ export default function CourseCheckoutModal() {
         razorpayInstance.on("payment.failed", function (response: any) {
           paymentSucceeded = false;
           setIsLoading(false);
+
+          try {
+            fetch("/api/orders", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                studentName: studentFullName,
+                studentEmail: email.trim(),
+                studentPhone: cleanPhone,
+                studentCountryCode: selectedCountry.dialCode,
+                courseId: activeCourse.courseId,
+                courseName: activeCourse.courseName,
+                planId: currentPlan.id,
+                planName: currentPlan.name,
+                category: activeCourse.category,
+                amount: numericPrice,
+                currency: "INR",
+                validityText: currentPlan.validityText || currentPlan.duration,
+                razorpayPaymentId: response?.error?.metadata?.payment_id || null,
+                razorpayOrderId: response?.error?.metadata?.order_id || razorpayOrderId,
+                paymentStatus: "FAILED",
+                failureReason: response?.error?.description || "Payment failed or was declined by the bank.",
+              }),
+            });
+          } catch (_) {}
+
           closeCheckout();
           openFailedModal({
             courseName: activeCourse.courseName,
