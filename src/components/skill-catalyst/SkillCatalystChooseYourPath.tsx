@@ -57,18 +57,7 @@ const SKILL_CATALYST_CARDS: SkillPathwayCard[] = [
     popular: false,
     programKey: "GOOGLE_SUITE",
   },
-  {
-    id: "skill-catalyst-combo",
-    title: "Skill Catalyst Combo",
-    tagline: "Complete job-ready suite with 6 weeks of live corporate mentorship.",
-    href: "/skill-catalyst/skill-catalyst",
-    image: "/images/why_academic_students.jpg",
-    rating: "4.9",
-    reviews: "650 reviews",
-    level: "Advanced",
-    popular: true,
-    programKey: "COMBO",
-  },
+
 ];
 
 interface SkillCatalystChooseYourPathProps {
@@ -178,7 +167,7 @@ export default function SkillCatalystChooseYourPath({
         {/* Pathway Cards: Horizontal Carousel on Mobile, Grid on Tablet/Desktop */}
         <div
           ref={scrollRef}
-          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-6 overflow-x-auto sm:overflow-visible scroll-smooth snap-x snap-mandatory sm:snap-none pt-2 pb-6 sm:pb-2 -mx-4 sm:mx-0 px-4 sm:px-0 no-scrollbar scrollbar-none items-stretch"
+          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto gap-4 sm:gap-6 lg:gap-6 overflow-x-auto sm:overflow-visible scroll-smooth snap-x snap-mandatory sm:snap-none pt-2 pb-6 sm:pb-2 -mx-4 sm:mx-0 px-4 sm:px-0 no-scrollbar scrollbar-none items-stretch"
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",

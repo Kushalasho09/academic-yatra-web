@@ -134,6 +134,15 @@ function formatTime(seconds: number): string {
  * Mobile Interactive Video Player with Progress Indicator,
  * Play/Pause, Volume Toggle, and True Fullscreen Horizontal Landscape View.
  */
+const THEME_PALETTE = [
+  STEP_CONFIGS.dashboard,
+  STEP_CONFIGS.lessons,
+  STEP_CONFIGS.classes,
+  STEP_CONFIGS.practice,
+  STEP_CONFIGS.mock,
+  STEP_CONFIGS.evaluation,
+];
+
 function MobileInteractiveVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
@@ -630,7 +639,16 @@ export default function PackageWhyChoose({ whyChoose }: PackageWhyChooseProps) {
         {/* ========================================================================= */}
         <div className="hidden lg:block space-y-8 sm:space-y-12">
           {whyChoose.cards.map((card, idx) => {
-            const config = STEP_CONFIGS[card.iconType] || STEP_CONFIGS.dashboard;
+            const baseConfig = STEP_CONFIGS[card.iconType] || STEP_CONFIGS.dashboard;
+            const themeConfig = THEME_PALETTE[idx % THEME_PALETTE.length];
+            const config = {
+              ...baseConfig,
+              badgeBg: themeConfig.badgeBg,
+              glowColor: themeConfig.glowColor,
+              bubbleColor: themeConfig.bubbleColor,
+              checkColor: themeConfig.checkColor,
+            };
+            const stepNumber = String(idx + 1).padStart(2, "0");
             const Icon = config.icon;
             const videoSrc = VIDEO_FILES[idx] || config.videoSrc || `/images/${idx + 1}.mp4`;
             // Alternating pattern on desktop: even on left (text left, video right), odd on right (video left, text right)
@@ -660,10 +678,10 @@ export default function PackageWhyChoose({ whyChoose }: PackageWhyChooseProps) {
                         config.badgeBg
                       )}
                     >
-                      {config.number}
+                      {stepNumber}
                     </span>
                     <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 font-heading">
-                      Ecosystem Pillar {config.number}
+                      Ecosystem Pillar {stepNumber}
                     </span>
                   </div>
 

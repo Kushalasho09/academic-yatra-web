@@ -32,8 +32,6 @@ export default function SkillCatalystHero() {
         src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"
       />
 
-      {/* Dark overlay gradient for contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#031643]/75 via-[#031643]/50 to-[#031643]/90 z-0 pointer-events-none" />
 
       {/* Hero Section Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-5 sm:pt-40 sm:pb-12 flex flex-col items-center justify-between min-h-[72vh] sm:min-h-screen text-center">

@@ -18,7 +18,6 @@ export default function PlatformPreview() {
     {
       number: "01",
       title: "Personalised Learning Progress",
-      pillLabel: "1 Week",
       theme: "emerald",
       icon: TrendingUp,
       description:
@@ -27,7 +26,6 @@ export default function PlatformPreview() {
     {
       number: "02",
       title: "Skill-Wise Performance Insights",
-      pillLabel: "2 Week",
       theme: "blue",
       icon: BarChart3,
       description:
@@ -36,7 +34,6 @@ export default function PlatformPreview() {
     {
       number: "03",
       title: "100% Recorded Learning Archive",
-      pillLabel: "1-2 Days",
       theme: "navy",
       icon: CalendarCheck,
       description:
@@ -45,7 +42,6 @@ export default function PlatformPreview() {
     {
       number: "04",
       title: "Practice & Progress Analytics",
-      pillLabel: "1-2 Days",
       theme: "amber",
       icon: Award,
       description:

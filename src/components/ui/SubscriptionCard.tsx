@@ -26,6 +26,7 @@ export interface SubscriptionCardProps {
   ctaHref?: string;
   onSelect?: () => void;
   trialHref?: string;
+  singleCard?: boolean;
   className?: string;
 }
 
@@ -57,6 +58,7 @@ export default function SubscriptionCard({
   ctaHref,
   onSelect,
   trialHref,
+  singleCard,
   className,
 }: SubscriptionCardProps) {
   const boxClass = BOX_THEME_CLASSES[theme] || BOX_THEME_CLASSES.mint;
@@ -67,33 +69,34 @@ export default function SubscriptionCard({
       className={cn(
         "relative rounded-[32px] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 border border-slate-200/90 shadow-md hover:shadow-xl hover:-translate-y-1 h-full",
         cardBgClass,
-        isFeatured && "shadow-xl ring-2 ring-lime-400/50 md:-translate-y-2 hover:-translate-y-3",
+        isFeatured && (singleCard ? "shadow-xl ring-2 ring-lime-400/50 hover:-translate-y-1.5" : "shadow-xl ring-2 ring-lime-400/50 md:-translate-y-2 hover:-translate-y-3"),
         className
       )}
     >
       <div>
-        {/* Top Header: Title & Subtitle */}
-        <div className="text-left">
-          <h3 className="font-heading font-bold text-2xl sm:text-[26px] text-slate-900 tracking-tight">
-            {name}
-          </h3>
-          {subtitle && (
-            <p className="text-xs sm:text-sm text-slate-400 font-normal mt-1 leading-relaxed">
-              {subtitle}
-            </p>
-          )}
-        </div>
-
-        {/* Price Block */}
-        <div className="relative mt-5 mb-4 text-left">
-          {/* Neon Lime Floating Badge (as seen in Reference UI) */}
+        {/* Top Header: Title & Subtitle + Badge */}
+        <div className="flex items-start justify-between gap-3 text-left">
+          <div className="min-w-0 flex-1">
+            <h3 className="font-heading font-bold text-2xl sm:text-[26px] text-slate-900 tracking-tight">
+              {name}
+            </h3>
+            {subtitle && (
+              <p className="text-xs sm:text-sm text-slate-400 font-normal mt-1 leading-relaxed">
+                {subtitle}
+              </p>
+            )}
+          </div>
           {badge && (
-            <div className="absolute -top-3.5 right-2 sm:right-4 z-10">
-              <span className="inline-block bg-[#d8f946] text-slate-900 text-[11px] font-extrabold px-3 py-0.5 rounded-full -rotate-6 shadow-xs select-none">
+            <div className="shrink-0 pt-0.5">
+              <span className="inline-block bg-[#d8f946] text-slate-900 text-[11px] font-extrabold px-3 py-1 rounded-full shadow-xs select-none whitespace-nowrap">
                 {badge}
               </span>
             </div>
           )}
+        </div>
+
+        {/* Price Block */}
+        <div className="mt-5 mb-4 text-left">
 
           {/* Price & GST / Period properly aligned in one line without wrapping */}
           {/gst|incl/i.test(period || "") ? (

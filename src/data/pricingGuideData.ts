@@ -346,12 +346,5 @@ export const PRICING_GUIDE_DATA: PricingItem[] = [
     inclusions: "95 days portal access, 14 hrs live lectures, podcast projects, analytics mastery, skill assessment, certificate",
   },
 
-  // Test Your English
-  {
-    program: "Test Your English",
-    tier: "15-Day Package",
-    totalPrice: "₹199",
-    validity: "15 days",
-    inclusions: "Quick English proficiency test package",
-  },
+
 ];

@@ -14,7 +14,7 @@ export type SteppedCardTheme =
 
 export interface SteppedProcessCardItem {
   number: number | string;
-  pillLabel: string;
+  pillLabel?: string;
   theme?: SteppedCardTheme;
   pillTheme?: "green" | "dark";
   cardTheme?: "mint" | "white";
@@ -187,25 +187,7 @@ export default function SteppedProcessCards({
                       theme.cardShadow
                     )}
                   >
-                    {/* Left Vertical Pill Badge */}
-                    <div
-                      className={cn(
-                        "w-8 py-3 rounded-full flex items-center justify-center shrink-0 self-stretch my-0.5 shadow-sm",
-                        theme.pillBg,
-                        theme.pillText,
-                        theme.pillRing
-                      )}
-                    >
-                      <span
-                        className="text-[10px] font-black tracking-widest uppercase select-none whitespace-nowrap"
-                        style={{
-                          writingMode: "vertical-rl",
-                          transform: "rotate(180deg)",
-                        }}
-                      >
-                        {item.pillLabel}
-                      </span>
-                    </div>
+                    
 
                     {/* Card Content */}
                     <div className="flex-1 min-w-0 pt-0.5">
@@ -305,25 +287,7 @@ export default function SteppedProcessCards({
                     theme.cardBorder
                   )}
                 >
-                  {/* Left Vertical Pill Badge */}
-                  <div
-                    className={cn(
-                      "w-5 sm:w-6 py-2 sm:py-2.5 rounded-full flex items-center justify-center shrink-0 self-stretch my-0.5 shadow-xs",
-                      theme.pillBg,
-                      theme.pillText,
-                      theme.pillRing
-                    )}
-                  >
-                    <span
-                      className="text-[7.5px] sm:text-[9px] font-black tracking-widest uppercase select-none whitespace-nowrap"
-                      style={{
-                        writingMode: "vertical-rl",
-                        transform: "rotate(180deg)",
-                      }}
-                    >
-                      {item.pillLabel}
-                    </span>
-                  </div>
+                  
 
                   {/* Card Content */}
                   <div className="flex-1 min-w-0 pt-0.5">

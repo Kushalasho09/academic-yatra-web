@@ -2,6 +2,7 @@ export interface AudienceCard {
   title: string;
   category?: string;
   heading?: string;
+  description?: string;
 }
 
 export interface GuideItem {
@@ -1563,7 +1564,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     titleHighlight: "SAT",
     eyebrow: "Mock Tests • Expert Mentoring • Progress Tracking",
     heroDescription:
-      "Modern preparation designed to help students excel in the digital format through structured practice sessions.",
+      "Prepare for the Digital SAT with targeted Reading, Writing, and Math practice, realistic mock tests, and performance tracking to identify gaps and improve accuracy.",
     heroImage: "/images/why_academic_students.jpg",
     stats: [
       { value: "1500+", label: "Target Score Strategy" },
@@ -1573,17 +1574,53 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     ],
     audience: {
       badge: "Is This Course For You?",
-      headingPrefix: "Who Needs",
+      headingPrefix: "Who Should Take the",
       headingHighlight: "Digital SAT?",
       description:
         "The Digital SAT is required for undergraduate college admissions in the USA, Canada, and leading global universities. It is essential for:",
       cards: [
-        { title: "Class 11–12 students planning abroad studies" },
-        { title: "Recent school graduates applying for bachelor’s programs" },
-        { title: "Applicants to USA, Canada, Europe, and Asia universities" },
-        { title: "Students targeting scholarships or competitive courses" },
-        { title: "Engineering, Business, CS, and other major applicants" },
-        { title: "Candidates applying to selective global universities" },
+        {
+          heading: "High School Students",
+          category: "High School Students",
+          title: "Students in Grades 11–12 planning undergraduate admissions at universities that consider SAT scores.",
+          description: "Students in Grades 11–12 planning undergraduate admissions at universities that consider SAT scores.",
+        },
+        {
+          heading: "Recent School Graduates",
+          category: "Recent School Graduates",
+          title: "Students applying for undergraduate programs who need or choose to submit SAT scores.",
+          description: "Students applying for undergraduate programs who need or choose to submit SAT scores.",
+        },
+        {
+          heading: "US University Applicants",
+          category: "US University Applicants",
+          title: "Students applying to US colleges and universities that require or accept SAT scores.",
+          description: "Students applying to US colleges and universities that require or accept SAT scores.",
+        },
+        {
+          heading: "Scholarship Applicants",
+          category: "Scholarship Applicants",
+          title: "Students targeting scholarships at institutions that consider SAT scores as part of eligibility or selection.",
+          description: "Students targeting scholarships at institutions that consider SAT scores as part of eligibility or selection.",
+        },
+        {
+          heading: "STEM & Business Aspirants",
+          category: "STEM & Business Aspirants",
+          title: "Students pursuing undergraduate programs in engineering, computer science, economics, or business at SAT-accepting universities.",
+          description: "Students pursuing undergraduate programs in engineering, computer science, economics, or business at SAT-accepting universities.",
+        },
+        {
+          heading: "Selective University Applicants",
+          category: "Selective University Applicants",
+          title: "Students aiming to strengthen their applications to competitive universities through focused SAT preparation.",
+          description: "Students aiming to strengthen their applications to competitive universities through focused SAT preparation.",
+        },
+        {
+          heading: "Scholarship Seekers",
+          category: "Scholarship Seekers",
+          title: "Students targeting universities that consider SAT scores for merit-based scholarships or financial awards.",
+          description: "Students targeting universities that consider SAT scores for merit-based scholarships or financial awards.",
+        },
       ],
     },
     courseGuide: {
@@ -1710,7 +1747,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     titleHighlight: "",
     eyebrow: "Quant Practice • Mock Tests • Mentor Support",
     heroDescription:
-      "Comprehensive preparation helping students strengthen analytical, quantitative, and verbal skills for graduate school admissions.",
+      "Prepare for the GRE with expert guidance, realistic mock tests, and targeted practice to strengthen Verbal Reasoning, Quantitative Reasoning, and Analytical Writing.",
     heroImage: "/images/path_competitive_boy.jpg",
     stats: [
       { value: "325+", label: "Target Score Strategy" },
@@ -1720,20 +1757,53 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     ],
     audience: {
       badge: "Is This Course For You?",
-      headingPrefix: "Who Needs",
-      headingHighlight: "GRE?",
+      headingPrefix: "Who Should Take the",
+      headingHighlight: "GRE Course?",
       description:
         "The GRE is the standard admissions test for graduate Master's and PhD programs globally. It is designed for:",
       cards: [
-        { category: "Master's Aspirants", title: "Students applying for Master's programs abroad" },
-        { category: "PhD & Research", title: "PhD and research applicants" },
-        { category: "STEM & Engineering", title: "Engineering and Technology graduates pursuing MS degrees" },
-        { category: "Tech & Data Science", title: "Computer Science, AI, Data Science, and IT applicants" },
-        { category: "Social Sciences", title: "Economics, Psychology, and Social Science students" },
-        { category: "STEM Pathways", title: "Candidates applying for STEM programs" },
-        { category: "Career Advancement", title: "Working professionals planning higher education abroad" },
-        { category: "Global Universities", title: "Students targeting universities in the USA, Canada, Europe, and other GRE-accepting destinations" },
-        { category: "Merit & Fellowships", title: "Applicants seeking merit-based scholarships" },
+        {
+          heading: "Master's Applicants",
+          category: "Master's Applicants",
+          title: "Students applying to master's programs in the USA, UK, Canada, or Europe that accept GRE scores.",
+          description: "Students applying to master's programs in the USA, UK, Canada, or Europe that accept GRE scores.",
+        },
+        {
+          heading: "PhD & Research Applicants",
+          category: "PhD & Research Applicants",
+          title: "Graduates targeting doctoral or research programs that consider GRE scores during admissions.",
+          description: "Graduates targeting doctoral or research programs that consider GRE scores during admissions.",
+        },
+        {
+          heading: "MBA Aspirants",
+          category: "MBA Aspirants",
+          title: "Applicants targeting business schools such as MIT Sloan, INSEAD, or NUS that accept GRE scores for eligible MBA programs.",
+          description: "Applicants targeting business schools such as MIT Sloan, INSEAD, or NUS that accept GRE scores for eligible MBA programs.",
+        },
+        {
+          heading: "STEM Graduate Applicants",
+          category: "STEM Graduate Applicants",
+          title: "Students pursuing postgraduate studies in engineering, computer science, or sciences at universities where their chosen programs accept GRE scores.",
+          description: "Students pursuing postgraduate studies in engineering, computer science, or sciences at universities where their chosen programs accept GRE scores.",
+        },
+        {
+          heading: "Law School Applicants",
+          category: "Law School Applicants",
+          title: "Candidates applying to US JD programs at institutions such as Harvard Law School or Columbia Law School and others that accept GRE scores.",
+          description: "Candidates applying to US JD programs at institutions such as Harvard Law School or Columbia Law School and others that accept GRE scores.",
+        },
+        {
+          heading: "Business Master's Applicants",
+          category: "Business Master's Applicants",
+          title: "Students targeting specialized business master's programs in fields such as finance, management, or analytics that accept GRE scores.",
+          description: "Students targeting specialized business master's programs in fields such as finance, management, or analytics that accept GRE scores.",
+        },
+        {
+          heading: "Scholarship Seekers",
+          category: "Scholarship Seekers",
+          title: "Graduate applicants targeting scholarships or fellowships at institutions that consider GRE scores as part of selection.",
+          description: "Graduate applicants targeting scholarships or fellowships at institutions that consider GRE scores as part of selection.",
+        },
       ],
     },
     courseGuide: {
@@ -1860,7 +1930,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     titleHighlight: "",
     eyebrow: "Mock Exams • Strategy Sessions • Performance Tracking",
     heroDescription:
-      "Structured preparation for students targeting competitive business school admissions through focused practice and expert guidance.",
+      "Prepare for the GMAT with targeted practice, mock tests, and expert guidance to strengthen Quantitative Reasoning, Verbal Reasoning, and Data Insights.",
     heroImage: "/images/hero_center_laptop.jpg",
     stats: [
       { value: "705+", label: "Target Score Strategy (99th %ile)" },
@@ -1875,15 +1945,42 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "The GMAT Focus Edition is the gold standard for global business school admissions. It is tailored for:",
       cards: [
-        { category: "MBA Programs", title: "Students applying for MBA programs abroad" },
-        { category: "MiM Candidates", title: "Candidates pursuing Master in Management (MiM) degrees" },
-        { category: "Business Schools", title: "Applicants targeting business and management schools" },
-        { category: "Career Advancement", title: "Working professionals seeking career advancement through higher education" },
-        { category: "Executive MBA", title: "Candidates applying to Executive MBA programs" },
-        { category: "Leadership & Management", title: "Professionals transitioning into leadership and management roles" },
-        { category: "Top Global B-Schools", title: "Applicants targeting top-ranked global business schools" },
-        { category: "Specialized Masters", title: "Students pursuing Finance, Consulting, Marketing, or Business Analytics programs" },
-        { category: "Merit Scholarships", title: "Candidates seeking merit-based scholarships at business schools" },
+        {
+          heading: "MBA Applicants",
+          category: "MBA Applicants",
+          title: "Candidates applying to MBA programs at business schools in the USA, UK, Canada, Europe, or Asia.",
+          description: "Candidates applying to MBA programs at business schools in the USA, UK, Canada, Europe, or Asia.",
+        },
+        {
+          heading: "Business Master's Applicants",
+          category: "Business Master's Applicants",
+          title: "Students targeting specialized master's programs in finance, management, or analytics that accept GMAT scores.",
+          description: "Students targeting specialized master's programs in finance, management, or analytics that accept GMAT scores.",
+        },
+        {
+          heading: "Indian B-School Applicants",
+          category: "Indian B-School Applicants",
+          title: "Candidates targeting institutions such as the Indian School of Business (ISB) or eligible IIM executive MBA programs that accept GMAT scores.",
+          description: "Candidates targeting institutions such as the Indian School of Business (ISB) or eligible IIM executive MBA programs that accept GMAT scores.",
+        },
+        {
+          heading: "International Business School Applicants",
+          category: "International Business School Applicants",
+          title: "Applicants targeting schools such as INSEAD, London Business School, or NUS Business School, subject to program-specific requirements.",
+          description: "Applicants targeting schools such as INSEAD, London Business School, or NUS Business School, subject to program-specific requirements.",
+        },
+        {
+          heading: "Working Professionals",
+          category: "Working Professionals",
+          title: "Professionals planning to pursue an MBA or graduate management degree to advance their careers.",
+          description: "Professionals planning to pursue an MBA or graduate management degree to advance their careers.",
+        },
+        {
+          heading: "Scholarship Seekers",
+          category: "Scholarship Seekers",
+          title: "Business school applicants seeking scholarships at institutions that consider GMAT scores during selection.",
+          description: "Business school applicants seeking scholarships at institutions that consider GMAT scores during selection.",
+        },
       ],
     },
     courseGuide: {
@@ -2286,13 +2383,42 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "A comprehensive learning pathway combining workplace, digital, and professional skills for long-term career growth. Best suited for:",
       cards: [
-        { title: "Students preparing for internships and placements" },
-        { title: "Fresh graduates entering the job market" },
-        { title: "Job seekers looking to strengthen their professional profile" },
-        { title: "Professionals seeking workplace productivity and communication skills" },
-        { title: "Candidates preparing for interviews, assessments, and recruitment processes" },
-        { title: "Learners who want both technical and soft skills in a single program" },
-        { title: "Individuals aiming to improve digital, business, and professional competencies" },
+        {
+          heading: "First-Time Job Seekers",
+          category: "First-Time Job Seekers",
+          title: "Graduates preparing to transition from academic learning to professional employment.",
+          description: "Graduates preparing to transition from academic learning to professional employment.",
+        },
+        {
+          heading: "Resume & LinkedIn Building",
+          category: "Resume & LinkedIn Building",
+          title: "Individuals looking to create ATS-friendly resumes, compelling cover letters, and professional LinkedIn profiles.",
+          description: "Individuals looking to create ATS-friendly resumes, compelling cover letters, and professional LinkedIn profiles.",
+        },
+        {
+          heading: "Interview Readiness",
+          category: "Interview Readiness",
+          title: "Job seekers aiming to improve interview performance, structure responses, and communicate with confidence.",
+          description: "Job seekers aiming to improve interview performance, structure responses, and communicate with confidence.",
+        },
+        {
+          heading: "Professional Communication",
+          category: "Professional Communication",
+          title: "Individuals seeking to improve workplace communication, business email writing, and professional etiquette.",
+          description: "Individuals seeking to improve workplace communication, business email writing, and professional etiquette.",
+        },
+        {
+          heading: "Confidence Building",
+          category: "Confidence Building",
+          title: "Individuals looking to develop confidence in professional interactions, interviews, and workplace discussions.",
+          description: "Individuals looking to develop confidence in professional interactions, interviews, and workplace discussions.",
+        },
+        {
+          heading: "Career Advancement",
+          category: "Career Advancement",
+          title: "Professionals seeking to strengthen networking, negotiation, and workplace readiness skills.",
+          description: "Professionals seeking to strengthen networking, negotiation, and workplace readiness skills.",
+        },
       ],
     },
     courseGuide: {
@@ -2401,13 +2527,42 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "Career Essentials is suitable for students, fresh graduates, job seekers, and working professionals looking to improve employability and workplace performance. The program helps bridge the gap between academic learning and industry expectations. Career Essentials is best suited for:",
       cards: [
-        { title: "College students" },
-        { title: "Fresh graduates" },
-        { title: "Internship applicants" },
-        { title: "Job seekers preparing for interviews" },
-        { title: "Working professionals" },
-        { title: "Professionals looking to improve communication" },
-        { title: "Career switchers" },
+        {
+          heading: "First-Time Job Seekers",
+          category: "First-Time Job Seekers",
+          title: "Graduates preparing to transition from academic learning to professional employment.",
+          description: "Graduates preparing to transition from academic learning to professional employment.",
+        },
+        {
+          heading: "Resume & LinkedIn Building",
+          category: "Resume & LinkedIn Building",
+          title: "Individuals looking to create ATS-friendly resumes, compelling cover letters, and professional LinkedIn profiles.",
+          description: "Individuals looking to create ATS-friendly resumes, compelling cover letters, and professional LinkedIn profiles.",
+        },
+        {
+          heading: "Interview Readiness",
+          category: "Interview Readiness",
+          title: "Job seekers aiming to improve interview performance, structure responses, and communicate with confidence.",
+          description: "Job seekers aiming to improve interview performance, structure responses, and communicate with confidence.",
+        },
+        {
+          heading: "Professional Communication",
+          category: "Professional Communication",
+          title: "Individuals seeking to improve workplace communication, business email writing, and professional etiquette.",
+          description: "Individuals seeking to improve workplace communication, business email writing, and professional etiquette.",
+        },
+        {
+          heading: "Confidence Building",
+          category: "Confidence Building",
+          title: "Individuals looking to develop confidence in professional interactions, interviews, and workplace discussions.",
+          description: "Individuals looking to develop confidence in professional interactions, interviews, and workplace discussions.",
+        },
+        {
+          heading: "Career Advancement",
+          category: "Career Advancement",
+          title: "Professionals seeking to strengthen networking, negotiation, and workplace readiness skills.",
+          description: "Professionals seeking to strengthen networking, negotiation, and workplace readiness skills.",
+        },
       ],
     },
     courseGuide: {
@@ -2517,14 +2672,42 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "Master essential productivity tools used by organizations worldwide for communication, collaboration, and project management. Best suited for:",
       cards: [
-        { title: "College students" },
-        { title: "Fresh graduates" },
-        { title: "Working professionals" },
-        { title: "Team coordinators" },
-        { title: "Entrepreneurs" },
-        { title: "Professionals looking to improve communication" },
-        { title: "Professionals using Google Workspace daily" },
-        { title: "Administrative staff" },
+        {
+          heading: "College Students",
+          category: "College Students",
+          title: "Students looking to master digital productivity tools for academic projects and resume building .",
+          description: "Students looking to master digital productivity tools for academic projects and resume building .",
+        },
+        {
+          heading: "Aspiring Professionals",
+          category: "Aspiring Professionals",
+          title: "Individuals seeking practical Google Workspace skills for modern workplace requirements.",
+          description: "Individuals seeking practical Google Workspace skills for modern workplace requirements.",
+        },
+        {
+          heading: "Data & Analytics Learners",
+          category: "Data & Analytics Learners",
+          title: "Individuals  aiming to build advanced spreadsheets, pivot tables, and dynamic reporting dashboards.",
+          description: "Individuals  aiming to build advanced spreadsheets, pivot tables, and dynamic reporting dashboards.",
+        },
+        {
+          heading: "Business Owners",
+          category: "Business Owners",
+          title: "Entrepreneurs looking to streamline documentation, data management, and collaborative workflows.",
+          description: "Entrepreneurs looking to streamline documentation, data management, and collaborative workflows.",
+        },
+        {
+          heading: "Team & Operations Professionals",
+          category: "Team & Operations Professionals",
+          title: "Professionals seeking to improve team collaboration, automate repetitive tasks, and manage shared files efficiently.",
+          description: "Professionals seeking to improve team collaboration, automate repetitive tasks, and manage shared files efficiently.",
+        },
+        {
+          heading: "Project & Administrative Assistants",
+          category: "Project & Administrative Assistants",
+          title: "Individuals aiming to organize business documents, manage data, and create professional presentations.",
+          description: "Individuals aiming to organize business documents, manage data, and create professional presentations.",
+        },
       ],
     },
     courseGuide: {
@@ -2635,12 +2818,42 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "Build business and technology skills relevant to modern workplaces through practical learning and real applications. Best suited for:",
       cards: [
-        { title: "College students" },
-        { title: "Entrepreneurs" },
-        { title: "Professionals managing business operations" },
-        { title: "Small business owners" },
-        { title: "Marketing professionals" },
-        { title: "Digital creators and influencers" },
+        {
+          heading: "College Students",
+          category: "College Students",
+          title: "Students looking to develop practical business, technology, and analytical skills.",
+          description: "Students looking to develop practical business, technology, and analytical skills.",
+        },
+        {
+          heading: "Aspiring Entrepreneurs",
+          category: "Aspiring Entrepreneurs",
+          title: "Individuals seeking to understand business operations, digital workflows, and data-driven decisions.",
+          description: "Individuals seeking to understand business operations, digital workflows, and data-driven decisions.",
+        },
+        {
+          heading: "Business Professionals",
+          category: "Business Professionals",
+          title: "Professionals aiming to improve operational efficiency through modern workplace technology and analytics.",
+          description: "Professionals aiming to improve operational efficiency through modern workplace technology and analytics.",
+        },
+        {
+          heading: "Small Business Owners",
+          category: "Small Business Owners",
+          title: "Entrepreneurs looking to streamline workflows and apply technology to everyday business challenges.",
+          description: "Entrepreneurs looking to streamline workflows and apply technology to everyday business challenges.",
+        },
+        {
+          heading: "Marketing Professionals",
+          category: "Marketing Professionals",
+          title: "Marketers seeking to strengthen data analysis, digital workflows, and content production skills.",
+          description: "Marketers seeking to strengthen data analysis, digital workflows, and content production skills.",
+        },
+        {
+          heading: "Digital Creators & Influencers",
+          category: "Digital Creators & Influencers",
+          title: "Content creators exploring podcast production, digital media tools, and technology-driven workflows.",
+          description: "Content creators exploring podcast production, digital media tools, and technology-driven workflows.",
+        },
       ],
     },
     courseGuide: {

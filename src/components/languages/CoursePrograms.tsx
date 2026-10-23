@@ -15,6 +15,7 @@ export interface ProgramFeature {
 export interface ProgramPlan {
   id: string;
   name: string;
+  subtitle?: string;
   badge?: string;
   badgeDotColor?: "yellow" | "green" | "emerald";
   styleType: "neutral" | "featured" | "warm";
@@ -516,29 +517,6 @@ export const EXAM_PROGRAMS_DATA: Record<string, { examName: string; plans: Progr
     ],
   },
 
-  "Test Your English": {
-    examName: "Test Your English",
-    plans: [
-      {
-        id: "test-your-eng",
-        name: "15-Day Package",
-        badge: "Diagnostic",
-        badgeDotColor: "green",
-        styleType: "warm",
-        price: "199",
-        period: "/ Total",
-        totalText: "Total: ₹199 (incl. 18% GST)",
-        validityText: "15 Days Validity",
-        description: "Quick English proficiency diagnostic test package for rapid skills assessment.",
-        features: [
-          { text: "Full Diagnostic Exam", included: true },
-          { text: "Sectional Breakdown", included: true },
-          { text: "Performance Analysis", included: true },
-          { text: "Personalized Score Card", included: true },
-        ],
-      },
-    ],
-  },
 };
 
 export const EXAM_OPTIONS = [
@@ -552,7 +530,6 @@ export const EXAM_OPTIONS = [
   { id: "Duolingo", name: "Duolingo" },
   { id: "Spoken Eng", name: "Spoken English" },
   { id: "TOEFL", name: "TOEFL" },
-  { id: "Test Your English", name: "Test Your English" },
 ];
 
 interface CourseProgramsProps {
@@ -624,7 +601,7 @@ export default function CoursePrograms({
             "grid gap-6 sm:gap-8 items-stretch mx-auto",
             plans.length === 3 && "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl",
             plans.length === 2 && "grid-cols-1 md:grid-cols-2 max-w-4xl",
-            plans.length === 1 && "grid-cols-1 max-w-xl"
+            plans.length === 1 && "grid-cols-1 max-w-[420px]"
           )}
         >
           <AnimatePresence mode="popLayout">
@@ -649,7 +626,8 @@ export default function CoursePrograms({
                   <SubscriptionCard
                     id={plan.id}
                     name={plan.name}
-                    subtitle={idx === 0 ? "Self-paced language foundation" : idx === 1 ? "Perfect to get started" : "Full master preparation"}
+                    subtitle={plan.subtitle || (plans.length === 1 ? "Comprehensive master preparation" : idx === 0 ? "Self-paced language foundation" : idx === 1 ? "Perfect to get started" : "Full master preparation")}
+                    singleCard={plans.length === 1}
                     price={plan.price}
                     period={plan.period || "/month"}
                     currency="₹"

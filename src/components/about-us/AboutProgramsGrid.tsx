@@ -45,7 +45,7 @@ export default function AboutProgramsGrid() {
         "Sectional Practice Tests",
         "Full-Length Mock Examinations",
       ],
-      ctaText: "Explore English Test Prep",
+      ctaText: "Explore Programs",
       ctaLink: "/test-prep",
     },
     {
@@ -71,7 +71,7 @@ export default function AboutProgramsGrid() {
         "Section-by-Section Performance Analytics",
         "Full Computer-Adaptive Mock Tests",
       ],
-      ctaText: "Explore SAT / GRE / GMAT",
+      ctaText: "Explore Programs",
       ctaLink: "/test-prep",
     },
     {
@@ -106,7 +106,7 @@ export default function AboutProgramsGrid() {
         "Native Pronunciation & Cultural Context",
         "Grammar Mechanics & Daily Conversational Fluency",
       ],
-      ctaText: "Explore Language Courses",
+      ctaText: "Explore Programs",
       ctaLink: "/languages",
     },
   ];

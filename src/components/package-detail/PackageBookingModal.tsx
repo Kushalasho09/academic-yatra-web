@@ -15,7 +15,7 @@ export default function PackageBookingModal({
   isOpen,
   onClose,
   defaultPlan,
-  defaultTitle = "Book Consultation / Demo",
+  defaultTitle = "Book Your Free 5-Day Demo",
 }: PackageBookingModalProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");

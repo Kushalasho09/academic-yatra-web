@@ -45,13 +45,13 @@ export default function Navbar() {
   }, [pathname]);
 
   const navLinks = [
-    { name: "Home", href: "/", aliases: ["/"] },
-    { name: "Languages Programs", href: "/languages", aliases: ["/languages", "/languages-programs"] },
-    { name: "Test Prep", href: "/test-prep", aliases: ["/test-prep", "/ielts", "/pte", "/celpip", "/gmat", "/gre"] },
-    { name: "Skill Catalyst", href: "/skill-catalyst", aliases: ["/skill-catalyst"] },
-    { name: "Resources", href: "/resources", aliases: ["/resources", "/blogs"] },
-    { name: "About Us", href: "/about-us", aliases: ["/about-us", "/about"] },
-    { name: "Contacts", href: "/contacts", aliases: ["/contacts", "/contact"] },
+    { name: "Home", shortName: "Home", href: "/", aliases: ["/"] },
+    { name: "Languages Programs", shortName: "Languages", href: "/languages", aliases: ["/languages", "/languages-programs"] },
+    { name: "Test Prep", shortName: "Test Prep", href: "/test-prep", aliases: ["/test-prep", "/ielts", "/pte", "/celpip", "/gmat", "/gre"] },
+    { name: "Skill Catalyst", shortName: "Skill Catalyst", href: "/skill-catalyst", aliases: ["/skill-catalyst"] },
+    { name: "Resources", shortName: "Resources", href: "/resources", aliases: ["/resources", "/blogs"] },
+    { name: "About Us", shortName: "About Us", href: "/about-us", aliases: ["/about-us", "/about"] },
+    { name: "Contacts", shortName: "Contacts", href: "/contacts", aliases: ["/contacts", "/contact"] },
   ];
 
   return (
@@ -104,7 +104,8 @@ export default function Navbar() {
                       : "text-muted hover:text-brand-navy hover:bg-white/80 hover:shadow-xs"
                   )}
                 >
-                  <span>{link.name}</span>
+                  <span className="hidden xl:inline">{link.name}</span>
+                  <span className="xl:hidden">{link.shortName || link.name}</span>
                 </Link>
               );
             })}
@@ -132,12 +133,13 @@ export default function Navbar() {
           <Link href="/contacts" className="flex-shrink-0">
             <HoverBorderGradient
               as="div"
-              containerClassName="rounded-full"
-              className="bg-white hover:bg-brand-greenTint/40 text-brand-navy hover:text-brand-primary font-extrabold text-[11px] xl:text-xs 2xl:text-sm px-3.5 xl:px-5 2xl:px-6 py-2 xl:py-2.5 rounded-full border border-brand-primary/20 shadow-sm whitespace-nowrap"
+              containerClassName="rounded-full shrink-0"
+              className="bg-white hover:bg-brand-greenTint/40 text-brand-navy hover:text-brand-primary font-extrabold text-[11px] xl:text-xs 2xl:text-sm px-3 xl:px-4 2xl:px-6 py-1.5 xl:py-2.5 rounded-full border border-brand-primary/20 shadow-sm whitespace-nowrap"
             >
               <span className="flex items-center space-x-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-brand-primary" />
-                <span>Book Your Free 5-Day Demo</span>
+                <Sparkles className="w-3.5 h-3.5 text-brand-primary shrink-0" />
+                <span className="hidden xl:inline">Book Your Free 5-Day Demo</span>
+                <span className="xl:hidden">Book Your Free Demo</span>
               </span>
             </HoverBorderGradient>
           </Link>
@@ -163,7 +165,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="pointer-events-auto lg:hidden mt-3 max-w-7xl mx-auto bg-white/95 backdrop-blur-2xl border border-slate-200/80 rounded-3xl p-5 shadow-2xl space-y-2.5"
+            className="pointer-events-auto lg:hidden mt-3 max-w-7xl mx-auto bg-white/95 backdrop-blur-2xl border border-slate-200/80 rounded-3xl p-5 shadow-2xl space-y-2.5 max-h-[calc(100vh-5.5rem)] overflow-y-auto overscroll-contain"
           >
             {/* Mobile Header in Drawer */}
             <div className="pb-3 mb-1 border-b border-slate-100 px-2 flex items-center justify-between">
