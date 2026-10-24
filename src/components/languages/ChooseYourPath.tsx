@@ -88,7 +88,7 @@ const PATHWAY_COURSES: PathwayCourse[] = [
   },
   {
     id: "toefl-ibt",
-    category: "TOEFL iBT",
+    category: "TOEFL",
     duration: "6–8 Weeks",
     title: "TOEFL Preparation",
     tagline:

@@ -55,7 +55,7 @@ const TESTIMONIALS: LanguageFeedbackItem[] = [
     quote:
       "The performance reports and live doubt clearing helped me focus on weak listening areas. I saw real improvement in my scores within weeks.",
     name: "Rithvik Kumar",
-    role: "TOEFL iBT Student",
+    role: "TOEFL Student",
     badge: "TOEFL 112 / 120",
     secondaryBadge: "Verified Student",
     avatar: "/images/avatar_tutor_male.jpg",

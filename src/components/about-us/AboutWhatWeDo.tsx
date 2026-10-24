@@ -77,10 +77,10 @@ const TRACKS: TrackCard[] = [
       "Spoken English",
     ],
     keyHighlights: [
-      "Structured live masterclasses & daily speaking club drills",
-      "Cambridge & Pearson official AI scoring simulations",
-      "Personalized 1-on-1 essay corrections & speaking evaluations",
-      "Express Entry CRS point boosting & academic study pathways",
+      "Improve band scores through targeted practice.",
+      "Strengthen fluency across all four language skills.",
+      "Master grammar, vocabulary, and pronunciation techniques.",
+      "Build confidence for academic and professional communication.",
     ],
   },
   {
@@ -110,10 +110,10 @@ const TRACKS: TrackCard[] = [
     imageBadge: "99th Percentile Mentorship",
     tags: ["SAT", "GRE", "GMAT"],
     keyHighlights: [
-      "Official Bluebook-style adaptive mock tests & Desmos calculator speed hacks",
-      "Advanced Quant shortcuts & 1000+ high-frequency GRE vocabulary roots",
-      "Critical reasoning frameworks & Data Insights case mastery for GMAT 705+",
-      "Direct guidance from 99th percentile instructors with continuous analytics",
+      "Target SAT 1500+, GRE 320+ and GMAT 700+ score goals.",
+      "Improve Quant, Verbal, and Data Insights accuracy.",
+      "Analyse sectional performance through mock-test score breakdowns.",
+      "Optimise time management with exam-specific mocks.",
     ],
   },
   {
@@ -143,10 +143,10 @@ const TRACKS: TrackCard[] = [
     imageBadge: "Job-Ready Credentials",
     tags: ["Career Essentials", "BizzTech", "Google Suite Hub"],
     keyHighlights: [
-      "ATS resume optimization & STAR technique behavioral mock interviews",
-      "Corporate business email writing & high-impact executive presentation skills",
-      "Advanced Google Sheets formulas, live interactive dashboards & automation",
-      "Real-world capstone projects, portfolio review & verified credentials",
+      "Create ATS-compliant resumes and tailored cover letters.",
+      "Build Google Sheets dashboards using formulas and pivot tables.",
+      "Automate data processing and streamline digital workflows.",
+      "Master STAR-based interviews, executive emails, and workplace communication.",
     ],
   },
 ];

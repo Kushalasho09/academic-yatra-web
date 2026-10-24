@@ -72,6 +72,110 @@ function parsePrice(price: string | number): number {
   return isNaN(fallback) ? 0 : Math.round(fallback);
 }
 
+
+export interface PlanPricingResolved {
+  fullCost: number;
+  formattedFullCost: string;
+  monthlyRate: number;
+  formattedMonthlyRate: string;
+  months: number;
+  hasBreakup: boolean;
+  breakupText: string;
+}
+
+export function resolvePlanPricing(plan?: CheckoutPlanItem): PlanPricingResolved {
+  if (!plan) {
+    return {
+      fullCost: 0,
+      formattedFullCost: "0",
+      monthlyRate: 0,
+      formattedMonthlyRate: "0",
+      months: 0,
+      hasBreakup: false,
+      breakupText: "",
+    };
+  }
+
+  const cleanNum = (val: any): number => {
+    if (!val) return 0;
+    if (typeof val === "number") return Math.round(val);
+    const cleaned = val.toString().replace(/₹|,|\s/g, "");
+    const match = cleaned.match(/\d+(\.\d+)?/);
+    return match ? Math.round(parseFloat(match[0])) : 0;
+  };
+
+  const validityCombined = `${plan.validityText || ""} ${plan.duration || ""} ${plan.totalText || ""} ${plan.monthlyPrice || ""}`;
+
+  // 1. Months count
+  let months = plan.monthsCount || 0;
+  if (!months) {
+    const mMatch = validityCombined.match(/(\d+)\s*(?:months?|m\b)/i);
+    if (mMatch) {
+      months = parseInt(mMatch[1], 10);
+    }
+  }
+
+  // 2. Extract total amount from totalText or totalPrice
+  let totalFromText = 0;
+  if (plan.totalText) {
+    const tMatch = plan.totalText.match(/Total:\s*₹?\s*([\d,]+)/i);
+    if (tMatch) {
+      totalFromText = cleanNum(tMatch[1]);
+    }
+  }
+  if (!totalFromText && plan.totalPrice) {
+    totalFromText = cleanNum(plan.totalPrice);
+  }
+
+  // 3. Extract monthly price
+  let monthlyRate = plan.monthlyPrice ? cleanNum(plan.monthlyPrice) : 0;
+  const rawPrice = cleanNum(plan.price);
+
+  let fullCost = 0;
+
+  if (totalFromText > 0) {
+    fullCost = totalFromText;
+    if (rawPrice > 0 && rawPrice < fullCost) {
+      monthlyRate = rawPrice;
+    } else if (monthlyRate === 0 && months > 0) {
+      monthlyRate = Math.round(fullCost / months);
+    }
+  } else {
+    if (rawPrice > 10000 && months > 1) {
+      fullCost = rawPrice;
+      if (monthlyRate === 0) {
+        monthlyRate = Math.round(fullCost / months);
+      }
+    } else if (
+      months > 1 &&
+      rawPrice > 0 &&
+      rawPrice < 10000 &&
+      (plan.period?.toLowerCase().includes("month") || validityCombined.toLowerCase().includes("month"))
+    ) {
+      monthlyRate = rawPrice;
+      fullCost = monthlyRate * months;
+    } else {
+      fullCost = rawPrice;
+    }
+  }
+
+  const hasBreakup = months > 1 && monthlyRate > 0 && fullCost > monthlyRate;
+
+  const breakupText = hasBreakup
+    ? `Rs. ${monthlyRate.toLocaleString("en-IN")} × ${months} Months = ₹${fullCost.toLocaleString("en-IN")} (incl. 18% GST)`
+    : `₹${fullCost.toLocaleString("en-IN")} (incl. 18% GST) • All-inclusive full fee`;
+
+  return {
+    fullCost,
+    formattedFullCost: fullCost.toLocaleString("en-IN"),
+    monthlyRate,
+    formattedMonthlyRate: monthlyRate.toLocaleString("en-IN"),
+    months,
+    hasBreakup,
+    breakupText,
+  };
+}
+
 export default function CourseCheckoutModal() {
   const {
     isOpen,
@@ -139,8 +243,9 @@ export default function CourseCheckoutModal() {
     activeCourse.plans.find((p) => p.id === selectedPlanId) ||
     activeCourse.plans[0];
 
-  const numericPrice = parsePrice(currentPlan?.price || 0);
-  const formattedPrice = numericPrice.toLocaleString("en-IN");
+  const currentPricing = resolvePlanPricing(currentPlan);
+  const numericPrice = currentPricing.fullCost;
+  const formattedPrice = currentPricing.formattedFullCost;
 
   // Handle inputs with automatic caching
   const handleInputChange = (
@@ -253,6 +358,8 @@ export default function CourseCheckoutModal() {
             planName: currentPlan.name,
             countryCode: selectedCountry.dialCode,
             validity: currentPlan.validityText || currentPlan.duration || "Standard Access",
+            breakup: currentPricing.breakupText,
+            fullCost: `₹${currentPricing.formattedFullCost}`,
           },
           theme: {
             color: "#059669", // emerald-600
@@ -534,7 +641,7 @@ export default function CourseCheckoutModal() {
               <div className="space-y-2 sm:hidden">
                 {activeCourse.plans.map((plan) => {
                   const isSelected = plan.id === selectedPlanId;
-                  const planNumeric = parsePrice(plan.price);
+                  const pricing = resolvePlanPricing(plan);
                   return (
                     <div
                       key={`mob-${plan.id}`}
@@ -568,19 +675,39 @@ export default function CourseCheckoutModal() {
                               </span>
                             )}
                           </div>
-                          {plan.duration && (
+                          {pricing.hasBreakup ? (
                             <span className="text-[10px] text-slate-500 block truncate">
-                              {plan.duration} • {plan.validityText || "Portal Access"}
+                              ₹{pricing.formattedMonthlyRate}/m • {plan.validityText || `${pricing.months} Months`}
                             </span>
+                          ) : (
+                            plan.duration && (
+                              <span className="text-[10px] text-slate-500 block truncate">
+                                {plan.duration} • {plan.validityText || "Portal Access"}
+                              </span>
+                            )
                           )}
                         </div>
                       </div>
 
                       <div className="text-right shrink-0">
-                        <span className="font-extrabold text-sm text-slate-900 block leading-tight">
-                          ₹{planNumeric.toLocaleString("en-IN")}
-                        </span>
-                        <span className="text-[9px] text-slate-400">Total fee</span>
+                        {pricing.hasBreakup ? (
+                          <>
+                            <div className="font-extrabold text-sm text-slate-900 leading-tight">
+                              ₹{pricing.formattedMonthlyRate}<span className="text-[10px] font-normal text-slate-500">/m</span>
+                            </div>
+                            <span className="text-[10px] font-bold text-emerald-700 block">
+                              Total: ₹{pricing.formattedFullCost}
+                            </span>
+                            <span className="text-[9px] text-slate-400">incl. 18% GST</span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="font-extrabold text-sm text-slate-900 block leading-tight">
+                              ₹{pricing.formattedFullCost}
+                            </span>
+                            <span className="text-[9px] text-slate-400">Total (incl. GST)</span>
+                          </>
+                        )}
                       </div>
                     </div>
                   );
@@ -591,7 +718,7 @@ export default function CourseCheckoutModal() {
               <div className="hidden sm:grid sm:grid-cols-3 gap-3">
                 {activeCourse.plans.map((plan) => {
                   const isSelected = plan.id === selectedPlanId;
-                  const planNumeric = parsePrice(plan.price);
+                  const pricing = resolvePlanPricing(plan);
                   return (
                     <div
                       key={plan.id}
@@ -603,7 +730,7 @@ export default function CourseCheckoutModal() {
                       }`}
                     >
                       {plan.badge && (
-                        <span className="absolute -top-2.5 right-3 text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#ED7E23] text-white shadow-xs shadow-xs">
+                        <span className="absolute -top-2.5 right-3 text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-[#ED7E23] text-white shadow-xs">
                           {plan.badge}
                         </span>
                       )}
@@ -632,13 +759,34 @@ export default function CourseCheckoutModal() {
                         )}
                       </div>
 
-                      <div className="mt-3 pt-2 border-t border-slate-200/60">
-                        <div className="text-base font-extrabold text-slate-900">
-                          ₹{planNumeric.toLocaleString("en-IN")}
-                        </div>
-                        <div className="text-[10px] text-slate-500">
-                          {plan.validityText || plan.period || "All-inclusive"}
-                        </div>
+                      <div className="mt-3 pt-2.5 border-t border-slate-200/60">
+                        {pricing.hasBreakup ? (
+                          <>
+                            <div className="flex items-baseline gap-1">
+                              <span className="text-base font-extrabold text-slate-900">
+                                ₹{pricing.formattedMonthlyRate}
+                              </span>
+                              <span className="text-[11px] font-medium text-slate-500">
+                                / month
+                              </span>
+                            </div>
+                            <div className="text-[11px] font-bold text-emerald-700 mt-0.5">
+                              Total: ₹{pricing.formattedFullCost}
+                            </div>
+                            <div className="text-[10px] text-slate-500">
+                              {plan.validityText || `${pricing.months} Months Validity`}
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="text-base font-extrabold text-slate-900">
+                              ₹{pricing.formattedFullCost}
+                            </div>
+                            <div className="text-[10px] text-slate-500">
+                              {plan.validityText || plan.period || "Total fee (incl. 18% GST)"}
+                            </div>
+                          </>
+                        )}
                       </div>
                     </div>
                   );
@@ -866,7 +1014,7 @@ export default function CourseCheckoutModal() {
                 </div>
 
                 {/* Price Summary Breakdown */}
-            <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 space-y-2 text-xs">
+            <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 space-y-2.5 text-xs">
               <div className="flex items-center justify-between text-slate-600">
                 <span>Selected Plan:</span>
                 <span className="font-semibold text-slate-800">{currentPlan.name}</span>
@@ -877,17 +1025,53 @@ export default function CourseCheckoutModal() {
                   {currentPlan.validityText || currentPlan.duration || "Portal Access Included"}
                 </span>
               </div>
+
+              {currentPricing.hasBreakup && (
+                <div className="flex items-center justify-between text-slate-600">
+                  <span>Plan Rate:</span>
+                  <span className="font-semibold text-slate-800">
+                    ₹{currentPricing.formattedMonthlyRate} / month ({currentPricing.months} months)
+                  </span>
+                </div>
+              )}
+
               <div className="flex items-center justify-between text-slate-600">
                 <span>GST:</span>
                 <span className="font-semibold text-slate-800">18% (Included in total)</span>
               </div>
-              <div className="pt-2 border-t border-slate-200 flex items-baseline justify-between">
-                <span className="text-sm font-bold text-slate-900">Total Payable:</span>
+
+              {/* Payment Breakup Callout Box */}
+              {currentPricing.hasBreakup ? (
+                <div className="p-3 rounded-xl bg-emerald-50/90 border border-emerald-300/80 text-[11px] text-emerald-950 space-y-1 shadow-2xs">
+                  <div className="flex items-center gap-1.5 font-bold text-emerald-900">
+                    <Receipt className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+                    <span>Payment Breakup:</span>
+                  </div>
+                  <div className="font-mono font-bold text-xs text-emerald-900">
+                    Rs. {currentPricing.formattedMonthlyRate} × {currentPricing.months} Months = ₹{currentPricing.formattedFullCost} (incl. 18% GST)
+                  </div>
+                </div>
+              ) : (
+                <div className="p-2.5 rounded-xl bg-emerald-50/90 border border-emerald-300/80 text-[11px] text-emerald-900 flex items-center gap-2">
+                  <Receipt className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+                  <span className="font-semibold">
+                    ₹{currentPricing.formattedFullCost} (incl. 18% GST) • All-inclusive full fee
+                  </span>
+                </div>
+              )}
+
+              <div className="pt-2.5 border-t border-slate-200 flex items-baseline justify-between">
+                <div>
+                  <span className="text-sm font-bold text-slate-900 block">Total Payable:</span>
+                  <span className="text-[10px] text-slate-500">Full course fee (one-time)</span>
+                </div>
                 <div className="text-right">
-                  <span className="text-xl font-extrabold text-slate-900 font-heading">
+                  <span className="text-2xl font-extrabold text-slate-900 font-heading">
                     ₹{formattedPrice}
                   </span>
-                  <span className="text-[10px] text-slate-500 block">All-inclusive fee</span>
+                  <span className="text-[10px] text-emerald-700 font-semibold block">
+                    All-inclusive (18% GST included)
+                  </span>
                 </div>
               </div>
             </div>

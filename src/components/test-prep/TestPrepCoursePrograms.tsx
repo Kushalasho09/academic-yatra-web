@@ -322,6 +322,7 @@ export default function TestPrepCoursePrograms({
                         name: p.name,
                         price: p.price,
                         period: p.period,
+                        totalText: p.totalText,
                         validityText: p.validityText,
                         badge: p.badge,
                         isFeatured: p.styleType === "featured",

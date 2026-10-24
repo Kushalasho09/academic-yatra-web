@@ -30,7 +30,7 @@ export default function AboutProgramsGrid() {
         { name: "IELTS Academic & General Training", badge: "Target Band 7.5+" },
         { name: "PTE Academic & PTE Core", badge: "Target 79+" },
         { name: "CELPIP General", badge: "Canadian PR Ready" },
-        { name: "TOEFL iBT", badge: "Target 100+" },
+        { name: "TOEFL", badge: "Target 100+" },
         { name: "Duolingo English Test (DET)", badge: "Target 125+" },
       ],
       coverageTitle: "Comprehensive Curriculum Coverage:",

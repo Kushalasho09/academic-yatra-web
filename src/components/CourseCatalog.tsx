@@ -94,7 +94,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
   {
     id: "toefl-ibt",
     title: "TOEFL Preparation",
-    category: "TOEFL iBT",
+    category: "TOEFL",
     categorySlug: "language-tests",
     tagline:
       "Build academic English skills with targeted practice across every tested section.",

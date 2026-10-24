@@ -238,6 +238,8 @@ export default function SkillCatalystCoursePrograms({
                         id: p.id,
                         name: p.name,
                         price: p.price,
+                        period: p.period,
+                        totalText: p.totalText,
                         duration: p.duration,
                         validityText: p.validityText,
                         badge: p.badge,

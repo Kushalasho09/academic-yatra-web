@@ -1,7 +1,12 @@
 export interface CheckoutPlanItem {
   id: string;
   name: string;
-  price: string | number; // e.g. "16,299" or 16299
+  price: string | number; // e.g. "4,833" or "28,999"
+  totalPrice?: string | number; // e.g. "28,999" or 28999
+  monthlyPrice?: string | number; // e.g. "4,833" or 4833
+  totalText?: string; // e.g. "Total: ₹28,999 (incl. 18% GST)"
+  billingBreakup?: string; // e.g. "Rs. 4,833 × 6 Months = ₹28,999 (incl. 18% GST)"
+  monthsCount?: number;
   numericPrice?: number;
   period?: string;
   duration?: string;
