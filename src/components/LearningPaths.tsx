@@ -13,6 +13,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useDragToScroll } from "@/hooks/useDragToScroll";
 
 interface TrackPath {
   numeral: string;
@@ -93,6 +94,7 @@ const TRACKS: TrackPath[] = [
 export default function LearningPaths() {
   const easeCurve = [0.16, 1, 0.3, 1];
   const scrollRef = useRef<HTMLDivElement>(null);
+  useDragToScroll(scrollRef);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -207,7 +209,7 @@ export default function LearningPaths() {
         {/* Horizontal Carousel Container */}
         <div
           ref={scrollRef}
-          className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory pb-6 pt-1 px-1 -mx-1"
+          className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory pb-6 pt-1 px-1 -mx-1 cursor-grab active:cursor-grabbing select-none"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {TRACKS.map((track, idx) => {
@@ -223,7 +225,8 @@ export default function LearningPaths() {
                 whileHover={{ y: -6 }}
                 className={cn(
                   "group relative rounded-2xl sm:rounded-[28px] p-4 sm:p-6 bg-white border border-slate-200/90 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer shrink-0 snap-start",
-                  "w-[85vw] sm:w-[360px] md:w-[380px] lg:w-[calc(33.333%-16px)]",
+                  "w-[85vw] sm:w-[360px] md:w-[390px] lg:w-[420px] shrink-0 snap-start select-none",
+                  "cursor-grab active:cursor-grabbing",
                   track.theme.borderHover,
                   track.theme.glow
                 )}
@@ -251,12 +254,13 @@ export default function LearningPaths() {
                 <div className="space-y-3 sm:space-y-4 relative z-10">
                   
                   {/* Clean Single Image Banner */}
-                  <div className="relative w-full h-36 sm:h-48 md:h-52 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100 border border-slate-100/90 shadow-xs">
+                  <div className="relative w-full h-36 sm:h-48 md:h-52 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100 border border-slate-100/90 shadow-xs pointer-events-none select-none">
                     <Image
                       src={track.image}
                       alt={track.title}
                       fill
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                      draggable={false}
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out pointer-events-none select-none"
                     />
                   </div>
 
@@ -287,8 +291,9 @@ export default function LearningPaths() {
                 <div className="pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-slate-100 relative z-10">
                   <Link
                     href={track.href}
+                    draggable={false}
                     className={cn(
-                      "w-full inline-flex items-center justify-between px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl bg-slate-50 text-brand-navy font-heading font-extrabold text-xs sm:text-sm transition-all duration-300 shadow-2xs",
+                      "w-full inline-flex select-none items-center justify-between px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl bg-slate-50 text-brand-navy font-heading font-extrabold text-xs sm:text-sm transition-all duration-300 shadow-2xs",
                       track.theme.buttonHover
                     )}
                   >

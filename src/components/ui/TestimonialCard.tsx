@@ -69,7 +69,8 @@ export default function TestimonialCard({
             src={avatar}
             alt={name}
             fill
-            className="object-cover"
+            draggable={false}
+            className="object-cover pointer-events-none select-none"
             sizes="(max-width: 640px) 64px, 80px"
           />
         </div>

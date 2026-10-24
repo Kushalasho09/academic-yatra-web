@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useDragToScroll } from "@/hooks/useDragToScroll";
 
 export interface SkillPathwayCard {
   id: string;
@@ -68,6 +69,7 @@ export default function SkillCatalystChooseYourPath({
   onSelectPath,
 }: SkillCatalystChooseYourPathProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  useDragToScroll(scrollRef);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -167,7 +169,7 @@ export default function SkillCatalystChooseYourPath({
         {/* Pathway Cards: Horizontal Carousel on Mobile, Grid on Tablet/Desktop */}
         <div
           ref={scrollRef}
-          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto gap-4 sm:gap-6 lg:gap-6 overflow-x-auto sm:overflow-visible scroll-smooth snap-x snap-mandatory sm:snap-none pt-2 pb-6 sm:pb-2 -mx-4 sm:mx-0 px-4 sm:px-0 no-scrollbar scrollbar-none items-stretch"
+          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto gap-4 sm:gap-6 lg:gap-6 overflow-x-auto sm:overflow-visible scroll-smooth snap-x snap-mandatory sm:snap-none pt-2 pb-6 sm:pb-2 -mx-4 sm:mx-0 px-4 sm:px-0 no-scrollbar scrollbar-none items-stretch cursor-grab active:cursor-grabbing select-none"
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",
@@ -188,15 +190,17 @@ export default function SkillCatalystChooseYourPath({
                 onClick={() => {
                   if (onSelectPath) onSelectPath(course.programKey);
                 }}
-                className="relative w-full h-full overflow-hidden rounded-[22px] bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer text-left"
+                draggable={false}
+                className="relative w-full h-full overflow-hidden rounded-[22px] bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer text-left select-none"
               >
                 {/* Top Edge-to-Edge Image */}
-                <div className="relative aspect-[16/10] sm:aspect-[16/10.5] w-full shrink-0 overflow-hidden bg-slate-100">
+                <div className="relative aspect-[16/10] sm:aspect-[16/10.5] w-full shrink-0 overflow-hidden bg-slate-100 pointer-events-none select-none">
                   <Image
                     src={course.image}
                     alt={course.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    draggable={false}
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none select-none"
                   />
                   {course.popular && (
                     <div className="absolute top-3 right-3 bg-amber-500 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-md uppercase tracking-wider">

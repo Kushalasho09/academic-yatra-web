@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useDragToScroll } from "@/hooks/useDragToScroll";
 import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 
 export interface CatalogCourse {
@@ -269,6 +270,7 @@ export default function CourseCatalog() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const scrollRef = useRef<HTMLDivElement>(null);
+  useDragToScroll(scrollRef);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -444,7 +446,7 @@ export default function CourseCatalog() {
         {filteredCourses.length > 0 ? (
           <div
             ref={scrollRef}
-            className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pt-2 pb-6 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 no-scrollbar items-stretch"
+            className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pt-2 pb-6 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 no-scrollbar items-stretch cursor-grab active:cursor-grabbing select-none"
             style={{
               scrollbarWidth: "none",
               msOverflowStyle: "none",
@@ -462,15 +464,17 @@ export default function CourseCatalog() {
               >
                 <Link
                   href={course.href}
-                  className="relative w-full h-full overflow-hidden rounded-[22px] bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                  draggable={false}
+                  className="relative w-full h-full overflow-hidden rounded-[22px] select-none cursor-grab active:cursor-grabbing bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
                 >
                   {/* Top Edge-to-Edge Image matching Image 1 */}
-                  <div className="relative aspect-[16/10] sm:aspect-[16/10.5] w-full shrink-0 overflow-hidden bg-slate-100">
+                  <div className="relative aspect-[16/10] sm:aspect-[16/10.5] w-full shrink-0 overflow-hidden bg-slate-100 pointer-events-none select-none">
                     <Image
                       src={course.image}
                       alt={course.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      draggable={false}
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none select-none"
                     />
                     {course.popular && (
                       <div className="absolute top-3 right-3 bg-[#ED7E23] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-md shadow-[#ED7E23]/30 uppercase tracking-wider">
