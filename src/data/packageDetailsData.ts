@@ -332,7 +332,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     titleHighlight: "General",
     eyebrow: "Live Classes • Mock Tests • Study Plans",
     heroDescription:
-      "Target CLB 9/10 with proven strategies for Canada Express Entry, Australian PR & global career pathways.",
+      "Prepare for IELTS General Training with targeted practice, expert guidance, and realistic mock tests to improve your English proficiency for migration, employment, and everyday communication abroad.",
     heroImage: "/images/story_canada_settling.jpg",
     stats: [
       { value: "100%", label: "Learning. No Tab Chaos." },
@@ -347,12 +347,42 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "IELTS General Training measures English language proficiency in a practical, everyday context. It is essential for migration, work permits, and secondary education in English-speaking nations. It is designed for:",
       cards: [
-        { title: "Canada Express Entry & PNP applicants seeking CLB 9 or 10" },
-        { title: "Australia & New Zealand General Skilled Migration (GSM) aspirants" },
-        { title: "UK Skilled Worker & Health and Care Worker professional candidates" },
-        { title: "Professionals seeking international career progression abroad" },
-        { title: "Secondary school or non-degree vocational training applicants" },
-        { title: "Spouses and dependents accompanying primary applicants" },
+        {
+          heading: "Canada PR Applicants",
+          category: "Canada PR Applicants",
+          title: "Individuals preparing for IELTS scores required for eligible Canadian immigration pathways.",
+          description: "Individuals preparing for IELTS scores required for eligible Canadian immigration pathways.",
+        },
+        {
+          heading: "Australia & New Zealand Migrants",
+          category: "Australia & New Zealand Migrants",
+          title: "Applicants meeting English-language requirements for relevant migration or visa pathways.",
+          description: "Applicants meeting English-language requirements for relevant migration or visa pathways.",
+        },
+        {
+          heading: "International Job Seekers",
+          category: "International Job Seekers",
+          title: "Professionals who need IELTS scores to meet employers' or licensing authorities' English-language requirements.",
+          description: "Professionals who need IELTS scores to meet employers' or licensing authorities' English-language requirements.",
+        },
+        {
+          heading: "English-Speaking Country Applicants",
+          category: "English-Speaking Country Applicants",
+          title: "Individuals planning to live, work, or settle in an English-speaking country.",
+          description: "Individuals planning to live, work, or settle in an English-speaking country.",
+        },
+        {
+          heading: "Working Professionals",
+          category: "Working Professionals",
+          title: "Professionals aiming to demonstrate English proficiency for international career opportunities.",
+          description: "Professionals aiming to demonstrate English proficiency for international career opportunities.",
+        },
+        {
+          heading: "Everyday English Learners",
+          category: "Everyday English Learners",
+          title: "Individuals seeking to improve practical English communication for social and workplace situations.",
+          description: "Individuals seeking to improve practical English communication for social and workplace situations.",
+        },
       ],
     },
     courseGuide: {
@@ -454,7 +484,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     titleHighlight: "Academic",
     eyebrow: "Mock Exams • Score Analysis • Live Classes",
     heroDescription:
-      "Comprehensive preparation designed for students seeking university admissions through fast, widely accepted English proficiency assessments.",
+      "Prepare for PTE Academic with targeted practice, mock tests, and expert guidance to improve speaking, writing, reading, and listening skills for study & migration pathways.",
     heroImage: "/images/hero_center_laptop.jpg",
     stats: [
       { value: "79+", label: "Target Score Strategy" },
@@ -469,12 +499,42 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "Pearson Test of English (PTE Academic) is a fully computer-based English exam accepted by thousands of universities worldwide and global education authorities in Australia, New Zealand, and the UK. It is ideal for:",
       cards: [
-        { title: "Bachelor's applicants" },
-        { title: "Master's applicants" },
-        { title: "MBA applicants" },
-        { title: "PhD candidates" },
-        { title: "Students applying to universities in Australia, New Zealand, the UK, Canada, the USA, and Europe" },
-        { title: "Applicants seeking a fully computer-based testing experience" },
+        {
+          heading: "International University Applicants",
+          category: "International University Applicants",
+          title: "Students applying to universities that accept PTE Academic scores.",
+          description: "Students applying to universities that accept PTE Academic scores.",
+        },
+        {
+          heading: "New Zealand , UK & Australia Applicants",
+          category: "New Zealand , UK & Australia Applicants",
+          title: "Individuals applying for eligible study, work, or migration visa pathways.",
+          description: "Individuals applying for eligible study, work, or migration visa pathways.",
+        },
+        {
+          heading: "Graduate Program Applicants",
+          category: "Graduate Program Applicants",
+          title: "Students meeting English proficiency requirements for postgraduate admissions.",
+          description: "Students meeting English proficiency requirements for postgraduate admissions.",
+        },
+        {
+          heading: "Abroad Working Professionals",
+          category: "Abroad Working Professionals",
+          title: "Professionals whose licensing bodies accept PTE Academic scores as proof of English proficiency.",
+          description: "Professionals whose licensing bodies accept PTE Academic scores as proof of English proficiency.",
+        },
+        {
+          heading: "English Proficiency Test Takers",
+          category: "English Proficiency Test Takers",
+          title: "Candidates seeking to demonstrate English skills through a computer-based test.",
+          description: "Candidates seeking to demonstrate English skills through a computer-based test.",
+        },
+        {
+          heading: "Study Abroad Aspirants",
+          category: "Study Abroad Aspirants",
+          title: "Students preparing to meet the English language requirements of their chosen institutions.",
+          description: "Students preparing to meet the English language requirements of their chosen institutions.",
+        },
       ],
     },
     courseGuide: {
@@ -603,7 +663,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     titleHighlight: "Core",
     eyebrow: "Practice Tests • Expert Support • Feedback",
     heroDescription:
-      "Targeted preparation for individuals pursuing Canadian career pathways, employment opportunities, and permanent residency goals successfully.",
+      "Prepare for PTE Core with targeted practice, mock tests, and expert guidance to strengthen everyday English skills for Canadian immigration and citizenship applications.",
     heroImage: "/images/indian_student_laptop.jpg",
     stats: [
       { value: "CLB 9+", label: "Target Benchmark" },
@@ -618,12 +678,42 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "PTE Core is the new English test officially approved by IRCC for economic streams and Canadian citizenship. It is recommended for:",
       cards: [
-        { title: "Canadian pathway applicants" },
-        { title: "Permanent residency candidates" },
-        { title: "Skilled worker applicants" },
-        { title: "Economic stream program candidates" },
-        { title: "Professionals relocating to Canada" },
-        { title: "Individuals seeking language certification for work-related requirements" },
+        {
+          heading: "Canada PR Applicants",
+          category: "Canada PR Applicants",
+          title: "Applicants demonstrating English proficiency for Canadian permanent residency pathways.",
+          description: "Applicants demonstrating English proficiency for Canadian permanent residency pathways.",
+        },
+        {
+          heading: "Express Entry Applicants",
+          category: "Express Entry Applicants",
+          title: "Candidates needing language requirements for eligible Express Entry programs.",
+          description: "Candidates needing language requirements for eligible Express Entry programs.",
+        },
+        {
+          heading: "Provincial Nominee Applicants",
+          category: "Provincial Nominee Applicants",
+          title: "Individuals applying through Canadian Provincial Nominee Program streams requiring English test results.",
+          description: "Individuals applying through Canadian Provincial Nominee Program streams requiring English test results.",
+        },
+        {
+          heading: "Canadian Citizenship Applicants",
+          category: "Canadian Citizenship Applicants",
+          title: "Individuals using PTE Core to meet applicable English-language requirements for citizenship.",
+          description: "Individuals using PTE Core to meet applicable English-language requirements for citizenship.",
+        },
+        {
+          heading: "Skilled Worker Applicants",
+          category: "Skilled Worker Applicants",
+          title: "Professionals demonstrating English proficiency for eligible Canadian economic immigration pathways.",
+          description: "Professionals demonstrating English proficiency for eligible Canadian economic immigration pathways.",
+        },
+        {
+          heading: "Everyday English Learners",
+          category: "Everyday English Learners",
+          title: "Individuals improving their workplace and everyday English through practical language training.",
+          description: "Individuals improving their workplace and everyday English through practical language training.",
+        },
       ],
     },
     courseGuide: {
@@ -740,7 +830,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     },
   },
 
-  // 5. TOEFL iBT
+  // 5. TOEFL
   "toefl-ibt": {
     id: "toefl-ibt",
     slug: "toefl-ibt",
@@ -749,7 +839,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     titleHighlight: "",
     eyebrow: "Sectional Practice • Mock Tests • Live Classes",
     heroDescription:
-      "Structured training for students applying to universities requiring TOEFL scores for academic admissions and scholarship opportunities.",
+      "Prepare for TOEFL  with targeted practice, realistic mock tests, and expert guidance to strengthen academic English skills for university admissions worldwide.",
     heroImage: "/images/path_competitive_boy.jpg",
     stats: [
       { value: "100+", label: "Target Score Strategy" },
@@ -764,12 +854,42 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "TOEFL is the premier English test preferred by 9 out of 10 US universities and accepted worldwide. It is designed for:",
       cards: [
-        { title: "Bachelor's applicants" },
-        { title: "Master's applicants" },
-        { title: "PhD candidates" },
-        { title: "Research scholars" },
-        { title: "Exchange program students" },
-        { title: "Students targeting universities in the USA, Canada, Europe, and Asia" },
+        {
+          heading: "International University Applicants",
+          category: "International University Applicants",
+          title: "Students applying to universities worldwide.",
+          description: "Students applying to universities worldwide.",
+        },
+        {
+          heading: "Graduate Program Applicants",
+          category: "Graduate Program Applicants",
+          title: "Candidates meeting English proficiency requirements for master's and doctoral programs.",
+          description: "Candidates meeting English proficiency requirements for master's and doctoral programs.",
+        },
+        {
+          heading: "Scholarship Applicants",
+          category: "Scholarship Applicants",
+          title: "Students applying for scholarships that require accepted English proficiency test scores.",
+          description: "Students applying for scholarships that require accepted English proficiency test scores.",
+        },
+        {
+          heading: "Academic English Learners",
+          category: "Academic English Learners",
+          title: "Students improving academic reading, listening, speaking, and writing skills.",
+          description: "Students improving academic reading, listening, speaking, and writing skills.",
+        },
+        {
+          heading: "International Exchange Applicants",
+          category: "International Exchange Applicants",
+          title: "Students applying to exchange programs that accept TOEFL  scores.",
+          description: "Students applying to exchange programs that accept TOEFL  scores.",
+        },
+        {
+          heading: "Study Abroad Aspirants",
+          category: "Study Abroad Aspirants",
+          title: "Students targeting universities in the USA, Canada, UK, Australia, and other countries that accept TOEFL scores.",
+          description: "Students targeting universities in the USA, Canada, UK, Australia, and other countries that accept TOEFL scores.",
+        },
       ],
     },
     courseGuide: {
@@ -781,28 +901,28 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
         {
           id: "01",
           number: "01",
-          question: "What is TOEFL iBT?",
+          question: "What is TOEFL?",
           answer:
-            "The Test of English as a Foreign Language (TOEFL) iBT is an internationally standardized test that measures the English language proficiency of non-native speakers wishing to enroll in English-speaking universities. Administered by ETS, it is accepted by more than 12,500 institutions across 160+ countries, including 100% of US universities and leading institutions worldwide.",
+            "The Test of English as a Foreign Language (TOEFL) is an internationally standardized test that measures the English language proficiency of non-native speakers wishing to enroll in English-speaking universities. Administered by ETS, it is accepted by more than 12,500 institutions across 160+ countries, including 100% of US universities and leading institutions worldwide.",
         },
         {
           id: "02",
           number: "02",
-          question: "TOEFL iBT Dates",
+          question: "TOEFL Dates",
           answer:
-            "TOEFL iBT is offered more than 60 times a year at authorized test centres worldwide. Test dates are available on almost all weekends (Saturdays and Sundays), and the TOEFL Home Edition is available 24 hours a day, 4 days a week.",
+            "TOEFL is offered more than 60 times a year at authorized test centres worldwide. Test dates are available on almost all weekends (Saturdays and Sundays), and the TOEFL Home Edition is available 24 hours a day, 4 days a week.",
         },
         {
           id: "03",
           number: "03",
-          question: "TOEFL iBT Fees (India 2026)",
+          question: "TOEFL Fees (India 2026)",
           answer:
-            "The official TOEFL iBT registration fee in India is approximately $205 USD (approx. ₹17,000 INR). Rescheduling or late registration fees may apply. Academic Yatra™ preparation packages are priced separately and cover personalized coaching, diagnostic feedback, and full mock simulations.",
+            "The official TOEFL registration fee in India is approximately $205 USD (approx. ₹17,000 INR). Rescheduling or late registration fees may apply. Academic Yatra™ preparation packages are priced separately and cover personalized coaching, diagnostic feedback, and full mock simulations.",
         },
         {
           id: "04",
           number: "04",
-          question: "TOEFL iBT Results",
+          question: "TOEFL Results",
           answer:
             "Your unofficial Reading and Listening scores are displayed immediately upon completing the exam on test day. Your official, complete score report (including Speaking and Writing) is available online in your ETS account within 4 to 8 calendar days.",
         },
@@ -811,14 +931,14 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "05",
           question: "What is a TOEFL Score?",
           answer:
-            "TOEFL iBT is scored on a scale of 0 to 120, with each of the four sections (Reading, Listening, Speaking, and Writing) graded out of 30. Most top 100 global universities require a minimum composite score between 85 and 100, while competitive Ivy League and STEM programs often recommend 100+.",
+            "TOEFL is scored on a scale of 0 to 120, with each of the four sections (Reading, Listening, Speaking, and Writing) graded out of 30. Most top 100 global universities require a minimum composite score between 85 and 100, while competitive Ivy League and STEM programs often recommend 100+.",
         },
         {
           id: "06",
           number: "06",
           question: "TOEFL Test Centres",
           answer:
-            "TOEFL iBT test centres are available in major cities across India and worldwide, equipped with secure computer stations and audio headsets. You can also opt for the TOEFL iBT Home Edition, taken on your own PC monitored by online human proctors.",
+            "TOEFL test centres are available in major cities across India and worldwide, equipped with secure computer stations and audio headsets. You can also opt for the TOEFL Home Edition, taken on your own PC monitored by online human proctors.",
         },
         {
           id: "07",
@@ -832,14 +952,14 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
           number: "08",
           question: "TOEFL Eligibility",
           answer:
-            "There are no specific minimum age or academic qualification restrictions set by ETS to take the TOEFL iBT. Anyone planning to pursue higher education, scholarships, or international certification where English is the medium of instruction is eligible to register.",
+            "There are no specific minimum age or academic qualification restrictions set by ETS to take the TOEFL. Anyone planning to pursue higher education, scholarships, or international certification where English is the medium of instruction is eligible to register.",
         },
         {
           id: "09",
           number: "09",
           question: "TOEFL Syllabus & Pattern",
           answer:
-            "The streamlined TOEFL iBT format takes under 2 hours to complete and consists of 4 sections: Reading (20 questions, 35 mins), Listening (28 questions, 36 mins), Speaking (4 tasks, 16 mins), and Writing (2 tasks: Integrated Writing & Writing for an Academic Discussion, 29 mins).",
+            "The streamlined TOEFL format takes under 2 hours to complete and consists of 4 sections: Reading (20 questions, 35 mins), Listening (28 questions, 36 mins), Speaking (4 tasks, 16 mins), and Writing (2 tasks: Integrated Writing & Writing for an Academic Discussion, 29 mins).",
         },
       ],
     },
@@ -897,7 +1017,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     titleHighlight: "English Test",
     eyebrow: "Mock Tests • Q Banks • Expert Guidance",
     heroDescription:
-      "Flexible preparation for students seeking convenient English proficiency certification accepted by universities across numerous countries.",
+      "Prepare for the Duolingo English Test with targeted practice, mock tests, and expert guidance to strengthen English proficiency and improve performance across all tested skills.",
     heroImage: "/images/path_learning_dashboard.jpg",
     stats: [
       { value: "125+", label: "Target Score Focus" },
@@ -912,12 +1032,42 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "The Duolingo English Test is an affordable, accessible English assessment taken from home on your computer with a webcam. It is ideal for:",
       cards: [
-        { title: "Undergraduate applicants" },
-        { title: "Master's applicants" },
-        { title: "International students with limited access to test centres" },
-        { title: "Students applying to universities that accept Duolingo scores" },
-        { title: "Applicants seeking faster score reporting" },
-        { title: "Budget-conscious study-abroad candidates" },
+        {
+          heading: "International University Applicants",
+          category: "International University Applicants",
+          title: "Students applying to universities that accept Duolingo English Test scores.",
+          description: "Students applying to universities that accept Duolingo English Test scores.",
+        },
+        {
+          heading: "Undergraduate Applicants",
+          category: "Undergraduate Applicants",
+          title: "Students seeking to meet English proficiency requirements for bachelor's degree admissions.",
+          description: "Students seeking to meet English proficiency requirements for bachelor's degree admissions.",
+        },
+        {
+          heading: "Graduate Program Applicants",
+          category: "Graduate Program Applicants",
+          title: "Candidates applying to master's and doctoral programs that accept DET scores.",
+          description: "Candidates applying to master's and doctoral programs that accept DET scores.",
+        },
+        {
+          heading: "Scholarship Applicants",
+          category: "Scholarship Applicants",
+          title: "Students targeting scholarships that require English proficiency proof through accepted test scores.",
+          description: "Students targeting scholarships that require English proficiency proof through accepted test scores.",
+        },
+        {
+          heading: "Study Abroad Aspirants",
+          category: "Study Abroad Aspirants",
+          title: "Students applying to universities in the USA, UK, Canada, and other countries where their chosen institutions accept DET.",
+          description: "Students applying to universities in the USA, UK, Canada, and other countries where their chosen institutions accept DET.",
+        },
+        {
+          heading: "Flexible Test-Takers",
+          category: "Flexible Test-Takers",
+          title: "Students seeking an online English proficiency test they can take from home, subject to test requirements.",
+          description: "Students seeking an online English proficiency test they can take from home, subject to test requirements.",
+        },
       ],
     },
     courseGuide: {
@@ -1043,7 +1193,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
     titleHighlight: "",
     eyebrow: "Canada Pathways • Mock Tests • Score Improvement",
     heroDescription:
-      "Practical preparation for individuals pursuing career pathways, licensing, and professional opportunities requiring English proficiency in Canada.",
+      "Prepare for CELPIP General with targeted practice, mock tests, and expert guidance to strengthen everyday English skills for Canadian permanent residency and citizenship applications.",
     heroImage: "/images/dest_canada.png",
     stats: [
       { value: "CLB 9/10", label: "Target Benchmark" },
@@ -1058,12 +1208,36 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "CELPIP is designed specifically for Canadian residency and professional designation in Canada. It is recommended for:",
       cards: [
-        { title: "Permanent residency applicants" },
-        { title: "Canadian citizenship applicants" },
-        { title: "Skilled professional candidates" },
-        { title: "Provincial nominee program applicants" },
-        { title: "Professionals seeking Canadian licensing requirements" },
-        { title: "Individuals settling in Canada" },
+        {
+          heading: "Canada PR Applicants",
+          category: "Canada PR Applicants",
+          title: "Individuals applying for Canadian permanent residency who need to demonstrate English proficiency.",
+          description: "Individuals applying for Canadian permanent residency who need to demonstrate English proficiency.",
+        },
+        {
+          heading: "Express Entry Applicants",
+          category: "Express Entry Applicants",
+          title: "Candidates using CELPIP scores for eligible Canadian economic immigration programs.",
+          description: "Candidates using CELPIP scores for eligible Canadian economic immigration programs.",
+        },
+        {
+          heading: "Provincial Nominee Applicants",
+          category: "Provincial Nominee Applicants",
+          title: "Individuals applying through Canadian provincial nomination programs that accept CELPIP scores.",
+          description: "Individuals applying through Canadian provincial nomination programs that accept CELPIP scores.",
+        },
+        {
+          heading: "Canadian Citizenship Applicants",
+          category: "Canadian Citizenship Applicants",
+          title: "Permanent residents demonstrating English proficiency for Canadian citizenship applications.",
+          description: "Permanent residents demonstrating English proficiency for Canadian citizenship applications.",
+        },
+        {
+          heading: "Skilled Professionals",
+          category: "Skilled Professionals",
+          title: "Professionals pursuing Canadian immigration pathways that require proof of English proficiency.",
+          description: "Professionals pursuing Canadian immigration pathways that require proof of English proficiency.",
+        },
       ],
     },
     courseGuide: {
@@ -1205,11 +1379,48 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "French opens doors to bilingual PR invitations, European master's degrees, and global careers. It is designed for:",
       cards: [
-        { title: "Canadian pathway candidates" },
-        { title: "Future international students" },
-        { title: "Working professionals" },
-        { title: "DELF, TEF, or TCF candidates" },
-        { title: "Travel and language enthusiasts" },
+        {
+          heading: "Canada Immigration Aspirants",
+          category: "Canada Immigration Aspirants",
+          title: "Individuals learning French to pursue eligible Canadian immigration pathways and improve language proficiency.",
+          description: "Individuals learning French to pursue eligible Canadian immigration pathways and improve language proficiency.",
+        },
+        {
+          heading: "Study Abroad Aspirants",
+          category: "Study Abroad Aspirants",
+          title: "Students preparing to study at French-speaking universities or institutions across Europe and Canada.",
+          description: "Students preparing to study at French-speaking universities or institutions across Europe and Canada.",
+        },
+        {
+          heading: "International Job Seekers",
+          category: "International Job Seekers",
+          title: "Professionals developing French language skills for employment opportunities in French-speaking countries.",
+          description: "Professionals developing French language skills for employment opportunities in French-speaking countries.",
+        },
+        {
+          heading: "French Certification Candidates",
+          category: "French Certification Candidates",
+          title: "Learners preparing for recognised French proficiency certificates such as DELF, DALF, or TCF.",
+          description: "Learners preparing for recognised French proficiency certificates such as DELF, DALF, or TCF.",
+        },
+        {
+          heading: "Beginners Learning French",
+          category: "Beginners Learning French",
+          title: "Individuals starting from scratch and building foundational speaking, listening, reading, and writing skills.",
+          description: "Individuals starting from scratch and building foundational speaking, listening, reading, and writing skills.",
+        },
+        {
+          heading: "Global Career Aspirants",
+          category: "Global Career Aspirants",
+          title: "Individuals seeking French communication skills for international workplaces and cross-cultural interactions.",
+          description: "Individuals seeking French communication skills for international workplaces and cross-cultural interactions.",
+        },
+        {
+          heading: "Scholarship Applicants",
+          category: "Scholarship Applicants",
+          title: "Students pursuing scholarships where French proficiency supports eligibility or strengthens their applications.",
+          description: "Students pursuing scholarships where French proficiency supports eligibility or strengthens their applications.",
+        },
       ],
     },
     courseGuide: {
@@ -1338,11 +1549,36 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "Germany is the top study and work destination in Europe offering tuition-free world-class education. This pathway is designed for:",
       cards: [
-        { title: "Students applying to German-taught bachelor's or master's programs" },
-        { title: "Candidates preparing for Goethe-Zertifikat, TestDaF, or DSH examinations" },
-        { title: "Individuals pursuing vocational training (Ausbildung) programs" },
-        { title: "Professionals seeking employment in Germany, Austria, or Switzerland" },
-        { title: "Applicants targeting global careers, EU Blue Card pathways, or long-term settlement" },
+        {
+          heading: "Students Planning to Study in Germany",
+          category: "Students Planning to Study in Germany",
+          title: "Students preparing for German-taught university programs that require language proficiency.",
+          description: "Students preparing for German-taught university programs that require language proficiency.",
+        },
+        {
+          heading: "Scholarship Applicants",
+          category: "Scholarship Applicants",
+          title: "Students applying for scholarships, including DAAD opportunities, where German proficiency is relevant to eligibility or selection.",
+          description: "Students applying for scholarships, including DAAD opportunities, where German proficiency is relevant to eligibility or selection.",
+        },
+        {
+          heading: "German Certification Candidates",
+          category: "German Certification Candidates",
+          title: "Learners preparing for recognised German proficiency certificates such as Goethe-Zertifikat, TestDaF, or telc.",
+          description: "Learners preparing for recognised German proficiency certificates such as Goethe-Zertifikat, TestDaF, or telc.",
+        },
+        {
+          heading: "Job Seekers in Germany",
+          category: "Job Seekers in Germany",
+          title: "Individuals learning German to improve communication and access employment opportunities in Germany.",
+          description: "Individuals learning German to improve communication and access employment opportunities in Germany.",
+        },
+        {
+          heading: "Beginners Learning German",
+          category: "Beginners Learning German",
+          title: "Individuals developing foundational speaking, listening, reading, and writing skills from scratch.",
+          description: "Individuals developing foundational speaking, listening, reading, and writing skills from scratch.",
+        },
       ],
     },
     courseGuide: {
@@ -1470,11 +1706,36 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       description:
         "Fluency is the key to career promotions, interview success, and social influence. It is designed for:",
       cards: [
-        { title: "Working professionals" },
-        { title: "Job seekers preparing for interviews" },
-        { title: "Entrepreneurs and freelancers" },
-        { title: "University students" },
-        { title: "Public speaking aspirants" },
+        {
+          heading: "English Beginners",
+          category: "English Beginners",
+          title: "Learners building foundational skills in speaking, listening, reading, and writing.",
+          description: "Learners building foundational skills in speaking, listening, reading, and writing.",
+        },
+        {
+          heading: "Communication Skills Developers",
+          category: "Communication Skills Developers",
+          title: "Individuals improving fluency, vocabulary, pronunciation, and confidence in everyday conversations.",
+          description: "Individuals improving fluency, vocabulary, pronunciation, and confidence in everyday conversations.",
+        },
+        {
+          heading: "Job Seekers",
+          category: "Job Seekers",
+          title: "Candidates strengthening spoken English for interviews, workplace interactions, and professional communication.",
+          description: "Candidates strengthening spoken English for interviews, workplace interactions, and professional communication.",
+        },
+        {
+          heading: "Students Planning to Study Abroad",
+          category: "Students Planning to Study Abroad",
+          title: "Students developing academic English for classroom participation, presentations, and international learning environments.",
+          description: "Students developing academic English for classroom participation, presentations, and international learning environments.",
+        },
+        {
+          heading: "English Proficiency Test Candidates",
+          category: "English Proficiency Test Candidates",
+          title: "Learners strengthening their English foundation before preparing for IELTS, PTE, TOEFL, or other proficiency tests.",
+          description: "Learners strengthening their English foundation before preparing for IELTS, PTE, TOEFL, or other proficiency tests.",
+        },
       ],
     },
     courseGuide: {
