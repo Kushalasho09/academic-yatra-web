@@ -14,7 +14,7 @@ const SKILL_TESTIMONIALS: FeedbackItem[] = [
   {
     id: "sc-1",
     quote:
-      "The BizzTech program introduced me to practical analytics, podcasting, and productivity tools that I could immediately apply in real projects.",
+      "What I liked was learning how technology connects with actual business work. Exploring analytics and digital workflows helped me see how these tools can solve everyday operational problems.",
     name: "Tanvi Desai",
     role: "BizzTech Participant",
     badge: "BizzTech Certified",
@@ -27,7 +27,7 @@ const SKILL_TESTIMONIALS: FeedbackItem[] = [
   {
     id: "sc-2",
     quote:
-      "Career Essentials helped me polish my communication, resume storytelling, and corporate presentation skills before campus placement season.",
+      "I realised that having a degree wasn't enough if I couldn't present myself properly in interviews. Working on my resume, emails, and interview answers helped me understand what I needed to improve.",
     name: "Kunal Mehta",
     role: "Career Essentials Learner",
     badge: "Workplace Ready",
@@ -40,7 +40,7 @@ const SKILL_TESTIMONIALS: FeedbackItem[] = [
   {
     id: "sc-3",
     quote:
-      "The practical Google Sheets dashboards and automated workflow sessions gave me skills that saved me hours every week in academic reporting.",
+      "I used to do most of my spreadsheet work manually. Learning formulas, pivot tables, and dashboards showed me how to organise information and complete tasks more efficiently.",
     name: "Pooja Sharma",
     role: "Google Suite Hub Participant",
     badge: "Google Suite Certified",

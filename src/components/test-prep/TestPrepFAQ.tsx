@@ -32,6 +32,11 @@ const FAQ_DATA: FAQItem[] = [
       "Yes! All programs include full-length adaptive mock tests calibrated strictly to official exam formats (Digital SAT Bluebook algorithm, ETS Shorter GRE, and GMAC GMAT Focus Edition). You receive question-by-question explanations, timing analytics, and actionable diagnostic reports.",
   },
   {
+    question: "Can I prepare for the GMAT without a commerce background?",
+    answer:
+      "Yes. Students from different academic backgrounds can prepare for the GMAT with structured practice and familiarity with its question types.",
+  },
+  {
     question: "Are live classes available?",
     answer:
       "Yes! Our Champion and Champion+ programs feature live interactive classes conducted by 99th percentile master instructors with flexible batch options (Morning, Evening, Weekend). All live lectures are recorded and cataloged in your student portal for unlimited 24/7 revision.",

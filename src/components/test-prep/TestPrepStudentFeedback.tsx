@@ -14,7 +14,7 @@ const TEST_PREP_TESTIMONIALS: TestPrepFeedbackItem[] = [
   {
     id: "tp-1",
     quote:
-      "The Digital SAT prep with Academic Yatra™ was a game changer. The Desmos calculator shortcuts and adaptive module drills helped me score 1540 on my first attempt!",
+      "I was finding it difficult to manage my time, especially in Math. Practising mock tests helped me get familiar with the format and understand my mistakes better.",
     name: "Aarav Kapoor",
     role: "Digital SAT Student",
     badge: "Score: 1540 / 1600",
@@ -27,7 +27,7 @@ const TEST_PREP_TESTIMONIALS: TestPrepFeedbackItem[] = [
   {
     id: "tp-2",
     quote:
-      "GRE verbal used to seem insurmountable. Academic Yatra™'s mnemonic flashcards and ETS question traps broke it down into simple logic. Scored 329 with 169 in Quant!",
+      "Preparing for the GRE felt confusing at first because I didn't know where to begin. Working on Verbal and Quant separately helped me organise my preparation and focus on weaker areas.",
     name: "Sneha Mukherjee",
     role: "GRE General Student",
     badge: "Score: 329 (Q169)",
@@ -40,7 +40,7 @@ const TEST_PREP_TESTIMONIALS: TestPrepFeedbackItem[] = [
   {
     id: "tp-3",
     quote:
-      "Balancing a consulting job with GMAT prep was tough. The weekend executive batch and Data Insights breakdown gave me the exact edge I needed for 715 on the GMAT Focus Edition.",
+      "The Data Insights section was quite challenging for me initially. Practising different question types helped me understand the format better and approach questions more carefully.",
     name: "Vikram Malhotra",
     role: "GMAT Focus Aspirant",
     badge: "GMAT 715 (99th %ile)",

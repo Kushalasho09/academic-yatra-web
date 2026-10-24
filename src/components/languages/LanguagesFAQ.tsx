@@ -12,29 +12,43 @@ interface FAQItem {
 
 const FAQ_DATA: FAQItem[] = [
   {
-    question: "Which exam should I take for bachelor's admissions abroad?",
+    question: "Which English test should I take to study abroad?",
     answer:
-      "The SAT is the most widely accepted test for undergraduate admissions at universities in the USA, Canada, and many European countries. Most top US colleges accept SAT scores as part of their holistic admissions review, combined with IELTS Academic or TOEFL for English proficiency.",
+      "It depends on your university, destination, and course requirements. IELTS, PTE Academic, TOEFL iBT, and Duolingo may be accepted.",
   },
   {
-    question: "Which exam is required for master's admissions abroad?",
+    question: "Is IELTS Academic different from IELTS General Training?",
     answer:
-      "For master's degrees abroad, international universities primarily look for IELTS Academic (minimum Band 6.5–7.0) or PTE Academic (65+). If you are applying for STEM or technical programs in the US, GRE is typically required, while business programs may ask for GMAT.",
+      "Yes. IELTS Academic is mainly for higher education and professional registration, while General Training focuses on migration, work, and below-degree study.",
   },
   {
-    question: "Is GMAT required for MBA admissions?",
+    question: "How long does it take to prepare for IELTS?",
     answer:
-      "Most top business schools globally accept either GMAT or GRE. However, many reputable institutions in the UK, Germany, and Australia now offer GMAT waivers based on substantial full-time work experience or prior high academic GPA.",
+      "Preparation time depends on your current English level, target band score, daily study hours, and familiarity with the test format.",
   },
   {
-    question: "Do programs include mock tests?",
-    answer:
-      "Yes! All packages include full-length authentic Cambridge and Pearson-calibrated mock test simulations, sectional practice sets, and detailed rubric-based score evaluations by master trainers.",
+    question: "Can I take the English test from home?",
+    answer: "Yes , The Duolingo English Test is taken online from home.",
   },
   {
-    question: "Are live classes available?",
+    question: "What is the difference between PTE Academic and PTE Core?",
     answer:
-      "Yes! Our Champion and Champion+ Packs offer 100 hours of live interactive lectures with flexible batch timings (Morning, Afternoon, Evening). All live sessions are simultaneously recorded and cataloged in your student portal for revision anytime.",
+      "PTE Academic is primarily used for academic admissions, while PTE Core assesses everyday English for eligible Canadian immigration and citizenship applications.",
+  },
+  {
+    question: "Do I need to know German before studying in Germany?",
+    answer:
+      "Yes. English-taught programs may not require German, but German-taught courses and daily life requires German proficiency.",
+  },
+  {
+    question: "Can learning French help with Canadian immigration?",
+    answer:
+      "Yes. Recognised French test results can support eligibility for certain Canadian immigration pathways, with benefits depending on the program and scores.",
+  },
+  {
+    question: "Can I prepare for the GMAT without a commerce background?",
+    answer:
+      "Yes. Students from different academic backgrounds can prepare for the GMAT with structured practice and familiarity with its question types.",
   },
 ];
 

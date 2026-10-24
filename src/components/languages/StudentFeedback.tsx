@@ -14,7 +14,7 @@ const TESTIMONIALS: LanguageFeedbackItem[] = [
   {
     id: "lang-1",
     quote:
-      "The IELTS training was well-structured and easy to follow. The mock tests helped me identify areas for improvement and build confidence before the exam.",
+      "I used to struggle most with writing and speaking. Having a proper structure to follow made preparation feel less overwhelming, and regular practice helped me understand where I needed to improve.",
     name: "Geeta Verma",
     role: "IELTS Academic Student",
     badge: "IELTS Band 8.0",
@@ -27,7 +27,7 @@ const TESTIMONIALS: LanguageFeedbackItem[] = [
   {
     id: "lang-2",
     quote:
-      "Learning German with Academic Yatra™ gave me conversational fluency faster than I anticipated. The native-level vocabulary drills made university interviews effortless.",
+      "German grammar seemed complicated when I started. Learning it step by step and practising simple conversations made it easier to understand and use the language.",
     name: "Neha Gupta",
     role: "German B2 Aspirant",
     badge: "Goethe-Zertifikat B2",
@@ -40,10 +40,10 @@ const TESTIMONIALS: LanguageFeedbackItem[] = [
   {
     id: "lang-3",
     quote:
-      "I was struggling with the speaking section before joining. The personalized feedback and practice sessions helped me improve steadily. Honestly, it made a big difference.",
+      "I wanted to become more comfortable with the test format before attempting it. The practice exercises helped me understand the tasks and work on my everyday English skills.",
     name: "Ansh Sharma",
-    role: "PTE Academic Student",
-    badge: "PTE Score 79+",
+    role: "PTE Core Student",
+    badge: "PTE Core Verified",
     secondaryBadge: "Verified Student",
     avatar: "/images/avatar_student_ansh.jpg",
     rating: 5,
@@ -66,7 +66,7 @@ const TESTIMONIALS: LanguageFeedbackItem[] = [
   {
     id: "lang-5",
     quote:
-      "French interactive speaking batches helped me improve my communication and accent. I feel much more confident living and working abroad now.",
+      "I always wanted to learn French but didn't know how to start. Having a structured learning routine helped me build vocabulary and become more comfortable with basic conversations.",
     name: "Farhan Querashi",
     role: "French B1 Learner",
     badge: "DELF B1 Certified",
