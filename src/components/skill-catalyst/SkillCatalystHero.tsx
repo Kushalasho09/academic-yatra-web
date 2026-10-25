@@ -59,12 +59,12 @@ export default function SkillCatalystHero() {
         <div className="w-full max-w-md sm:max-w-none flex flex-row items-center justify-between gap-3 sm:gap-6 mt-auto pt-6 px-1 sm:px-0 animate-fade-rise-delay-2">
           <Link
             href="/contacts"
-            className="liquid-glass group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full px-3.5 sm:px-12 py-3 sm:py-4 text-xs sm:text-base text-white font-semibold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/35 backdrop-blur-2xl bg-[#031643]/85 hover:bg-[#0C9253]/95 whitespace-nowrap"
+            className="liquid-glass group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2.5 sm:gap-3 rounded-full pl-5 pr-3.5 sm:pl-7 sm:pr-4 py-2.5 sm:py-3.5 text-xs sm:text-base text-white font-semibold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/35 backdrop-blur-2xl bg-[#031643]/85 hover:bg-[#0C9253]/95 whitespace-nowrap"
           >
-            <span className="text-white font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] tracking-tight sm:tracking-wide">
+            <span className="text-white font-semibold tracking-tight sm:tracking-wide leading-none inline-flex items-center">
               Book Your Free 5-Day Demo
             </span>
-            <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 transition-transform border border-white/25 flex-shrink-0">
+            <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-0.5 transition-transform border border-white/25 shrink-0 self-center">
               <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-300" />
             </div>
           </Link>
@@ -73,12 +73,12 @@ export default function SkillCatalystHero() {
             href="https://wa.me/919217368750?text=Hi,%20I%20would%20like%20to%20book%20a%20free%20Skill%20Catalyst%20consultation."
             target="_blank"
             rel="noopener noreferrer"
-            className="liquid-glass group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full px-3.5 sm:px-10 py-3 sm:py-4 text-xs sm:text-base text-white font-semibold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/35 backdrop-blur-2xl bg-[#031643]/85 hover:bg-[#031643]/95 whitespace-nowrap"
+            className="liquid-glass group flex-1 sm:flex-initial inline-flex items-center justify-center gap-2.5 sm:gap-3 rounded-full pl-5 pr-3.5 sm:pl-7 sm:pr-4 py-2.5 sm:py-3.5 text-xs sm:text-base text-white font-semibold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/35 backdrop-blur-2xl bg-[#031643]/85 hover:bg-[#031643]/95 whitespace-nowrap"
           >
-            <span className="text-white font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] tracking-tight sm:tracking-wide">
+            <span className="text-white font-semibold tracking-tight sm:tracking-wide leading-none inline-flex items-center">
               Start Your Free Trial
             </span>
-            <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 transition-transform border border-white/25 flex-shrink-0">
+            <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-0.5 transition-transform border border-white/25 shrink-0 self-center">
               <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
             </div>
           </a>

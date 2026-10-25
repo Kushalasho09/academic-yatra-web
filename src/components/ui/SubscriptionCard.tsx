@@ -74,10 +74,10 @@ export default function SubscriptionCard({
         className
       )}
     >
-      {/* Floating Rotated Popular Badge matching detail page exactly */}
+      {/* Floating Straight Popular Badge */}
       {badge && (
-        <div className="absolute -top-3.5 right-4 z-10">
-          <span className="inline-block bg-[#D4F938] text-slate-900 text-[11px] font-black px-3.5 py-0.5 rounded-full -rotate-6 shadow-xs select-none uppercase tracking-wider">
+        <div className="absolute -top-3 right-4 z-10">
+          <span className="inline-block bg-[#D4F938] text-slate-900 text-[11px] font-black px-3.5 py-0.5 rounded-full shadow-xs select-none uppercase tracking-wider">
             {badge}
           </span>
         </div>
@@ -155,12 +155,7 @@ export default function SubscriptionCard({
           </div>
         </div>
 
-        {/* Footer Description below features box */}
-        {description && (
-          <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed my-3.5 text-left font-normal min-h-[36px]">
-            {description}
-          </p>
-        )}
+
       </div>
 
       {/* Action CTA Buttons */}
@@ -194,14 +189,7 @@ export default function SubscriptionCard({
           </a>
         )}
 
-        {trialHref && (
-          <a
-            href={trialHref}
-            className="block text-center text-xs text-slate-400 hover:text-slate-700 font-medium py-1 transition-colors"
-          >
-            Start Your 5-Day Free Trial
-          </a>
-        )}
+
       </div>
     </div>
   );

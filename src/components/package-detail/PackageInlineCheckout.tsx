@@ -825,10 +825,10 @@ export default function PackageInlineCheckout({
 
                   {/* Price Block */}
                   <div className="relative mt-6 mb-4 text-left">
-                    {/* Highlight Badge (matching "until may" in reference image) */}
+                    {/* Highlight Badge */}
                     {course.badge && (
-                      <div className="absolute -top-3.5 right-2 sm:right-4 z-10">
-                        <span className="inline-block bg-[#D4F938] text-slate-900 text-[11px] font-black px-3 py-0.5 rounded-full -rotate-6 shadow-xs select-none uppercase tracking-wider">
+                      <div className="absolute -top-3 right-4 z-10">
+                        <span className="inline-block bg-[#D4F938] text-slate-900 text-[11px] font-black px-3.5 py-0.5 rounded-full shadow-xs select-none uppercase tracking-wider">
                           {course.badge}
                         </span>
                       </div>
@@ -913,10 +913,7 @@ export default function PackageInlineCheckout({
                     </div>
                   </div>
 
-                  {/* Footer Description below features box */}
-                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed my-4 text-left font-normal">
-                    {course.description}
-                  </p>
+
                 </div>
 
                 {/* Action Button: BUY NOW (per explicit user instruction) */}
