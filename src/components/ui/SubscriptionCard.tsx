@@ -31,22 +31,16 @@ export interface SubscriptionCardProps {
 }
 
 const BOX_THEME_CLASSES: Record<"mint" | "lime" | "lavender", string> = {
-  mint: "bg-[#f0f9eb] border border-emerald-100/70",
-  lime: "bg-[#f8f9e2] border border-lime-200/60",
-  lavender: "bg-[#f8edf5] border border-pink-100/70",
-};
-
-const CARD_THEME_CLASSES: Record<"mint" | "lime" | "lavender", string> = {
-  mint: "bg-white",
-  lime: "bg-white",
-  lavender: "bg-[#fdf9fc] sm:bg-white",
+  mint: "bg-[#F0F9EE] border border-emerald-100/80",
+  lime: "bg-[#F8F9E4] border border-lime-200/80",
+  lavender: "bg-[#F7EEF5] border border-pink-200/70",
 };
 
 export default function SubscriptionCard({
   name,
   subtitle,
   price,
-  period = "/month",
+  period = "/ month",
   currency = "₹",
   totalText,
   badge,
@@ -58,86 +52,72 @@ export default function SubscriptionCard({
   ctaHref,
   onSelect,
   trialHref,
-  singleCard,
+  singleCard = false,
   className,
 }: SubscriptionCardProps) {
+  const isLime = theme === "lime" || isFeatured;
   const boxClass = BOX_THEME_CLASSES[theme] || BOX_THEME_CLASSES.mint;
-  const cardBgClass = CARD_THEME_CLASSES[theme] || CARD_THEME_CLASSES.mint;
+
+  // Clean period string: remove (INR) or Total prefix
+  const cleanPeriod = (period || "/ month")
+    .replace(/\(INR\)/gi, "")
+    .replace(/^total\s*/gi, "")
+    .trim() || "/ month";
 
   return (
     <div
       className={cn(
-        "relative rounded-[32px] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 border border-slate-200/90 shadow-md hover:shadow-xl hover:-translate-y-1 h-full",
-        cardBgClass,
-        isFeatured && (singleCard ? "shadow-xl ring-2 ring-lime-400/50 hover:-translate-y-1.5" : "shadow-xl ring-2 ring-lime-400/50 md:-translate-y-2 hover:-translate-y-3"),
+        "relative rounded-[32px] p-6 sm:p-7 bg-white border flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-2xl hover:-translate-y-1 h-full text-left",
+        isLime
+          ? "border-lime-300 shadow-lg md:-translate-y-1.5 ring-1 ring-lime-300/60"
+          : "border-slate-200/80",
         className
       )}
     >
-      <div>
-        {/* Top Header: Title & Subtitle + Badge */}
-        <div className="flex items-start justify-between gap-3 text-left">
-          <div className="min-w-0 flex-1">
-            <h3 className="font-heading font-bold text-2xl sm:text-[26px] text-slate-900 tracking-tight">
-              {name}
-            </h3>
-            {subtitle && (
-              <p className="text-xs sm:text-sm text-slate-400 font-normal mt-1 leading-relaxed">
-                {subtitle}
-              </p>
-            )}
-          </div>
-          {badge && (
-            <div className="shrink-0 pt-0.5">
-              <span className="inline-block bg-[#d8f946] text-slate-900 text-[11px] font-extrabold px-3 py-1 rounded-full shadow-xs select-none whitespace-nowrap">
-                {badge}
-              </span>
-            </div>
-          )}
+      {/* Floating Rotated Popular Badge matching detail page exactly */}
+      {badge && (
+        <div className="absolute -top-3.5 right-4 z-10">
+          <span className="inline-block bg-[#D4F938] text-slate-900 text-[11px] font-black px-3.5 py-0.5 rounded-full -rotate-6 shadow-xs select-none uppercase tracking-wider">
+            {badge}
+          </span>
         </div>
+      )}
 
-        {/* Price Block */}
-        <div className="mt-5 mb-4 text-left">
-
-          {/* Price & GST / Period properly aligned in one line without wrapping */}
-          {/gst|incl/i.test(period || "") ? (
-            <div className="flex flex-col text-left">
-              <div className="flex items-baseline gap-1">
-                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  {currency}
-                </span>
-                <span className="font-heading text-4xl sm:text-[44px] font-extrabold text-slate-900 tracking-tight leading-none">
-                  {price}
-                </span>
-              </div>
-              <span className="text-xs sm:text-[13px] text-slate-500 font-medium mt-1.5 whitespace-nowrap block">
-                {(period || "").replace(/^total\s*/i, "").trim()}
-              </span>
-            </div>
-          ) : (
-            <div className="flex items-baseline gap-1">
-              <span className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                {currency}
-              </span>
-              <span className="font-heading text-4xl sm:text-[44px] font-extrabold text-slate-900 tracking-tight leading-none">
-                {price}
-              </span>
-              {period && (
-                <span className="text-xs sm:text-sm text-slate-500 font-medium ml-1 whitespace-nowrap">
-                  {(period || "").replace(/^total\s*/i, "").trim()}
-                </span>
-              )}
-            </div>
-          )}
-
-          {totalText && (
-            <p className="text-[11px] text-slate-400 font-medium mt-1.5">
-              {totalText}
+      <div>
+        {/* Top Header: Title & Subtitle */}
+        <div className="text-left">
+          <h3 className="font-heading font-extrabold text-2xl sm:text-[26px] text-slate-900 tracking-tight leading-snug">
+            {name}
+          </h3>
+          {subtitle && (
+            <p className="text-xs sm:text-sm text-slate-400 font-normal mt-1 leading-relaxed">
+              {subtitle}
             </p>
           )}
         </div>
 
+        {/* Price Block matching PackageInlineCheckout detail page */}
+        <div className="relative mt-5 mb-4 text-left">
+          <div className="flex flex-col text-left">
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-black text-slate-900 tracking-tight leading-none shrink-0">
+                {currency}{price}
+              </span>
+              <span className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider">
+                {cleanPeriod.startsWith("/") ? cleanPeriod : `/ ${cleanPeriod}`}
+              </span>
+            </div>
+
+            {totalText && (
+              <div className="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs text-slate-500 font-medium">
+                <span>{totalText}</span>
+              </div>
+            )}
+          </div>
+        </div>
+
         {/* Tinted Features Box (Signature Reference UI Element) */}
-        <div className={cn("rounded-2xl p-4 sm:p-5 my-3.5", boxClass)}>
+        <div className={cn("rounded-2xl p-4 sm:p-5 my-4 border", boxClass)}>
           <div className="space-y-2.5">
             {features.map((feature, fIdx) => {
               const isString = typeof feature === "string";
@@ -150,12 +130,12 @@ export default function SubscriptionCard({
                   className="flex items-center gap-2.5 text-xs sm:text-[13px]"
                 >
                   {isIncluded ? (
-                    <div className="w-4 h-4 rounded-full bg-emerald-50 border border-emerald-500 text-emerald-600 flex items-center justify-center shrink-0">
-                      <Check className="w-2.5 h-2.5 stroke-[3.2]" />
+                    <div className="w-4 h-4 rounded-full bg-emerald-100 border border-emerald-500 text-emerald-600 flex items-center justify-center shrink-0">
+                      <Check className="w-2.5 h-2.5 stroke-[3.5]" />
                     </div>
                   ) : (
-                    <div className="w-4 h-4 rounded-full bg-rose-50 border border-rose-400 text-rose-500 flex items-center justify-center shrink-0">
-                      <X className="w-2.5 h-2.5 stroke-[3.2]" />
+                    <div className="w-4 h-4 rounded-full bg-rose-100 border border-rose-300 text-rose-500 flex items-center justify-center shrink-0">
+                      <X className="w-2.5 h-2.5 stroke-[3.5]" />
                     </div>
                   )}
 
@@ -177,7 +157,7 @@ export default function SubscriptionCard({
 
         {/* Footer Description below features box */}
         {description && (
-          <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed min-h-[36px] my-3.5 text-left font-normal">
+          <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed my-3.5 text-left font-normal min-h-[36px]">
             {description}
           </p>
         )}
@@ -190,9 +170,9 @@ export default function SubscriptionCard({
             type="button"
             onClick={onSelect}
             className={cn(
-              "w-full py-3.5 px-6 rounded-full font-semibold text-sm flex items-center justify-center transition-all shadow-sm active:scale-[0.98] cursor-pointer",
-              isFeatured || theme === "lime"
-                ? "bg-[#d8f946] hover:bg-[#cbf133] text-slate-900 font-extrabold shadow-lime-500/20"
+              "w-full py-3.5 px-6 rounded-full font-bold text-sm flex items-center justify-center transition-all shadow-sm active:scale-[0.98] cursor-pointer",
+              isLime
+                ? "bg-[#D4F938] hover:bg-[#cbf133] text-slate-950 font-black shadow-lime-500/20"
                 : "bg-[#111827] hover:bg-black text-white"
             )}
           >
@@ -204,9 +184,9 @@ export default function SubscriptionCard({
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "w-full py-3.5 px-6 rounded-full font-semibold text-sm flex items-center justify-center transition-all shadow-sm active:scale-[0.98] cursor-pointer",
-              isFeatured || theme === "lime"
-                ? "bg-[#d8f946] hover:bg-[#cbf133] text-slate-900 font-extrabold shadow-lime-500/20"
+              "w-full py-3.5 px-6 rounded-full font-bold text-sm flex items-center justify-center transition-all shadow-sm active:scale-[0.98] cursor-pointer",
+              isLime
+                ? "bg-[#D4F938] hover:bg-[#cbf133] text-slate-950 font-black shadow-lime-500/20"
                 : "bg-[#111827] hover:bg-black text-white"
             )}
           >

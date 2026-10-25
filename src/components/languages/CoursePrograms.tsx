@@ -605,14 +605,37 @@ export default function CoursePrograms({
           )}
         >
           <AnimatePresence mode="popLayout">
-            {plans.map((plan, idx) => {
-              const isFeatured = plan.styleType === "featured" || idx === 1;
-              const theme = idx === 0 ? "mint" : idx === 1 ? "lime" : "lavender";
-              const badge = isFeatured ? "Popular" : undefined;
-              const ctaHref = `https://wa.me/919217368750?text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
-                activeData.examName
-              )}%20-%20${encodeURIComponent(plan.name)}.`;
-              const detailHref = `/languages/${currentExam === "IELTS GN" ? "ielts-general" : "ielts-academic"}`;
+            {(() => {
+              const explicit = plans.filter((p) => p.styleType === "featured");
+              const featuredPlanId = explicit.length > 0
+                ? explicit[explicit.length - 1].id
+                : plans.length === 3
+                ? plans[2].id
+                : plans.length === 2
+                ? plans[1].id
+                : plans[0]?.id;
+
+              const examSlugMap: Record<string, string> = {
+                "IELTS AC": "ielts-academic",
+                "IELTS GN": "ielts-general",
+                "PTE AC": "pte-academic",
+                "PTE CORE": "pte-core",
+                CELPIP: "celpip-prep",
+                French: "french-prep",
+                German: "german-prep",
+                Duolingo: "duolingo-det",
+                "Spoken Eng": "spoken-english",
+                TOEFL: "toefl-ibt",
+              };
+              const detailHref = `/languages/${examSlugMap[currentExam] || "ielts-academic"}`;
+
+              return plans.map((plan, idx) => {
+                const isFeatured = plan.id === featuredPlanId;
+                const theme = isFeatured ? "lime" : idx === 0 ? "mint" : "lavender";
+                const badge = isFeatured ? "Popular" : undefined;
+                const ctaHref = `https://wa.me/919217368750?text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
+                  activeData.examName
+                )}%20-%20${encodeURIComponent(plan.name)}.`;
 
               return (
                 <motion.div
@@ -661,7 +684,8 @@ export default function CoursePrograms({
                   />
                 </motion.div>
               );
-            })}
+            });
+          })()}
           </AnimatePresence>
         </div>
       </div>

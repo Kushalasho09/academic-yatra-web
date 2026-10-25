@@ -282,10 +282,21 @@ export default function TestPrepCoursePrograms({
               : "grid-cols-1 md:grid-cols-3 max-w-6xl"
           )}
         >
-          {currentExamData.plans.map((plan, idx) => {
-            const isFeatured = plan.styleType === "featured" || idx === 1;
-            const theme = idx === 0 ? "mint" : idx === 1 ? "lime" : "lavender";
-            const badge = isFeatured ? "Popular" : undefined;
+          {(() => {
+            const plans = currentExamData.plans;
+            const explicit = plans.filter((p) => p.styleType === "featured");
+            const featuredPlanId = explicit.length > 0
+              ? explicit[explicit.length - 1].id
+              : plans.length === 3
+              ? plans[2].id
+              : plans.length === 2
+              ? plans[1].id
+              : plans[0]?.id;
+
+            return plans.map((plan, idx) => {
+              const isFeatured = plan.id === featuredPlanId;
+              const theme = isFeatured ? "lime" : idx === 0 ? "mint" : "lavender";
+              const badge = isFeatured ? "Popular" : undefined;
             const ctaHref = `https://wa.me/919217368750?text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
               currentExamData.examName
             )}%20-${encodeURIComponent(plan.name)}.`;
@@ -335,7 +346,8 @@ export default function TestPrepCoursePrograms({
                 />
               </motion.div>
             );
-          })}
+          });
+          })()}
         </div>
       </div>
     </section>
