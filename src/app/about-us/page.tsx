@@ -9,7 +9,6 @@ import AboutWhoWeAre from "@/components/about-us/AboutWhoWeAre";
 import AboutLanguagesTicker from "@/components/about-us/AboutLanguagesTicker";
 import AboutDigitalEcosystem from "@/components/about-us/AboutDigitalEcosystem";
 import AboutLegalDisclosure from "@/components/about-us/AboutLegalDisclosure";
-import AboutContactSection from "@/components/about-us/AboutContactSection";
 
 export const metadata: Metadata = {
   title: "About Us | Academic Yatra™ — For the language your dreams speak",
@@ -55,8 +54,6 @@ export default function AboutUsPage() {
       {/* 7. Institutional & Legal Transparency Disclosure */}
       <AboutLegalDisclosure />
 
-      {/* 8. Contact Form & Instant WhatsApp Connect */}
-      <AboutContactSection />
     </main>
   );
 }

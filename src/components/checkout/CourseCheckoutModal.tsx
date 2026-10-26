@@ -207,6 +207,7 @@ export default function CourseCheckoutModal() {
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(false);
+  const [isVerifyingPayment, setIsVerifyingPayment] = useState(false);
 
   // Sync state when modal opens or activeCourse changes
   useEffect(() => {
@@ -366,6 +367,7 @@ export default function CourseCheckoutModal() {
           },
           handler: async function (response: any) {
             paymentSucceeded = true;
+            setIsVerifyingPayment(true);
             setIsLoading(false);
 
             // Verify payment signature on backend
@@ -413,6 +415,7 @@ export default function CourseCheckoutModal() {
               console.warn("Order persistence notice:", orderErr);
             }
 
+            setIsVerifyingPayment(false);
             closeCheckout();
             openSuccessModal({
               paymentId: response.razorpay_payment_id || `pay_${Date.now()}`,
@@ -590,6 +593,38 @@ export default function CourseCheckoutModal() {
           transition={{ duration: 0.25, ease: "easeOut" }}
           className="relative w-full max-w-xl lg:max-w-5xl bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl border border-slate-200/80 overflow-hidden z-10 text-slate-800 flex flex-col max-h-[92vh] sm:max-h-[90vh]"
         >
+          {/* Payment Verification / Processing Screen */}
+          {isVerifyingPayment && (
+            <div className="absolute inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center animate-fade-in">
+              <div className="relative w-20 h-20 mb-5">
+                <div className="absolute inset-0 rounded-full border-4 border-emerald-500/20 border-t-emerald-400 animate-spin" />
+                <div
+                  className="absolute inset-2 rounded-full border-4 border-emerald-400/30 border-b-emerald-300 animate-spin"
+                  style={{ animationDirection: "reverse", animationDuration: "1.5s" }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Sparkles className="w-7 h-7 text-emerald-400 animate-pulse" />
+                </div>
+              </div>
+
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-semibold uppercase tracking-wider mb-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1" />
+                Payment Received
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-bold font-heading text-white">
+                Processing Your Enrollment...
+              </h3>
+              <p className="text-sm text-slate-300 max-w-sm mt-2 leading-relaxed">
+                Please wait a moment while we verify your transaction and prepare your course portal access.
+              </p>
+
+              <div className="mt-5 flex items-center gap-2 text-xs text-slate-400">
+                <Lock className="w-3.5 h-3.5 text-emerald-400" />
+                <span>256-bit Secure Verification • Please do not refresh</span>
+              </div>
+            </div>
+          )}
           {/* Header Banner */}
           <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-950 px-4 sm:px-6 py-3.5 sm:py-4.5 text-white flex items-center justify-between gap-3 shrink-0">
             <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">

@@ -4,8 +4,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HydrationFix from "@/components/HydrationFix";
-import ScrollToTop from "@/components/ScrollToTop";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -49,6 +47,7 @@ import { CourseCheckoutProvider } from "@/context/CourseCheckoutContext";
 import CourseCheckoutModal from "@/components/checkout/CourseCheckoutModal";
 import PaymentSuccessModal from "@/components/checkout/PaymentSuccessModal";
 import PaymentFailedModal from "@/components/checkout/PaymentFailedModal";
+import MobileFloatingCTA from "@/components/MobileFloatingCTA";
 
 export default function RootLayout({
   children,
@@ -67,11 +66,10 @@ export default function RootLayout({
       >
         <CourseCheckoutProvider>
           <HydrationFix />
-          <ScrollToTop />
-          <FloatingWhatsApp />
-          <Navbar />
+                              <Navbar />
           <main className="flex-grow relative">{children}</main>
           <Footer />
+          <MobileFloatingCTA />
           <CourseCheckoutModal />
           <PaymentSuccessModal />
           <PaymentFailedModal />

@@ -115,15 +115,15 @@ export default function Navbar() {
         {/* Mobile Brand Logo */}
         <Link
           href="/"
-          className="lg:hidden flex items-center pl-2 shrink-0 hover:opacity-90 transition-opacity"
+          className="lg:hidden flex items-center pl-1.5 shrink-0 hover:opacity-90 transition-opacity"
           aria-label="Academic Yatra™ Home"
         >
           <Image
             src="/images/academic_yatra_new_logo.png"
             alt="Academic Yatra™"
-            width={160}
-            height={38}
-            className="h-8 sm:h-9 w-auto object-contain"
+            width={180}
+            height={42}
+            className="h-[35.5px] sm:h-[40px] w-auto object-contain"
             priority
           />
         </Link>
