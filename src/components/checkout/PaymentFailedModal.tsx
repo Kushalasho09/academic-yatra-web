@@ -28,7 +28,7 @@ export default function PaymentFailedModal() {
   if (!isFailedOpen || !failedDetails) return null;
 
   // Format WhatsApp assistance message
-  const whatsappNumber = "919891088200";
+  const whatsappNumber = "919217368750";
   const whatsappText = encodeURIComponent(
     `Hello Academic Yatra Team,\n\nI was attempting to enroll in *${failedDetails.courseName}* (${failedDetails.planName}) for ₹${failedDetails.amount}, but my payment was not completed.\n\nStudent: ${failedDetails.studentName || "Prospective Student"}\nEmail: ${failedDetails.studentEmail || "N/A"}\nReason: ${failedDetails.reason || "Payment Incomplete / Cancelled"}\n\nCould you please help me complete my enrollment or provide alternate payment options?`
   );
