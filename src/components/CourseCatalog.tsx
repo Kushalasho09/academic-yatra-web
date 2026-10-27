@@ -190,7 +190,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     rating: "4.8",
     reviews: "356 reviews",
     level: "Intermediate",
-    href: "/test-prep",
+    href: "/test-prep/sat-digital",
   },
   {
     id: "gre-prep",
@@ -204,7 +204,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     rating: "4.9",
     reviews: "576 reviews",
     level: "Advanced",
-    href: "/test-prep",
+    href: "/test-prep/gre-general",
   },
   {
     id: "gmat-prep",
@@ -218,7 +218,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     rating: "4.7",
     reviews: "210 reviews",
     level: "Beginner",
-    href: "/test-prep",
+    href: "/test-prep/gmat-focus",
   },
 
   // Skill Catalyst & Career
@@ -234,7 +234,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     rating: "4.8",
     reviews: "310 reviews",
     level: "Intermediate",
-    href: "/skill-catalyst",
+    href: "/skill-catalyst/career-essentials",
   },
   {
     id: "gsuite-hub",
@@ -248,7 +248,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     rating: "4.7",
     reviews: "195 reviews",
     level: "Beginner",
-    href: "/skill-catalyst",
+    href: "/skill-catalyst/google-suite-hub",
   },
   {
     id: "bizz-tech",
@@ -262,7 +262,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     rating: "4.8",
     reviews: "260 reviews",
     level: "Intermediate",
-    href: "/skill-catalyst",
+    href: "/skill-catalyst/bizz-tech",
   },
 ];
 
