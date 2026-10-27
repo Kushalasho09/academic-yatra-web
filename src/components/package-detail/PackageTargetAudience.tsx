@@ -177,7 +177,7 @@ export default function PackageTargetAudience({ audience }: PackageTargetAudienc
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.45, delay: idx * 0.05, ease: easeCurve }}
-                className="w-full flex items-center justify-center -my-[1px] relative z-10 group"
+                className="w-full flex items-stretch justify-center -my-[1px] relative z-10 group"
               >
                 {/* LEFT WING: Exactly (100% - center) / 2 */}
                 <div className="flex-1 min-w-0 flex items-center justify-end">
@@ -194,15 +194,15 @@ export default function PackageTargetAudience({ audience }: PackageTargetAudienc
                     </div>
                   ) : (
                     // EVEN ROW: Wide Text capsule on the left side (Right-aligned text)
-                    <div className="w-full max-w-[300px] sm:max-w-[440px] lg:max-w-[520px] min-h-[66px] sm:min-h-[78px] lg:min-h-[86px] h-full py-2 sm:py-2.5 rounded-l-full bg-white border-y border-l border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center justify-end pl-3.5 sm:pl-6 lg:pl-7 pr-2.5 sm:pr-4 lg:pr-5 gap-1 sm:gap-3 text-right">
+                    <div className="w-full max-w-[320px] sm:max-w-[440px] lg:max-w-[520px] min-h-[64px] sm:min-h-[78px] lg:min-h-[86px] h-full py-2 sm:py-2.5 rounded-l-full bg-white border-y border-l border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center justify-end pl-2 sm:pl-6 lg:pl-7 pr-1.5 sm:pr-4 lg:pr-5 gap-1 sm:gap-2.5 text-right">
                       <div className="min-w-0 flex-1 space-y-0.5 sm:space-y-1">
                         <h4
-                          className="font-heading text-[11px] sm:text-sm lg:text-base font-black tracking-tight group-hover:text-emerald-700 transition-colors truncate"
+                          className="font-heading text-[10px] xs:text-[11px] sm:text-sm lg:text-base font-black tracking-tight leading-tight group-hover:text-emerald-700 transition-colors"
                           style={{ color: config.color }}
                         >
                           {displayTitle}
                         </h4>
-                        <p className="font-body text-[9.5px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-tight sm:leading-snug line-clamp-2">
+                        <p className="font-body text-[8.5px] xs:text-[9.5px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-tight sm:leading-snug">
                           {card.title}
                         </p>
                       </div>
@@ -233,7 +233,7 @@ export default function PackageTargetAudience({ audience }: PackageTargetAudienc
                 <div className="flex-1 min-w-0 flex items-center justify-start">
                   {!isEven ? (
                     // ODD ROW: Wide Text capsule on the right side (Left-aligned text)
-                    <div className="w-full max-w-[300px] sm:max-w-[440px] lg:max-w-[520px] min-h-[66px] sm:min-h-[78px] lg:min-h-[86px] h-full py-2 sm:py-2.5 rounded-r-full bg-white border-y border-r border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center pl-2.5 sm:pl-4 lg:pl-5 pr-3.5 sm:pr-6 lg:pr-7 gap-1 sm:gap-3 text-left">
+                    <div className="w-full max-w-[320px] sm:max-w-[440px] lg:max-w-[520px] min-h-[64px] sm:min-h-[78px] lg:min-h-[86px] h-full py-2 sm:py-2.5 rounded-r-full bg-white border-y border-r border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.05)] group-hover:shadow-lg transition-all duration-300 flex items-center pl-1.5 sm:pl-4 lg:pl-5 pr-2 sm:pr-6 lg:pr-7 gap-1 sm:gap-2.5 text-left">
                       <ChevronRight
                         className={cn(
                           "w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1",
@@ -243,12 +243,12 @@ export default function PackageTargetAudience({ audience }: PackageTargetAudienc
                       />
                       <div className="min-w-0 flex-1 space-y-0.5 sm:space-y-1">
                         <h4
-                          className="font-heading text-[11px] sm:text-sm lg:text-base font-black tracking-tight group-hover:text-emerald-700 transition-colors truncate"
+                          className="font-heading text-[10px] xs:text-[11px] sm:text-sm lg:text-base font-black tracking-tight leading-tight group-hover:text-emerald-700 transition-colors"
                           style={{ color: config.color }}
                         >
                           {displayTitle}
                         </h4>
-                        <p className="font-body text-[9.5px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-tight sm:leading-snug line-clamp-2">
+                        <p className="font-body text-[8.5px] xs:text-[9.5px] sm:text-xs lg:text-[13px] text-slate-600 font-normal leading-tight sm:leading-snug">
                           {card.title}
                         </p>
                       </div>
