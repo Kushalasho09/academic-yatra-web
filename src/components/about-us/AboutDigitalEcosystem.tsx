@@ -49,9 +49,13 @@ export default function AboutDigitalEcosystem() {
     };
   }, []);
 
-  // Lock body scroll when expanded
+  // Lock body scroll and guarantee background video is strictly paused/muted when expanded
   useEffect(() => {
     if (isExpanded) {
+      if (videoRef.current) {
+        videoRef.current.pause();
+        videoRef.current.muted = true;
+      }
       const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
       return () => {
@@ -60,8 +64,26 @@ export default function AboutDigitalEcosystem() {
     }
   }, [isExpanded]);
 
+  // Clean up all video elements on unmount
+  useEffect(() => {
+    return () => {
+      if (videoRef.current) {
+        videoRef.current.pause();
+        videoRef.current.muted = true;
+      }
+      if (modalVideoRef.current) {
+        modalVideoRef.current.pause();
+        modalVideoRef.current.muted = true;
+      }
+    };
+  }, []);
+
   const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = e.currentTarget;
+    // Discard time updates from inactive player to prevent state conflicts
+    if (isExpanded && video === videoRef.current) return;
+    if (!isExpanded && video === modalVideoRef.current) return;
+
     setCurrentTime(video.currentTime);
     if (!duration && video.duration) {
       setDuration(video.duration);
@@ -73,14 +95,32 @@ export default function AboutDigitalEcosystem() {
   };
 
   const togglePlay = () => {
-    const targetVideo = isExpanded ? modalVideoRef.current : videoRef.current;
-    if (targetVideo) {
-      if (targetVideo.paused) {
-        targetVideo.play().catch(() => {});
-        setIsPlaying(true);
-      } else {
-        targetVideo.pause();
-        setIsPlaying(false);
+    if (isExpanded) {
+      const modal = modalVideoRef.current;
+      if (modal) {
+        if (modal.paused) {
+          modal.play().catch(() => {});
+          setIsPlaying(true);
+        } else {
+          modal.pause();
+          setIsPlaying(false);
+        }
+      }
+      // Ensure background video stays strictly paused
+      if (videoRef.current) {
+        videoRef.current.pause();
+        videoRef.current.muted = true;
+      }
+    } else {
+      const video = videoRef.current;
+      if (video) {
+        if (video.paused) {
+          video.play().catch(() => {});
+          setIsPlaying(true);
+        } else {
+          video.pause();
+          setIsPlaying(false);
+        }
       }
     }
   };
@@ -88,8 +128,13 @@ export default function AboutDigitalEcosystem() {
   const toggleMute = () => {
     const nextMuted = !isMuted;
     setIsMuted(nextMuted);
-    if (videoRef.current) videoRef.current.muted = nextMuted;
-    if (modalVideoRef.current) modalVideoRef.current.muted = nextMuted;
+    if (isExpanded) {
+      if (modalVideoRef.current) modalVideoRef.current.muted = nextMuted;
+      if (videoRef.current) videoRef.current.muted = true; // Background must stay muted
+    } else {
+      if (videoRef.current) videoRef.current.muted = nextMuted;
+      if (modalVideoRef.current) modalVideoRef.current.muted = true;
+    }
   };
 
   const handleSeek = (e: React.MouseEvent<HTMLDivElement>, inModal = false) => {
@@ -101,35 +146,70 @@ export default function AboutDigitalEcosystem() {
     const targetTime = percentage * duration;
 
     setCurrentTime(targetTime);
-    if (videoRef.current) videoRef.current.currentTime = targetTime;
-    if (modalVideoRef.current) modalVideoRef.current.currentTime = targetTime;
+    if (isExpanded) {
+      if (modalVideoRef.current) modalVideoRef.current.currentTime = targetTime;
+      if (videoRef.current) videoRef.current.currentTime = targetTime;
+    } else {
+      if (videoRef.current) videoRef.current.currentTime = targetTime;
+    }
   };
 
   const handleOpenExpand = () => {
     const video = videoRef.current;
-    const time = video?.currentTime || currentTime;
+    const time = video?.currentTime ?? currentTime;
+    const wasPlaying = video ? !video.paused : isPlaying;
+
+    // 1. Immediately pause and mute background video so zero dual audio can occur
+    if (video) {
+      video.pause();
+      video.muted = true;
+    }
+
     setIsExpanded(true);
     setIsRotated(true);
+
+    // 2. Sync timestamp and playback seamlessly into modal video
     setTimeout(() => {
-      if (modalVideoRef.current) {
-        modalVideoRef.current.currentTime = time;
-        modalVideoRef.current.muted = isMuted;
-        if (isPlaying) {
-          modalVideoRef.current.play().catch(() => {});
+      const modal = modalVideoRef.current;
+      if (modal) {
+        modal.currentTime = time;
+        modal.muted = isMuted;
+        if (wasPlaying) {
+          modal.play().catch(() => {});
+          setIsPlaying(true);
+        } else {
+          modal.pause();
+          setIsPlaying(false);
         }
       }
     }, 60);
   };
 
   const handleCloseExpand = () => {
-    const time = modalVideoRef.current?.currentTime || currentTime;
+    const modal = modalVideoRef.current;
+    const time = modal?.currentTime ?? currentTime;
+    const wasPlaying = modal ? !modal.paused : isPlaying;
+
+    // 1. Immediately pause and mute modal video
+    if (modal) {
+      modal.pause();
+      modal.muted = true;
+    }
+
     setIsExpanded(false);
+
+    // 2. Sync timestamp and playback back to inline portrait video
     setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.currentTime = time;
-        videoRef.current.muted = isMuted;
-        if (isPlaying) {
-          videoRef.current.play().catch(() => {});
+      const video = videoRef.current;
+      if (video) {
+        video.currentTime = time;
+        video.muted = isMuted;
+        if (wasPlaying) {
+          video.play().catch(() => {});
+          setIsPlaying(true);
+        } else {
+          video.pause();
+          setIsPlaying(false);
         }
       }
     }, 60);
