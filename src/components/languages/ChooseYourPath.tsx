@@ -350,15 +350,9 @@ export default function ChooseYourPath({ onSelectPath }: ChooseYourPathProps) {
                         <span className="text-slate-400 font-normal text-[11px]">({reviews})</span>
                       </div>
 
-                      <span
-                        className={cn(
-                          "text-[11px] font-bold px-2.5 py-0.5 rounded-md",
-                          level === "Beginner" && "bg-sky-100 text-sky-800",
-                          level === "Intermediate" && "bg-amber-100 text-amber-900",
-                          level === "Advanced" && "bg-emerald-100 text-emerald-800"
-                        )}
-                      >
-                        {level}
+                      <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#0C9253] bg-emerald-50 hover:bg-[#0C9253] hover:text-white px-3 py-1 rounded-full border border-emerald-200/80 transition-all duration-200 group-hover:bg-[#0C9253] group-hover:text-white group-hover:border-transparent shadow-xs">
+                        <span>Learn More</span>
+                        <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5" />
                       </span>
                     </div>
                   </div>

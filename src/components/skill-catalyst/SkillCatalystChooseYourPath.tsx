@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useDragToScroll } from "@/hooks/useDragToScroll";
 
@@ -230,15 +230,9 @@ export default function SkillCatalystChooseYourPath({
                       </span>
                     </div>
 
-                    <span
-                      className={cn(
-                        "text-[11px] font-bold px-2.5 py-0.5 rounded-md",
-                        course.level === "Beginner" && "bg-sky-100 text-sky-800",
-                        course.level === "Intermediate" && "bg-amber-100 text-amber-900",
-                        course.level === "Advanced" && "bg-emerald-100 text-emerald-800"
-                      )}
-                    >
-                      {course.level}
+                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#0C9253] bg-emerald-50 hover:bg-[#0C9253] hover:text-white px-3 py-1 rounded-full border border-emerald-200/80 transition-all duration-200 group-hover:bg-[#0C9253] group-hover:text-white group-hover:border-transparent shadow-xs">
+                      <span>Learn More</span>
+                      <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5" />
                     </span>
                   </div>
                 </div>
