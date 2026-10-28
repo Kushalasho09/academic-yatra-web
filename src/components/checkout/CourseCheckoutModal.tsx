@@ -19,6 +19,7 @@ import {
   AlertCircle,
   ChevronDown,
   Search,
+  CreditCard,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCourseCheckout } from "@/context/CourseCheckoutContext";
@@ -1098,7 +1099,7 @@ export default function CourseCheckoutModal() {
               <div className="pt-2.5 border-t border-slate-200 flex items-baseline justify-between">
                 <div>
                   <span className="text-sm font-bold text-slate-900 block">Total Payable:</span>
-                  <span className="text-[10px] text-slate-500">Full course fee (one-time)</span>
+                  <span className="text-[10px] text-slate-500">One-time payment or flexible EMI</span>
                 </div>
                 <div className="text-right">
                   <span className="text-2xl font-extrabold text-slate-900 font-heading">
@@ -1106,6 +1107,28 @@ export default function CourseCheckoutModal() {
                   </span>
                   <span className="text-[10px] text-emerald-700 font-semibold block">
                     All-inclusive (18% GST included)
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* EMI Available Notice */}
+            <div className="flex items-center justify-between p-3 rounded-2xl bg-blue-50/80 border border-blue-200/90 text-xs text-blue-950">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-2xs">
+                  <CreditCard className="w-4 h-4 stroke-[2.5]" />
+                </div>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="font-bold text-slate-900 text-[12px] sm:text-[13px]">
+                      EMI Options Available
+                    </span>
+                    <span className="text-[10px] font-black uppercase tracking-wider bg-blue-600 text-white px-2 py-0.5 rounded-full">
+                      Razorpay EMI
+                    </span>
+                  </div>
+                  <span className="text-[11px] text-slate-600 block truncate sm:whitespace-normal">
+                    Pay in easy monthly installments with major Credit & Debit cards
                   </span>
                 </div>
               </div>
@@ -1133,7 +1156,12 @@ export default function CourseCheckoutModal() {
                 )}
               </button>
 
-              <div className="flex items-center justify-center gap-4 text-[11px] text-slate-500 pt-1">
+              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] text-slate-500 pt-1">
+                <span className="flex items-center gap-1 font-semibold text-blue-700">
+                  <CreditCard className="w-3.5 h-3.5 text-blue-600" />
+                  EMI Accepted
+                </span>
+                <span>•</span>
                 <span className="flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                   256-Bit SSL Encrypted
@@ -1143,8 +1171,6 @@ export default function CourseCheckoutModal() {
                   <Sparkles className="w-3.5 h-3.5 text-blue-600" />
                   Powered by Razorpay
                 </span>
-                <span>•</span>
-                <span>Instant Confirmation</span>
               </div>
               </div>
             </div>
