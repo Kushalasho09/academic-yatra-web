@@ -599,9 +599,11 @@ export default function CoursePrograms({
         <div
           className={cn(
             "grid gap-6 sm:gap-8 items-stretch mx-auto",
-            plans.length === 3 && "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl",
-            plans.length === 2 && "grid-cols-1 md:grid-cols-2 max-w-4xl",
-            plans.length === 1 && "grid-cols-1 max-w-[420px]"
+            plans.length === 1
+              ? "grid-cols-1 max-w-[420px]"
+              : plans.length === 2
+              ? "grid-cols-1 md:grid-cols-2 max-w-4xl"
+              : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl"
           )}
         >
           <AnimatePresence mode="popLayout">
@@ -631,7 +633,7 @@ export default function CoursePrograms({
 
               return plans.map((plan, idx) => {
                 const isFeatured = plan.id === featuredPlanId;
-                const theme = isFeatured ? "lime" : idx === 0 ? "mint" : "lavender";
+                const theme = isFeatured ? "lime" : idx % 2 === 0 ? "mint" : "lavender";
                 const badge = isFeatured ? "Popular" : undefined;
                 const ctaHref = `https://wa.me/919217368750?text=Hi,%20I%20want%20to%20enroll%20in%20the%20${encodeURIComponent(
                   activeData.examName

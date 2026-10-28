@@ -226,7 +226,7 @@ export default function AboutOurPurpose() {
           className="mt-12 text-center"
         >
           <Link
-            href="/languages"
+            href="/#tracks"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 hover:bg-[#0C9253] text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-300 group"
           >
             <span>Explore Programs</span>

@@ -89,7 +89,7 @@ export default function HeroSection() {
             </Link>
 
             <Link
-              href="/languages"
+              href="#tracks"
               className="liquid-glass group flex-1 sm:flex-initial inline-flex items-center justify-center gap-1 xs:gap-1.5 sm:gap-3 rounded-full pl-2.5 pr-1.5 xs:pl-3 xs:pr-2 sm:pl-7 sm:pr-4 py-2 sm:py-3.5 text-[9.5px] xs:text-[10px] sm:text-base text-white font-semibold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/35 backdrop-blur-2xl bg-[#031643]/85 hover:bg-white/20 whitespace-nowrap min-w-0"
             >
               <span className="text-white font-semibold tracking-tight sm:tracking-wide leading-none inline-flex items-center">

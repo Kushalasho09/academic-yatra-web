@@ -147,7 +147,7 @@ export default function AboutWhoWeAre() {
             {/* Action Buttons */}
             <div className="mt-8 space-y-3 pt-6 border-t border-white/10">
               <Link
-                href="/languages"
+                href="/#tracks"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#0C9253] to-[#0A7B45] hover:from-[#0EA45E] hover:to-[#0C9253] text-white font-bold text-sm sm:text-base shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 group/btn"
               >
                 <span>Explore Programs</span>
