@@ -158,7 +158,7 @@ export default function AboutWhoWeAre() {
                 href="/contacts"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-bold text-sm sm:text-base transition-all duration-300 hover:border-white/30"
               >
-                <span>Book Your Free Demo</span>
+                <span>Book Your Free Trial</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>

@@ -33,7 +33,7 @@ export default function MobileFloatingCTA() {
             <span className="flex items-center justify-center space-x-2 text-center">
               <Sparkles className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#0C9253] shrink-0" />
               <span className="font-extrabold text-[13.5px] xs:text-sm tracking-tight text-[#031643]">
-                Book Your Free 5-Day Demo
+                Book Your Free 5-Day Trial
               </span>
             </span>
           </HoverBorderGradient>

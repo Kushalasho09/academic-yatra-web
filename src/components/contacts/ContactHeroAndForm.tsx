@@ -21,6 +21,7 @@ export default function ContactHeroAndForm() {
     program: "IELTS Preparation",
     message: "",
   });
+  const [customProgram, setCustomProgram] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const programs = [
@@ -28,18 +29,27 @@ export default function ContactHeroAndForm() {
     "PTE Preparation",
     "CELPIP Preparation",
     "Duolingo English Test (DET)",
+    "TOEFL Preparation",
+    "SAT Preparation",
+    "GRE Preparation",
     "GMAT Preparation",
-    "SAT / GRE Preparation",
     "German Language",
     "French Language",
+    "Spoken English",
+    "Skill Catalyst / Career Essentials",
     "Study Abroad Guidance",
+    "Other",
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    const chosenProgram =
+      formData.program === "Other" && customProgram.trim()
+        ? `Other (${customProgram.trim()})`
+        : formData.program;
     const text = encodeURIComponent(
-      `Hi Academic Yatra™ Team,\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.number}\nProgram: ${formData.program}\nMessage: ${formData.message}`
+      `Hi Academic Yatra™ Team,\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.number}\nProgram: ${chosenProgram}\nMessage: ${formData.message}`
     );
     window.open(`https://wa.me/919217368750?text=${text}`, "_blank");
   };
@@ -132,16 +142,34 @@ export default function ContactHeroAndForm() {
                     <div className="relative">
                       <select
                         value={formData.program}
-                        onChange={(e) => setFormData({ ...formData, program: e.target.value })}
-                        className="w-full pb-2 bg-transparent border-b border-slate-200 focus:border-[#0C9253] text-xs sm:text-sm text-slate-700 focus:outline-none appearance-none cursor-pointer pr-6"
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          setFormData({ ...formData, program: val });
+                          if (val !== "Other") setCustomProgram("");
+                        }}
+                        className="w-full pb-2 bg-transparent border-b border-slate-200 focus:border-[#0C9253] text-xs sm:text-sm text-slate-800 font-medium focus:outline-none appearance-none cursor-pointer pr-7 truncate"
                       >
                         {programs.map((prog, idx) => (
-                          <option key={idx} value={prog}>
+                          <option key={idx} value={prog} className="text-slate-900 bg-white py-1">
                             {prog}
                           </option>
                         ))}
                       </select>
-                      <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-1 top-0.5 pointer-events-none" />
+                      <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-1 top-1 pointer-events-none" />
+
+                      {formData.program === "Other" && (
+                        <div className="pt-2.5 animate-in fade-in duration-200">
+                          <input
+                            type="text"
+                            required
+                            value={customProgram}
+                            onChange={(e) => setCustomProgram(e.target.value)}
+                            placeholder="Please specify course / requirement *"
+                            className="w-full pb-2 bg-transparent border-b border-slate-200 focus:border-[#0C9253] text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-colors"
+                            autoFocus
+                          />
+                        </div>
+                      )}
                     </div>
                   </div>
 

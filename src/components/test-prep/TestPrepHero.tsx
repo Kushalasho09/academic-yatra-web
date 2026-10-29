@@ -64,7 +64,7 @@ export default function TestPrepHero() {
             className="liquid-glass group flex-1 sm:flex-initial inline-flex items-center justify-center gap-1 xs:gap-1.5 sm:gap-3 rounded-full pl-2.5 pr-1.5 xs:pl-3 xs:pr-2 sm:pl-7 sm:pr-4 py-2 sm:py-3.5 text-[9.5px] xs:text-[10px] sm:text-base text-white font-semibold hover:scale-[1.03] transition-all duration-300 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/35 backdrop-blur-2xl bg-[#031643]/85 hover:bg-[#0C9253]/95 whitespace-nowrap min-w-0"
           >
             <span className="text-white font-semibold tracking-tight sm:tracking-wide leading-none inline-flex items-center">
-              Book Your Free 5-Day Demo
+              Book Your Free 5-Day Trial
             </span>
             <div className="w-4 h-4 sm:w-7 sm:h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-0.5 transition-transform border border-white/25 shrink-0 self-center">
               <ArrowRight className="w-2.5 h-2.5 sm:w-4 sm:h-4 text-emerald-300" />

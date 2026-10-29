@@ -1178,7 +1178,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
-        "Start with a complimentary live demo and get your DET readiness evaluated.",
+        "Start with a complimentary live trial and get your DET readiness evaluated.",
       disclaimer:
         "Duolingo is a registered trademark of Duolingo, Inc.",
     },
@@ -1811,7 +1811,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
-        "Join a free demo speaking club today and feel the difference.",
+        "Join a free trial speaking club today and feel the difference.",
       disclaimer: "Course pricing is set by Academic Yatra™.",
     },
   },
@@ -2177,7 +2177,7 @@ export const PACKAGES_DATA: Record<string, PackageDetailData> = {
       headingPrefix: "See How Academic Yatra™",
       headingHighlight: "Fits Your Goals.",
       description:
-        "Start with a complimentary live demo and get your GRE diagnostic report.",
+        "Start with a complimentary live trial and get your GRE diagnostic report.",
       disclaimer: "GRE is a registered trademark of Educational Testing Service (ETS).",
     },
   },

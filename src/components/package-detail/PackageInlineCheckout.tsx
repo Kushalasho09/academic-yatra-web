@@ -916,8 +916,22 @@ export default function PackageInlineCheckout({
 
                 </div>
 
-                {/* Action Button: BUY NOW (per explicit user instruction) */}
-                <div className="pt-2">
+                {/* Action Button: BUY NOW & EMI */}
+                <div className="pt-2 mt-auto">
+                  {/* EMI Available Notice */}
+                  <div
+                    className={cn(
+                      "flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-full text-[11px] sm:text-xs font-medium transition-colors text-center mb-2.5 select-none",
+                      isLime
+                        ? "bg-[#F8F9E4] border border-lime-300/90 text-slate-800"
+                        : "bg-slate-50 border border-slate-200/90 text-slate-600"
+                    )}
+                  >
+                    <CreditCard className="w-3.5 h-3.5 text-[#ED7E23] shrink-0 stroke-[2.5]" />
+                    <span>
+                      <strong className="font-bold text-slate-900">EMI Available</strong> • Easy Monthly Plans
+                    </span>
+                  </div>
                   <button
                     type="button"
                     onClick={(e) => {

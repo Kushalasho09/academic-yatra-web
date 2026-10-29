@@ -18,9 +18,9 @@ export default function PackageDetailPage() {
 
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [selectedPlanName, setSelectedPlanName] = useState<string>("");
-  const [modalTitle, setModalTitle] = useState<string>("Book Your Free 5-Day Demo");
+  const [modalTitle, setModalTitle] = useState<string>("Book Your Free 5-Day Trial");
 
-  const handleOpenBooking = (type: string = "Book Your Free 5-Day Demo") => {
+  const handleOpenBooking = (type: string = "Book Your Free 5-Day Trial") => {
     setModalTitle(type);
     setSelectedPlanName(data.category);
     setBookingModalOpen(true);
@@ -52,7 +52,7 @@ export default function PackageDetailPage() {
       {/* 6. Course Cards & Inline Checkout Directly Below (Images 2 & 3) */}
       <PackageInlineCheckout
         categoryName={data.category}
-        onOpenDemo={() => handleOpenBooking("Book Your Free 5-Day Demo")}
+        onOpenDemo={() => handleOpenBooking("Book Your Free 5-Day Trial")}
       />
 
       {/* 7. Bottom CTA Banner & Indicative Fee Disclaimer (Image 5) */}

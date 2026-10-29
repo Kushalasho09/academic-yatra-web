@@ -723,7 +723,7 @@ _Created via Future Yatra™ LingoDeer Pathway Game_`;
                       className="py-3.5 px-4 rounded-2xl bg-brand-primary hover:bg-brand-primaryHover text-white font-black text-xs flex items-center justify-center gap-2 shadow-md shadow-brand-primary/25 cursor-pointer"
                     >
                       <MessageCircle className="w-4 h-4" />
-                      <span>Book Your Free Demo</span>
+                      <span>Book Your Free Trial</span>
                     </a>
                   </div>
 

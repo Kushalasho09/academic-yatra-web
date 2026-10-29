@@ -549,7 +549,7 @@ export default function FeaturesPillars() {
                   href="/contacts"
                   className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white font-heading font-extrabold text-xs shadow-sm hover:scale-105 transition-all whitespace-nowrap shrink-0"
                 >
-                  <span>Book Your Free Demo</span>
+                  <span>Book Your Free Trial</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

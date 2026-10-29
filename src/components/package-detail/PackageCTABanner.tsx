@@ -25,6 +25,7 @@ const COURSE_OPTIONS = [
   "Career Essentials",
   "BizzTech",
   "Google Suite Hub",
+  "Study Abroad Guidance",
   "Others",
 ];
 
@@ -56,7 +57,7 @@ export default function PackageCTABanner({
   };
 
   const whatsappDirectUrl = `https://wa.me/919217368750?text=${encodeURIComponent(
-    `Hi Academic Yatra™, My name is ${formData.name || "Student"}. I would like to book a 5-day demo / consultation.`
+    `Hi Academic Yatra™, My name is ${formData.name || "Student"}. I would like to book a 5-day trial / consultation.`
   )}`;
 
   const checkpoints = [
@@ -128,12 +129,12 @@ export default function PackageCTABanner({
                     inputEl.focus();
                     inputEl.scrollIntoView({ behavior: "smooth", block: "center" });
                   } else if (onOpenBooking) {
-                    onOpenBooking("Book Your Free 5-Day Demo");
+                    onOpenBooking("Book Your Free 5-Day Trial");
                   }
                 }}
                 className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-lg shadow-emerald-900/40 transition-all hover:scale-[1.02] active:scale-95 cursor-pointer"
               >
-                <span>Book Your Free 5-Day Demo</span>
+                <span>Book Your Free 5-Day Trial</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -158,10 +159,10 @@ export default function PackageCTABanner({
                     <Check className="w-8 h-8 stroke-[3]" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 font-heading">
-                    Demo Access Granted!
+                    Trial Access Granted!
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto">
-                    Our academic coordinator has received your request and will share the demo class timetable within 15 minutes.
+                    Our academic coordinator has received your request and will share the trial class timetable within 15 minutes.
                   </p>
                 </div>
               ) : (
@@ -171,7 +172,7 @@ export default function PackageCTABanner({
                       FAST-TRACK YOUR PREP
                     </span>
                     <h3 className="text-xl sm:text-2xl font-bold font-heading text-slate-900 mt-1">
-                      Reserve Your Free Demo Seat
+                      Reserve Your Free Trial Seat
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-500 mt-1">
                       Experience the Academic Yatra™ learning system firsthand.

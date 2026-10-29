@@ -388,7 +388,7 @@ export function CinematicFooter() {
                   className="footer-glass-pill px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-white font-bold text-xs sm:text-sm md:text-base flex items-center gap-2.5 group bg-brand-primary/20 border-brand-primary/40 hover:bg-brand-primary"
                 >
                   <Sparkles className="w-4 h-4 text-emerald-300 group-hover:rotate-12 transition-transform" />
-                  <span>Book Your Free 5-Day Demo</span>
+                  <span>Book Your Free 5-Day Trial</span>
                 </MagneticButton>
 
                 <MagneticButton

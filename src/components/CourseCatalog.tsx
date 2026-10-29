@@ -43,7 +43,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "language-tests",
     tagline:
       "Build academic English with structured practice, feedback, and IELTS aligned mock tests.",
-    image: "/images/why_academic_students.jpg",
+    image: "/images/courses/v2/ielts_academic.jpg",
     popular: true,
     rating: "4.8",
     reviews: "356 reviews",
@@ -57,7 +57,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "language-tests",
     tagline:
       "Sharpen everyday English for work, migration, and communication through focused practice.",
-    image: "/images/story_canada_settling.jpg",
+    image: "/images/courses/v2/ielts_general.jpg",
     popular: true,
     rating: "4.9",
     reviews: "576 reviews",
@@ -71,7 +71,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "language-tests",
     tagline:
       "Master computer-based English with timed practice, feedback, and every exam-focused strategy.",
-    image: "/images/hero_center_laptop.jpg",
+    image: "/images/courses/v2/pte_academic.jpg",
     popular: true,
     rating: "4.7",
     reviews: "210 reviews",
@@ -85,7 +85,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "language-tests",
     tagline:
       "Prepare practical English skills for Canadian pathways through focused, structured practice.",
-    image: "/images/indian_student_laptop.jpg",
+    image: "/images/courses/v2/pte_core.jpg",
     popular: false,
     rating: "4.8",
     reviews: "356 reviews",
@@ -99,7 +99,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "language-tests",
     tagline:
       "Build academic English skills with targeted practice across every tested section.",
-    image: "/images/path_competitive_boy.jpg",
+    image: "/images/courses/v2/toefl.jpg",
     popular: false,
     rating: "4.9",
     reviews: "576 reviews",
@@ -113,7 +113,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "language-tests",
     tagline:
       "Prepare flexibly with focused practice for the fully online English test.",
-    image: "/images/path_learning_dashboard.jpg",
+    image: "/images/courses/v2/duolingo.jpg",
     popular: true,
     rating: "4.7",
     reviews: "210 reviews",
@@ -127,7 +127,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "language-tests",
     tagline:
       "Strengthen practical English for Canada with targeted practice and test strategies.",
-    image: "/images/dest_canada.png",
+    image: "/images/courses/v2/celpip.jpg",
     popular: false,
     rating: "4.8",
     reviews: "356 reviews",
@@ -141,7 +141,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "foreign-languages",
     tagline:
       "Build practical French for study, work, communication, and Canadian pathways abroad.",
-    image: "/images/dest_europe.png",
+    image: "/images/courses/v2/french.jpg",
     popular: true,
     rating: "4.9",
     reviews: "576 reviews",
@@ -155,7 +155,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "foreign-languages",
     tagline:
       "Develop practical German for study, university applications, and everyday communication confidently.",
-    image: "/images/carousel_explore_brands.png",
+    image: "/images/courses/v2/german.jpg",
     popular: true,
     rating: "4.7",
     reviews: "210 reviews",
@@ -169,7 +169,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "foreign-languages",
     tagline:
       "Improve everyday English fluency through guided speaking practice, feedback, and assignments.",
-    image: "/images/hero_campus_life.png",
+    image: "/images/courses/v2/spoken_english.jpg",
     popular: false,
     rating: "4.8",
     reviews: "356 reviews",
@@ -185,7 +185,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "competitive-exams",
     tagline:
       "Build stronger scores through focused concepts, timed practice, and detailed analysis.",
-    image: "/images/why_academic_students.jpg",
+    image: "/images/courses/v2/sat.jpg",
     popular: true,
     rating: "4.8",
     reviews: "356 reviews",
@@ -199,7 +199,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "competitive-exams",
     tagline:
       "Sharpen Quant and Verbal performance through targeted practice and analytical strategy.",
-    image: "/images/path_competitive_boy.jpg",
+    image: "/images/courses/v2/gre.jpg",
     popular: true,
     rating: "4.9",
     reviews: "576 reviews",
@@ -213,7 +213,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "competitive-exams",
     tagline:
       "Strengthen business-school readiness with focused Quant, Verbal, and Data practice skills.",
-    image: "/images/hero_center_laptop.jpg",
+    image: "/images/courses/v2/gmat.jpg",
     popular: true,
     rating: "4.7",
     reviews: "210 reviews",
@@ -229,7 +229,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "skill-catalyst",
     tagline:
       "Build workplace-ready skills for internships, applications, communication, and professional confidence readiness.",
-    image: "/images/carousel_founder_guidance.png",
+    image: "/images/courses/v2/career_essentials.jpg",
     popular: false,
     rating: "4.8",
     reviews: "310 reviews",
@@ -243,7 +243,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "skill-catalyst",
     tagline:
       "Master everyday Google tools for smoother, faster, more organised workplace productivity.",
-    image: "/images/path_learning_dashboard.jpg",
+    image: "/images/courses/v2/gsuite.jpg",
     popular: false,
     rating: "4.7",
     reviews: "195 reviews",
@@ -257,7 +257,7 @@ export const CATALOG_COURSES: CatalogCourse[] = [
     categorySlug: "skill-catalyst",
     tagline:
       "Learn practical business and digital tools through focused, hands-on skill building.",
-    image: "/images/hero_center_laptop.jpg",
+    image: "/images/courses/v2/bizztech.jpg",
     popular: false,
     rating: "4.8",
     reviews: "260 reviews",

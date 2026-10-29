@@ -184,8 +184,8 @@ export default function LearningPaths() {
             </p>
           </motion.div>
 
-          {/* Carousel Arrow Navigation Buttons */}
-          <div className="flex items-center gap-2.5 self-end md:self-auto shrink-0">
+          {/* Carousel Arrow Navigation Buttons (Mobile only) */}
+          <div className="flex md:hidden items-center gap-2.5 self-end md:self-auto shrink-0">
             <button
               onClick={() => scroll("left")}
               disabled={!canScrollLeft}
@@ -206,10 +206,10 @@ export default function LearningPaths() {
           </div>
         </div>
 
-        {/* Horizontal Carousel Container */}
+        {/* Three Tracks Container: Grid on desktop/laptop, Carousel on mobile */}
         <div
           ref={scrollRef}
-          className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory pb-6 pt-1 px-1 -mx-1 cursor-grab active:cursor-grabbing select-none"
+          className="flex md:grid md:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 overflow-x-auto md:overflow-visible scrollbar-none snap-x snap-mandatory pb-6 pt-1 px-1 -mx-1 cursor-grab active:cursor-grabbing md:cursor-default select-none items-stretch"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {TRACKS.map((track, idx) => {
@@ -225,8 +225,8 @@ export default function LearningPaths() {
                 whileHover={{ y: -6 }}
                 className={cn(
                   "group relative rounded-2xl sm:rounded-[28px] p-4 sm:p-6 bg-white border border-slate-200/90 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer shrink-0 snap-start",
-                  "w-[85vw] sm:w-[360px] md:w-[390px] lg:w-[420px] shrink-0 snap-start select-none",
-                  "cursor-grab active:cursor-grabbing",
+                  "w-[85vw] sm:w-[340px] md:w-auto shrink-0 md:shrink snap-start select-none",
+                  "cursor-grab active:cursor-grabbing md:cursor-pointer h-full",
                   track.theme.borderHover,
                   track.theme.glow
                 )}
@@ -254,7 +254,7 @@ export default function LearningPaths() {
                 <div className="space-y-3 sm:space-y-4 relative z-10">
                   
                   {/* Clean Single Image Banner */}
-                  <div className="relative w-full h-36 sm:h-48 md:h-52 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100 border border-slate-100/90 shadow-xs pointer-events-none select-none">
+                  <div className="relative w-full h-36 sm:h-44 md:h-44 lg:h-48 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100 border border-slate-100/90 shadow-xs pointer-events-none select-none">
                     <Image
                       src={track.image}
                       alt={track.title}
@@ -280,8 +280,8 @@ export default function LearningPaths() {
                     </h3>
                   </div>
 
-                  {/* Concise 1-line description */}
-                  <p className="font-body text-xs sm:text-sm text-slate-600 leading-relaxed font-normal line-clamp-2">
+                  {/* Full Track Description (No line-clamp truncation, matched height) */}
+                  <p className="font-body text-xs sm:text-sm text-slate-600 leading-relaxed font-normal min-h-[44px] sm:min-h-[48px] lg:min-h-[52px]">
                     {track.shortDesc}
                   </p>
 
@@ -309,8 +309,8 @@ export default function LearningPaths() {
           })}
         </div>
 
-        {/* Carousel Pagination Indicator Dots */}
-        <div className="flex items-center justify-center gap-2 pt-2">
+        {/* Carousel Pagination Indicator Dots (Mobile only) */}
+        <div className="flex md:hidden items-center justify-center gap-2 pt-2">
           {TRACKS.map((_, idx) => (
             <button
               key={idx}
