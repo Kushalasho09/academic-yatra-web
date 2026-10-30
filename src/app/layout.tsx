@@ -39,7 +39,11 @@ export const metadata: Metadata = {
   description:
     "Prepare for IELTS, PTE, CELPIP, GMAT, German & French with Academic Yatra™. Join expert online live classes, study abroad guidance, mock simulations & score guarantee pathways.",
   icons: {
-    icon: "/images/academic_yatra_logo.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/apple-icon.png",
   },
 };
 
