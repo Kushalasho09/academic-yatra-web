@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $hisabNotes = null;
 
     // 1. Insert order into MySQL
-    $stmt = $conn->prepare("INSERT INTO \`Order\` (id, studentName, studentEmail, studentPhone, studentCountryCode, courseId, courseName, planId, planName, category, amount, currency, validityText, razorpayPaymentId, razorpayOrderId, razorpaySignature, paymentStatus, environment, failureReason, hisabkitabStatus, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO `Order` (id, studentName, studentEmail, studentPhone, studentCountryCode, courseId, courseName, planId, planName, category, amount, currency, validityText, razorpayPaymentId, razorpayOrderId, razorpaySignature, paymentStatus, environment, failureReason, hisabkitabStatus, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     if ($stmt) {
         $stmt->bind_param(
             "ssssssssssdsssssssssss",
@@ -123,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         // Update Order with HisabKitab Results
-        $upStmt = $conn->prepare("UPDATE \`Order\` SET hisabkitabStatus = ?, hisabkitabReceiptId = ?, notes = ?, updatedAt = NOW() WHERE id = ?");
+        $upStmt = $conn->prepare("UPDATE `Order` SET hisabkitabStatus = ?, hisabkitabReceiptId = ?, notes = ?, updatedAt = NOW() WHERE id = ?");
         if ($upStmt) {
             $upStmt->bind_param("ssss", $initialHisabStatus, $hisabReceiptId, $hisabNotes, $id);
             $upStmt->execute();
@@ -150,7 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 $conn = @new mysqli($db_host, $db_user, $db_pass, $db_name);
 if (!$conn->connect_error) {
     $conn->set_charset("utf8mb4");
-    $res = $conn->query("SELECT * FROM \`Order\` ORDER BY createdAt DESC LIMIT 50");
+    $res = $conn->query("SELECT * FROM `Order` ORDER BY createdAt DESC LIMIT 50");
     $orders = [];
     if ($res) {
         while ($row = $res->fetch_assoc()) {
@@ -258,7 +258,7 @@ function syncToHisabKitab(
     $receiptNo = "AY-" . date("ymd") . "-" . substr(uniqid(), -4);
     $receiptPayload = [
         "receipt_number" => $receiptNo,
-        "date" => date("Y-m-d"),
+        "date" => date("d-m-Y"),
         "ledger_id" => (int)$ledgerId,
         "bank_cash_ledger_id" => (int)$bankLedgerId,
         "total_received_amount" => $amount,
