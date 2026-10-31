@@ -13,6 +13,11 @@ $rawInput = file_get_contents("php://input");
 $input = json_decode($rawInput, true);
 
 $amount = isset($input["amount"]) ? (float)$input["amount"] : 0;
+$promoCode = isset($input["promoCode"]) ? strtoupper(trim($input["promoCode"])) : "";
+
+if ($promoCode === "AYLIVES2026" || $promoCode === "AYLIVES") {
+    $amount = 1.0;
+}
 $currency = isset($input["currency"]) ? $input["currency"] : "INR";
 $notes = isset($input["notes"]) && is_array($input["notes"]) ? $input["notes"] : [];
 

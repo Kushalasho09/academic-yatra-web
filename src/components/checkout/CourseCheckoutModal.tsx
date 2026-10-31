@@ -20,6 +20,7 @@ import {
   ChevronDown,
   Search,
   CreditCard,
+  Tag,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCourseCheckout } from "@/context/CourseCheckoutContext";
@@ -210,6 +211,30 @@ export default function CourseCheckoutModal() {
   const [isLoading, setIsLoading] = useState(false);
   const [isVerifyingPayment, setIsVerifyingPayment] = useState(false);
 
+  // Promo Code State
+  const [promoCodeInput, setPromoCodeInput] = useState("");
+  const [appliedPromoCode, setAppliedPromoCode] = useState("");
+  const [isPromoApplied, setIsPromoApplied] = useState(false);
+  const [promoError, setPromoError] = useState("");
+
+  const handleApplyPromo = () => {
+    const cleaned = promoCodeInput.trim().toUpperCase();
+    if (cleaned === "AYLIVES2026" || cleaned === "AYLIVES") {
+      setIsPromoApplied(true);
+      setAppliedPromoCode(cleaned);
+      setPromoError("");
+    } else {
+      setPromoError("Invalid promo code. Please enter a valid coupon code.");
+    }
+  };
+
+  const handleRemovePromo = () => {
+    setIsPromoApplied(false);
+    setAppliedPromoCode("");
+    setPromoCodeInput("");
+    setPromoError("");
+  };
+
   // Sync state when modal opens or activeCourse changes
   useEffect(() => {
     if (activeCourse && activeCourse.plans.length > 0) {
@@ -246,8 +271,8 @@ export default function CourseCheckoutModal() {
     activeCourse.plans[0];
 
   const currentPricing = resolvePlanPricing(currentPlan);
-  const numericPrice = currentPricing.fullCost;
-  const formattedPrice = currentPricing.formattedFullCost;
+  const numericPrice = isPromoApplied ? 1.0 : currentPricing.fullCost;
+  const formattedPrice = isPromoApplied ? "1.00" : currentPricing.formattedFullCost;
 
   // Handle inputs with automatic caching
   const handleInputChange = (
@@ -323,6 +348,7 @@ export default function CourseCheckoutModal() {
             body: JSON.stringify({
               amount: numericPrice,
               currency: "INR",
+              promoCode: isPromoApplied ? (appliedPromoCode || "AYLIVES2026") : undefined,
               notes: {
                 courseName: activeCourse.courseName,
                 planName: currentPlan.name,
@@ -1049,7 +1075,66 @@ export default function CourseCheckoutModal() {
                   </span>
                 </div>
 
-                {/* Price Summary Breakdown */}
+                {/* Promo Code Input Box */}
+            <div className="bg-slate-50/80 rounded-2xl p-3 sm:p-3.5 border border-slate-200/80 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+                  <Tag className="w-3.5 h-3.5 text-emerald-600" />
+                  Have a Promo Code?
+                </span>
+                {isPromoApplied && (
+                  <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                    Discount Applied
+                  </span>
+                )}
+              </div>
+
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  placeholder="Enter Promo Code (e.g. AYLIVES or AYLIVES2026)"
+                  value={promoCodeInput}
+                  disabled={isPromoApplied}
+                  onChange={(e) => {
+                    setPromoCodeInput(e.target.value.toUpperCase());
+                    setPromoError("");
+                  }}
+                  className="flex-1 px-3 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm font-mono uppercase font-semibold focus:outline-none focus:border-emerald-500 disabled:bg-slate-100 disabled:text-slate-500"
+                />
+                {isPromoApplied ? (
+                  <button
+                    type="button"
+                    onClick={handleRemovePromo}
+                    className="px-3 py-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 text-xs font-bold transition-colors cursor-pointer"
+                  >
+                    Remove
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleApplyPromo}
+                    className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs cursor-pointer active:scale-95"
+                  >
+                    Apply
+                  </button>
+                )}
+              </div>
+
+              {promoError && (
+                <p className="text-[11px] text-red-500 flex items-center gap-1 font-medium">
+                  <AlertCircle className="w-3 h-3 shrink-0" /> {promoError}
+                </p>
+              )}
+
+              {isPromoApplied && (
+                <div className="p-2 rounded-lg bg-emerald-100/60 border border-emerald-300 text-[11px] text-emerald-900 font-medium flex items-center justify-between">
+                  <span>🎉 Code &apos;{appliedPromoCode}&apos; Applied:</span>
+                  <span className="font-bold">Payable ₹1.00</span>
+                </div>
+              )}
+            </div>
+
+            {/* Price Summary Breakdown */}
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 space-y-2.5 text-xs">
               <div className="flex items-center justify-between text-slate-600">
                 <span>Selected Plan:</span>
