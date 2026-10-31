@@ -1,0 +1,22 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Route API requests to PHP scripts
+  RewriteRule ^api/blogs/?$ api/blogs.php [L,QSA]
+  RewriteRule ^api/orders/?$ api/orders.php [L,QSA]
+  RewriteRule ^api/razorpay/create-order/?$ api/razorpay/create-order.php [L,QSA]
+  RewriteRule ^api/razorpay/verify-payment/?$ api/razorpay/verify-payment.php [L,QSA]
+
+  # Clean URLs for static HTML files
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+  # Fallback for subdirectories with index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.*)$ $1/index.html [L]
+</IfModule>

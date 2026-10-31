@@ -1,74 +1,20 @@
-"use client";
+import PackageDetailPageClient from "@/components/package-detail/PackageDetailPageClient";
 
-import React, { useState } from "react";
-import { useParams } from "next/navigation";
-import { getPackageBySlug } from "@/data/packageDetailsData";
-import PackageDetailHero from "@/components/package-detail/PackageDetailHero";
-import PackageTargetAudience from "@/components/package-detail/PackageTargetAudience";
-import PackageCourseGuide from "@/components/package-detail/PackageCourseGuide";
-import PackageWhyChoose from "@/components/package-detail/PackageWhyChoose";
-import PackageInlineCheckout from "@/components/package-detail/PackageInlineCheckout";
-import PackageCTABanner from "@/components/package-detail/PackageCTABanner";
-import PackageBookingModal from "@/components/package-detail/PackageBookingModal";
+export function generateStaticParams() {
+  return [
+    { slug: "ielts-academic" },
+    { slug: "ielts-general" },
+    { slug: "pte-academic" },
+    { slug: "pte-core" },
+    { slug: "toefl-ibt" },
+    { slug: "duolingo-det" },
+    { slug: "celpip-prep" },
+    { slug: "french-prep" },
+    { slug: "german-prep" },
+    { slug: "spoken-english" },
+  ];
+}
 
-export default function PackageDetailPage() {
-  const params = useParams();
-  const slug = (params?.slug as string) || "ielts-academic";
-  const data = getPackageBySlug(slug);
-
-  const [bookingModalOpen, setBookingModalOpen] = useState(false);
-  const [selectedPlanName, setSelectedPlanName] = useState<string>("");
-  const [modalTitle, setModalTitle] = useState<string>("Book Your Free 5-Day Trial");
-
-  const handleOpenBooking = (type: string = "Book Your Free 5-Day Trial") => {
-    setModalTitle(type);
-    setSelectedPlanName(data.category);
-    setBookingModalOpen(true);
-  };
-
-  const handleSelectPlan = (planName: string, price: string) => {
-    setModalTitle(`Enroll in ${planName}`);
-    setSelectedPlanName(`${data.category} - ${planName} (${price})`);
-    setBookingModalOpen(true);
-  };
-
-  return (
-    <div className="flex flex-col min-h-screen bg-white">
-      {/* 1. Hero Section (Image 1) */}
-      <PackageDetailHero
-        data={data}
-        onOpenBooking={handleOpenBooking}
-      />
-
-      {/* 3. Who Needs This Course Audience Grid (Image 2) */}
-      <PackageTargetAudience audience={data.audience} />
-
-      {/* 4. Complete Course Guide Accordion (Image 3) */}
-      <PackageCourseGuide guide={data.courseGuide} />
-
-      {/* 5. Why Students Choose Academic Yatra™ (Image 4) */}
-      <PackageWhyChoose whyChoose={data.whyChoose} />
-
-      {/* 6. Course Cards & Inline Checkout Directly Below (Images 2 & 3) */}
-      <PackageInlineCheckout
-        slug={data.slug || slug}
-        categoryName={data.category}
-        onOpenDemo={() => handleOpenBooking("Book Your Free 5-Day Trial")}
-      />
-
-      {/* 7. Bottom CTA Banner & Indicative Fee Disclaimer (Image 5) */}
-      <PackageCTABanner
-        ctaBanner={data.ctaBanner}
-        onOpenBooking={handleOpenBooking}
-      />
-
-      {/* 9. Interactive Booking & Consultation Modal */}
-      <PackageBookingModal
-        isOpen={bookingModalOpen}
-        onClose={() => setBookingModalOpen(false)}
-        defaultPlan={selectedPlanName}
-        defaultTitle={modalTitle}
-      />
-    </div>
-  );
+export default function Page({ params }: { params: { slug: string } }) {
+  return <PackageDetailPageClient slug={params.slug} />;
 }
