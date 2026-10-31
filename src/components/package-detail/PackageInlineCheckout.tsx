@@ -556,111 +556,577 @@ const DEFAULT_COURSES_PLANS: Record<string, (category: string) => CoursePlanCard
       level: "Advanced",
     },
   ],
-};
-
-function getCardsForCategory(category: string): CoursePlanCard[] {
-  const norm = category.toLowerCase().trim();
-  for (const [key, fn] of Object.entries(DEFAULT_COURSES_PLANS)) {
-    if (norm.includes(key)) {
-      return evaluatePopularCard(fn(category));
-    }
-  }
-
-  // Universal dynamic 3-pack fallback for any course:
-  const baseCards: CoursePlanCard[] = [
+  "french": (cat) => [
     {
-      id: `${category.toLowerCase().replace(/[^a-z0-9]/g, "-")}-self`,
-      category: category,
+      id: "french-basic-a1",
+      category: "French Language Programs",
+      duration: "5 Months Validity",
+      title: "Basic & A1 (1 timing)",
+      packType: "Basic & A1 (1 timing)",
+      popular: true,
+      badge: "POPULAR",
+      theme: "lime",
+      tagline: "Comprehensive DELF & TEF Canada beginner foundation",
+      description: "Certified bilingual master trainers, daily speaking immersion circles, and grammar mastery labs.",
+      image: "/images/subscription_champion_live.jpg",
+      glowText: "Target TEF / DELF A1-B1 Fluency",
+      priceFormatted: "₹31,999.00",
+      monthlyPrice: "₹6,400/m • 5 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "240 reviews",
+      features: [
+        { text: "5 Months Validity", included: true },
+        { text: "Certified Bilingual Master Trainers", included: true },
+        { text: "TEF / TCF Canada Exam Simulation", included: true },
+        { text: "Daily Speaking Immersion Circles", included: true },
+        { text: "Grammar & Conjugation Mastery Labs", included: true },
+        { text: "1 Fixed Batch Timing", included: true },
+      ],
+      level: "Beginner",
+    },
+  ],
+  "german": (cat) => [
+    {
+      id: "german-basic-a1",
+      category: "German Language Programs",
+      duration: "5 Months Validity",
+      title: "Basic & A1",
+      packType: "Basic & A1",
+      popular: false,
+      theme: "mint",
+      tagline: "Foundational Goethe-Zertifikat A1 level training",
+      description: "Comprehensive beginner German instruction covering cases, vocabulary, and basic conversational fluency.",
+      image: "/images/subscription_self_prep.jpg",
+      glowText: "Master Goethe A1 Certification",
+      priceFormatted: "₹26,999.00",
+      monthlyPrice: "₹5,400/m • 5 months (incl. 18% GST)",
+      rating: "4.7",
+      reviewsCount: "185 reviews",
+      features: [
+        { text: "5 Months Validity", included: true },
+        { text: "Levels Basic + A1 Complete", included: true },
+        { text: "Goethe Exam Strategy & Model Papers", included: true },
+        { text: "Interactive Speaking Practice Circles", included: true },
+        { text: "Dedicated Doubt Sessions", included: true },
+      ],
+      level: "Beginner",
+    },
+    {
+      id: "german-basic-a1-a2",
+      category: "German Language Programs",
+      duration: "7 Months Validity",
+      title: "Basic, A1 & A2",
+      packType: "Basic, A1 & A2",
+      popular: false,
+      theme: "lavender",
+      tagline: "Dual-level track covering Goethe A1 & A2",
+      description: "Progress from beginner to pre-intermediate German with intensive grammar clinics and spoken fluency drills.",
+      image: "/images/subscription_champion_live.jpg",
+      glowText: "Target A2 Fluency Benchmark",
+      priceFormatted: "₹40,999.00",
+      monthlyPrice: "₹5,857/m • 7 months (incl. 18% GST)",
+      rating: "4.8",
+      reviewsCount: "295 reviews",
+      features: [
+        { text: "7 Months Validity", included: true },
+        { text: "Complete A1 & A2 Curriculum", included: true },
+        { text: "Intensive German Grammar Clinics", included: true },
+        { text: "10 Full Model Exam Papers", included: true },
+        { text: "Bilingual Mentor Support", included: true },
+      ],
+      level: "Intermediate",
+    },
+    {
+      id: "german-basic-a1-a2-b1",
+      category: "German Language Programs",
+      duration: "10 Months Validity",
+      title: "Basic, A1, A2 & B1",
+      packType: "Basic, A1, A2 & B1",
+      popular: true,
+      badge: "POPULAR",
+      theme: "lime",
+      tagline: "Complete career & university track up to B1 certification",
+      description: "Complete roadmap to B1 fluency for German university admissions, Ausbildung, and professional opportunities.",
+      image: "/images/subscription_champion_plus.jpg",
+      glowText: "Guaranteed B1 Proficiency Track",
+      priceFormatted: "₹60,999.00",
+      monthlyPrice: "₹6,100/m • 10 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "430 reviews",
+      features: [
+        { text: "10 Months Comprehensive Validity", included: true },
+        { text: "Levels A1 to B1 Complete Track", included: true },
+        { text: "Official Goethe-Zertifikat Model Papers", included: true },
+        { text: "Ausbildung & University Guidance", included: true },
+        { text: "1-on-1 Mentor Strategy Support", included: true },
+      ],
+      level: "Advanced",
+    },
+  ],
+  "duolingo": (cat) => [
+    {
+      id: "duolingo-champ",
+      category: "Duolingo English Test",
+      duration: "2 Months Validity",
+      title: "Champion Pack",
+      packType: "Champion Pack",
+      popular: true,
+      badge: "POPULAR",
+      theme: "lime",
+      tagline: "Fast-track certified score with adaptive simulations",
+      description: "Comprehensive 2-month training targeting 120+ with focus on production and conversation subscores.",
+      image: "/images/subscription_champion_live.jpg",
+      glowText: "Target 120+ DET Certified Score",
+      priceFormatted: "₹10,499.00",
+      monthlyPrice: "₹5,250/m • 2 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "310 reviews",
+      features: [
+        { text: "2 Months Validity", included: true },
+        { text: "15 Adaptive Simulation Mocks", included: true },
+        { text: "Subscore Optimization (Production & Conversation)", included: true },
+        { text: "Interactive Writing & Speaking Drills", included: true },
+        { text: "100% Online LMS & Diagnostic Reports", included: true },
+      ],
+      level: "Intermediate",
+    },
+  ],
+  "spoken": (cat) => [
+    {
+      id: "spoken-champ",
+      category: "Spoken English & Fluency",
+      duration: "6 Months Validity",
+      title: "Champion Pack",
+      packType: "Champion Pack",
+      popular: true,
+      badge: "POPULAR",
+      theme: "lime",
+      tagline: "Speak fluent, professional English with unshakeable confidence",
+      description: "Daily interactive speech clubs, accent neutralization clinics, and corporate presentation coaching.",
+      image: "/images/subscription_champion_plus.jpg",
+      glowText: "Master Confident English Fluency",
+      priceFormatted: "₹15,799.00",
+      monthlyPrice: "₹2,633/m • 6 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "520 reviews",
+      features: [
+        { text: "6 Months Validity", included: true },
+        { text: "Daily Live Conversational Circles", included: true },
+        { text: "Pronunciation & Accent Neutralization", included: true },
+        { text: "Corporate & Public Speaking Etiquette", included: true },
+        { text: "Recorded Video Feedback & Reviews", included: true },
+      ],
+      level: "Intermediate",
+    },
+  ],
+  "celpip": (cat) => [
+    {
+      id: "celpip-self",
+      category: "CELPIP Preparation",
+      duration: "6 Months Validity",
+      title: "Self-Prep Pack",
+      packType: "Self Preparation Pack",
+      popular: false,
+      theme: "mint",
+      tagline: "Comprehensive self-paced Canadian PR test preparation",
+      description: "60 sectional tests, 15 full scored mock tests, 20+ hours video lessons, and 500+ grammar/vocab modules.",
+      image: "/images/subscription_self_prep.jpg",
+      glowText: "Target CLB 9+ Canadian PR",
+      priceFormatted: "₹31,999.00",
+      monthlyPrice: "₹5,333/m • 6 months (incl. 18% GST)",
+      rating: "4.7",
+      reviewsCount: "210 reviews",
+      features: [
+        { text: "6 Months Validity", included: true },
+        { text: "60 Sectional Tests", included: true },
+        { text: "15 Full Scored Mock Tests", included: true },
+        { text: "20+ Hours Video Lessons", included: true },
+        { text: "500+ Vocabulary & Grammar Modules", included: true },
+      ],
+      level: "Beginner",
+    },
+    {
+      id: "celpip-champ",
+      category: "CELPIP Preparation",
+      duration: "6 Months Validity",
+      title: "Champion Pack",
+      packType: "Champion Pack",
+      popular: true,
+      badge: "POPULAR",
+      theme: "lime",
+      tagline: "Live cohort coaching with Paragon-certified mentor feedback",
+      description: "Live interactive masterclasses, 15 scored mocks, 1-on-1 reviews, and all 3 batch timings for guaranteed CLB 9+.",
+      image: "/images/subscription_champion_plus.jpg",
+      glowText: "Guaranteed CLB 9+ Express Entry Strategy",
+      priceFormatted: "₹50,999.00",
+      monthlyPrice: "₹8,500/m • 6 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "380 reviews",
+      features: [
+        { text: "6 Months Validity", included: true },
+        { text: "Live Interactive Masterclasses", included: true },
+        { text: "15 Scored Mock Tests with Evaluation", included: true },
+        { text: "1-on-1 Speaking & Writing Reviews", included: true },
+        { text: "All 3 Batch Timings (M/A/E)", included: true },
+      ],
+      level: "Advanced",
+    },
+  ],
+  "pte-core": (cat) => [
+    {
+      id: "pte-core-champ",
+      category: "PTE Core",
+      duration: "6 Months Validity",
+      title: "Champion Pack",
+      packType: "Champion Pack",
+      popular: true,
+      badge: "POPULAR",
+      theme: "lime",
+      tagline: "Fast-track CLB 7+ for Canadian PR & migration",
+      description: "Full live interactive classes, 20 full Pearson Core AI mock tests, and 1-on-1 speaking reviews.",
+      image: "/images/subscription_champion_plus.jpg",
+      glowText: "PTE Core CLB 7-9 Fast-Track",
+      priceFormatted: "₹20,999.00",
+      monthlyPrice: "₹3,500/m • 6 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "260 reviews",
+      features: [
+        { text: "6 Months Validity", included: true },
+        { text: "Full Live Interactive Classes", included: true },
+        { text: "20 Full Pearson Core AI Mock Tests", included: true },
+        { text: "2000+ Practice Question Bank", included: true },
+        { text: "1-on-1 Speaking Feedback & Templates", included: true },
+      ],
+      level: "Intermediate",
+    },
+  ],
+  "ielts-general": (cat) => [
+    {
+      id: "ielts-gn-self",
+      category: "IELTS General",
       duration: "6 Months Access",
       title: "Self-Prep Pack",
       packType: "Self Preparation Pack",
       popular: false,
       theme: "mint",
-      tagline: `Best for self-paced independent ${category} learners`,
-      description: "60 sectional tests, 15 mock tests, 20+ hrs video, 500+ grammar/vocab lessons.",
+      tagline: "Best for self-paced General Training independent learners",
+      description: "60 sectional tests, 15 mock tests, 20+ hrs video lessons, 500+ grammar/vocab lessons.",
       image: "/images/subscription_self_prep.jpg",
-      glowText: `Target Top Band in ${category}`,
+      glowText: "Target CLB 9+ with Cambridge Mocks",
       priceFormatted: "₹13,899.00",
       monthlyPrice: "₹2,316/m • 6 months (incl. 18% GST)",
       rating: "4.7",
-      reviewsCount: "356 reviews",
+      reviewsCount: "310 reviews",
       features: [
-        { text: "Full Question Banks & Sectional Drills", included: true },
-        { text: "15 Mock Tests with Analytics", included: true },
-        { text: "20+ Hours Video Lessons", included: true },
-        { text: "Comprehensive Study Resources", included: true },
-        { text: "Live Interactive Masterclasses", included: false },
+        { text: "60 sectional tests", included: true },
+        { text: "15 mock tests", included: true },
+        { text: "20+ hrs video lessons", included: true },
+        { text: "500+ grammar/vocab lessons", included: true },
+        { text: "Live interactive masterclasses", included: false },
       ],
       level: "Beginner",
     },
     {
-      id: `${category.toLowerCase().replace(/[^a-z0-9]/g, "-")}-champ`,
-      category: category,
+      id: "ielts-gn-champ",
+      category: "IELTS General",
       duration: "6 Months Access",
       title: "Champion Pack",
       packType: "Champion Pack",
+      popular: true,
+      badge: "POPULAR",
+      theme: "lime",
+      tagline: "All 3 batch timings & complete flexibility for General Training",
+      description: "All 3 batch timings (M/A/E), 100 hrs live lectures, 60 sectional tests, 15 mock tests.",
+      image: "/images/subscription_champion_plus.jpg",
+      glowText: "Target CLB 10 / Band 8+ Master Cohort",
+      priceFormatted: "₹28,999.00",
+      monthlyPrice: "₹4,833/m • 6 months (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "490 reviews",
+      features: [
+        { text: "All 3 batch timings (M/A/E)", included: true },
+        { text: "100 hrs live lectures", included: true },
+        { text: "60 sectional tests", included: true },
+        { text: "15 mock tests", included: true },
+        { text: "General Training Work/PR Templates", included: true },
+      ],
+      level: "Advanced",
+    },
+  ],
+  "sat": (cat) => [
+    {
+      id: "sat-self",
+      category: "Digital SAT",
+      duration: "6 Months Validity",
+      title: "Self-Prep Pack",
+      packType: "Self Preparation Pack",
+      popular: false,
+      theme: "mint",
+      tagline: "Adaptive digital question banks & College Board mocks",
+      description: "Full adaptive question bank, 15 Digital SAT mock tests, sectional Math & Verbal analytics.",
+      image: "/images/subscription_self_prep.jpg",
+      glowText: "Digital SAT 1500+ Question Bank",
+      priceFormatted: "₹22,999.00",
+      monthlyPrice: "₹3,833/m • 6 months (incl. 18% GST)",
+      rating: "4.7",
+      reviewsCount: "220 reviews",
+      features: [
+        { text: "6 Months Platform Access", included: true },
+        { text: "Full Adaptive Question Bank", included: true },
+        { text: "15 Digital SAT Mock Tests", included: true },
+        { text: "Sectional Math & Verbal Analytics", included: true },
+        { text: "Desmos Graphing Calculator Masterclass", included: true },
+      ],
+      level: "Beginner",
+    },
+    {
+      id: "sat-live",
+      category: "Digital SAT",
+      duration: "3 Months Validity",
+      title: "Live Class Pack",
+      packType: "Live Class Pack",
       popular: false,
       theme: "lavender",
-      tagline: `100 hrs live lectures & single batch timing for ${category}`,
-      description: "1 batch timing, 100 hrs live lectures, 60 sectional tests, 15 mock tests, 20+ hrs video.",
+      tagline: "Intensive live cohort for rapid score improvement",
+      description: "60+ hours of live masterclasses, Desmos calculator shortcuts, and high-frequency question clinics.",
       image: "/images/subscription_champion_live.jpg",
-      glowText: `Master ${category} with Top Faculty`,
-      priceFormatted: "₹25,999.00",
-      monthlyPrice: "₹4,333/m • 6 months (incl. 18% GST)",
+      glowText: "Target 1500+ with Master Trainers",
+      priceFormatted: "₹28,999.00",
+      monthlyPrice: "₹9,666/m • 3 months (incl. 18% GST)",
       rating: "4.8",
-      reviewsCount: "236 reviews",
+      reviewsCount: "340 reviews",
       features: [
-        { text: "1 Batch Timing Fixed Schedule", included: true },
-        { text: "100 Hours of Live Lectures", included: true },
-        { text: "60 Sectional Practice Tests", included: true },
-        { text: "15 Mock Tests with Feedback", included: true },
-        { text: "20+ Hours Video Lessons", included: true },
+        { text: "3 Months Validity", included: true },
+        { text: "60+ Hours Live Masterclasses", included: true },
+        { text: "Desmos Calculator Hacks & Speed Drills", included: true },
+        { text: "Strategy for 1500+ Target", included: true },
+        { text: "Weekly Doubt Clearing Sessions", included: true },
       ],
       level: "Intermediate",
     },
     {
-      id: `${category.toLowerCase().replace(/[^a-z0-9]/g, "-")}-champ-plus`,
-      category: category,
-      duration: "6 Months Access",
-      title: "Champion Pack +",
-      packType: "Champion Pack +",
-      popular: false,
+      id: "sat-champ",
+      category: "Digital SAT",
+      duration: "6 Months Validity",
+      title: "Champion Pack",
+      packType: "Champion Pack",
+      popular: true,
+      badge: "POPULAR",
       theme: "lime",
-      tagline: `All 3 batch timings & complete flexibility for ${category}`,
-      description: "All 3 batch timings (morning/afternoon/evening), 100 hrs live lectures, 60 sectional tests, 15 mock tests.",
+      tagline: "Full comprehensive live coaching with 1-on-1 mentorship",
+      description: "100+ hours live lectures, 1-on-1 Math and Verbal mentor reviews, 20 adaptive mocks, and Ivy League target strategy.",
       image: "/images/subscription_champion_plus.jpg",
-      glowText: `Maximum Score & Flexibility Guaranteed`,
-      priceFormatted: "₹28,999.00",
-      monthlyPrice: "₹4,833/m • 6 months (incl. 18% GST)",
+      glowText: "Guaranteed 1500+ Ivy League Strategy",
+      priceFormatted: "₹53,999.00",
+      monthlyPrice: "₹9,000/m • 6 months (incl. 18% GST)",
       rating: "4.9",
-      reviewsCount: "576 reviews",
+      reviewsCount: "480 reviews",
       features: [
-        { text: "All 3 Batch Timings (M / A / E)", included: true },
-        { text: "100 Hours Live Lectures + Recordings", included: true },
-        { text: "60 Sectional Practice Tests", included: true },
-        { text: "15 Mock Tests with 1-on-1 Feedback", included: true },
-        { text: "20+ Hours Video Lessons & Extra Mocks", included: true },
+        { text: "6 Months Validity", included: true },
+        { text: "100+ Hours Live Lectures", included: true },
+        { text: "1-on-1 Math & Verbal Mentor Reviews", included: true },
+        { text: "20 Adaptive Full-Length Mocks", included: true },
+        { text: "Ivy League Target & Essay Strategy", included: true },
       ],
       level: "Advanced",
     },
-  ];
+  ],
+  "career-essentials": (cat) => [
+    {
+      id: "career-essentials-pack",
+      category: "Skill Catalyst Programs",
+      duration: "Full Course Access",
+      title: "Career Essentials Pack",
+      packType: "Career Essentials Pack",
+      popular: true,
+      badge: "POPULAR",
+      theme: "lime",
+      tagline: "Practical workplace communication, resumes & interview mastery",
+      description: "Professional resume & LinkedIn optimization, mock interviews with HR leaders, executive communication.",
+      image: "/images/subscription_champion_live.jpg",
+      glowText: "Career Placement Acceleration",
+      priceFormatted: "₹16,299.00",
+      monthlyPrice: "₹16,299 • Full Program (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "290 reviews",
+      features: [
+        { text: "Full Course Access", included: true },
+        { text: "Resume & LinkedIn Review with HR Leaders", included: true },
+        { text: "Live Executive Communication Workshops", included: true },
+        { text: "Mock Behavioral & Technical Interviews", included: true },
+        { text: "Official Skill Catalyst Certificate", included: true },
+      ],
+      level: "Intermediate",
+    },
+  ],
+  "gsuite-hub": (cat) => [
+    {
+      id: "gsuite-hub-pack",
+      category: "Skill Catalyst Programs",
+      duration: "Full Course Access",
+      title: "Google Suite Hub Pack",
+      packType: "Google Suite Hub Pack",
+      popular: true,
+      badge: "POPULAR",
+      theme: "lime",
+      tagline: "Master Google Docs, Sheets, Slides, Drive & workspace automation",
+      description: "Advanced spreadsheet formulas & pivot tables, professional presentation design, cloud collaboration workflows.",
+      image: "/images/subscription_champion_live.jpg",
+      glowText: "Enterprise Productivity Mastery",
+      priceFormatted: "₹16,299.00",
+      monthlyPrice: "₹16,299 • Full Program (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "340 reviews",
+      features: [
+        { text: "Full Course Access", included: true },
+        { text: "Advanced Google Sheets (Formulas, Pivot & Dashboards)", included: true },
+        { text: "Professional Presentations with Google Slides", included: true },
+        { text: "Enterprise Collaboration & Automation", included: true },
+        { text: "Capstone Project & Verified Certification", included: true },
+      ],
+      level: "Intermediate",
+    },
+  ],
+  "bizz-tech": (cat) => [
+    {
+      id: "bizz-tech-course",
+      category: "Skill Catalyst Programs",
+      duration: "Full Course Access",
+      title: "Bizz Tech Course",
+      packType: "Bizz Tech Course",
+      popular: true,
+      badge: "POPULAR",
+      theme: "lime",
+      tagline: "Build modern business and technology skills for high-growth roles",
+      description: "Business analytics & data literacy, modern productivity & AI tools, agile & product management foundations.",
+      image: "/images/subscription_champion_live.jpg",
+      glowText: "High-Growth Tech & Business Skills",
+      priceFormatted: "₹16,299.00",
+      monthlyPrice: "₹16,299 • Full Program (incl. 18% GST)",
+      rating: "4.9",
+      reviewsCount: "260 reviews",
+      features: [
+        { text: "Full Course Access", included: true },
+        { text: "Business Analytics & Modern Data Literacy", included: true },
+        { text: "AI Productivity & Workflow Automation", included: true },
+        { text: "Agile, Product & Strategy Fundamentals", included: true },
+        { text: "Real-World Business Capstone", included: true },
+      ],
+      level: "Intermediate",
+    },
+  ],
+  "skill-catalyst-combo": (cat) => [
+    {
+      id: "skill-combo-pack",
+      category: "Skill Catalyst Programs",
+      duration: "Full Program Access",
+      title: "Combo Pack",
+      packType: "Combo Pack",
+      popular: true,
+      badge: "POPULAR",
+      theme: "lime",
+      tagline: "All 3 Skill Catalyst modules combined for maximum career impact",
+      description: "Complete Career Essentials + Google Suite Hub + Bizz Tech with 1-on-1 industry mentorship and portfolio reviews.",
+      image: "/images/subscription_champion_plus.jpg",
+      glowText: "Complete Career Transformation Suite",
+      priceFormatted: "₹42,999.00",
+      monthlyPrice: "₹42,999 • All 3 Tracks Included (incl. 18% GST)",
+      rating: "5.0",
+      reviewsCount: "420 reviews",
+      features: [
+        { text: "Full Program Access to All 3 Tracks", included: true },
+        { text: "Career Essentials + Google Suite + Bizz Tech", included: true },
+        { text: "Dedicated 1-on-1 Industry Executive Mentorship", included: true },
+        { text: "Live Capstone Portfolio Reviews", included: true },
+        { text: "Master Career Catalyst Credential", included: true },
+      ],
+      level: "Advanced",
+    },
+  ],
+};
 
-  return evaluatePopularCard(baseCards);
+function getCardsForCategory(category: string, slug?: string): CoursePlanCard[] {
+  const normCat = (category || "").toLowerCase().trim();
+  const normSlug = (slug || "").toLowerCase().trim();
+
+  // 1. Prioritized match by slug and category:
+  if (normSlug.includes("french") || normCat.includes("french")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["french"](category));
+  }
+  if (normSlug.includes("german") || normCat.includes("german")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["german"](category));
+  }
+  if (normSlug.includes("duolingo") || normCat.includes("duolingo")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["duolingo"](category));
+  }
+  if (normSlug.includes("spoken") || normCat.includes("spoken")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["spoken"](category));
+  }
+  if (normSlug.includes("celpip") || normCat.includes("celpip")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["celpip"](category));
+  }
+  if (normSlug.includes("pte-core") || (normCat.includes("pte") && normCat.includes("core"))) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["pte-core"](category));
+  }
+  if (normSlug.includes("pte") || normCat.includes("pte")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["pte"](category));
+  }
+  if (normSlug.includes("toefl") || normCat.includes("toefl")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["toefl"](category));
+  }
+  if (normSlug.includes("ielts-general") || (normCat.includes("ielts") && normCat.includes("general"))) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["ielts-general"](category));
+  }
+  if (normSlug.includes("ielts") || normCat.includes("ielts")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["ielts"](category));
+  }
+  if (normSlug.includes("sat") || normCat.includes("sat")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["sat"](category));
+  }
+  if (normSlug.includes("gre") || normCat.includes("gre")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["gre"](category));
+  }
+  if (normSlug.includes("gmat") || normCat.includes("gmat")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["gmat"](category));
+  }
+  if (normSlug.includes("career-essentials") || normCat.includes("career essentials")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["career-essentials"](category));
+  }
+  if (normSlug.includes("gsuite") || normSlug.includes("google") || normCat.includes("google suite")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["gsuite-hub"](category));
+  }
+  if (normSlug.includes("bizz") || normCat.includes("bizz tech")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["bizz-tech"](category));
+  }
+  if (normSlug.includes("skill-catalyst") || normSlug.includes("combo") || normCat.includes("skill catalyst")) {
+    return evaluatePopularCard(DEFAULT_COURSES_PLANS["skill-catalyst-combo"](category));
+  }
+
+  // 2. Generic key match in DEFAULT_COURSES_PLANS:
+  for (const [key, fn] of Object.entries(DEFAULT_COURSES_PLANS)) {
+    if (normCat.includes(key) || normSlug.includes(key)) {
+      return evaluatePopularCard(fn(category));
+    }
+  }
+
+  return evaluatePopularCard(DEFAULT_COURSES_PLANS["ielts"](category));
 }
 
 interface PackageInlineCheckoutProps {
   onOpenDemo: () => void;
   categoryName?: string;
+  slug?: string;
 }
 
 export default function PackageInlineCheckout({
   onOpenDemo,
   categoryName,
+  slug,
 }: PackageInlineCheckoutProps) {
   const currentCategory = categoryName || "IELTS Academic";
   const activeCards = React.useMemo(() => {
-    return getCardsForCategory(currentCategory);
-  }, [currentCategory]);
+    return getCardsForCategory(currentCategory, slug);
+  }, [currentCategory, slug]);
 
   // Selected course plan - defaults to the dynamically evaluated popular plan!
   const [selectedPlan, setSelectedPlan] = useState<CoursePlanCard>(() => {

@@ -101,15 +101,15 @@ function AnimatedCounter({ target }: { target: number }) {
 
 export default function StatsSection() {
   return (
-    <section className="relative w-full bg-white py-6 sm:py-8 lg:py-10 overflow-hidden border-b border-slate-100">
+    <section className="relative w-full bg-white pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20 overflow-hidden border-b border-slate-100">
       {/* Subtle ambient background glow & grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:36px_36px] opacity-40 pointer-events-none" />
       <div className="absolute top-0 inset-x-0 h-8 bg-gradient-to-b from-slate-50/70 to-transparent pointer-events-none" />
       <div className="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-slate-50/70 to-transparent pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Only heading */}
-        <div className="text-center max-w-3xl mx-auto mb-4 sm:mb-6">
+        {/* Only heading - perfectly vertically centered between ticker and screen bottom on desktop fold */}
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24 lg:mb-32">
           <h2 className="font-heading text-2xl xs:text-[26px] sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
             Proof Over Promises.{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-500">

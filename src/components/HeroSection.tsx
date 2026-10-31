@@ -22,7 +22,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-[64vh] sm:min-h-[66vh] lg:min-h-[68vh] w-full flex flex-col justify-between items-center overflow-hidden bg-[#031643] text-white">
+    <section className="relative min-h-[64vh] sm:min-h-[83vh] sm:h-[84vh] lg:min-h-[84vh] lg:h-[84vh] w-full flex flex-col justify-between items-center overflow-hidden bg-[#031643] text-white">
       {/* Skiper8: Dennis Snellenberg Words Preloader */}
       <Skiper8
         words={[
@@ -49,12 +49,12 @@ export default function HeroSection() {
       />
 
       {/* Hero Section Container: Vertically centered, perfectly balanced */}
-      <div className="relative z-10 w-full max-w-[96%] xl:max-w-[94%] 2xl:max-w-7xl mx-auto px-2 sm:px-3 lg:px-4 pt-20 sm:pt-24 lg:pt-24 pb-3 sm:pb-4 flex-1 flex flex-col items-center justify-between text-center">
+      <div className="relative z-10 w-full max-w-[96%] xl:max-w-[94%] 2xl:max-w-7xl mx-auto px-2 sm:px-3 lg:px-4 pt-20 sm:pt-28 lg:pt-32 pb-4 sm:pb-5 flex-1 flex flex-col items-center justify-between text-center">
         
         {/* Upper Text Content */}
         <div className="flex flex-col items-center">
           {/* Main Headline */}
-          <h1 className="font-heading text-[22px] xs:text-[25px] sm:text-3xl md:text-4xl lg:text-[46px] xl:text-[50px] font-extrabold text-white leading-[1.16] sm:leading-[1.12] tracking-tight max-w-3xl animate-fade-rise drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+          <h1 className="font-heading text-[22px] xs:text-[25px] sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[56px] font-extrabold text-white leading-[1.16] sm:leading-[1.1] tracking-tight max-w-4xl animate-fade-rise drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             <span>Big exam, new language,</span>
             <span className="block">next career move?</span>
             <span className="block mt-0.5 sm:mt-1 text-emerald-400 drop-shadow-[0_2px_12px_rgba(52,211,153,0.6)]">

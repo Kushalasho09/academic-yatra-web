@@ -51,6 +51,7 @@ export default function PackageDetailPage() {
 
       {/* 6. Course Cards & Inline Checkout Directly Below (Images 2 & 3) */}
       <PackageInlineCheckout
+        slug={data.slug || slug}
         categoryName={data.category}
         onOpenDemo={() => handleOpenBooking("Book Your Free 5-Day Trial")}
       />
